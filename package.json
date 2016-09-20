@@ -1,0 +1,25 @@
+{
+  "name": "rc-codegen",
+  "version": "1.0.0",
+  "description": "RingCentral CodeGen",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tylerlong/rc-codegen.git"
+  },
+  "keywords": [
+    "codegen"
+  ],
+  "author": "Tyler Long <tyler4long@gmail.com> (https://github.com/tylerlong)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tylerlong/rc-codegen/issues"
+  },
+  "homepage": "https://github.com/tylerlong/rc-codegen#readme",
+  "devDependencies": {
+    "typescript": "^1.8.10"
+  }
+}
