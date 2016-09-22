@@ -13,7 +13,9 @@
     "url": "git+https://github.com/tylerlong/rc-codegen.git"
   },
   "keywords": [
-    "codegen"
+    "codegen",
+    "swagger",
+    "RingCentral"
   ],
   "author": "Tyler Long <tyler4long@gmail.com> (https://github.com/tylerlong)",
   "license": "MIT",
