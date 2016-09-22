@@ -4,13 +4,13 @@ import { swagger } from '../common/swagger';
 
 
 const generate = (output: string) => {
-  const temp = 'hello world';
+  let code = `import Foundation
+import ObjectMapper
+`;
   for (const key of Object.keys(swagger.definitions)) {
-    console.log(key);
-    // generate definition
-    break;
+    code += `\npublic class ${key.replace(/\./g, '_')}: Mappable {\n\n}\n`
   }
-  fs.writeFileSync(path.join(output, 'Definitions.swift'), temp);
+  fs.writeFileSync(path.join(output, 'Definitions.swift'), code);
 }
 
 
