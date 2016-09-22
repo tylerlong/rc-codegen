@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 import * as fs from 'fs';
 
 
-const languages = ['swift']
+const languages = ['swift', 'csharp']
 commander.version(require('./package.json').version)
   .option('-l --language [language]', 'programming languages: ' + languages.join(', '))
   .option('-o --output [output]', 'output directory')

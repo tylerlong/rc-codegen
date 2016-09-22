@@ -6,7 +6,8 @@
   "scripts": {
     "postinstall": "typings install",
     "compile": "tsc -w",
-    "swift": "node index.js -l swift -o ~/src/swift/RingCentral/Common/Generated"
+    "swift": "node index.js -l swift -o ~/src/swift/RingCentral/Common/Generated",
+    "csharp": "node index.js -l csharp -o ~/src/csharp/ringcentral-csharp-client/RingCentral/Generated"
   },
   "repository": {
     "type": "git",
