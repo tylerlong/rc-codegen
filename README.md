@@ -12,7 +12,7 @@ npm install
 ## Compile
 
 ```
-npm compile
+npm run compile
 ```
 
 

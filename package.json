@@ -1,6 +1,6 @@
 {
   "name": "rc-codegen",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "RingCentral CodeGen",
   "main": "index.js",
   "scripts": {
