@@ -9,5 +9,15 @@ import ObjectMapper
       var `{{ field.name }}`: {{ field.type }}?
     {% endfor %}
 
+    required public init?(_ map: Map) {
+
+    }
+
+    public func mapping(map: Map) {
+      {% for field in definition.fields %}
+        `{{ field.name }}` <- map["{{ field.name }}"]
+      {% endfor %}
+    }
+
   }
 {% endfor %}
