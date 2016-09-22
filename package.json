@@ -4,9 +4,9 @@
   "description": "RingCentral CodeGen",
   "main": "index.js",
   "scripts": {
-    "postinstall": "./node_modules/.bin/typings install",
+    "postinstall": "typings install",
     "compile": "tsc -w",
-    "test": "node index.js -l swift -o ~/src/swift/RingCentral/Common/Generated"
+    "swift": "node index.js -l swift -o ~/src/swift/RingCentral/Common/Generated"
   },
   "repository": {
     "type": "git",

@@ -1,7 +1,7 @@
 {
   "globalDependencies": {
     "commander": "registry:dt/commander#2.3.0+20160317120654",
-    "node": "registry:dt/node#6.0.0+20160919063032"
+    "node": "registry:dt/node#6.0.0+20160921192128"
   },
   "dependencies": {
     "lodash": "registry:npm/lodash#4.0.0+20160723033700"

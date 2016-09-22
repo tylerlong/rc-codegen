@@ -33,4 +33,4 @@ for (const segment of segments) {
 }
 
 
-export { segments, routes, hasIds };
+export { swagger, segments, routes, hasIds };
