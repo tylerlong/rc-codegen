@@ -1,15 +1,23 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import * as nunjucks from 'nunjucks';
 import { swagger } from '../common/swagger';
 
 
+const engine = nunjucks.configure(path.join(__dirname, 'views'), {
+  autoescape: false,
+  trimBlocks: true,
+  lstripBlocks: true,
+});
+
+
 const generate = (output: string) => {
-  let code = `import Foundation
-import ObjectMapper
-`;
-  for (const key of Object.keys(swagger.definitions)) {
-    code += `\npublic class ${key.replace(/\./g, '_')}: Mappable {\n\n}\n`
-  }
+  const code = engine.render('Definitions.swift', {
+    definitions: [
+      { name: 'AccountInfo' },
+      { name: "ExtensionInfo" }
+    ]
+  });
   fs.writeFileSync(path.join(output, 'Definitions.swift'), code);
 }
 
