@@ -1,8 +1,9 @@
 import * as fs from 'fs';
+import * as path from 'path';
 
 
 // read swagger definition
-const swagger: any = JSON.parse(fs.readFileSync('swagger.json', 'utf-8'));
+const swagger: any = JSON.parse(fs.readFileSync(path.join(__dirname, 'swagger.json'), 'utf-8'));
 
 // all the paths defined in swagger
 const paths: string[] = Object.keys(swagger.paths);
