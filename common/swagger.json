@@ -136,6 +136,13 @@
       "type": "string",
       "description": "Internal identifier of a fax message"
     },
+    "greetingId": {
+      "name": "greetingId",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "Internal identifier of a greeting"
+    },
     "groupId": {
       "name": "groupId",
       "in": "path",
@@ -1069,6 +1076,48 @@
         "name": {
           "type": "string",
           "description": "Official name of a home country"
+        }
+      }
+    },
+    "CustomGreetingInfo": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Link to an extension custom greeting"
+        },
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of an answering rule"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of a greeting, specifying the case when the greeting is played. See also Greeting Types",
+          "enum": [
+            "Introductory",
+            "Announcement",
+            "ConnectingMessage",
+            "ConnectingAudio",
+            "Voicemail",
+            "Unavailable"
+          ]
+        },
+        "contentType": {
+          "type": "string",
+          "description": "Content media type in WAV/MP3 format"
+        },
+        "contentUri": {
+          "type": "string",
+          "description": "Link to a greeting content (audio file)"
+        }
+      }
+    },
+    "CustomGreetingInfo.AnsweringRuleInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of an answering rule"
         }
       }
     },
@@ -6002,6 +6051,78 @@
         },
         {
           "$ref": "#/parameters/extensionId"
+        }
+      ]
+    },
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/greeting": {
+      "post": {
+        "description": "Create Custom Greeting",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CustomGreetingInfo"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "description": "Type of a greeting, specifying the case when the greeting is played. See also Greeting Types",
+                  "enum": [
+                    "Introductory",
+                    "Announcement",
+                    "ConnectingMessage",
+                    "ConnectingAudio",
+                    "Voicemail",
+                    "Unavailable"
+                  ]
+                },
+                "answeringRule": {
+                  "$ref": "#/definitions/CustomGreetingInfo.AnsweringRuleInfo",
+                  "description": "Information on an answering rule that the greeting is applied to"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/accountId"
+        },
+        {
+          "$ref": "#/parameters/extensionId"
+        }
+      ]
+    },
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/greeting/{greetingId}": {
+      "get": {
+        "description": "Get Custom Greeting by ID",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CustomGreetingInfo"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/accountId"
+        },
+        {
+          "$ref": "#/parameters/extensionId"
+        },
+        {
+          "$ref": "#/parameters/greetingId"
         }
       ]
     },
