@@ -2,8 +2,12 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as nunjucks from 'nunjucks';
 import * as _ from 'lodash';
-import { swagger } from '../common/swagger';
+import { swagger, segments } from '../common/swagger';
 
+
+const pascalCase = (str: string): string => {
+  return _.upperFirst(_.camelCase(str));
+}
 
 const engine = nunjucks.configure(path.join(__dirname, 'views'), {
   autoescape: false,
@@ -37,9 +41,6 @@ const format = (str: string): string => {
     if (line == '}') {
       indent -= 4;
     }
-    if (line.startsWith('//') || line.endsWith('{') || line == '}') {
-      result += '\n';
-    }
     result += _.repeat(' ', indent) + line + '\n';
     if (line.endsWith('{')) {
       indent += 4;
@@ -48,7 +49,7 @@ const format = (str: string): string => {
   return result;
 }
 
-const generate = (output: string) => {
+const generate_definitions = (output: string) => {
   const definitions = Object.keys(swagger.definitions).map((key) => {
     const name = key.replace(/\./g, '_');
     const properties = swagger.definitions[key].properties;
@@ -61,6 +62,19 @@ const generate = (output: string) => {
   });
   const code = engine.render('Definitions.swift', { definitions });
   fs.writeFileSync(path.join(output, 'Definitions.swift'), format(code));
+}
+
+const generate_paths = (output: string) => {
+  for (const segment of segments) {
+    const className = pascalCase(segment);
+    const code = engine.render('Path.swift', { segment, className });
+    fs.writeFileSync(path.join(output, `${className}.swift`), format(code));
+  }
+}
+
+const generate = (output: string) => {
+  generate_definitions(output);
+  generate_paths(output);
 }
 
 
