@@ -300,7 +300,7 @@
           "description": "Additional account identifier, developed and applied by the client"
         },
         "serviceInfo": {
-          "$ref": "#/definitions/ServiceInfo",
+          "$ref": "#/definitions/AccountServiceInfo",
           "description": "Account service information, including brand, service plan and billing plan"
         },
         "setupWizardState": {
@@ -340,6 +340,31 @@
         "maxMonitoredExtensionsPerUser": {
           "type": "integer",
           "description": "The maximum number of extensions which can be included in the list of users monitored for Presence"
+        }
+      }
+    },
+    "AccountServiceInfo": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a service info resource"
+        },
+        "billingPlan": {
+          "$ref": "#/definitions/BillingPlanInfo",
+          "description": "Information on account billing plan"
+        },
+        "brand": {
+          "$ref": "#/definitions/BrandInfo",
+          "description": "Information on account brand"
+        },
+        "servicePlan": {
+          "$ref": "#/definitions/ServicePlanInfo",
+          "description": "Information on account service plan"
+        },
+        "targetServicePlan": {
+          "$ref": "#/definitions/TargetServicePlanInfo",
+          "description": "Information on account target service plan"
         }
       }
     },
@@ -3451,31 +3476,6 @@
         "enabled": {
           "type": "boolean",
           "description": "Feature status, shows feature availability for the extension"
-        }
-      }
-    },
-    "ServiceInfo": {
-      "type": "object",
-      "properties": {
-        "uri": {
-          "type": "string",
-          "description": "Canonical URI of a service info resource"
-        },
-        "billingPlan": {
-          "$ref": "#/definitions/BillingPlanInfo",
-          "description": "Information on account billing plan"
-        },
-        "brand": {
-          "$ref": "#/definitions/BrandInfo",
-          "description": "Information on account brand"
-        },
-        "servicePlan": {
-          "$ref": "#/definitions/ServicePlanInfo",
-          "description": "Information on account service plan"
-        },
-        "targetServicePlan": {
-          "$ref": "#/definitions/TargetServicePlanInfo",
-          "description": "Information on account target service plan"
         }
       }
     },
