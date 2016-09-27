@@ -2,18 +2,18 @@ import Foundation
 import ObjectMapper
 
 {% for definition in definitions %}
-  public class {{ definition.name }}: Mappable {
+  open class {{ definition.name }}: Mappable {
 
     {% for field in definition.fields %}
       // {{ field.description }}
-      var `{{ field.name }}`: {{ field.type }}?
+      open var `{{ field.name }}`: {{ field.type }}?
     {% endfor %}
 
-    required public init?(_ map: Map) {
+    required public init?(map: Map) {
 
     }
 
-    public func mapping(map: Map) {
+    open func mapping(map: Map) {
       {% for field in definition.fields %}
         `{{ field.name }}` <- map["{{ field.name }}"]
       {% endfor %}
