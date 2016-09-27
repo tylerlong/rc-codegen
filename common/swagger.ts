@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import * as _ from 'lodash';
 
 
 // read swagger definition
@@ -33,5 +34,23 @@ for (const segment of segments) {
   hasIds.set(segment, hasIdRegex.test(pathsStr));
 }
 
+// actions
+const actions = new Map<string, any[]>();
+for(const path of paths) {
+  const segment = _.last(path.split('/').filter(token => /^[a-z-]+$/i.test(token)));
+  const pathBody = swagger.paths[path];
+  const methods = [];
+  for(const method of Object.keys(pathBody)) {
+    if(method == 'parameters') {
+      continue;
+    }
+    const methodBody = pathBody[method];
+    const description = methodBody.description;
+    const response = methodBody.responses.default.schema;
+    methods.push({ method, description, response });
+  }
+  actions.set(segment, methods);
+}
 
-export { swagger, segments, routes, hasIds };
+
+export { swagger, segments, routes, hasIds, actions };

@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as nunjucks from 'nunjucks';
 import * as _ from 'lodash';
-import { swagger, segments } from '../common/swagger';
+import { swagger, segments, actions } from '../common/swagger';
 
 
 const pascalCase = (str: string): string => {
@@ -55,7 +55,6 @@ const generate_definitions = (output: string) => {
     const properties = swagger.definitions[key].properties;
     const fields = Object.keys(properties).map((name) => {
       const { type, description, $ref, items } = properties[name];
-
       return { name, type: get_type(type, $ref, items), description };
     });
     return { name, fields };
@@ -76,6 +75,8 @@ const generate = (output: string) => {
   generate_definitions(output);
   generate_paths(output);
 }
+
+console.dir(actions);
 
 
 export { generate };
