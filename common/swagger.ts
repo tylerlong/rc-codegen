@@ -53,7 +53,11 @@ for (const path of paths) {
       responseName = ''
     } else {
       if (responseBody['$ref'] === undefined) {
-        definitions[responseName] = responseBody['properties'];
+        if(responseBody.type == 'string' && responseBody.format == 'binary') {
+          responseName = '@Binary';
+        } else {
+          definitions[responseName] = responseBody;
+        }
       } else {
         responseName = _.last((responseBody['$ref'] as string).split('/'));
       }

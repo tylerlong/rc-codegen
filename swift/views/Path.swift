@@ -1,3 +1,6 @@
+import Foundation
+import ObjectMapper
+
 open class {{ className }}: Model {
     public override var pathSegment: String {
         get{
@@ -6,9 +9,10 @@ open class {{ className }}: Model {
     }
 
     {% for method in methods %}
-        // {{ method.description }}
-        func {{ method.method }}() {
+        {% include "Method.swift" %}
 
-        }
+        {% for definition in method.definitions %}
+            {% include "Definition.swift" %}
+        {% endfor %}
     {% endfor %}
 }

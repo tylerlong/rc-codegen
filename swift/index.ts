@@ -29,22 +29,22 @@ const get_type = (type, ref, items) => {
   if (type === 'array') {
     return '[' + _.upperFirst(_.last<string>((items.type || items.$ref).split('/')).replace(/\./g, '_')) + ']';
   }
-  throw RangeError(`Unknown field type: "${type}"`);
+  throw new RangeError(`Unknown field type: "${type}"`);
 }
 
 // convert swagger properties to nunjucks fields
 const generate_fields = (properties) => {
   return Object.keys(properties).map((name) => {
-      const { type, description, $ref, items } = properties[name];
-      return { name, type: get_type(type, $ref, items), description };
-    });
+    const { type, description, $ref, items } = properties[name];
+    return { name, type: get_type(type, $ref, items), description };
+  });
 }
 
 // convert swagger definitions to nunjucks definitions
 const generate_definitions = (definitions) => {
   return Object.keys(definitions).map((key) => {
     const name = key.replace(/\./g, '_');
-    const properties = swagger.definitions[key].properties;
+    const properties = definitions[key].properties;
     const fields = generate_fields(properties);
     return { name, fields };
   });
@@ -61,7 +61,11 @@ const render_definitions = (output: string) => {
 const render_paths = (output: string) => {
   for (const segment of segments) {
     const className = PascalCase(segment);
-    const methods = actions.get(segment);
+    const methods = actions.get(segment) || [];
+    methods.map((method) => {
+      method.definitions = generate_definitions(method.definitions);
+      return method;
+    });
     const code = engine.render('Path.swift', { segment, className, methods });
     fs.writeFileSync(path.join(output, `${className}.swift`), format_code(code));
   }
@@ -71,10 +75,6 @@ const generate = (output: string) => {
   render_definitions(output);
   render_paths(output);
 }
-
-console.log(actions.get('call-log'));
-console.log(actions.get('answering-rule'));
-console.log(actions.get('members'));
 
 
 export { generate };
