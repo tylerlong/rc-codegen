@@ -53,8 +53,11 @@ const generate_definitions = (definitions) => {
 // render Definitions.swift
 const render_definitions = (output: string) => {
   const definitions = generate_definitions(swagger.definitions);
-  const code = engine.render('Definitions.swift', { definitions });
-  fs.writeFileSync(path.join(output, 'Definitions.swift'), format_code(code));
+  for(const definition of definitions) {
+    definition['with_import'] = true
+    const code = engine.render('Definition.swift', { definition });
+    fs.writeFileSync(path.join(output, 'Definitions', `${definition.name}.swift`), format_code(code));
+  }
 }
 
 // render paths swift files
@@ -67,7 +70,7 @@ const render_paths = (output: string) => {
       return method;
     });
     const code = engine.render('Path.swift', { segment, className, methods });
-    fs.writeFileSync(path.join(output, `${className}.swift`), format_code(code));
+    fs.writeFileSync(path.join(output, 'Paths', `${className}.swift`), format_code(code));
   }
 }
 

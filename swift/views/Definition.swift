@@ -1,3 +1,8 @@
+{% if definition.with_import %}
+import Foundation
+import ObjectMapper
+{% endif %}
+
 open class {{ definition.name }}: Mappable {
 
   {% for field in definition.fields %}
