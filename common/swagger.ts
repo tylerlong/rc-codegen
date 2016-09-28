@@ -39,7 +39,7 @@ const actions = new Map<string, any[]>();
 for (const path of paths) {
   const segment = _.last(path.split('/').filter(token => /^[a-z-]+$/i.test(token)));
   const pathBody = swagger.paths[path];
-  const methods = [];
+  const methods = []; // get, post, put, delete
   for (const method of Object.keys(pathBody)) {
     if (method == 'parameters') {
       continue;
@@ -50,13 +50,13 @@ for (const path of paths) {
     const responseBody = methodBody.responses.default.schema;
     let responseName = `${_.upperFirst(method)}Response`
     if (responseBody === undefined) {
-      responseName = ''
+      responseName = '' // no response body
     } else {
       if (responseBody['$ref'] === undefined) {
         if(responseBody.type == 'string' && responseBody.format == 'binary') {
-          responseName = '@Binary';
+          responseName = '@Binary'; // special return type
         } else {
-          definitions[responseName] = responseBody;
+          definitions[responseName] = responseBody; // just like an entry in swagger definitions
         }
       } else {
         responseName = _.last((responseBody['$ref'] as string).split('/'));

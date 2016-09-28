@@ -6,6 +6,7 @@ import { swagger, segments, actions } from '../common/swagger';
 import { format_code, PascalCase } from '../common/util';
 
 
+// template engine
 const engine = nunjucks.configure(path.join(__dirname, 'views'), {
   autoescape: false,
   trimBlocks: true,
@@ -32,20 +33,15 @@ const get_type = (type, ref, items) => {
   throw new RangeError(`Unknown field type: "${type}"`);
 }
 
-// convert swagger properties to nunjucks fields
-const generate_fields = (properties) => {
-  return Object.keys(properties).map((name) => {
-    const { type, description, $ref, items } = properties[name];
-    return { name, type: get_type(type, $ref, items), description };
-  });
-}
-
 // convert swagger definitions to nunjucks definitions
 const generate_definitions = (definitions) => {
   return Object.keys(definitions).map((key) => {
     const name = key.replace(/\./g, '_');
     const properties = definitions[key].properties;
-    const fields = generate_fields(properties);
+    const fields = Object.keys(properties).map((name) => {
+      const { type, description, $ref, items } = properties[name];
+      return { name, type: get_type(type, $ref, items), description };
+    });
     return { name, fields };
   });
 }
@@ -53,7 +49,7 @@ const generate_definitions = (definitions) => {
 // render Definitions.swift
 const render_definitions = (output: string) => {
   const definitions = generate_definitions(swagger.definitions);
-  for(const definition of definitions) {
+  for (const definition of definitions) {
     definition['with_import'] = true
     const code = engine.render('Definition.swift', { definition });
     fs.writeFileSync(path.join(output, 'Definitions', `${definition.name}.swift`), format_code(code));
@@ -64,8 +60,7 @@ const render_definitions = (output: string) => {
 const render_paths = (output: string) => {
   for (const segment of segments) {
     const className = PascalCase(segment);
-    const methods = actions.get(segment) || [];
-    methods.map((method) => {
+    const methods = (actions.get(segment) || []).map((method) => {
       method.definitions = generate_definitions(method.definitions);
       return method;
     });
@@ -74,6 +69,7 @@ const render_paths = (output: string) => {
   }
 }
 
+// the only method to export
 const generate = (output: string) => {
   render_definitions(output);
   render_paths(output);
