@@ -15,23 +15,23 @@ const tokenss: string[][] = paths.map(path => path.split('/').filter(token => /^
 // flatten the array above and remove duplicates
 const segments = new Set<string>([].concat.apply([], tokenss));
 
-// each segment and their children
-const routes = new Map<string, Set<string>>();
-for (const segment of segments) {
-  routes.set(segment, new Set<string>());
-}
-for (const tokens of tokenss) {
-  for (let i = 1; i < tokens.length; i++) {
-    routes.get(tokens[i - 1]).add(tokens[i]);
-  }
-}
-
 // whether a segment could have an ID
 const hasIds = new Map<string, boolean>();
 const pathsStr = paths.join('\n');
 for (const segment of segments) {
   const hasIdRegex = new RegExp(`/${segment}/(?:\{[^{}/]+\}|v1\.0)(?:/|$)`, 'm');
   hasIds.set(segment, hasIdRegex.test(pathsStr));
+}
+
+// each segment and their children
+const children = new Map<string, Set<string>>();
+for (const segment of segments) {
+  children.set(segment, new Set<string>());
+}
+for (const tokens of tokenss) {
+  for (let i = 1; i < tokens.length; i++) {
+    children.get(tokens[i - 1]).add(tokens[i]);
+  }
 }
 
 // actions
@@ -68,4 +68,4 @@ for (const path of paths) {
 }
 
 
-export { swagger, segments, routes, hasIds, actions };
+export { swagger, segments, children, hasIds, actions };

@@ -8,6 +8,10 @@ open class {{ className }}: Model {
         }
     }
 
+    {% for child in myChildren %}
+      {% include "Child.swift" %}
+    {% endfor %}
+
     {% for method in methods %}
         {% include "Method.swift" %}
 
