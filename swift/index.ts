@@ -3,11 +3,8 @@ import * as path from 'path';
 import * as nunjucks from 'nunjucks';
 import * as _ from 'lodash';
 import { swagger, segments, actions } from '../common/swagger';
+import { format_code, PascalCase } from '../common/util';
 
-
-const pascalCase = (str: string): string => {
-  return _.upperFirst(_.camelCase(str));
-}
 
 const engine = nunjucks.configure(path.join(__dirname, 'views'), {
   autoescape: false,
@@ -15,6 +12,7 @@ const engine = nunjucks.configure(path.join(__dirname, 'views'), {
   lstripBlocks: true,
 });
 
+// convert swagger type to swift type
 const get_type = (type, ref, items) => {
   if (!type) {
     return _.last<string>(ref.split('/')).replace(/\./g, '_');
@@ -34,49 +32,49 @@ const get_type = (type, ref, items) => {
   throw RangeError(`Unknown field type: "${type}"`);
 }
 
-const format = (str: string): string => {
-  let indent = 0;
-  let result = '';
-  for (const line of str.replace(/\s+$/mg, '').replace(/\n{2,}/g, '\n').split('\n').map(item => item.trim())) {
-    if (line == '}') {
-      indent -= 4;
-    }
-    result += _.repeat(' ', indent) + line + '\n';
-    if (line.endsWith('{')) {
-      indent += 4;
-    }
-  }
-  return result;
-}
-
-const generate_definitions = (output: string) => {
-  const definitions = Object.keys(swagger.definitions).map((key) => {
-    const name = key.replace(/\./g, '_');
-    const properties = swagger.definitions[key].properties;
-    const fields = Object.keys(properties).map((name) => {
+// convert swagger properties to nunjucks fields
+const generate_fields = (properties) => {
+  return Object.keys(properties).map((name) => {
       const { type, description, $ref, items } = properties[name];
       return { name, type: get_type(type, $ref, items), description };
     });
-    return { name, fields };
-  });
-  const code = engine.render('Definitions.swift', { definitions });
-  fs.writeFileSync(path.join(output, 'Definitions.swift'), format(code));
 }
 
-const generate_paths = (output: string) => {
+// convert swagger definitions to nunjucks definitions
+const generate_definitions = (definitions) => {
+  return Object.keys(definitions).map((key) => {
+    const name = key.replace(/\./g, '_');
+    const properties = swagger.definitions[key].properties;
+    const fields = generate_fields(properties);
+    return { name, fields };
+  });
+}
+
+// render Definitions.swift
+const render_definitions = (output: string) => {
+  const definitions = generate_definitions(swagger.definitions);
+  const code = engine.render('Definitions.swift', { definitions });
+  fs.writeFileSync(path.join(output, 'Definitions.swift'), format_code(code));
+}
+
+// render paths swift files
+const render_paths = (output: string) => {
   for (const segment of segments) {
-    const className = pascalCase(segment);
-    const code = engine.render('Path.swift', { segment, className });
-    fs.writeFileSync(path.join(output, `${className}.swift`), format(code));
+    const className = PascalCase(segment);
+    const methods = actions.get(segment);
+    const code = engine.render('Path.swift', { segment, className, methods });
+    fs.writeFileSync(path.join(output, `${className}.swift`), format_code(code));
   }
 }
 
 const generate = (output: string) => {
-  generate_definitions(output);
-  generate_paths(output);
+  render_definitions(output);
+  render_paths(output);
 }
 
-console.dir(actions);
+console.log(actions.get('call-log'));
+console.log(actions.get('answering-rule'));
+console.log(actions.get('members'));
 
 
 export { generate };
