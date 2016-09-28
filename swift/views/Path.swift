@@ -4,4 +4,11 @@ open class {{ className }}: Model {
             return "{{ segment }}"
         }
     }
+
+    {% for method in methods %}
+        // {{ method.description }}
+        func {{ method.method }}() {
+
+        }
+    {% endfor %}
 }

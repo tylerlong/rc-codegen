@@ -36,18 +36,29 @@ for (const segment of segments) {
 
 // actions
 const actions = new Map<string, any[]>();
-for(const path of paths) {
+for (const path of paths) {
   const segment = _.last(path.split('/').filter(token => /^[a-z-]+$/i.test(token)));
   const pathBody = swagger.paths[path];
   const methods = [];
-  for(const method of Object.keys(pathBody)) {
-    if(method == 'parameters') {
+  for (const method of Object.keys(pathBody)) {
+    if (method == 'parameters') {
       continue;
     }
     const methodBody = pathBody[method];
     const description = methodBody.description;
-    const response = methodBody.responses.default.schema;
-    methods.push({ method, description, response });
+    const definitions = {};
+    const responseBody = methodBody.responses.default.schema;
+    let responseName = `${_.upperFirst(method)}Response`
+    if (responseBody === undefined) {
+      responseName = ''
+    } else {
+      if (responseBody['$ref'] === undefined) {
+        definitions[responseName] = responseBody['properties'];
+      } else {
+        responseName = _.last((responseBody['$ref'] as string).split('/'));
+      }
+    }
+    methods.push({ method, description, definitions, responseName });
   }
   actions.set(segment, methods);
 }
