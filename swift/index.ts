@@ -12,6 +12,16 @@ const engine = nunjucks.configure(path.join(__dirname, 'views'), {
   trimBlocks: true,
   lstripBlocks: true,
 });
+const http_method = (str: string): string => {
+  if (str == 'list') {
+    return 'get';
+  }
+  if (_.includes(['get', 'post', 'put', 'delete'], str)) {
+    return str;
+  }
+  throw new RangeError(`Unknown http method: "${str}"`);
+}
+engine.addFilter('http_method', http_method);
 
 // convert swagger type to swift type
 const get_type = (type, ref, items) => {
