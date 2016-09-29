@@ -82,11 +82,7 @@ for (const path of paths) {
       responseName = '' // no response body
     } else {
       if (responseBody['$ref'] === undefined) {
-        if (responseBody.type == 'string' && responseBody.format == 'binary') {
-          responseName = '@Binary'; // special return type
-        } else {
-          definitions[responseName] = responseBody; // just like an entry in swagger definitions
-        }
+        definitions[responseName] = responseBody; // just like an entry in swagger definitions
       } else {
         responseName = _.last((responseBody['$ref'] as string).split('/'));
       }

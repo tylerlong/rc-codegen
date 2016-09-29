@@ -5,10 +5,6 @@ open func {{ method.method }}(callback: @escaping (_ error: HTTPError?) -> Void)
       callback(error)
     }
 }
-{% elif method.responseName == '@Binary' %}
-open func {{ method.method }}() -> NSData {
-    return NSData()
-}
 {% else %}
 open func {{ method.method }}(callback: @escaping (_ t: {{ method.responseName }}?, _ error: HTTPError?) -> Void) {
    rc.{{ method.method | http_method }}(self.endpoint()) { (t: {{ method.responseName }}?, error) in
