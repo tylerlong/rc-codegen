@@ -10,7 +10,7 @@ const format_code = (str: string): string => {
       indent -= 4;
     }
     result += _.repeat(' ', indent) + line + '\n';
-    if (line.endsWith('{')) {
+    if (line.endsWith('{') || line.endsWith(' in')) {
       indent += 4;
     }
   }
