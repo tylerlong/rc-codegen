@@ -276,6 +276,31 @@
     }
   },
   "definitions": {
+    "Account.ServiceInfo": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a service info resource"
+        },
+        "billingPlan": {
+          "$ref": "#/definitions/BillingPlanInfo",
+          "description": "Information on account billing plan"
+        },
+        "brand": {
+          "$ref": "#/definitions/BrandInfo",
+          "description": "Information on account brand"
+        },
+        "servicePlan": {
+          "$ref": "#/definitions/ServicePlanInfo",
+          "description": "Information on account service plan"
+        },
+        "targetServicePlan": {
+          "$ref": "#/definitions/TargetServicePlanInfo",
+          "description": "Information on account target service plan"
+        }
+      }
+    },
     "AccountInfo": {
       "type": "object",
       "properties": {
@@ -300,7 +325,7 @@
           "description": "Additional account identifier, developed and applied by the client"
         },
         "serviceInfo": {
-          "$ref": "#/definitions/AccountServiceInfo",
+          "$ref": "#/definitions/Account.ServiceInfo",
           "description": "Account service information, including brand, service plan and billing plan"
         },
         "setupWizardState": {
@@ -348,11 +373,11 @@
       "properties": {
         "uri": {
           "type": "string",
-          "description": "Canonical URI of a service info resource"
+          "description": "Canonical URI of the account Service Info resource"
         },
-        "billingPlan": {
-          "$ref": "#/definitions/BillingPlanInfo",
-          "description": "Information on account billing plan"
+        "servicePlanName": {
+          "type": "string",
+          "description": "Account Service Plan name"
         },
         "brand": {
           "$ref": "#/definitions/BrandInfo",
@@ -362,9 +387,23 @@
           "$ref": "#/definitions/ServicePlanInfo",
           "description": "Information on account service plan"
         },
-        "targetServicePlan": {
-          "$ref": "#/definitions/TargetServicePlanInfo",
-          "description": "Information on account target service plan"
+        "billingPlan": {
+          "$ref": "#/definitions/BillingPlanInfo",
+          "description": "Information on account billing plan"
+        },
+        "serviceFeatures": {
+          "type": "array",
+          "description": "Service features information, see Service Feature List",
+          "items": {
+            "$ref": "#/definitions/ServiceFeatureInfo"
+          }
+        },
+        "limits": {
+          "type": "array",
+          "description": "Limits which are effective for the account",
+          "items": {
+            "$ref": "#/definitions/AccountLimits"
+          }
         }
       }
     },
@@ -2293,6 +2332,31 @@
         "id": {
           "type": "string",
           "description": "Identifier of a timezone"
+        }
+      }
+    },
+    "MeetingServiceInfo": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a meeting service info resource"
+        },
+        "supportUri": {
+          "type": "string",
+          "description": "URI to retrieve support information for meetings functionality"
+        },
+        "intlDialInNumbersUri": {
+          "type": "string",
+          "description": "URI to retrieve international dial in numbers"
+        },
+        "externalUserInfo": {
+          "$ref": "#/definitions/ExternalUserInfo",
+          "description": "External user data"
+        },
+        "dialInNumbers": {
+          "$ref": "#/definitions/DialInNumbers",
+          "description": "Dial-in numbers data"
         }
       }
     },
@@ -6237,29 +6301,7 @@
           "default": {
             "description": "OK",
             "schema": {
-              "type": "object",
-              "properties": {
-                "uri": {
-                  "type": "string",
-                  "description": "Canonical URI of a meeting service info resource"
-                },
-                "supportUri": {
-                  "type": "string",
-                  "description": "URI to retrieve support information for meetings functionality"
-                },
-                "intlDialInNumbersUri": {
-                  "type": "string",
-                  "description": "URI to retrieve international dial in numbers"
-                },
-                "externalUserInfo": {
-                  "$ref": "#/definitions/ExternalUserInfo",
-                  "description": "External user data"
-                },
-                "dialInNumbers": {
-                  "$ref": "#/definitions/DialInNumbers",
-                  "description": "Dial-in numbers data"
-                }
-              }
+              "$ref": "#/definitions/MeetingServiceInfo"
             }
           }
         }
@@ -7266,28 +7308,7 @@
           "default": {
             "description": "OK",
             "schema": {
-              "type": "object",
-              "properties": {
-                "uri": {
-                  "type": "string",
-                  "description": "Canonical URI of the account Service Info resource"
-                },
-                "servicePlanName": {
-                  "type": "string",
-                  "description": "Account Service Plan name"
-                },
-                "serviceFeatures": {
-                  "type": "array",
-                  "description": "Service features information, see Service Feature List",
-                  "items": {
-                    "$ref": "#/definitions/ServiceFeatureInfo"
-                  }
-                },
-                "limits": {
-                  "$ref": "#/definitions/AccountLimits",
-                  "description": "Limits which are effective for the account"
-                }
-              }
+              "$ref": "#/definitions/AccountServiceInfo"
             }
           }
         }
