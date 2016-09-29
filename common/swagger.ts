@@ -54,6 +54,9 @@ for (const path of paths) {
         method = 'list';
       }
     }
+    if (_.find(methods, function (m) { return m.method == method; })) {
+      continue; // already have this method, such as get account/phone-number and get extension/phone-number
+    }
     const description = methodBody.description;
     const definitions = {};
     const responseBody = methodBody.responses.default.schema;
