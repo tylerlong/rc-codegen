@@ -3,6 +3,13 @@ import * as path from 'path';
 import * as _ from 'lodash';
 
 
+enum HasId {
+  Unknown = -2,
+  No = -1,
+  Maybe = 0,
+  Yes = 1
+}
+
 // read swagger definition
 const swagger: any = JSON.parse(fs.readFileSync(path.join(__dirname, 'swagger.json'), 'utf-8'));
 
@@ -15,12 +22,22 @@ const tokenss: string[][] = paths.map(path => path.split('/').filter(token => /^
 // flatten the array above and remove duplicates
 const segments = new Set<string>([].concat.apply([], tokenss));
 
-// whether a segment could have an ID
-const hasIds = new Map<string, boolean>();
+// whether a segment could have an ID: No, Maybe or Yes
+const segmentIds = new Map<string, HasId>();
 const pathsStr = paths.join('\n');
 for (const segment of segments) {
   const hasIdRegex = new RegExp(`/${segment}/(?:\{[^{}/]+\}|v1\.0)(?:/|$)`, 'm');
-  hasIds.set(segment, hasIdRegex.test(pathsStr));
+  const noIdRegex = new RegExp(`/${segment}(?:$|/[a-z]{2,})`, 'm');
+  let hasId = HasId.Unknown;
+  if (hasIdRegex.test(pathsStr)) {
+    hasId = HasId.Maybe;
+    if (!noIdRegex.test(pathsStr)) {
+      hasId = HasId.Yes;
+    }
+  } else {
+    hasId = HasId.No;
+  }
+  segmentIds.set(segment, hasId);
 }
 
 // each segment and their children
@@ -80,4 +97,4 @@ for (const path of paths) {
 }
 
 
-export { swagger, segments, children, hasIds, actions };
+export { swagger, segments, children, segmentIds, actions };
