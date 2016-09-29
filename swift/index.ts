@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as nunjucks from 'nunjucks';
 import * as _ from 'lodash';
-import { swagger, segments, actions, hasIds, children } from '../common/swagger';
+import { swagger, segments, actions, segmentIds, children } from '../common/swagger';
 import { format_code, PascalCase } from '../common/util';
 
 
@@ -30,7 +30,7 @@ const get_type = (type, format, ref, items) => {
   }
   if (type === 'string') {
     if (format === 'binary') {
-      return 'NSData';
+      return 'Data';
     }
     return 'String';
   }
@@ -78,7 +78,7 @@ const render_paths = (output: string) => {
       return method;
     });
     const myChildren = Array.from(children.get(segment)).map((child) => {
-      return { camelCase: _.camelCase(child), PascalCase: PascalCase(child), hasId: hasIds.get(child) };
+      return { camelCase: _.camelCase(child), PascalCase: PascalCase(child), hasId: segmentIds.get(child) };
     });
     const code = engine.render('Path.swift', { segment, className, methods, myChildren });
     fs.writeFileSync(path.join(output, 'Paths', `${className}.swift`), format_code(code));
