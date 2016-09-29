@@ -2360,6 +2360,16 @@
         }
       }
     },
+    "MessageAttachmentBinary": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string",
+          "description": "Required. Binary data of message attachment.",
+          "format": "binary"
+        }
+      }
+    },
     "MessageAttachmentInfo": {
       "type": "object",
       "properties": {
@@ -3163,6 +3173,16 @@
         }
       }
     },
+    "ProfileImageBinary": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string",
+          "description": "Required. Binary data of profile image.",
+          "format": "binary"
+        }
+      }
+    },
     "ProfileImageInfo": {
       "type": "object",
       "properties": {
@@ -3217,6 +3237,16 @@
         "id": {
           "type": "string",
           "description": "Internal identifier of a recipient extension"
+        }
+      }
+    },
+    "RecodingContentBinary": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string",
+          "description": "Required. Binary data of recording content.",
+          "format": "binary"
         }
       }
     },
@@ -3482,6 +3512,16 @@
         "label": {
           "type": "string",
           "description": "Title of a forwarding number"
+        }
+      }
+    },
+    "ScaledImageBinary": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string",
+          "description": "Required. Binary data of scaled profile image.",
+          "format": "binary"
         }
       }
     },
@@ -6643,8 +6683,7 @@
           "default": {
             "description": "OK",
             "schema": {
-              "type": "string",
-              "format": "binary"
+              "$ref": "#/definitions/MessageAttachmentBinary"
             }
           }
         }
@@ -6866,8 +6905,7 @@
           "default": {
             "description": "OK",
             "schema": {
-              "type": "string",
-              "format": "binary"
+              "$ref": "#/definitions/ProfileImageBinary"
             }
           }
         }
@@ -6884,8 +6922,7 @@
             "name": "body",
             "in": "body",
             "schema": {
-              "type": "string",
-              "format": "binary"
+              "$ref": "#/definitions/ProfileImageBinary"
             }
           }
         ]
@@ -6902,8 +6939,7 @@
             "name": "body",
             "in": "body",
             "schema": {
-              "type": "string",
-              "format": "binary"
+              "$ref": "#/definitions/ProfileImageBinary"
             }
           }
         ]
@@ -6924,8 +6960,7 @@
           "default": {
             "description": "OK",
             "schema": {
-              "type": "string",
-              "format": "binary"
+              "$ref": "#/definitions/ScaledImageBinary"
             }
           }
         }
@@ -7286,8 +7321,7 @@
           "default": {
             "description": "OK",
             "schema": {
-              "type": "string",
-              "format": "binary"
+              "$ref": "#/definitions/RecodingContentBinary"
             }
           }
         }
