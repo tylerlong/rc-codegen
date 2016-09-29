@@ -24,11 +24,14 @@ const http_method = (str: string): string => {
 engine.addFilter('http_method', http_method);
 
 // convert swagger type to swift type
-const get_type = (type, ref, items) => {
+const get_type = (type, format, ref, items) => {
   if (!type) {
     return _.last<string>(ref.split('/')).replace(/\./g, '_');
   }
   if (type === 'string') {
+    if (format === 'binary') {
+      return 'NSData';
+    }
     return 'String';
   }
   if (type === 'boolean') {
@@ -49,8 +52,8 @@ const generate_definitions = (definitions) => {
     const name = key.replace(/\./g, '_');
     const properties = definitions[key].properties;
     const fields = Object.keys(properties).map((name) => {
-      const { type, description, $ref, items } = properties[name];
-      return { name, type: get_type(type, $ref, items), description };
+      const { type, format, description, $ref, items } = properties[name];
+      return { name, type: get_type(type, format, $ref, items), description };
     });
     return { name, fields };
   });
