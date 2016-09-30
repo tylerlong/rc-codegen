@@ -7965,12 +7965,6 @@
         },
         "parameters": [
           {
-            "type": "boolean",
-            "description": "If 'True' then aggregated presence status is returned in a notification payload in the 'presenceStatus' field",
-            "name": "aggregated",
-            "in": "query"
-          },
-          {
             "name": "body",
             "in": "body",
             "schema": {
@@ -8024,12 +8018,6 @@
           }
         },
         "parameters": [
-          {
-            "type": "boolean",
-            "description": "If 'True' then aggregated presence status is returned in a notification payload",
-            "name": "aggregated",
-            "in": "query"
-          },
           {
             "name": "body",
             "in": "body",
