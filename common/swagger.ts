@@ -76,6 +76,26 @@ for (const path of paths) {
     }
     const description = methodBody.description;
     const definitions = {};
+
+
+    // queryParams
+    let parameters: Array<any> = methodBody.parameters;
+    if (parameters != undefined) {
+      parameters = parameters.filter(item => item.in == 'query');
+      if (parameters.length > 0) {
+        const result = { properties: {} };
+        for (const parameter of parameters) {
+            result.properties[parameter.name] = parameter;
+        }
+        definitions["QueryParams"] = result;
+      }
+    }
+
+
+    // request
+
+
+    // response
     const responseBody = methodBody.responses.default.schema;
     let responseName = `${_.upperFirst(method)}Response`
     if (responseBody === undefined) {
@@ -87,6 +107,8 @@ for (const path of paths) {
         responseName = _.last((responseBody['$ref'] as string).split('/'));
       }
     }
+
+
     methods.push({ method, description, definitions, responseName });
   }
   actions.set(segment, methods);
