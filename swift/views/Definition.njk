@@ -1,6 +1,7 @@
 {% if definition.with_import %}
 import Foundation
 import ObjectMapper
+import Alamofire
 {% endif %}
 
 open class {{ definition.name }}: Mappable {
@@ -18,6 +19,14 @@ open class {{ definition.name }}: Mappable {
     {% for field in definition.fields %}
       `{{ field.name }}` <- map["{{ field.name }}"]
     {% endfor %}
+  }
+
+  open func toParameters() -> Parameters {
+    var result = [String: Any]()
+    {% for field in definition.fields %}
+    result["{{ field.name }}"] = self.{{ field.name }}
+    {% endfor %}
+    return result
   }
 
 }
