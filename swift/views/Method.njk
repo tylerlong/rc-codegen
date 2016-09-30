@@ -1,13 +1,13 @@
 // {{ method.description }}
 {% if method.responseName == '' %}
 open func {{ method.method }}({% if method.parametersName != '' %}parameters: Parameters? = nil, {% endif %}callback: @escaping (_ error: HTTPError?) -> Void) {
-    rc.{{ method.method | http_method }}String(self.endpoint(), parameters: parameters) { string, error in
+    rc.{{ method.method | http_method }}String(self.endpoint(){% if method.parametersName != '' %}, parameters: parameters{% endif %}) { string, error in
       callback(error)
     }
 }
 {% else %}
 open func {{ method.method }}({% if method.parametersName != '' %}parameters: Parameters? = nil, {% endif %}callback: @escaping (_ t: {{ method.responseName }}?, _ error: HTTPError?) -> Void) {
-   rc.{{ method.method | http_method }}(self.endpoint(), parameters: parameters) { (t: {{ method.responseName }}?, error) in
+   rc.{{ method.method | http_method }}(self.endpoint(){% if method.parametersName != '' %}, parameters: parameters{% endif %}) { (t: {{ method.responseName }}?, error) in
       callback(t, error)
    }
 }
