@@ -77,23 +77,26 @@ for (const path of paths) {
     const description = methodBody.description;
     const definitions = {};
 
-
-    // queryParams
+    let parametersName = ''
     let parameters: Array<any> = methodBody.parameters;
     if (parameters != undefined) {
+      // requyest body
+      const bodyParameter = parameters.find((item) => item.name == 'body');
+      if(bodyParameter != undefined) {
+        parametersName = `${_.upperFirst(method)}Parameters`;
+        // definitions[parametersName] = bodyParameter.schema;
+      }
+      // query parameters
       parameters = parameters.filter(item => item.in == 'query');
       if (parameters.length > 0) {
         const result = { properties: {} };
         for (const parameter of parameters) {
             result.properties[parameter.name] = parameter;
         }
-        definitions["QueryParams"] = result;
+        parametersName = `${_.upperFirst(method)}Parameters`;
+        // definitions[parametersName] = result;
       }
     }
-
-
-    // request
-
 
     // response
     const responseBody = methodBody.responses.default.schema;
@@ -109,7 +112,7 @@ for (const path of paths) {
     }
 
 
-    methods.push({ method, description, definitions, responseName });
+    methods.push({ method, description, definitions, responseName, parametersName });
   }
   actions.set(segment, methods);
 }
