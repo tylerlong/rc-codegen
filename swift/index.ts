@@ -64,12 +64,12 @@ const render_definitions = (output: string) => {
   const definitions = generate_definitions(swagger.definitions);
   for (const definition of definitions) {
     definition['with_import'] = true
-    const code = engine.render('Definition.swift', { definition });
+    const code = engine.render('Definition.njk', { definition });
     fs.writeFileSync(path.join(output, 'Definitions', `${definition.name}.swift`), format_code(code));
   }
 }
 
-// render paths swift files
+// render Paths swift files
 const render_paths = (output: string) => {
   for (const segment of segments) {
     const className = PascalCase(segment);
@@ -80,7 +80,7 @@ const render_paths = (output: string) => {
     const myChildren = Array.from(children.get(segment)).map((child) => {
       return { camelCase: _.camelCase(child), PascalCase: PascalCase(child), hasId: segmentIds.get(child) };
     });
-    const code = engine.render('Path.swift', { segment, className, methods, myChildren });
+    const code = engine.render('Path.njk', { segment, className, methods, myChildren });
     fs.writeFileSync(path.join(output, 'Paths', `${className}.swift`), format_code(code));
   }
 }

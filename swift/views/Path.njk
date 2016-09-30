@@ -9,14 +9,14 @@ open class {{ className }}: Model {
     }
 
     {% for child in myChildren %}
-      {% include "Child.swift" %}
+      {% include "Child.njk" %}
     {% endfor %}
 
     {% for method in methods %}
-        {% include "Method.swift" %}
+        {% include "Method.njk" %}
 
         {% for definition in method.definitions %}
-            {% include "Definition.swift" %}
+            {% include "Definition.njk" %}
         {% endfor %}
     {% endfor %}
 }
