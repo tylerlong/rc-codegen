@@ -4,7 +4,7 @@ import * as fs from 'fs';
 
 
 // ask user to enter languange and output
-const languages = ['swift', 'csharp']
+const languages = ['swift', 'csharp', 'typescript'];
 commander.version(require('./package.json').version)
   .option('-l --language [language]', 'programming languages: ' + languages.join(', '))
   .option('-o --output [output]', 'output directory')

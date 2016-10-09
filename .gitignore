@@ -3,3 +3,4 @@
 node_modules/
 typings/
 !typings/commander-expansion.d.ts
+gen
