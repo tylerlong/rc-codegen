@@ -11,8 +11,15 @@ open class {{ definition.name }}: Mappable {
     open var `{{ field.name }}`: {{ field.type }}?
   {% endfor %}
 
+  public init() {
+  }
+  convenience public init({% for field in definition.fields %}{% if loop.index != 1 %}, {% endif %}{{ field.name }}: {{ field.type }}? = nil{% endfor %}) {
+    self.init()
+    {% for field in definition.fields %}
+      self.{{ field.name }} = `{{ field.name }}`
+    {% endfor %}
+  }
   required public init?(map: Map) {
-
   }
 
   open func mapping(map: Map) {
