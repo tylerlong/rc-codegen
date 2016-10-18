@@ -4,7 +4,6 @@
     "**/*.map": true,
     "node_modules/": true,
     "typings/": true,
-    "tsconfig.json": true,
     ".editorconfig": true
   }
 }

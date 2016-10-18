@@ -1,0 +1,21 @@
+/// <reference path="../../typings/tsd.d.ts" />
+// This is Generated Source.
+import UrlSection from "../../UrlSection";
+{% for seg in children %}
+import {{seg.name}} from "./{{seg.name}}";
+{% endfor %}
+
+export default class {{name}} extends UrlSection {
+    constructor(prv: UrlSection, id?: string, service?) {
+        super("{{urlName}}", id {% if defaultValue %} || "{{defaultValue}}" {% endif %}, prv, service);
+    }
+    {% for seg in children %}
+
+    /**
+     * {{seg.valueDesc}}
+     */
+    {{seg.methodName}}(id?: string) {
+        return new {{seg.name}}(this, id);
+    }
+    {% endfor %}
+}
