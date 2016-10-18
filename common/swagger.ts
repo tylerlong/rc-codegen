@@ -85,7 +85,7 @@ for (const path of paths) {
       if(bodyParameter != undefined) {
         parametersName = `${_.upperFirst(method)}Parameters`;
         if (bodyParameter.schema['enum'] !== undefined) { // special case: Extension post
-          parametersName = 'Parameters'
+          parametersName = 'ExtensionParameters'
         }else if (bodyParameter.schema['$ref'] !== undefined) {
           parametersName = _.last((bodyParameter.schema['$ref'] as string).split('/'));
         } else {
