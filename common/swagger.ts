@@ -75,8 +75,8 @@ for (const path of paths) {
       continue; // already have this method, such as get account/phone-number and get extension/phone-number
     }
     const description = methodBody.description;
-    const definitions = {};
 
+    const definitions = {};
     let parametersName = ''
     let parameters: Array<any> = methodBody.parameters;
     if (parameters != undefined) {
@@ -84,7 +84,13 @@ for (const path of paths) {
       const bodyParameter = parameters.find((item) => item.name == 'body');
       if(bodyParameter != undefined) {
         parametersName = `${_.upperFirst(method)}Parameters`;
-        // definitions[parametersName] = bodyParameter.schema;
+        if (bodyParameter.schema['enum'] !== undefined) {
+          // special case: Extension post
+        }else if (bodyParameter.schema['$ref'] !== undefined) {
+          parametersName = _.last((bodyParameter.schema['$ref'] as string).split('/'));
+        } else {
+          definitions[parametersName] = bodyParameter.schema; // just like an entry in swagger definitions
+        }
       }
       // query parameters
       parameters = parameters.filter(item => item.in == 'query');
@@ -94,7 +100,7 @@ for (const path of paths) {
             result.properties[parameter.name] = parameter;
         }
         parametersName = `${_.upperFirst(method)}Parameters`;
-        // definitions[parametersName] = result;
+        definitions[parametersName] = result;
       }
     }
 
