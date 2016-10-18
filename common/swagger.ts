@@ -80,7 +80,7 @@ for (const path of paths) {
     let parametersName = ''
     let parameters: Array<any> = methodBody.parameters;
     if (parameters != undefined) {
-      // requyest body
+      // request body
       const bodyParameter = parameters.find((item) => item.name == 'body');
       if(bodyParameter != undefined) {
         parametersName = `${_.upperFirst(method)}Parameters`;
@@ -110,7 +110,6 @@ for (const path of paths) {
         responseName = _.last((responseBody['$ref'] as string).split('/'));
       }
     }
-
 
     methods.push({ method, description, definitions, responseName, parametersName });
   }
