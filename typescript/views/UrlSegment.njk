@@ -18,4 +18,29 @@ export default class {{name}} extends UrlSection {
         return new {{seg.name}}(this, id);
     }
     {% endfor %}
+    {% for op in operations %}
+
+    /**
+        {{op.description}}
+        FIXME: Assumes post only accept query and body parameters
+        FIXME: All properties of body will be optional
+    */
+    {{op.method}}({{op.paramsDeclar}}): Promise<{{op.responseType}}> {
+        return this.getService().send({method: "{{op.httpMethod}}", url: this.getEndpoint(), query: {{op.queryParamName}}, body: {{op.bodyParamName}} }).then(function (res) {
+            return res.{% if op.responseType == 'Response' %}response{% else %}json{% endif %}();
+        });
+    }
+    {% endfor %}
 }
+{% for def in definitions %}
+
+export interface {{def.name}} {
+{% for fld in def.fields %}
+
+    /**
+     * {{fld.comment}}
+     */
+    {{ fld.name }}?: {{fld.type}};
+{% endfor %}
+}
+{% endfor %}
