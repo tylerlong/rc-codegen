@@ -1,8 +1,8 @@
 /// <reference path="../../typings/tsd.d.ts" />
 // This is Generated Source.
 import UrlSection from "../../UrlSection";
-{% for seg in children %}
-import {{seg.name}} from "./{{seg.name}}";
+{% for name, from in imports %}
+import {{name}} from "{{from}}";
 {% endfor %}
 
 export default class {{name}} extends UrlSection {
@@ -22,14 +22,16 @@ export default class {{name}} extends UrlSection {
 
     /**
         {{op.description}}
-        FIXME: Assumes post only accept query and body parameters
-        FIXME: All properties of body will be optional
     */
+    {% if op.customBody %}
+    {{op.method}}{{op.customBody}}
+    {% else %}
     {{op.method}}({{op.paramsDeclar}}): Promise<{{op.responseType}}> {
         return this.getService().send({method: "{{op.httpMethod}}", url: this.getEndpoint(), query: {{op.queryParamName}}, body: {{op.bodyParamName}} }).then(function (res) {
-            return res.{% if op.responseType == 'Response' %}response{% else %}json{% endif %}();
+            return res.{% if op.responseType == 'Response' or op.responseType == 'void' %}response{% else %}json{% endif %}();
         });
     }
+    {% endif %}
     {% endfor %}
 }
 {% for def in definitions %}

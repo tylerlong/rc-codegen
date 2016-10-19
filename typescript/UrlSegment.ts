@@ -1,7 +1,13 @@
 import {camelCase} from 'lodash';
+import {readFileSync} from 'fs';
+import {resolve, dirname} from 'path';
 import Definition from './Definition';
 import {Operation} from '../common/swagger';
 import {PascalCase} from '../common/util';
+import resolveType from './jsonType2Ts';
+
+let configPath = __dirname + '/config/config.json';
+let config = require(configPath);
 
 export default class UrlSegment {
     urlName: string;
@@ -16,6 +22,8 @@ export default class UrlSegment {
 
     definitions: Definition[];
 
+    imports: { [importName: string]: string };
+
     constructor(urlName: string) {
         this.urlName = urlName;
         this.name = PascalCase(urlName);
@@ -24,6 +32,7 @@ export default class UrlSegment {
         //this.nodeImports = [];
         this.operations = [];
         this.definitions = [];
+        this.imports = {};
     }
 
     /**
@@ -44,6 +53,8 @@ export default class UrlSegment {
                 console.error('Unkown operation', operation);
                 return;
         }
+
+        // Method params
         let params = [];
         if (operation.bodyType) {
             tsOprt.bodyParamName = 'body';
@@ -53,23 +64,72 @@ export default class UrlSegment {
         }
         if (operation.queryType) {
             tsOprt.queryParamName = 'query';
-            params.push(tsOprt.queryParamName + ':' + operation.queryType);
+            params.push(tsOprt.queryParamName + '?:' + operation.queryType);
         } else {
             tsOprt.queryParamName = 'null';
         }
         tsOprt.paramsDeclar = params.join(', ');
+
+        // Imports, and some Special types
+        if (operation.method == 'list') {
+            let listDef = operation.definitions[operation.responseType];
+            delete operation.definitions[operation.responseType];
+            let listItemType = resolveType(listDef.properties['records']).refs[0];
+            operation.responseType = `PagingResult<${listItemType}>`;
+            this.addDefImports([listItemType, 'PagingResult']);
+        }
+        if (!operation.definitions[operation.bodyType]) {
+            this.addDefImports([operation.bodyType]);
+        }
+        if (!operation.definitions[operation.responseType] && operation.method != 'list') {
+            this.addDefImports([operation.responseType]);
+        }
         if (tsOprt.responseType == 'Binary') {
             tsOprt.responseType = 'Response';
         }
-        this.operations.push(tsOprt);
+        if (!tsOprt.responseType) {
+            tsOprt.responseType = 'void';
+        }
+
+
+        // Definitions
         for (let name in operation.definitions) {
-            this.definitions.push(new Definition(operation.definitions[name], name));
+            let def = new Definition(operation.definitions[name], name);
+            this.definitions.push(def);
+            this.addDefImports(def.imports);
+        }
+
+        // Custom body,imports for operation methods
+        let customBody = config.customOperations[this.name];
+        if (customBody && customBody[operation.method]) {
+            let custom = customBody[operation.method];
+            try {
+                for (let imp in custom.imports) {
+                    this.imports[imp] = custom.imports[imp];
+                }
+                tsOprt.customBody = readFileSync(resolve(dirname(configPath), custom.body)).toString();
+            } catch (e) {
+                console.error('Fail to resolve custom body', e);
+            }
+        }
+
+        this.operations.push(tsOprt);
+    }
+
+    addDefImports(imports: string[]) {
+        for (let imp of imports) {
+            if (UserDefinedTypes.indexOf(imp) > -1) {
+                this.imports[imp] = '../../' + imp;
+            } else if (imp) {
+                this.imports[`{${imp}}`] = '../' + imp;
+            }
         }
     }
 
     addChild(child: UrlSegment) {
         if (this.children.indexOf(child) == -1) {
             this.children.push(child);
+            this.imports[child.name] = './' + child.name;
         }
     }
 
@@ -95,4 +155,7 @@ interface TsOperation extends Operation {
     bodyParamName: string;
     queryParamName: string;
     httpMethod: string;
+    customBody: string;
 }
+
+const UserDefinedTypes = ['Binary', 'PagingResult'];

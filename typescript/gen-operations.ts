@@ -3,8 +3,6 @@ import resolveType from './jsonType2Ts';
 import Definition from './Definition';
 import { operations } from '../common/swagger';
 
-let config = require('./config.json');
-
 /* Get CRUD operation method. */
 export default function (classes: {[urlName:string]: UrlSegment}) {
     for(let name in classes) {

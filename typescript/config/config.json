@@ -1,0 +1,33 @@
+{
+    "getIngore": [],
+    "postIgnore": [
+        "revoke"
+    ],
+    "putIgnore": [
+    ],
+    "customOperations": {
+        "ProfileImage": {
+            "put": {
+                "imports": {
+                    "* as FormData": "form-data"
+                },
+                "body": "./put-profile-image-method-body.ts"
+            },
+            "post": {
+                "imports": {
+                    "* as FormData": "form-data"
+                },
+                "body": "./put-profile-image-method-body.ts"
+            }
+        },
+        "Fax": {
+            "post": {
+                "imports": {
+                    "* as FormData": "form-data",
+                    "Binary": "../../Binary"
+                },
+                "body": "./post-fax-method-body.ts"
+            }
+        }
+    }
+}
