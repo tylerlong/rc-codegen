@@ -13,7 +13,7 @@ function renderSegments(tpl: nunjucks.Template, outDir: string) {
     genOperations(urlSegments);
     for (let k in urlSegments) {
         let cls = urlSegments[k];
-        let file = outDir + 'url-segments/' + cls.name + '.ts';
+        let file = outDir + '/url-segments/' + cls.name + '.ts';
         writeFileSync(file, tpl.render(cls));
     }
 }

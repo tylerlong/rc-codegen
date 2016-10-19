@@ -11,13 +11,13 @@
                 "imports": {
                     "* as FormData": "form-data"
                 },
-                "body": "./put-profile-image-method-body.ts"
+                "body": "./put-profile-image.ts-method-body"
             },
             "post": {
                 "imports": {
                     "* as FormData": "form-data"
                 },
-                "body": "./put-profile-image-method-body.ts"
+                "body": "./put-profile-image.ts-method-body"
             }
         },
         "Fax": {
@@ -26,7 +26,7 @@
                     "* as FormData": "form-data",
                     "Binary": "../../Binary"
                 },
-                "body": "./post-fax-method-body.ts"
+                "body": "./post-fax.ts-method-body"
             }
         }
     }
