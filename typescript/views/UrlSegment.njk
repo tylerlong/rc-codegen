@@ -26,7 +26,7 @@ export default class {{name}} extends UrlSection {
     {{op.method}}{{op.customBody}}
     {% else %}
     {{op.method}}({{op.paramsDeclar}}): Promise<{{op.responseType}}> {
-        return this.getService().send({method: "{{op.httpMethod}}", url: this.getEndpoint(), query: {{op.queryParamName}}, body: {{op.bodyParamName}} }).then(function (res) {
+        return this.getService().send({method: "{{op.httpMethod}}", url: this.getEndpoint({% if op.method == 'list' %}false{% else %}true{% endif %}), query: {{op.queryParamName}}, body: {{op.bodyParamName}} }).then(function (res) {
             return res.{% if op.responseType == 'Response' or op.responseType == 'void' %}response{% else %}json{% endif %}();
         });
     }
