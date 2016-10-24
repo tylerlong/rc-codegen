@@ -60,13 +60,13 @@ export default class UrlSegment {
             tsOprt.bodyParamName = 'body';
             params.push(tsOprt.bodyParamName + ': ' + operation.bodyType);
         } else {
-            tsOprt.bodyParamName = 'null';
+            tsOprt.bodyParamName = 'undefined';
         }
         if (operation.queryType) {
             tsOprt.queryParamName = 'query';
             params.push(tsOprt.queryParamName + '?:' + operation.queryType);
         } else {
-            tsOprt.queryParamName = 'null';
+            tsOprt.queryParamName = 'undefined';
         }
         tsOprt.paramsDeclar = params.join(', ');
 
