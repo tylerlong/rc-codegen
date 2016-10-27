@@ -1,9 +1,9 @@
-import {camelCase} from 'lodash';
-import {readFileSync} from 'fs';
-import {resolve, dirname} from 'path';
+import { camelCase } from 'lodash';
+import { readFileSync } from 'fs';
+import { resolve, dirname } from 'path';
 import Definition from './Definition';
-import {Operation} from '../common/swagger';
-import {PascalCase} from '../common/util';
+import { Operation } from '../common/swagger';
+import { PascalCase } from '../common/util';
 import resolveType from './jsonType2Ts';
 
 let configPath = __dirname + '/config/config.json';

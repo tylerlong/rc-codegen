@@ -16,6 +16,10 @@ export default class Definition {
         this.imports = [];
         this.fields = [];
 
+        if (schema.enum) {
+            
+        }
+
         let imports = {};
         for (let p in schema.properties) {
             var propVal = schema.properties[p];
