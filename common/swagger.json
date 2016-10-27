@@ -1271,6 +1271,250 @@
         }
       }
     },
+    "DetailedPresenceEvent": {
+      "type": "object",
+      "properties": {
+        "extensionId": {
+          "type": "string",
+          "description": "Internal identifier of an extension. Optional parameter",
+          "default": "~"
+        },
+        "telephonyStatus": {
+          "type": "string",
+          "description": "Telephony presence status. Returned if telephony status is changed. See Telephony Status Values",
+          "enum": [
+            "NoCall",
+            "CallConnected",
+            "Ringing",
+            "OnHold",
+            "ParkedCall"
+          ]
+        },
+        "terminationType": {
+          "type": "string",
+          "description": "Type of call termination. Supported for calls in 'NoCall' status. If the returned termination type is 'Intermediate' it means the call is not actually ended, the connection is established on one of the devices",
+          "enum": [
+            "Final",
+            "Intermediate"
+          ]
+        },
+        "activeCalls": {
+          "type": "array",
+          "description": "Collection of Active Call Info",
+          "items": {
+            "$ref": "#/definitions/DetailedPresenceEvent.ActiveCallInfo"
+          }
+        },
+        "sequence": {
+          "type": "integer",
+          "description": "Order number of a notification to state the chronology"
+        },
+        "presenceStatus": {
+          "type": "string",
+          "description": "Aggregated presence status, calculated from a number of sources",
+          "enum": [
+            "Offline",
+            "Busy",
+            "Available"
+          ]
+        },
+        "userStatus": {
+          "type": "string",
+          "description": "User-defined presence status (as previously published by the user)",
+          "enum": [
+            "Offline",
+            "Busy",
+            "Available"
+          ]
+        },
+        "dndStatus": {
+          "type": "string",
+          "description": "Extended DnD (Do not Disturb) status",
+          "enum": [
+            "TakeAllCalls",
+            "DoNotAcceptAnyCalls",
+            "DoNotAcceptDepartmentCalls",
+            "TakeDepartmentCallsOnly"
+          ]
+        },
+        "allowSeeMyPresence": {
+          "type": "boolean",
+          "description": "If 'True' enables other extensions to see the extension presence status"
+        },
+        "ringOnMonitoredCall": {
+          "type": "boolean",
+          "description": "If 'True' enables to ring extension phone, if any user monitored by this extension is ringing"
+        },
+        "pickUpCallsOnHold": {
+          "type": "boolean",
+          "description": "If 'True' enables the extension user to pick up a monitored line on hold"
+        }
+      }
+    },
+    "DetailedPresenceEvent.ActiveCallInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a call"
+        },
+        "direction": {
+          "type": "string",
+          "description": "Call direction",
+          "enum": [
+            "Inbound",
+            "Outbound"
+          ]
+        },
+        "from": {
+          "type": "string",
+          "description": "Phone number or extension number of a caller"
+        },
+        "to": {
+          "type": "string",
+          "description": "Phone number or extension number of a callee"
+        },
+        "telephonyStatus": {
+          "type": "string",
+          "description": "Telephony call status. See Telephony Status Values for detailed status description",
+          "enum": [
+            "NoCall",
+            "CallConnected",
+            "Ringing",
+            "OnHold",
+            "ParkedCall"
+          ]
+        },
+        "sessionId": {
+          "type": "string",
+          "description": "Internal identifier of a call session"
+        }
+      }
+    },
+    "DetailedPresencewithSIPEvent": {
+      "type": "object",
+      "properties": {
+        "extensionId": {
+          "type": "string",
+          "description": "Internal identifier of an extension. Optional parameter",
+          "default": "~"
+        },
+        "telephonyStatus": {
+          "type": "string",
+          "description": "Telephony presence status. Returned if telephony status is changed. See Telephony Status Values",
+          "enum": [
+            "NoCall",
+            "CallConnected",
+            "Ringing",
+            "OnHold",
+            "ParkedCall"
+          ]
+        },
+        "terminationType": {
+          "type": "string",
+          "description": "Type of call termination. Supported for calls in 'NoCall' status. If the returned termination type is 'Intermediate' it means the call is not actually ended, the connection is established on one of the devices",
+          "enum": [
+            "Final",
+            "Intermediate"
+          ]
+        },
+        "activeCalls": {
+          "type": "array",
+          "description": "Information on active calls",
+          "items": {
+            "$ref": "#/definitions/DetailedPresencewithSIPEvent.ActiveCallInfo"
+          }
+        },
+        "sequence": {
+          "type": "integer",
+          "description": "Order number of a notification to state the chronology"
+        },
+        "presenceStatus": {
+          "type": "string",
+          "description": "Aggregated presence status, calculated from a number of sources",
+          "enum": [
+            "Offline",
+            "Busy",
+            "Available"
+          ]
+        },
+        "userStatus": {
+          "type": "string",
+          "description": "User-defined presence status (as previously published by the user)",
+          "enum": [
+            "Offline",
+            "Busy",
+            "Available"
+          ]
+        },
+        "dndStatus": {
+          "type": "string",
+          "description": "Extended DnD (Do not Disturb) status",
+          "enum": [
+            "TakeAllCalls",
+            "DoNotAcceptAnyCalls",
+            "DoNotAcceptDepartmentCalls",
+            "TakeDepartmentCallsOnly"
+          ]
+        },
+        "allowSeeMyPresence": {
+          "type": "boolean",
+          "description": "If 'True' enables other extensions to see the extension presence status"
+        },
+        "ringOnMonitoredCall": {
+          "type": "boolean",
+          "description": "If 'True' enables to ring extension phone, if any user monitored by this extension is ringing"
+        },
+        "pickUpCallsOnHold": {
+          "type": "boolean",
+          "description": "If 'True' enables the extension user to pick up a monitored line on hold"
+        }
+      }
+    },
+    "DetailedPresencewithSIPEvent.ActiveCallInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a call"
+        },
+        "direction": {
+          "type": "string",
+          "description": "Call direction",
+          "enum": [
+            "Inbound",
+            "Outbound"
+          ]
+        },
+        "from": {
+          "type": "string",
+          "description": "Phone number or extension number of a caller"
+        },
+        "to": {
+          "type": "string",
+          "description": "Phone number or extension number of a callee"
+        },
+        "telephonyStatus": {
+          "type": "string",
+          "description": "Telephony call status. See Telephony Status Values for detailed status description",
+          "enum": [
+            "NoCall",
+            "CallConnected",
+            "Ringing",
+            "OnHold",
+            "ParkedCall"
+          ]
+        },
+        "sessionId": {
+          "type": "string",
+          "description": "Internal identifier of a call session"
+        },
+        "sipData": {
+          "$ref": "#/definitions/SIPData",
+          "description": "SIP connection settings"
+        }
+      }
+    },
     "DeviceInfo": {
       "type": "object",
       "properties": {
@@ -1717,6 +1961,43 @@
         }
       }
     },
+    "ExtensionInfoEvent": {
+      "type": "object",
+      "properties": {
+        "extensionId": {
+          "type": "string",
+          "description": "Internal identifier of an extension",
+          "default": "~"
+        },
+        "eventType": {
+          "type": "string",
+          "description": "Type of extension info change",
+          "enum": [
+            "Update",
+            "Delete"
+          ]
+        }
+      }
+    },
+    "ExtensionListEvent": {
+      "type": "object",
+      "properties": {
+        "extensionId": {
+          "type": "string",
+          "description": "Internal identifier of an extension",
+          "default": "~"
+        },
+        "eventType": {
+          "type": "string",
+          "description": "Type of extension info change",
+          "enum": [
+            "Create",
+            "Update",
+            "Delete"
+          ]
+        }
+      }
+    },
     "ExtensionPermissions": {
       "type": "object",
       "properties": {
@@ -2013,6 +2294,113 @@
         "uri": {
           "type": "string",
           "description": "Link to an image."
+        }
+      }
+    },
+    "InstantMessageAttachmentInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a message attachment"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of a message attachment. The default value is 'Text'"
+        },
+        "contentType": {
+          "type": "string",
+          "description": "Content type of an attachment, see also MIME Types. The default value is 'text/plain'"
+        }
+      }
+    },
+    "InstantMessageEvent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a message"
+        },
+        "to": {
+          "type": "array",
+          "description": "Message receiver(s) information",
+          "items": {
+            "$ref": "#/definitions/InstantMessageEvent.CallerInfo"
+          }
+        },
+        "from": {
+          "$ref": "#/definitions/InstantMessageEvent.CallerInfo",
+          "description": "Message sender information"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of a message. The default value is 'SMS'"
+        },
+        "creationTime": {
+          "type": "string",
+          "description": "Message creation datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "lastModifiedTime": {
+          "type": "string",
+          "description": "The datetime when the message was modified in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "readStatus": {
+          "type": "string",
+          "description": "Status of a message. The default value is 'Unread'"
+        },
+        "priority": {
+          "type": "string",
+          "description": "The default value is 'Normal'"
+        },
+        "attachments": {
+          "type": "array",
+          "description": "Message attachment data",
+          "items": {
+            "$ref": "#/definitions/InstantMessageAttachmentInfo"
+          }
+        },
+        "direction": {
+          "type": "string",
+          "description": "Message direction. The default value is 'Inbound'"
+        },
+        "availability": {
+          "type": "string",
+          "description": "Message availability status. The default value is 'Alive'"
+        },
+        "subject": {
+          "type": "string",
+          "description": "Message subject. It replicates message text which is also returned as an attachment"
+        },
+        "messageStatus": {
+          "type": "string",
+          "description": "Status of a message. The default value is 'Received'"
+        },
+        "conversationId": {
+          "type": "string",
+          "description": "Identifier of the conversation the message belongs to"
+        }
+      }
+    },
+    "InstantMessageEvent.CallerInfo": {
+      "type": "object",
+      "properties": {
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone number in E.164 (with '+' sign) format"
+        },
+        "extensionNumber": {
+          "type": "string",
+          "description": "Extension number"
+        },
+        "location": {
+          "type": "string",
+          "description": "Contains party location (city, state) if one can be determined from phoneNumber. This property is filled only when phoneNumber is not empty and server can calculate location information from it (for example, this information is unavailable for US toll-free numbers)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Symbolic name associated with a caller/callee. If the phone does not belong to the known extension, only the location is returned, the name is not determined then"
         }
       }
     },
@@ -2402,6 +2790,48 @@
         }
       }
     },
+    "MessageChanges": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Message type",
+          "enum": [
+            "Voicemail",
+            "SMS",
+            "Fax",
+            "Pager"
+          ]
+        },
+        "newCount": {
+          "type": "integer",
+          "description": "The number of new messages. Can be omitted if the value is zero"
+        },
+        "updatedCount": {
+          "type": "integer",
+          "description": "The number of updated messages. Can be omitted if the value is zero"
+        }
+      }
+    },
+    "MessageEvent": {
+      "type": "object",
+      "properties": {
+        "extensionId": {
+          "type": "string",
+          "description": "Internal identifier of an extension. Optional parameter",
+          "default": "~"
+        },
+        "lastUpdated": {
+          "type": "string",
+          "description": "The datetime when the message was last modified in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "changes": {
+          "$ref": "#/definitions/MessageChanges",
+          "description": "Message changes"
+        }
+      }
+    },
     "MessageInfo": {
       "type": "object",
       "properties": {
@@ -2647,6 +3077,289 @@
         "lastPage": {
           "$ref": "#/definitions/Page",
           "description": "Last page of the list"
+        }
+      }
+    },
+    "Notification.DetailedPresence": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/DetailedPresenceEvent",
+          "description": "Notification payload body"
+        }
+      }
+    },
+    "Notification.DetailedPresenceWithSIP": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/DetailedPresencewithSIPEvent",
+          "description": "Notification payload body"
+        }
+      }
+    },
+    "Notification.ExtensionInfo": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/ExtensionInfoEvent",
+          "description": "Notification payload body"
+        }
+      }
+    },
+    "Notification.ExtensionList": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/ExtensionListEvent",
+          "description": "Notification payload body"
+        }
+      }
+    },
+    "Notification.IncomingCall": {
+      "type": "object",
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The datetime of a call action in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "extensionId": {
+          "type": "string",
+          "description": "Internal identifier of an extension",
+          "default": "~"
+        },
+        "action": {
+          "type": "string",
+          "description": "Calling action, for example 'StartRing'"
+        },
+        "sessionId": {
+          "type": "string",
+          "description": "Identifier of a call session"
+        },
+        "serverId": {
+          "type": "string",
+          "description": "Identifier of a server"
+        },
+        "from": {
+          "type": "string",
+          "description": "Phone number of a caller"
+        },
+        "fromName": {
+          "type": "string",
+          "description": "Caller name"
+        },
+        "to": {
+          "type": "string",
+          "description": "Phone number of a callee"
+        },
+        "toName": {
+          "type": "string",
+          "description": "Callee name"
+        },
+        "sid": {
+          "type": "string",
+          "description": "Unique identifier of a session"
+        },
+        "toUrl": {
+          "type": "string",
+          "description": "SIP proxy registration name"
+        },
+        "srvLvl": {
+          "type": "string",
+          "description": "User data"
+        },
+        "srvLvlExt": {
+          "type": "string",
+          "description": "User data"
+        },
+        "recUrl": {
+          "type": "string",
+          "description": "File containing recorded caller name"
+        }
+      }
+    },
+    "Notification.InstantMessage": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/InstantMessageEvent",
+          "description": "Notification payload body"
+        }
+      }
+    },
+    "Notification.Message": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/MessageEvent",
+          "description": "Notification payload body"
+        }
+      }
+    },
+    "Notification.Presence": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/PresenceEvent",
+          "description": "Notification payload body"
+        }
+      }
+    },
+    "Notification.PresenceLine": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/PresenceLineEvent",
+          "description": "Notification payload body"
         }
       }
     },
@@ -3071,6 +3784,79 @@
         }
       }
     },
+    "PresenceEvent": {
+      "type": "object",
+      "properties": {
+        "extensionId": {
+          "type": "string",
+          "description": "Internal identifier of an extension. Optional parameter",
+          "default": "~"
+        },
+        "telephonyStatus": {
+          "type": "string",
+          "description": "Telephony presence status. Returned if telephony status is changed. See Telephony Status Values",
+          "enum": [
+            "NoCall",
+            "CallConnected",
+            "Ringing",
+            "OnHold",
+            "ParkedCall"
+          ]
+        },
+        "terminationType": {
+          "type": "string",
+          "description": "Type of call termination. Supported for calls in 'NoCall' status. If the returned termination type is 'Intermediate' it means the call is not actually ended, the connection is established on one of the devices",
+          "enum": [
+            "Final",
+            "Intermediate"
+          ]
+        },
+        "sequence": {
+          "type": "integer",
+          "description": "Order number of a notification to state the chronology"
+        },
+        "presenceStatus": {
+          "type": "string",
+          "description": "Aggregated presence status, calculated from a number of sources",
+          "enum": [
+            "Offline",
+            "Busy",
+            "Available"
+          ]
+        },
+        "userStatus": {
+          "type": "string",
+          "description": "User-defined presence status (as previously published by the user)",
+          "enum": [
+            "Offline",
+            "Busy",
+            "Available"
+          ]
+        },
+        "dndStatus": {
+          "type": "string",
+          "description": "Extended DnD (Do not Disturb) status",
+          "enum": [
+            "TakeAllCalls",
+            "DoNotAcceptAnyCalls",
+            "DoNotAcceptDepartmentCalls",
+            "TakeDepartmentCallsOnly"
+          ]
+        },
+        "allowSeeMyPresence": {
+          "type": "boolean",
+          "description": "If 'True' enables other extensions to see the extension presence status"
+        },
+        "ringOnMonitoredCall": {
+          "type": "boolean",
+          "description": "If 'True' enables to ring extension phone, if any user monitored by this extension is ringing"
+        },
+        "pickUpCallsOnHold": {
+          "type": "boolean",
+          "description": "If 'True' enables the extension user to pick up a monitored line on hold"
+        }
+      }
+    },
     "PresenceInfo": {
       "type": "object",
       "properties": {
@@ -3153,6 +3939,28 @@
         "extensionNumber": {
           "type": "string",
           "description": "Extension number (usually 3 or 4 digits)"
+        }
+      }
+    },
+    "PresenceLineEvent": {
+      "type": "object",
+      "properties": {
+        "extension": {
+          "$ref": "#/definitions/PresenceLineEvent.ExtensionInfo",
+          "description": "Extension information"
+        },
+        "sequence": {
+          "type": "integer",
+          "description": "Order number of a notification to state the chronology"
+        }
+      }
+    },
+    "PresenceLineEvent.ExtensionInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of the extension"
         }
       }
     },
@@ -3492,6 +4300,27 @@
         "label": {
           "type": "string",
           "description": "Title of a forwarding number"
+        }
+      }
+    },
+    "SIPData": {
+      "type": "object",
+      "properties": {
+        "toTag": {
+          "type": "string",
+          "description": "Recipient data"
+        },
+        "fromTag": {
+          "type": "string",
+          "description": "Sender data"
+        },
+        "remoteUri": {
+          "type": "string",
+          "description": "Remote address URL"
+        },
+        "localUri": {
+          "type": "string",
+          "description": "Local address URL"
         }
       }
     },
