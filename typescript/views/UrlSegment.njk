@@ -45,3 +45,7 @@ export interface {{def.name}} {
 {% endfor %}
 }
 {% endfor %}
+{% for e in enumTypes %}
+
+export type {{e.name}} = {{e.types | join(" | ") }};
+{% endfor %}

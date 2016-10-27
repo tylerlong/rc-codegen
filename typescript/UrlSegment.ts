@@ -16,23 +16,19 @@ export default class UrlSegment {
     defaultValue: string;
     valueDesc: string;
     valuePresence: 'optional' | 'required' | 'forbidden';
-    children: UrlSegment[];
+    children: UrlSegment[] = [];
 
-    operations: TsOperation[];
+    operations: TsOperation[] = [];
 
-    definitions: Definition[];
+    definitions: Definition[] = [];
+    enumTypes: EnumType[] = [];
 
-    imports: { [importName: string]: string };
+    imports: { [importName: string]: string } = {};
 
     constructor(urlName: string) {
         this.urlName = urlName;
         this.name = PascalCase(urlName);
         this.methodName = camelCase(this.name);
-        this.children = [];
-        //this.nodeImports = [];
-        this.operations = [];
-        this.definitions = [];
-        this.imports = {};
     }
 
     /**
@@ -94,9 +90,20 @@ export default class UrlSegment {
 
         // Definitions
         for (let name in operation.definitions) {
-            let def = new Definition(operation.definitions[name], name);
-            this.definitions.push(def);
-            this.addDefImports(def.imports);
+            let opDef = operation.definitions[name];
+            let def = new Definition(opDef, name);
+            if (def.fields.length > 0) {
+                this.definitions.push(def);
+                this.addDefImports(def.imports);
+            } else if (opDef.enum) {
+                let enumType = { name: name, types: [] };
+                for (let e of opDef.enum) {
+                    let ti = resolveType(e);
+                    this.addDefImports(ti.refs);
+                    enumType.types.push(ti.name);
+                }
+                this.enumTypes.push(enumType);
+            }
         }
 
         // Custom body,imports for operation methods
@@ -159,3 +166,8 @@ interface TsOperation extends Operation {
 }
 
 const UserDefinedTypes = ['Binary', 'PagingResult'];
+
+interface EnumType {
+    name: string;
+    types: string[];
+}
