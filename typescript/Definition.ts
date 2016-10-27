@@ -1,4 +1,4 @@
-import {PascalCase} from '../common/util';
+import { PascalCase } from '../common/util';
 import resolveType from './jsonType2Ts';
 
 // The Definition data for nunjucks
@@ -17,7 +17,7 @@ export default class Definition {
         this.fields = [];
 
         if (schema.enum) {
-            
+
         }
 
         let imports = {};
