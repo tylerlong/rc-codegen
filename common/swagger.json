@@ -3003,7 +3003,7 @@
         }
       }
     },
-    "MessageChanges": {
+    "MessageChange": {
       "type": "object",
       "properties": {
         "type": {
@@ -3040,8 +3040,11 @@
           "format": "date-time"
         },
         "changes": {
-          "$ref": "#/definitions/MessageChanges",
-          "description": "Message changes"
+          "type": "array",
+          "description": "Message changes",
+          "items": {
+            "$ref": "#/definitions/MessageChange"
+          }
         }
       }
     },
