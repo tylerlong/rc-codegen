@@ -1388,6 +1388,66 @@
         "sessionId": {
           "type": "string",
           "description": "Internal identifier of a call session"
+        },
+        "terminationType": {
+          "type": "string",
+          "description": "Type of call termination. Supported for calls in 'NoCall' status. If the returned termination type is 'Intermediate' it means the call is not actually ended, the connection is established on one of the devices",
+          "enum": [
+            "Final",
+            "Intermediate"
+          ]
+        }
+      }
+    },
+    "DetailedPresenceNotification": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/DetailedPresenceEvent",
+          "description": "Notification payload body"
+        }
+      }
+    },
+    "DetailedPresenceWithSIPNotification": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/DetailedPresencewithSIPEvent",
+          "description": "Notification payload body"
         }
       }
     },
@@ -1979,6 +2039,32 @@
         }
       }
     },
+    "ExtensionInfoNotification": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/ExtensionInfoEvent",
+          "description": "Notification payload body"
+        }
+      }
+    },
     "ExtensionListEvent": {
       "type": "object",
       "properties": {
@@ -1995,6 +2081,32 @@
             "Update",
             "Delete"
           ]
+        }
+      }
+    },
+    "ExtensionListNotification": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/ExtensionListEvent",
+          "description": "Notification payload body"
         }
       }
     },
@@ -2297,6 +2409,81 @@
         }
       }
     },
+    "IncomingCallNotification": {
+      "type": "object",
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The datetime of a call action in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "extensionId": {
+          "type": "string",
+          "description": "Internal identifier of an extension",
+          "default": "~"
+        },
+        "action": {
+          "type": "string",
+          "description": "Calling action, for example 'StartRing'"
+        },
+        "sessionId": {
+          "type": "string",
+          "description": "Identifier of a call session"
+        },
+        "serverId": {
+          "type": "string",
+          "description": "Identifier of a server"
+        },
+        "from": {
+          "type": "string",
+          "description": "Phone number of a caller"
+        },
+        "fromName": {
+          "type": "string",
+          "description": "Caller name"
+        },
+        "to": {
+          "type": "string",
+          "description": "Phone number of a callee"
+        },
+        "toName": {
+          "type": "string",
+          "description": "Callee name"
+        },
+        "sid": {
+          "type": "string",
+          "description": "Unique identifier of a session"
+        },
+        "toUrl": {
+          "type": "string",
+          "description": "SIP proxy registration name"
+        },
+        "srvLvl": {
+          "type": "string",
+          "description": "User data"
+        },
+        "srvLvlExt": {
+          "type": "string",
+          "description": "User data"
+        },
+        "recUrl": {
+          "type": "string",
+          "description": "File containing recorded caller name"
+        }
+      }
+    },
     "InstantMessageAttachmentInfo": {
       "type": "object",
       "properties": {
@@ -2401,6 +2588,32 @@
         "name": {
           "type": "string",
           "description": "Symbolic name associated with a caller/callee. If the phone does not belong to the known extension, only the location is returned, the name is not determined then"
+        }
+      }
+    },
+    "InstantMessageNotification": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/InstantMessageEvent",
+          "description": "Notification payload body"
         }
       }
     },
@@ -3039,6 +3252,32 @@
         }
       }
     },
+    "MessageNotification": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/MessageEvent",
+          "description": "Notification payload body"
+        }
+      }
+    },
     "ModelInfo": {
       "type": "object",
       "properties": {
@@ -3077,289 +3316,6 @@
         "lastPage": {
           "$ref": "#/definitions/Page",
           "description": "Last page of the list"
-        }
-      }
-    },
-    "Notification.DetailedPresence": {
-      "type": "object",
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "description": "Universally unique identifier of a notification"
-        },
-        "event": {
-          "type": "string",
-          "description": "Event filter URI"
-        },
-        "subscriptionId": {
-          "type": "string",
-          "description": "Internal identifier of a subscription"
-        },
-        "timestamp": {
-          "type": "string",
-          "description": "The datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
-          "format": "date-time"
-        },
-        "body": {
-          "$ref": "#/definitions/DetailedPresenceEvent",
-          "description": "Notification payload body"
-        }
-      }
-    },
-    "Notification.DetailedPresenceWithSIP": {
-      "type": "object",
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "description": "Universally unique identifier of a notification"
-        },
-        "event": {
-          "type": "string",
-          "description": "Event filter URI"
-        },
-        "subscriptionId": {
-          "type": "string",
-          "description": "Internal identifier of a subscription"
-        },
-        "timestamp": {
-          "type": "string",
-          "description": "The datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
-          "format": "date-time"
-        },
-        "body": {
-          "$ref": "#/definitions/DetailedPresencewithSIPEvent",
-          "description": "Notification payload body"
-        }
-      }
-    },
-    "Notification.ExtensionInfo": {
-      "type": "object",
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "description": "Universally unique identifier of a notification"
-        },
-        "event": {
-          "type": "string",
-          "description": "Event filter URI"
-        },
-        "subscriptionId": {
-          "type": "string",
-          "description": "Internal identifier of a subscription"
-        },
-        "timestamp": {
-          "type": "string",
-          "description": "Datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
-          "format": "date-time"
-        },
-        "body": {
-          "$ref": "#/definitions/ExtensionInfoEvent",
-          "description": "Notification payload body"
-        }
-      }
-    },
-    "Notification.ExtensionList": {
-      "type": "object",
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "description": "Universally unique identifier of a notification"
-        },
-        "event": {
-          "type": "string",
-          "description": "Event filter URI"
-        },
-        "subscriptionId": {
-          "type": "string",
-          "description": "Internal identifier of a subscription"
-        },
-        "timestamp": {
-          "type": "string",
-          "description": "Datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
-          "format": "date-time"
-        },
-        "body": {
-          "$ref": "#/definitions/ExtensionListEvent",
-          "description": "Notification payload body"
-        }
-      }
-    },
-    "Notification.IncomingCall": {
-      "type": "object",
-      "properties": {
-        "event": {
-          "type": "string",
-          "description": "Event filter URI"
-        },
-        "uuid": {
-          "type": "string",
-          "description": "Universally unique identifier of a notification"
-        },
-        "subscriptionId": {
-          "type": "string",
-          "description": "Internal identifier of a subscription"
-        },
-        "timestamp": {
-          "type": "string",
-          "description": "The datetime of a call action in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
-          "format": "date-time"
-        },
-        "extensionId": {
-          "type": "string",
-          "description": "Internal identifier of an extension",
-          "default": "~"
-        },
-        "action": {
-          "type": "string",
-          "description": "Calling action, for example 'StartRing'"
-        },
-        "sessionId": {
-          "type": "string",
-          "description": "Identifier of a call session"
-        },
-        "serverId": {
-          "type": "string",
-          "description": "Identifier of a server"
-        },
-        "from": {
-          "type": "string",
-          "description": "Phone number of a caller"
-        },
-        "fromName": {
-          "type": "string",
-          "description": "Caller name"
-        },
-        "to": {
-          "type": "string",
-          "description": "Phone number of a callee"
-        },
-        "toName": {
-          "type": "string",
-          "description": "Callee name"
-        },
-        "sid": {
-          "type": "string",
-          "description": "Unique identifier of a session"
-        },
-        "toUrl": {
-          "type": "string",
-          "description": "SIP proxy registration name"
-        },
-        "srvLvl": {
-          "type": "string",
-          "description": "User data"
-        },
-        "srvLvlExt": {
-          "type": "string",
-          "description": "User data"
-        },
-        "recUrl": {
-          "type": "string",
-          "description": "File containing recorded caller name"
-        }
-      }
-    },
-    "Notification.InstantMessage": {
-      "type": "object",
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "description": "Universally unique identifier of a notification"
-        },
-        "event": {
-          "type": "string",
-          "description": "Event filter URI"
-        },
-        "subscriptionId": {
-          "type": "string",
-          "description": "Internal identifier of a subscription"
-        },
-        "timestamp": {
-          "type": "string",
-          "description": "Datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
-          "format": "date-time"
-        },
-        "body": {
-          "$ref": "#/definitions/InstantMessageEvent",
-          "description": "Notification payload body"
-        }
-      }
-    },
-    "Notification.Message": {
-      "type": "object",
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "description": "Universally unique identifier of a notification"
-        },
-        "event": {
-          "type": "string",
-          "description": "Event filter URI"
-        },
-        "subscriptionId": {
-          "type": "string",
-          "description": "Internal identifier of a subscription"
-        },
-        "timestamp": {
-          "type": "string",
-          "description": "Datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
-          "format": "date-time"
-        },
-        "body": {
-          "$ref": "#/definitions/MessageEvent",
-          "description": "Notification payload body"
-        }
-      }
-    },
-    "Notification.Presence": {
-      "type": "object",
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "description": "Universally unique identifier of a notification"
-        },
-        "event": {
-          "type": "string",
-          "description": "Event filter URI"
-        },
-        "subscriptionId": {
-          "type": "string",
-          "description": "Internal identifier of a subscription"
-        },
-        "timestamp": {
-          "type": "string",
-          "description": "The datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
-          "format": "date-time"
-        },
-        "body": {
-          "$ref": "#/definitions/PresenceEvent",
-          "description": "Notification payload body"
-        }
-      }
-    },
-    "Notification.PresenceLine": {
-      "type": "object",
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "description": "Universally unique identifier of a notification"
-        },
-        "event": {
-          "type": "string",
-          "description": "Event filter URI"
-        },
-        "subscriptionId": {
-          "type": "string",
-          "description": "Internal identifier of a subscription"
-        },
-        "timestamp": {
-          "type": "string",
-          "description": "The datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
-          "format": "date-time"
-        },
-        "body": {
-          "$ref": "#/definitions/PresenceLineEvent",
-          "description": "Notification payload body"
         }
       }
     },
@@ -3961,6 +3917,58 @@
         "id": {
           "type": "string",
           "description": "Internal identifier of the extension"
+        }
+      }
+    },
+    "PresenceLineNotification": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/PresenceLineEvent",
+          "description": "Notification payload body"
+        }
+      }
+    },
+    "PresenceNotification": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Universally unique identifier of a notification"
+        },
+        "event": {
+          "type": "string",
+          "description": "Event filter URI"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The datetime of sending a notification in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/PresenceEvent",
+          "description": "Notification payload body"
         }
       }
     },
