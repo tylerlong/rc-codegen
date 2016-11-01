@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as _ from 'lodash';
-import isList from './is-list-type';
+import { isListType } from './util';
 
 enum HasId {
   Unknown = -2,
@@ -67,7 +67,7 @@ for (const path of paths) {
         method = 'list';
       }
       const schema = methodBody.responses.default.schema;
-      if (isList(schema)) {
+      if (isListType(schema)) {
         method = 'list';
       }
     }
@@ -142,7 +142,7 @@ for (const path of paths) {
       continue;
     }
     const methodBody = pathBody[method];
-    if (method == 'get' && isList(methodBody.responses.default.schema)) {
+    if (method == 'get' && isListType(methodBody.responses.default.schema)) {
       method = 'list';
     }
     if (_.find(methods, m => m.method == method)) {
