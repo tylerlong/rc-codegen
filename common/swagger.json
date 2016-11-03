@@ -5199,6 +5199,10 @@
             "schema": {
               "type": "object",
               "properties": {
+                "uri": {
+                  "type": "string",
+                  "description": "Canonical URI"
+                },
                 "records": {
                   "type": "array",
                   "description": "List of call log records",
@@ -6415,6 +6419,10 @@
             "schema": {
               "type": "object",
               "properties": {
+                "uri": {
+                  "type": "string",
+                  "description": "Canonical URI"
+                },
                 "records": {
                   "type": "array",
                   "description": "List of call log records",
