@@ -3,6 +3,15 @@ import * as path from 'path';
 import * as _ from 'lodash';
 
 
+const split_path = (path: string): string[] => { // treat meeting/service-info as a whole
+  return path.replace('/meeting/service-info', '/meeting-service-info').split('/').map((item) => {
+    if(item == 'meeting-service-info') {
+      return 'meeting/service-info';
+    }
+    return item;
+  }).filter((item) => /^[a-z/-]+$/i.test(item));
+}
+
 enum HasId {
   Unknown = -2,
   No = -1,
@@ -17,7 +26,7 @@ const swagger: any = JSON.parse(fs.readFileSync(path.join(__dirname, 'swagger.js
 const paths: string[] = Object.keys(swagger.paths);
 
 // tokenize the paths above
-const tokenss: string[][] = paths.map(path => path.split('/').filter(token => /^[a-z-]+$/i.test(token)));
+const tokenss: string[][] = paths.map(path => split_path(path));
 
 // flatten the array above and remove duplicates
 const segments = new Set<string>([].concat.apply([], tokenss));
@@ -54,7 +63,7 @@ for (const tokens of tokenss) {
 // actions
 const actions = new Map<string, any[]>();
 for (const path of paths) {
-  const segment = _.last(path.split('/').filter(token => /^[a-z-]+$/i.test(token)));
+  const segment = _.last(split_path(path));
   const pathBody = swagger.paths[path];
   const methods = actions.get(segment) || []; // get, post, put, delete, list
   for (let method of Object.keys(pathBody)) {
