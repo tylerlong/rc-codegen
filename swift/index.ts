@@ -81,7 +81,7 @@ const render_paths = (output: string) => {
       return { camelCase: _.camelCase(child), PascalCase: PascalCase(child), hasId: segmentIds.get(child) };
     });
     const code = engine.render('Path.njk', { segment, className, methods, myChildren });
-    fs.writeFileSync(path.join(output, 'Paths', `${className}.swift`), format_code(code));
+    fs.writeFileSync(path.join(output, 'Paths', `${className}Path.swift`), format_code(code));
   }
 }
 
