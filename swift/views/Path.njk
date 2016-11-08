@@ -10,14 +10,18 @@ open class {{ className }}Path: Model {
     }
 
     {% for child in myChildren %}
-      {% include "Child.njk" %}
+        {% include "Child.njk" %}
     {% endfor %}
 
     {% for method in methods %}
-        {% include "Method.njk" %}
+        {% if method.parametersName != 'Binary' %}
+            {% if segment != 'fax' %}
+                {% include "Method.njk" %}
+            {% endif %}
 
-        {% for definition in method.definitions %}
-            {% include "Definition.njk" %}
-        {% endfor %}
+            {% for definition in method.definitions %}
+                {% include "Definition.njk" %}
+            {% endfor %}
+        {% endif %}
     {% endfor %}
 }
