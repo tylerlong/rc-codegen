@@ -1,18 +1,22 @@
-{# Yes #}
-{% if child.hasId == 1 %}
-    open func `{{ child.camelCase }}`(_ _id: String) -> {{ child.PascalCase }}Path {
+{% macro id(child) %}
+    {% if child.camelCase == 'account' or child.camelCase == 'extension' %}
+        _ _id: String? = "~"
+    {% else %}
+        {% if child.hasId == 1 %} {# must have id #}
+            _ _id: String
+        {% else %}{# id is optional #}
+            _ _id: String? = nil
+        {% endif %}
+    {% endif %}
+{% endmacro %}
+
+
+{% if child.hasId >= 0 %} {# Yes or Maybe #}
+    open func `{{ child.camelCase }}`({{ id(child) | trim }}) -> {{ child.PascalCase }}Path {
       return {{ child.PascalCase }}Path(parent: self, _id: _id)
     }
-{# Maybe #}
-{% elif child.hasId == 0 %}
-    open func `{{ child.camelCase }}`(_ _id: String? = nil) -> {{ child.PascalCase }}Path {
-      return {{ child.PascalCase }}Path(parent: self, _id: _id)
-    }
-{# No #}
-{% elif child.hasId == -1 %}
+{% else %} {# No #}
     open func `{{ child.camelCase }}`() -> {{ child.PascalCase }}Path {
       return {{ child.PascalCase }}Path(parent: self)
     }
-{% else %}
-Unknown
 {% endif %}
