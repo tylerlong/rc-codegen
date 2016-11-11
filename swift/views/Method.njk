@@ -1,14 +1,23 @@
+{% macro endpoint(method) -%}
+    {% if method.method == 'list' -%}
+        self.endpoint(withId: false)
+    {%- else -%}
+        self.endpoint()
+    {%- endif %}
+{%- endmacro %}
+
+
 // {{ method.description }}
 {% if method.responseName == '' %}
     open func {{ method.method }}(callback: @escaping (_ error: HTTPError?) -> Void) {
-        rc.{{ method.method | http_method }}String(self.endpoint()) { string, error in
+        rc.{{ method.method | http_method }}String({{ endpoint(method) }}) { string, error in
           callback(error)
         }
     }
     {% if method.parametersName != '' %}
         // {{ method.description }}
         open func {{ method.method }}(parameters: Parameters, callback: @escaping (_ error: HTTPError?) -> Void) {
-            rc.{{ method.method | http_method }}String(self.endpoint(), parameters: parameters) { string, error in
+            rc.{{ method.method | http_method }}String({{ endpoint(method) }}, parameters: parameters) { string, error in
               callback(error)
             }
         }
@@ -19,14 +28,14 @@
     {% endif %}
 {% else %}
     open func {{ method.method }}(callback: @escaping (_ t: {{ method.responseName }}?, _ error: HTTPError?) -> Void) {
-      rc.{{ method.method | http_method }}(self.endpoint()) { (t: {{ method.responseName }}?, error) in
+      rc.{{ method.method | http_method }}({{ endpoint(method) }}) { (t: {{ method.responseName }}?, error) in
           callback(t, error)
       }
     }
     {% if method.parametersName != '' %}
         // {{ method.description }}
         open func {{ method.method }}(parameters: Parameters, callback: @escaping (_ t: {{ method.responseName }}?, _ error: HTTPError?) -> Void) {
-          rc.{{ method.method | http_method }}(self.endpoint(), parameters: parameters) { (t: {{ method.responseName }}?, error) in
+          rc.{{ method.method | http_method }}({{ endpoint(method) }}, parameters: parameters) { (t: {{ method.responseName }}?, error) in
               callback(t, error)
           }
         }
