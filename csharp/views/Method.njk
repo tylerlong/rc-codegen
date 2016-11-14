@@ -24,7 +24,7 @@
         // {{ method.description }}
         public Task<bool> {{ method.method | capitalize }}({{ method.parametersName }} parameters)
         {
-            return {{ method.method | capitalize }}(parameters);
+            return {{ method.method | capitalize }}(parameters as object);
         }
     {% endif %}
 {% else %}
@@ -41,7 +41,7 @@
         // {{ method.description }}
         public Task<{{ method.responseName }}> {{ method.method | capitalize }}({{ method.parametersName }} parameters)
         {
-            return {{ method.method | capitalize }}(parameters);
+            return {{ method.method | capitalize }}(parameters as object);
         }
     {% endif %}
 {% endif %}
