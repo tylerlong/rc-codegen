@@ -22,5 +22,14 @@ const PascalCase = (str: string): string => {
   return _.upperFirst(_.camelCase(str));
 }
 
+/**
+ * Test if response is a list
+ */
+const isListType = (schema): boolean => {
+  var props = schema.properties;
+  if (schema.type == "object" && props && props.records && props.navigation && props.paging) {
+    return true;// "PageResult";
+  }
+}
 
-export { format_code, PascalCase };
+export { format_code, PascalCase, isListType };

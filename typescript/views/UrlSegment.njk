@@ -1,0 +1,51 @@
+// This is Generated Source.
+import UrlSection from "../../UrlSection";
+{% for name, from in imports %}
+import {{name}} from "{{from}}";
+{% endfor %}
+
+export default class {{name}} extends UrlSection {
+    constructor(prv: UrlSection, id?: string, service?) {
+        super("{{urlName}}", id {% if defaultValue %} || "{{defaultValue}}" {% endif %}, prv, service);
+    }
+    {% for seg in children %}
+
+    /**
+     * {{seg.valueDesc}}
+     */
+    {{seg.methodName}}(id?: string) {
+        return new {{seg.name}}(this, id);
+    }
+    {% endfor %}
+    {% for op in operations %}
+
+    /**
+        {{op.description}}
+    */
+    {% if op.customBody %}
+    {{op.method}}{{op.customBody}}
+    {% else %}
+    {{op.method}}({{op.paramsDeclar}}): Promise<{{op.responseType}}> {
+        return this.getService().send({method: "{{op.httpMethod}}", url: this.getEndpoint({% if op.method == 'list' %}false{% else %}true{% endif %}), query: {{op.queryParamName}}, body: {{op.bodyParamName}} }).then(function (res) {
+            return res.{% if op.responseType == 'Response' or op.responseType == 'void' %}response{% else %}json{% endif %}();
+        });
+    }
+    {% endif %}
+    {% endfor %}
+}
+{% for def in definitions %}
+
+export interface {{def.name}} {
+{% for fld in def.fields %}
+
+    /**
+     * {{fld.comment}}
+     */
+    {{ fld.name }}?: {{fld.type}};
+{% endfor %}
+}
+{% endfor %}
+{% for e in enumTypes %}
+
+export type {{e.name}} = {{e.types | join(" | ") }};
+{% endfor %}
