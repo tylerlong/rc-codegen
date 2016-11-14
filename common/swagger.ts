@@ -5,7 +5,7 @@ import { isListType } from './util';
 
 const split_path = (path: string): string[] => { // treat meeting/service-info as a whole
   return path.replace('/meeting/service-info', '/meeting-service-info').split('/').map((item) => {
-    if(item == 'meeting-service-info') {
+    if (item == 'meeting-service-info') {
       return 'meeting/service-info';
     }
     return item;
@@ -155,7 +155,7 @@ for (const path of paths) {
       method = 'list';
     }
     if (_.find(methods, m => m.method == method)) {
-      console.warn(`Operation already defined for ${method} ${segment}`);
+      // console.warn(`Operation already defined for ${method} ${segment}`);
       continue; // already have this method, such as get account/phone-number and get extension/phone-number
     }
     const description = methodBody.description;
