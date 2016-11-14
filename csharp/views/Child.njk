@@ -4,7 +4,7 @@
       return new {{ child.PascalCase }}Path(this, _id);
     }
 {% endif %}
-{% if child.hasId < 1 %} {# Maybe or No #}
+{% if child.hasId < 1 or child.camelCase == 'account' %} {# Maybe or No #}
     public {{ child.PascalCase }}Path {{ child.PascalCase }}()
     {
       return new {{ child.PascalCase }}Path(this{% if child.camelCase == 'account' or child.camelCase == 'extension' %}, "~"{% endif %});
