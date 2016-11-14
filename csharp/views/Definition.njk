@@ -1,0 +1,10 @@
+namespace RingCentral
+{
+    public class {{ definition.name }}
+    {
+        {% for field in definition.fields %}
+            // {{ field.description }}
+            public {{ field.type }} @{{ field.name }} { get; set; }
+        {% endfor %}
+    }
+}

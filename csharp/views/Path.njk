@@ -1,0 +1,32 @@
+using System.Threading.Tasks;
+
+namespace RingCentral
+{
+    public partial class {{ className }}Path : Model
+    {
+        internal {{ className }}Path(Model parent, string _id = null) : base(parent, _id) { }
+        protected override string PathSegment
+        {
+            get
+            {
+                return "{{ segment }}";
+            }
+        }
+
+        {% for child in myChildren %}
+            {% include "Child.njk" %}
+        {% endfor %}
+
+        {% for method in methods %}
+            {% if method.parametersName != 'Binary' %}
+                {% if segment != 'fax' %}
+                    {% include "Method.njk" %}
+                {% endif %}
+
+                {% for definition in method.definitions %}
+                    {% include "Definition.njk" %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    }
+}
