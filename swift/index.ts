@@ -23,7 +23,7 @@ const http_method = (str: string): string => {
 }
 engine.addFilter('http_method', http_method);
 
-// convert swagger type to swift type
+// convert swagger type to Swift type
 const get_type = (type, format, ref, items) => {
   if (!type) {
     return _.last<string>(ref.split('/')).replace(/\./g, '_');
@@ -69,7 +69,7 @@ const render_definitions = (output: string) => {
   }
 }
 
-// render Paths swift files
+// render Paths Swift files
 const render_paths = (output: string) => {
   for (const segment of segments) {
     const className = PascalCase(segment);
