@@ -1,10 +1,14 @@
+{% if definition.with_namespace %}
 namespace RingCentral
 {
-    public class {{ definition.name }}
+{% endif %}
+    public partial class {{ definition.name }}
     {
         {% for field in definition.fields %}
             // {{ field.description }}
             public {{ field.type }} @{{ field.name }} { get; set; }
         {% endfor %}
     }
+{% if definition.with_namespace %}
 }
+{% endif %}

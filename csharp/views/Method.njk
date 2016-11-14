@@ -1,47 +1,47 @@
 {% macro endpoint(method) %}
     {% if method.method == 'list' %}
-        self.endpoint(withId: false)
+        Endpoint(false)
     {% else %}
-        self.endpoint()
+        Endpoint(true)
     {% endif %}
 {% endmacro %}
 
 
 // {{ method.description }}
 {% if method.responseName == '' %}
-    open func {{ method.method }}(callback: @escaping (_ error: HTTPError?) -> Void) {
-        rc.{{ method.method | http_method }}String({{ endpoint(method) | trim }}) { string, error in
-          callback(error)
-        }
+    public async Task<bool> {{ method.method | capitalize }}() 
+    {
+        await RC.{{ method.method | http_method | capitalize }}({{ endpoint(method) | trim }}, null);
+        return true;
     }
     {% if method.parametersName != '' %}
         // {{ method.description }}
-        open func {{ method.method }}(parameters: Parameters, callback: @escaping (_ error: HTTPError?) -> Void) {
-            rc.{{ method.method | http_method }}String({{ endpoint(method) | trim }}, parameters: parameters) { string, error in
-              callback(error)
-            }
+        public async Task<bool> {{ method.method | capitalize }}(object parameters)
+        {
+            await RC.{{ method.method | http_method | capitalize }}({{ endpoint(method) | trim }}, parameters);
+            return true;
         }
         // {{ method.description }}
-        open func {{ method.method }}(parameters: {{ method.parametersName }}, callback: @escaping (_ error: HTTPError?) -> Void) {
-            {{ method.method }}(parameters: parameters.toParameters(), callback: callback)
+        public Task<bool> {{ method.method | capitalize }}({{ method.parametersName }} parameters)
+        {
+            return {{ method.method | capitalize }}(parameters);
         }
     {% endif %}
 {% else %}
-    open func {{ method.method }}(callback: @escaping (_ t: {{ method.responseName }}?, _ error: HTTPError?) -> Void) {
-      rc.{{ method.method | http_method }}({{ endpoint(method) | trim }}) { (t: {{ method.responseName }}?, error) in
-          callback(t, error)
-      }
+    public Task<{{ method.responseName }}> {{ method.method | capitalize }}()
+    {
+      return RC.{{ method.method | http_method | capitalize }}<{{ method.responseName }}>({{ endpoint(method) | trim }}, null);
     }
     {% if method.parametersName != '' %}
         // {{ method.description }}
-        open func {{ method.method }}(parameters: Parameters, callback: @escaping (_ t: {{ method.responseName }}?, _ error: HTTPError?) -> Void) {
-          rc.{{ method.method | http_method }}({{ endpoint(method) | trim }}, parameters: parameters) { (t: {{ method.responseName }}?, error) in
-              callback(t, error)
-          }
+        public Task<{{ method.responseName }}> {{ method.method | capitalize }}(object parameters)
+        {
+          return RC.{{ method.method | http_method | capitalize }}<{{ method.responseName }}>({{ endpoint(method) | trim }}, parameters);
         }
         // {{ method.description }}
-        open func {{ method.method }}(parameters: {{ method.parametersName }}, callback: @escaping (_ t: {{ method.responseName }}?, _ error: HTTPError?) -> Void) {
-            {{ method.method }}(parameters: parameters.toParameters(), callback: callback)
+        public Task<{{ method.responseName }}> {{ method.method | capitalize }}({{ method.parametersName }} parameters)
+        {
+            return {{ method.method | capitalize }}(parameters);
         }
     {% endif %}
 {% endif %}

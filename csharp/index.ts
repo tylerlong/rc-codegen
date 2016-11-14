@@ -69,6 +69,7 @@ const generate_definitions = (definitions) => {
 const render_definitions = (output: string) => {
   const definitions = generate_definitions(swagger.definitions);
   for (const definition of definitions) {
+    definition['with_namespace'] = true;
     const code = engine.render('Definition.njk', { definition });
     fs.writeFileSync(path.join(output, 'Definitions', `${definition.name}.cs`), format_code(code));
   }
