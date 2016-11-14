@@ -399,11 +399,8 @@
           }
         },
         "limits": {
-          "type": "array",
-          "description": "Limits which are effective for the account",
-          "items": {
-            "$ref": "#/definitions/AccountLimits"
-          }
+          "$ref": "#/definitions/AccountLimits",
+          "description": "Limits which are effective for the account"
         }
       }
     },
