@@ -1,9 +1,9 @@
 // Generated Source
 {% for imp in  imports %}
-import { {{imp}} } from "./{{imp}}";
+import {{imp}} from "./{{imp}}";
 {% endfor %}
 
-export interface {{name}} {
+interface {{name}} {
 {% for fld in fields %}
 
     /**
@@ -12,3 +12,5 @@ export interface {{name}} {
     {{ fld.name }}?: {{fld.type}};
 {% endfor %}
 }
+
+export default {{name}};
