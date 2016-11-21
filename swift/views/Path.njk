@@ -2,7 +2,7 @@ import Foundation
 import ObjectMapper
 import Alamofire
 
-open class {{ className }}Path: Model {
+open class {{ className }}Path: PathSegment {
     public override var pathSegment: String {
         get{
             return "{{ segment }}"
