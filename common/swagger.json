@@ -1291,8 +1291,8 @@
           "type": "string",
           "description": "Type of call termination. Supported for calls in 'NoCall' status. If the returned termination type is 'Intermediate' it means the call is not actually ended, the connection is established on one of the devices",
           "enum": [
-            "Final",
-            "Intermediate"
+            "final",
+            "intermediate"
           ]
         },
         "activeCalls": {
