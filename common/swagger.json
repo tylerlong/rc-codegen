@@ -2779,7 +2779,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
+          "type": "string",
           "description": "Internal identifier of an extension"
         },
         "uri": {
@@ -3452,7 +3452,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
+          "type": "string",
           "description": "Standard resource properties ID"
         },
         "url": {
@@ -3602,7 +3602,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
+          "type": "string",
           "description": "Internal identifier of a phone number"
         },
         "country": {
@@ -3657,7 +3657,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
+          "type": "string",
           "description": "Internal identifier of a phone number"
         },
         "country": {
@@ -4050,7 +4050,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
+          "type": "string",
           "description": "Internal identifier of the call recording"
         },
         "uri": {
@@ -8103,7 +8103,7 @@
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "integer",
+                  "type": "string",
                   "description": "Internal identifier of the call recording"
                 },
                 "contentUri": {
