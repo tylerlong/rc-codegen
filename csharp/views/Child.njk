@@ -1,5 +1,5 @@
 {% if child.hasId > -1 %} {# Yes or Maybe #}
-    public {{ child.PascalCase }}Path {{ child.PascalCase }}(ID _id)
+    public {{ child.PascalCase }}Path {{ child.PascalCase }}(string _id)
     {
       return new {{ child.PascalCase }}Path(this, _id);
     }
