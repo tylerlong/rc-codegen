@@ -18,6 +18,7 @@ function renderSegments(tpl: nunjucks.Template, outDir: string) {
       fileName += "Base";
     }
     let file = outDir + '/paths/' + fileName + '.ts';
+    cls.freeze();
     writeFileSync(file, tpl.render(cls));
   }
 }

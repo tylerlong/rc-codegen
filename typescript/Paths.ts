@@ -23,7 +23,7 @@ export default class UrlSegment {
   definitions: Definition[] = [];
   enumTypes: EnumType[] = [];
 
-  imports: { [importName: string]: string } = {};
+  imports: Import[] = [];
 
   hasCustomMethods: boolean;
 
@@ -31,6 +31,7 @@ export default class UrlSegment {
     this.urlName = urlName;
     this.name = PascalCase(urlName);
     this.methodName = camelCase(this.name);
+    this.addDefImports(["PathSegment"]);
   }
 
   /**
@@ -102,10 +103,10 @@ export default class UrlSegment {
 
     // Imports, and some Special types
     if (!operation.definitions[operation.bodyType]) {
-      this.addDefImports([operation.bodyType]);
+      operation.bodyType && this.addDefImports([operation.bodyType]);
     }
     if (!operation.definitions[operation.responseType] && operation.method != 'list' && operation.responseType != 'Binary') {
-      this.addDefImports([operation.responseType]);
+      operation.responseType && this.addDefImports([operation.responseType]);
     }
     if (tsOprt.responseType == 'Binary') {
       tsOprt.responseType = 'Response';
@@ -118,19 +119,27 @@ export default class UrlSegment {
   }
 
   addDefImports(imports: string[]) {
-    for (let imp of imports) {
-      if (UserDefinedTypes.indexOf(imp) > -1) {
-        this.imports[imp] = '../' + imp;
-      } else if (imp) {
-        this.imports[imp] = '../definitions/' + imp;
+    for (let defaultMember of imports) {
+      let moduleName: string;
+      if (UserDefinedTypes.indexOf(defaultMember) > -1) {
+        moduleName = '../' + defaultMember;
+      } else if (defaultMember) {
+        moduleName = '../definitions/' + defaultMember;
       }
+      this.addImport({ defaultMember, moduleName });
     }
   }
 
   addChild(child: UrlSegment) {
     if (this.children.indexOf(child) == -1) {
       this.children.push(child);
-      this.imports[child.name] = './' + child.name;
+      this.addImport({ defaultMember: child.name, moduleName: './' + child.name });
+    }
+  }
+
+  addImport(imp: Import) {
+    if (!this.imports.find(v => v.defaultMember == imp.defaultMember)) {
+      this.imports.push(imp);
     }
   }
 
@@ -140,6 +149,15 @@ export default class UrlSegment {
     } else if (this.valuePresence == 'forbidden') {
       this.valuePresence = 'optional';
     }
+  }
+
+  /**
+   * After this method is called, all the properties will not be changed.
+   */
+  freeze() {
+    this.imports.sort((a, b) => {
+      return a.moduleName.toLowerCase() < b.moduleName.toLowerCase() ? -1 : 1;
+    });
   }
 
   forbidValue() {
@@ -158,9 +176,14 @@ interface TsOperation extends Operation {
   httpMethod: string;
 }
 
-const UserDefinedTypes = ['Binary', 'PagingResult'];
+const UserDefinedTypes = ['Binary', 'PagingResult', 'PathSegment'];
 
 interface EnumType {
   name: string;
   types: string[];
+}
+
+interface Import {
+  defaultMember: string;
+  moduleName: string
 }

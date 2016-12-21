@@ -1,7 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
-{% for name, from in imports %}
-import {{name}} from "{{from}}";
+{% for imp in imports %}
+import {{imp.defaultMember}} from "{{imp.moduleName}}";
 {% endfor %}
 
 export default class {{name}} extends PathSegment {
@@ -22,19 +21,16 @@ export default class {{name}} extends PathSegment {
     /**
      *  {{op.description}}
      */
-    {% if op.customBody %}
-    {{op.method}}{{op.customBody}}{% else %}
     {{op.method}}({{op.paramsDeclar}}): Promise<{{op.responseType}}> {
         return this.getService().send({
           body: {{op.bodyParamName}},
           method: "{{op.httpMethod}}",
           query: {{op.queryParamName}},
           url: this.getEndpoint({% if op.method == 'list' %}false{% else %}true{% endif %}),
-        }).then(function (res) {
+        }).then((res) => {
             return res.{% if op.responseType == 'Response' or op.responseType == 'void' %}response{% else %}json{% endif %}();
         });
     }
-    {% endif %}
     {% endfor %}
 }
 {% for def in definitions %}
