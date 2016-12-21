@@ -135,7 +135,7 @@ for (const path of paths) {
 interface Operation {
   description: string;
   method: string;
-  bodyType: string;
+  bodyType: string;   // Type of the request body
   queryType: string;
   responseType: string;
   definitions?: { [name: string]: any };  // json schema

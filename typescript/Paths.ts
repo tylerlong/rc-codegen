@@ -25,6 +25,8 @@ export default class UrlSegment {
 
   imports: { [importName: string]: string } = {};
 
+  hasCustomMethods: boolean;
+
   constructor(urlName: string) {
     this.urlName = urlName;
     this.name = PascalCase(urlName);
@@ -37,6 +39,38 @@ export default class UrlSegment {
    *  lookup post: query
    */
   addOperation(operation: Operation) {
+    if (operation.method == 'list') {
+      let listDef = operation.definitions[operation.responseType];
+      delete operation.definitions[operation.responseType];
+      let listItemType = resolveType(listDef.properties['records']).refs[0];
+      operation.responseType = `PagingResult<${listItemType}>`;
+      this.addDefImports([listItemType, 'PagingResult']);
+    }
+    // Definitions
+    for (let name in operation.definitions) {
+      let opDef = operation.definitions[name];
+      let def = new Definition(opDef, name);
+      if (def.fields.length > 0) {
+        this.definitions.push(def);
+        this.addDefImports(def.imports);
+      } else if (opDef.enum) {
+        let enumType = { name: name, types: [] };
+        for (let e of opDef.enum) {
+          let ti = resolveType(e);
+          this.addDefImports(ti.refs);
+          enumType.types.push(ti.name);
+        }
+        this.enumTypes.push(enumType);
+      }
+    }
+
+    // Custom body,imports for operation methods
+    let customOperations = config.customOperations[this.name];
+    if (customOperations && customOperations.indexOf(operation.method) > -1) {
+      this.hasCustomMethods = true;
+      return;
+    }
+
     let tsOprt = <TsOperation>operation;
     tsOprt.httpMethod = operation.method;
     switch (operation.method) {
@@ -67,13 +101,6 @@ export default class UrlSegment {
     tsOprt.paramsDeclar = params.join(', ');
 
     // Imports, and some Special types
-    if (operation.method == 'list') {
-      let listDef = operation.definitions[operation.responseType];
-      delete operation.definitions[operation.responseType];
-      let listItemType = resolveType(listDef.properties['records']).refs[0];
-      operation.responseType = `PagingResult<${listItemType}>`;
-      this.addDefImports([listItemType, 'PagingResult']);
-    }
     if (!operation.definitions[operation.bodyType]) {
       this.addDefImports([operation.bodyType]);
     }
@@ -85,39 +112,6 @@ export default class UrlSegment {
     }
     if (!tsOprt.responseType) {
       tsOprt.responseType = 'void';
-    }
-
-
-    // Definitions
-    for (let name in operation.definitions) {
-      let opDef = operation.definitions[name];
-      let def = new Definition(opDef, name);
-      if (def.fields.length > 0) {
-        this.definitions.push(def);
-        this.addDefImports(def.imports);
-      } else if (opDef.enum) {
-        let enumType = { name: name, types: [] };
-        for (let e of opDef.enum) {
-          let ti = resolveType(e);
-          this.addDefImports(ti.refs);
-          enumType.types.push(ti.name);
-        }
-        this.enumTypes.push(enumType);
-      }
-    }
-
-    // Custom body,imports for operation methods
-    let customBody = config.customOperations[this.name];
-    if (customBody && customBody[operation.method]) {
-      let custom = customBody[operation.method];
-      try {
-        for (let imp in custom.imports) {
-          this.imports[imp] = custom.imports[imp];
-        }
-        tsOprt.customBody = readFileSync(resolve(dirname(configPath), custom.body)).toString();
-      } catch (e) {
-        console.error('Fail to resolve custom body', e);
-      }
     }
 
     this.operations.push(tsOprt);
@@ -162,7 +156,6 @@ interface TsOperation extends Operation {
   bodyParamName: string;
   queryParamName: string;
   httpMethod: string;
-  customBody: string;
 }
 
 const UserDefinedTypes = ['Binary', 'PagingResult'];
