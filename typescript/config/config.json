@@ -1,33 +1,16 @@
 {
-    "getIngore": [],
-    "postIgnore": [
-        "revoke"
+  "getIngore": [],
+  "postIgnore": [
+    "revoke"
+  ],
+  "putIgnore": [],
+  "customOperations": {
+    "ProfileImage": [
+      "put",
+      "post"
     ],
-    "putIgnore": [
-    ],
-    "customOperations": {
-        "ProfileImage": {
-            "put": {
-                "imports": {
-                    "* as FormData": "form-data"
-                },
-                "body": "./put-profile-image.ts-method-body"
-            },
-            "post": {
-                "imports": {
-                    "* as FormData": "form-data"
-                },
-                "body": "./put-profile-image.ts-method-body"
-            }
-        },
-        "Fax": {
-            "post": {
-                "imports": {
-                    "* as FormData": "form-data",
-                    "Binary": "../../Binary"
-                },
-                "body": "./post-fax.ts-method-body"
-            }
-        }
-    }
+    "Fax": [
+      "post"
+    ]
+  }
 }
