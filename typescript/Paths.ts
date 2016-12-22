@@ -6,9 +6,6 @@ import { Operation } from '../common/swagger';
 import { PascalCase } from '../common/util';
 import resolveType from './jsonType2Ts';
 
-let configPath = __dirname + '/config/config.json';
-let config = require(configPath);
-
 export default class UrlSegment {
   urlName: string;
   name: string;
@@ -27,11 +24,14 @@ export default class UrlSegment {
 
   hasCustomMethods: boolean;
 
-  constructor(urlName: string) {
+  codegenConfig: any;
+
+  constructor(urlName: string, config) {
     this.urlName = urlName;
     this.name = PascalCase(urlName);
     this.methodName = camelCase(this.name);
     this.addDefImports(["PathSegment"]);
+    this.codegenConfig = config;
   }
 
   /**
@@ -66,7 +66,7 @@ export default class UrlSegment {
     }
 
     // Custom body,imports for operation methods
-    let customOperations = config.customOperations[this.name];
+    let customOperations = this.codegenConfig.customOperations[this.name];
     if (customOperations && customOperations.indexOf(operation.method) > -1) {
       this.hasCustomMethods = true;
       return;
