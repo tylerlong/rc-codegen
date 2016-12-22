@@ -1,7 +1,6 @@
 import UrlSegment from './Paths';
 
-let ignoredUrlSections = ['restapi', 'v1.0'];
-export default function genUrlSegments(endpoints: string[], parameters): { [name: string]: UrlSegment } {
+export default function genUrlSegments(endpoints: string[], parameters, config): { [name: string]: UrlSegment } {
   let classes: { [urlName: string]: UrlSegment } = {};
   let classNames = [];
   for (let i = 0; i < endpoints.length; i++) {
@@ -10,7 +9,7 @@ export default function genUrlSegments(endpoints: string[], parameters): { [name
     let parts = endpoints[i].substring(1).split('/');
     for (let j = 0; j < parts.length; j++) {
       let urlPart = parts[j];
-      if (ignoredUrlSections.indexOf(urlPart) > -1) {
+      if (config.segmentsIgnored && config.segmentsIgnored.indexOf(urlPart) > -1) {
         continue;
       }
       if (prvSec) {
@@ -33,7 +32,7 @@ export default function genUrlSegments(endpoints: string[], parameters): { [name
 
       let cls = classes[urlPart];
       if (!cls) {
-        cls = new UrlSegment(urlPart);
+        cls = new UrlSegment(urlPart, config);
         classes[urlPart] = cls;
         if (classNames.indexOf(cls.name) > -1) {
           console.error('A url segment with name ' + cls.name + ' already exists.');

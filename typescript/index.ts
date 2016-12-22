@@ -8,8 +8,8 @@ import UrlSegment from './paths';
 import genUrlSegments from './gen-segments';
 import genOperations from './gen-operations';
 
-function renderSegments(tpl: nunjucks.Template, outDir: string) {
-  let urlSegments = genUrlSegments(Object.keys(swagger.paths), swagger.parameters);
+function renderSegments(tpl: nunjucks.Template, outDir: string, config) {
+  let urlSegments = genUrlSegments(Object.keys(swagger.paths), swagger.parameters, config);
   genOperations(urlSegments);
   for (let k in urlSegments) {
     let cls = urlSegments[k];
@@ -31,8 +31,8 @@ function renderDefinions(keyedDefinitions, tpl: nunjucks.Template, outDir: strin
   }
 }
 
-function generate(outDir: string) {
-  let tplDir = join(__dirname, 'views');
+function generate(outDir: string, tplDir: string, configFile: string) {
+  let config = JSON.parse(readFileSync(configFile).toString());
   let env = configure({
     autoescape: false,
     trimBlocks: true,
@@ -43,7 +43,7 @@ function generate(outDir: string) {
   renderDefinions(swagger.definitions, definitionTpl, outDir);
 
   let segmentTpl = compile(readFileSync(join(tplDir, 'Paths.njk')).toString('utf8'), env);
-  renderSegments(segmentTpl, outDir);
+  renderSegments(segmentTpl, outDir, config);
 }
 
 export { generate }
