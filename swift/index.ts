@@ -26,6 +26,7 @@ const http_method = (str: string): string => {
   throw new RangeError(`Unknown http method: "${str}"`);
 }
 
+
 // convert swagger type to Swift type
 const get_type = (type, format, ref, items) => {
   if (!type) {
@@ -49,6 +50,7 @@ const get_type = (type, format, ref, items) => {
   throw new RangeError(`Unknown field type: "${type}"`);
 }
 
+
 // convert swagger definitions to nunjucks definitions
 const generate_definitions = (definitions) => {
   return Object.keys(definitions).map((key) => {
@@ -62,6 +64,7 @@ const generate_definitions = (definitions) => {
   });
 }
 
+
 // render Definitions.swift
 const render_definitions = (output: string) => {
   const definitions = generate_definitions(swagger.definitions);
@@ -71,6 +74,7 @@ const render_definitions = (output: string) => {
     fs.writeFileSync(path.join(output, 'Definitions', `${definition.name}.swift`), format_code(code));
   }
 }
+
 
 // render Paths Swift files
 const render_paths = (output: string) => {
@@ -87,6 +91,7 @@ const render_paths = (output: string) => {
     fs.writeFileSync(path.join(output, 'Paths', `${className}Path.swift`), format_code(code));
   }
 }
+
 
 // the only method to export
 const generate = (output: string, templates: string) => {
