@@ -1,10 +1,7 @@
 {
   "files.exclude": {
     "**/*.js": true,
-    "**/*.map": true,
-    "node_modules/": true,
-    "typings/": true,
-    ".editorconfig": true
+    "**/*.map": true
   },
   "editor.formatOnSave": true
 }
