@@ -27,7 +27,7 @@ const PascalCase = (str: string): string => {
  */
 const isListType = (schema): boolean => {
   var props = schema.properties;
-  if (schema.type == "object" && props && props.records && props.navigation && props.paging) {
+  if (schema.type == "object" && props && props.records && props.records.type === 'array') {
     return true;// "PageResult";
   }
 }

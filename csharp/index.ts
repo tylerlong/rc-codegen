@@ -7,11 +7,15 @@ import { format_code, PascalCase } from '../common/util';
 
 
 // template engine
-const engine = nunjucks.configure(path.join(__dirname, 'views'), {
-  autoescape: false,
-  trimBlocks: true,
-  lstripBlocks: true,
-});
+let engine = null
+const initEngine = (templates) => {
+  const engine = nunjucks.configure(templates, {
+    autoescape: false,
+    trimBlocks: true,
+    lstripBlocks: true,
+  });
+  engine.addFilter('http_method', http_method);
+}
 const http_method = (str: string): string => {
   if (str == 'list') {
     return 'get';
@@ -21,7 +25,6 @@ const http_method = (str: string): string => {
   }
   throw new RangeError(`Unknown http method: "${str}"`);
 }
-engine.addFilter('http_method', http_method);
 
 
 // convert swagger type to C# type
@@ -65,6 +68,7 @@ const generate_definitions = (definitions) => {
   });
 }
 
+
 // render Definitions.cs
 const render_definitions = (output: string) => {
   const definitions = generate_definitions(swagger.definitions);
@@ -94,7 +98,8 @@ const render_paths = (output: string) => {
 
 
 // the only method to export
-const generate = (output: string, templates: string, configuration: string) => {
+const generate = (output: string, templates: string) => {
+  initEngine(templates)
   render_definitions(output);
   render_paths(output);
 }
