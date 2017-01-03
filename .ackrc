@@ -1,3 +1,5 @@
 --ignore-dir=typings
+--ignore-dir=node_modules
 --ignore-dir=.vscode
 --ignore-file=ext:js
+--ignore-file=match:/yarn\.lock/

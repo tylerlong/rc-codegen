@@ -95,8 +95,6 @@ const render_paths = (output: string) => {
 
 // the only method to export
 const generate = (output: string, templates: string, configuration: string) => {
-  console.log(templates);
-  console.log(configuration);
   render_definitions(output);
   render_paths(output);
 }
