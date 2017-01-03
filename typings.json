@@ -1,10 +1,10 @@
 {
   "globalDependencies": {
-    "commander": "registry:dt/commander#2.3.0+20160317120654",
-    "node": "registry:dt/node#6.0.0+20160921192128",
-    "nunjucks": "registry:dt/nunjucks#0.0.0+20160802155009"
+    "node": "registry:dt/node#6.0.0+20161229171858"
   },
   "dependencies": {
-    "lodash": "registry:npm/lodash#4.0.0+20160723033700"
+    "commander": "registry:dt/commander#2.3.0+20161118092844",
+    "lodash": "registry:npm/lodash#4.0.0+20161015015725",
+    "nunjucks": "registry:dt/nunjucks#0.0.0+20160803221903"
   }
 }
