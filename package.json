@@ -7,7 +7,8 @@
     "postinstall": "typings install",
     "compile": "tsc -w",
     "swift": "node index.js -l swift -o ~/src/swift/RingCentral/Source",
-    "csharp": "node index.js -l csharp -o C:/Users/tyler/src/csharp/ringcentral-csharp-client/RingCentral"
+    "csharp": "node index.js -l csharp -o C:/Users/tyler/src/csharp/ringcentral-csharp-client/RingCentral",
+    "upgrade": "ncu -ua && yarn upgrade"
   },
   "repository": {
     "type": "git",
@@ -25,12 +26,13 @@
   },
   "homepage": "https://github.com/tylerlong/rc-codegen#readme",
   "devDependencies": {
-    "typescript": "^2.0.3",
-    "typings": "^1.4.0"
+    "npm-check-updates": "^2.8.9",
+    "typescript": "^2.1.4",
+    "typings": "^2.1.0"
   },
   "dependencies": {
     "commander": "^2.9.0",
-    "lodash": "^4.16.1",
-    "nunjucks": "^2.5.2"
+    "lodash": "^4.17.4",
+    "nunjucks": "^3.0.0"
   }
 }
