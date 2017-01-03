@@ -1,18 +1,15 @@
 {% if definition.with_import %}
 import Foundation
 import ObjectMapper
-import Alamofire
 {% endif %}
 
-open class {{ definition.name }}: Mappable {
+open class {{ definition.name }}: Definition {
 
   {% for field in definition.fields %}
     // {{ field.description }}
     open var `{{ field.name }}`: {{ field.type }}?
   {% endfor %}
 
-  public init() {
-  }
   convenience public init({% for field in definition.fields %}{% if loop.index != 1 %}, {% endif %}{{ field.name }}: {{ field.type }}? = nil{% endfor %}) {
     self.init()
     {% for field in definition.fields %}
@@ -20,9 +17,13 @@ open class {{ definition.name }}: Mappable {
     {% endfor %}
   }
   required public init?(map: Map) {
+    super.init(map: map)
+  }
+  public override init() {
+    super.init()
   }
 
-  open func mapping(map: Map) {
+  open override func mapping(map: Map) {
     {% for field in definition.fields %}
       {% if field.name == 'id' %}
         `id` <- (map["id"], StringTransform())
@@ -30,12 +31,6 @@ open class {{ definition.name }}: Mappable {
         `{{ field.name }}` <- map["{{ field.name }}"]
       {% endif %}
     {% endfor %}
-  }
-
-  open func toParameters() -> Parameters {
-    var result = [String: String]()
-    result["json-string"] = self.toJSONString(prettyPrint: false)!
-    return result
   }
 
 }
