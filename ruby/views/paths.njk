@@ -1,0 +1,15 @@
+require 'hashie'
+require_relative './pathSegment'
+
+{% for segment in segments %}
+  class {{ segment }} < PathSegment
+    def segment
+      '{{ segment }}'
+    end
+    {% for child in children[segment] %}
+    def {{ child }}({% if hasIds.get(child) > -1 %}id{% if hasIds.get(child) == 0 %} = nil{% endif %}{% endif %})
+      {{ child}}.new(@rc, self{% if hasIds.get(child) > -1 %}, id{% endif %})
+    end
+    {% endfor %}
+  end
+{% endfor %}

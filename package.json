@@ -8,6 +8,7 @@
     "compile": "tsc -w",
     "swift": "node index.js -l swift -o ~/src/swift/RingCentral/Source -t ~/src/ts/rc-codegen/swift/views",
     "csharp": "node index.js -l csharp -o C:/Users/tyler/src/csharp/ringcentral-csharp-client/RingCentral -t C:/Users/tyler/src/ts/rc-codegen/csharp/views",
+    "ruby": "node index.js -l ruby -o ~/src/ruby/ringcentral-ruby/src -t ~/src/ts/rc-codegen/ruby/views",
     "upgrade": "ncu -ua && yarn upgrade"
   },
   "repository": {
