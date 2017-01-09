@@ -14,30 +14,28 @@ const initEngine = (templates: string) => {
     trimBlocks: true,
     lstripBlocks: true,
   });
+  engine.addFilter('PascalCase', PascalCase);
+  engine.addFilter('camelCase', camelCase);
+}
+const camelCase = (str) => {
+  return _.camelCase(str)
 }
 
 
-const renderPaths = () => {
+const renderPaths = (output: string) => {
   let obj = {}
   for (let [k, v] of children) {
     obj[k] = Array.from(v);
   }
-  const code = engine.render('paths.njk', { segments: Array.from(segments), children: obj, hasIds: segmentIds });
-
-  // const temp = Array.from(segments)
-  // temp.forEach(item => {
-  //   console.log(item)
-  //   console.log(children.get(item))
-  // })
-
-  console.log(code)
+  const code = engine.render('paths.njk', { segments: Array.from(segments), children: obj, hasIds: segmentIds, methods: actions });
+  fs.writeFileSync(path.join(output, `paths.rb`), code);
 }
 
 
 // the only method to export
 const generate = (output: string, templates: string) => {
   initEngine(templates)
-  renderPaths()
+  renderPaths(output)
 }
 
 

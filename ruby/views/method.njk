@@ -1,0 +1,18 @@
+{% if method.method == 'post' or method.method == 'put' %}
+  def {{ method.method }}(payload, params = nil)
+    Hashie::Mash.new JSON.parse({{ method.method }}Response(payload, params))
+  end
+{% elif method.method == 'get' %}
+  def get(params = nil)
+    Hashie::Mash.new JSON.parse(getResponse(params))
+  end
+{% elif method.method == 'list' %}
+  def list(params = nil)
+    Hashie::Mash.new JSON.parse(getResponse(params))
+  end
+{% elif method.method == 'delete' %}
+  def delete(params = nil)
+    deleteResponse(params)
+  end
+{% endif %}
+
