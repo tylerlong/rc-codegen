@@ -9,7 +9,7 @@ import { format_code, PascalCase } from '../common/util';
 // template engine
 let engine = null
 const initEngine = (templates) => {
-  const engine = nunjucks.configure(templates, {
+  engine = nunjucks.configure(templates, {
     autoescape: false,
     trimBlocks: true,
     lstripBlocks: true,
