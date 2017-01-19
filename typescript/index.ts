@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import { compile, configure } from 'nunjucks';
+import * as nunjucks from 'nunjucks';
 import * as _ from 'lodash';
 import { swagger, segments, actions } from '../common/swagger';
 import Definition from './Definition';
