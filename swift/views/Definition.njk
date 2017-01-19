@@ -1,7 +1,6 @@
 {% if definition.with_import %}
 import Foundation
 import ObjectMapper
-import Alamofire
 {% endif %}
 
 open class {{ definition.name }}: Mappable {
@@ -13,13 +12,15 @@ open class {{ definition.name }}: Mappable {
 
   public init() {
   }
+
+  required public init?(map: Map) {
+  }
+
   convenience public init({% for field in definition.fields %}{% if loop.index != 1 %}, {% endif %}{{ field.name }}: {{ field.type }}? = nil{% endfor %}) {
     self.init()
     {% for field in definition.fields %}
       self.{{ field.name }} = `{{ field.name }}`
     {% endfor %}
-  }
-  required public init?(map: Map) {
   }
 
   open func mapping(map: Map) {
@@ -30,12 +31,6 @@ open class {{ definition.name }}: Mappable {
         `{{ field.name }}` <- map["{{ field.name }}"]
       {% endif %}
     {% endfor %}
-  }
-
-  open func toParameters() -> Parameters {
-    var result = [String: String]()
-    result["json-string"] = self.toJSONString(prettyPrint: false)!
-    return result
   }
 
 }
