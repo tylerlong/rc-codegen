@@ -2,7 +2,6 @@ import * as commander from 'commander';
 import * as _ from 'lodash';
 import * as fs from 'fs';
 
-
 // ask user to enter languange and output
 const languages = ['swift', 'csharp', 'typescript', 'ruby'];
 commander.version(require('./package.json').version)
@@ -11,12 +10,18 @@ commander.version(require('./package.json').version)
   .option('-t, --templates <templates>', 'templates directory')
   .option('-c, --configuration [configuration]', 'configuration file')
   .parse(process.argv);
-if (!commander.language || !commander.output || !commander.templates
-  || !_.includes(languages, commander.language)
-  || !fs.lstatSync(commander.output).isDirectory()
-  || !fs.lstatSync(commander.templates).isDirectory()) {
+
+const language = commander['language'];
+const output = commander['output'];
+const templates = commander['templates'];
+const configuration = commander['configuration'];
+
+if (!language || !output || !templates
+  || !_.includes(languages, language)
+  || !fs.lstatSync(output).isDirectory()
+  || !fs.lstatSync(templates).isDirectory()) {
   commander.help();
 }
 
 // do language specific codegen
-require(`./${commander.language}/index`).generate(commander.output, commander.templates, commander.configuration);
+require(`./${language}/index`).generate(output, templates, configuration);

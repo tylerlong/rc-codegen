@@ -109,7 +109,7 @@ export default class UrlSegment {
       operation.responseType && this.addDefImports([operation.responseType]);
     }
     if (tsOprt.responseType == 'Binary') {
-      tsOprt.responseType = 'Response';
+      tsOprt.responseType = 'any';
     }
     if (!tsOprt.responseType) {
       tsOprt.responseType = 'void';

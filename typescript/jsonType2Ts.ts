@@ -1,4 +1,4 @@
-import {PascalCase} from '../common/util';
+import { PascalCase } from '../common/util';
 
 interface TsTypeInfo {
     name: string;   // The string representation of the type
@@ -7,7 +7,7 @@ interface TsTypeInfo {
     refs?: string[];
 }
 
-const STRING_QUOTE = '"';
+const STRING_QUOTE = '\'';
 
 // Convert json schema type to TS type
 export default function resolveJsonType(schemaProp, typeName?: string): TsTypeInfo {
