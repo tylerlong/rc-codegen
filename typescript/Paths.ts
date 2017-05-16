@@ -1,6 +1,4 @@
 import { camelCase } from 'lodash';
-import { readFileSync } from 'fs';
-import { resolve, dirname } from 'path';
 import Definition from './Definition';
 import { Operation } from '../common/swagger';
 import { PascalCase } from '../common/util';

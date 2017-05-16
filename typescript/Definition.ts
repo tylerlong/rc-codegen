@@ -20,7 +20,6 @@ export default class Definition {
 
     }
 
-    let imports = {};
     for (let p in schema.properties) {
       var propVal = schema.properties[p];
       var typeInfo = resolveType(propVal, PascalCase(p));
