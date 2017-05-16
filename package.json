@@ -4,7 +4,6 @@
   "description": "RingCentral CodeGen",
   "main": "index.js",
   "scripts": {
-    "postinstall": "typings install",
     "compile": "tsc -w",
     "swift": "node index.js -l swift -o ~/src/swift/RingCentral/Source -t ~/src/ts/rc-codegen/swift/views",
     "csharp": "node index.js -l csharp -o C:/Users/tyler/src/csharp/ringcentral-csharp-client/RingCentral -t C:/Users/tyler/src/ts/rc-codegen/csharp/views",
@@ -32,6 +31,10 @@
     "typings": "^2.1.0"
   },
   "dependencies": {
+    "@types/commander": "^2.9.0",
+    "@types/lodash": "^4.14.64",
+    "@types/node": "^7.0.18",
+    "@types/nunjucks": "^0.0.32",
     "commander": "^2.9.0",
     "lodash": "^4.17.4",
     "nunjucks": "^3.0.0"

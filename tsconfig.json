@@ -10,7 +10,6 @@
     "typescript/index.ts",
     "csharp/index.ts",
     "ruby/index.ts",
-    "swift/index.ts",
-    "typings/index.d.ts"
+    "swift/index.ts"
   ]
 }
