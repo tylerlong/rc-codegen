@@ -3,14 +3,17 @@
     "module": "commonjs",
     "target": "es6",
     "noImplicitAny": false,
-    "sourceMap": true
+    "sourceMap": true,
+    "pretty": false,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true
   },
   "files": [
     "index.ts",
     "typescript/index.ts",
     "csharp/index.ts",
     "ruby/index.ts",
-    "swift/index.ts",
-    "typings/index.d.ts"
+    "swift/index.ts"
   ]
 }

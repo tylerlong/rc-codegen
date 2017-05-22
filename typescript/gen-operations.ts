@@ -1,6 +1,4 @@
 import UrlSegment from './Paths';
-import resolveType from './jsonType2Ts';
-import Definition from './Definition';
 import { operations } from '../common/swagger';
 
 /* Get CRUD operation method. */

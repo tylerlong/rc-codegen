@@ -2,8 +2,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as nunjucks from 'nunjucks';
 import * as _ from 'lodash';
-import { swagger, segments, actions, segmentIds, children } from '../common/swagger';
-import { format_code, PascalCase } from '../common/util';
+import { segments, actions, segmentIds, children } from '../common/swagger';
+import { PascalCase } from '../common/util';
 
 
 // template engine
