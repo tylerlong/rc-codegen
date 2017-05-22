@@ -1,6 +1,4 @@
 *.js
 *.map
 node_modules/
-typings/
-!typings/commander-expansion.d.ts
 typescript/gen/

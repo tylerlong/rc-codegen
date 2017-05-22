@@ -27,8 +27,7 @@
   "homepage": "https://github.com/tylerlong/rc-codegen#readme",
   "devDependencies": {
     "npm-check-updates": "^2.8.9",
-    "typescript": "^2.1.4",
-    "typings": "^2.1.0"
+    "typescript": "^2.1.4"
   },
   "dependencies": {
     "@types/commander": "^2.9.0",
