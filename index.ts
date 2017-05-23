@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 import * as fs from 'fs';
 
 // ask user to enter languange and output
-const languages = ['swift', 'csharp', 'typescript', 'ruby'];
+const languages = ['swift', 'csharp', 'typescript', 'ruby', 'java'];
 commander.version(require('./package.json').version)
   .option('-l, --language <language>', 'programming languages: ' + languages.join(', '))
   .option('-o, --output <output>', 'output directory')

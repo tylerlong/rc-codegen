@@ -11,7 +11,7 @@ yarn install
 ## Compile
 
 ```
-yarn run compile
+yarn compile
 ```
 
 
@@ -24,5 +24,5 @@ node index.js -l swift -o ~/src/swift/RingCentral/Common/Generated
 Or use the shortcut:
 
 ```
-yarn run swift
+yarn swift
 ```
