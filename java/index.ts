@@ -2,8 +2,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as nunjucks from 'nunjucks';
 import * as _ from 'lodash';
-import { swagger } from '../common/swagger';
-import { format_code } from '../common/util';
+import { swagger, segments, actions, segmentIds, children } from '../common/swagger';
+import { format_code, PascalCase } from '../common/util';
 
 // template engine
 let engine = null
@@ -54,9 +54,25 @@ const generate_definitions = (definitions) => {
 const render_definitions = (output: string) => {
   const definitions = generate_definitions(swagger.definitions);
   for (const definition of definitions) {
-    let code = engine.render('Definition.njk', { definition });
+    let code = engine.render('Definition.njk', { definition, withPackage: true });
     code = format_code(code);
     fs.writeFileSync(path.join(output, 'definitions', `${definition.name}.java`), code);
+  }
+}
+
+// render Paths Java files
+const render_paths = (output: string) => {
+  for (const segment of segments) {
+    const className = PascalCase(segment);
+    const methods = (actions.get(segment) || []).map((method) => {
+      method.definitions = generate_definitions(method.definitions);
+      return method;
+    });
+    const myChildren = Array.from(children.get(segment)).map((child) => {
+      return { camelCase: _.camelCase(child), PascalCase: PascalCase(child), hasId: segmentIds.get(child) };
+    });
+    const code = engine.render('Path.njk', { segment, className, methods, myChildren });
+    fs.writeFileSync(path.join(output, 'paths', `${className}.java`), format_code(code));
   }
 }
 
@@ -64,7 +80,7 @@ const render_definitions = (output: string) => {
 const generate = (output: string, templates: string) => {
   initEngine(templates)
   render_definitions(output);
-  // render_paths(output);
+  render_paths(output);
 }
 
 

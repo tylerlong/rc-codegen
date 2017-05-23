@@ -1,6 +1,7 @@
+{% if withPackage %}
 package com.ringcentral.definitions;
-
 import com.alibaba.fastjson.annotation.JSONField;
+{% endif %}
 
 public class {{ definition.name }}
 {
@@ -9,8 +10,14 @@ public class {{ definition.name }}
         {% if field.name == 'default' %}
         @JSONField(alternateNames = {"default"})
         public {{ field.type }} _default;
+        {% set name = '_default' %}
         {% else %}
         public {{ field.type }} {{ field.name }};
+        {% set name = field.name %}
         {% endif %}
+        public {{ definition.name }} {{ name }}({{ field.type }} {{ name }}) {
+            this.{{ name }} = {{ name }};
+            return this;
+        }
     {% endfor %}
 }

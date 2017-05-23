@@ -1,0 +1,11 @@
+package com.ringcentral.paths;
+import com.ringcentral.definitions.*;
+
+public class {{ className }}
+{
+    {% for method in methods %}
+        {% for definition in method.definitions %}
+            static {% include "Definition.njk" %}
+        {% endfor %}
+    {% endfor %}
+}
