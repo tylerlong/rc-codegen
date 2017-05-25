@@ -79,6 +79,13 @@
       "type": "string",
       "description": "Internal identifier of a call log record"
     },
+    "companyId": {
+      "name": "companyId",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "Internal identifier of an RC account/Glip company, or tilde (~) to indicate a company the current user belongs to"
+    },
     "companyPagerId": {
       "name": "companyPagerId",
       "in": "path",
@@ -184,6 +191,13 @@
       "required": true,
       "type": "string",
       "description": "Internal identifier of an order"
+    },
+    "personId": {
+      "name": "personId",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "Internal identifier of a user to be returned, the maximum number of IDs is 30"
     },
     "phoneNumberId": {
       "name": "phoneNumberId",
@@ -2275,6 +2289,113 @@
         "loginAllowed": {
           "type": "boolean",
           "description": "Specifies whether login with the phone numbers of this country is enabled or not"
+        }
+      }
+    },
+    "GlipGroupInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a group"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of a group. 'PrivateChat' is a group of 2 members. 'Group' is a chat of 2 and more participants, the membership cannot be changed after group creation. 'Team' is a chat of 1 and more participants, the membership can be modified in future",
+          "enum": [
+            "PrivateChat",
+            "Group",
+            "Team"
+          ]
+        },
+        "isPublic": {
+          "type": "boolean",
+          "description": "For 'Team' group type only. Team access level"
+        },
+        "name": {
+          "type": "string",
+          "description": "For 'Team' group type only. Team name"
+        },
+        "description": {
+          "type": "string",
+          "description": "For 'Team' group type only. Team description"
+        },
+        "members": {
+          "type": "array",
+          "description": "Identifier(s) of group members",
+          "items": {
+            "type": "string"
+          }
+        },
+        "creationTime": {
+          "type": "string",
+          "description": "Group creation datetime in ISO 8601 format",
+          "format": "date-time"
+        },
+        "lastModifiedTime": {
+          "type": "string",
+          "description": "Group last change datetime in ISO 8601 format",
+          "format": "date-time"
+        }
+      }
+    },
+    "GlipNavigationInfo": {
+      "type": "object",
+      "properties": {
+        "prevPageToken": {
+          "type": "string",
+          "description": "Previous page token. To get previous page, user should pass one of returned token in next request and, in turn, required page will be returned with new tokens"
+        },
+        "nextPageToken": {
+          "type": "string",
+          "description": "Next page token. To get next page, user should pass one of returned token in next request and, in turn, required page will be returned with new tokens"
+        }
+      }
+    },
+    "GlipPostInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a post"
+        },
+        "groupId": {
+          "type": "string",
+          "description": "Internal identifier of a group a post belongs to"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of a post",
+          "enum": [
+            "TextMessage",
+            "PersonJoined",
+            "PersonsAdded"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "description": "For 'TextMessage' post type only. Message text"
+        },
+        "creatorId": {
+          "type": "string",
+          "description": "Internal identifier of a user - author of a post"
+        },
+        "addedPersonIds": {
+          "type": "array",
+          "description": "For PersonsAdded post type only. Identifiers of persons added to a group",
+          "items": {
+            "type": "string"
+          }
+        },
+        "creationTime": {
+          "type": "string",
+          "description": "Post creation datetime in ISO 8601 format",
+          "format": "date-time"
+        },
+        "lastModifiedTime": {
+          "type": "string",
+          "description": "Post last modification datetime in ISO 8601 format",
+          "format": "date-time"
         }
       }
     },
@@ -8808,6 +8929,335 @@
           "$ref": "#/parameters/timezoneId"
         }
       ]
+    },
+    "/restapi/v1.0/glip/companies/{companyId}": {
+      "get": {
+        "tags": [
+          "Glip"
+        ],
+        "description": "Get Company by ID",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Internal identifier of an RC account/Glip company, or tilde (~) to indicate a company the current user belongs to"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of a company"
+                },
+                "domain": {
+                  "type": "string",
+                  "description": "Domain name of a company"
+                },
+                "creationTime": {
+                  "type": "string",
+                  "description": "Datetime of creation in ISO 8601 format"
+                },
+                "lastModifiedTime": {
+                  "type": "string",
+                  "description": "Datetime of last modification in ISO 8601 format"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/companyId"
+        }
+      ]
+    },
+    "/restapi/v1.0/glip/groups": {
+      "post": {
+        "tags": [
+          "Glip"
+        ],
+        "description": "Create Group",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GlipGroupInfo"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "description": "Type of a group to be created. 'PrivateChat' is a group of 2 members. 'Team' is a chat of 1 and more participants, the membership can be modified in future",
+                  "enum": [
+                    "PrivateChat",
+                    "Team"
+                  ]
+                },
+                "isPublic": {
+                  "type": "boolean",
+                  "description": "For 'Team' group type only. Team access level"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "For 'Team' group type only. Team name"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "For 'Team' group type only. Team description"
+                },
+                "members": {
+                  "type": "array",
+                  "description": "Identifier(s) of group members. For 'PrivateChat' group type 2 members only are supported",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Glip"
+        ],
+        "description": "Get Group List",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "records": {
+                  "type": "array",
+                  "description": "List of groups/teams/private chats",
+                  "items": {
+                    "$ref": "#/definitions/GlipGroupInfo"
+                  }
+                },
+                "navigation": {
+                  "$ref": "#/definitions/GlipNavigationInfo",
+                  "description": "Information on navigation"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Type of a group. 'PrivateChat' is a group of 2 members. 'Group' is a chat of 2 and more participants, the membership cannot be changed after group creation. 'Team' is a chat of 1 and more participants, the membership can be modified in future",
+            "enum": [
+              "PrivateChat",
+              "Group",
+              "Team"
+            ],
+            "name": "type",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "Token of a page to be returned, see Glip Navigation Info",
+            "name": "pageToken",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "description": "Max numbers of records to be returned. The default/maximum value is 250",
+            "name": "recordCount",
+            "in": "query"
+          }
+        ]
+      }
+    },
+    "/restapi/v1.0/glip/groups/{groupId}": {
+      "get": {
+        "tags": [
+          "Glip"
+        ],
+        "description": "Get Group by ID",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GlipGroupInfo"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/groupId"
+        }
+      ]
+    },
+    "/restapi/v1.0/glip/groups/{groupId}/bulk-assign": {
+      "post": {
+        "tags": [
+          "Glip"
+        ],
+        "description": "Edit Group Members",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GlipGroupInfo"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "addedPersonIds": {
+                  "type": "array",
+                  "description": "List of users to be added to the team",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "addedPersonEmails": {
+                  "type": "array",
+                  "description": "List of user email addresses to be added to the team (i.e. as guests)",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "removedPersonIds": {
+                  "type": "array",
+                  "description": "List of users to be removed from the team",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/groupId"
+        }
+      ]
+    },
+    "/restapi/v1.0/glip/persons/{personId}": {
+      "get": {
+        "tags": [
+          "Glip"
+        ],
+        "description": "Get Person by ID",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Internal identifier of a user"
+                },
+                "firstName": {
+                  "type": "string",
+                  "description": "First name of a user"
+                },
+                "lastName": {
+                  "type": "string",
+                  "description": "Last name of a user"
+                },
+                "email": {
+                  "type": "string",
+                  "description": "Email of a user"
+                },
+                "avatar": {
+                  "type": "string",
+                  "description": "Photo of a user"
+                },
+                "companyId": {
+                  "type": "string",
+                  "description": "Internal identifier of a company"
+                },
+                "creationTime": {
+                  "type": "string",
+                  "description": "Time of creation in ISO 8601 format",
+                  "format": "date-time"
+                },
+                "lastModifiedTime": {
+                  "type": "string",
+                  "description": "Time of last modification in ISO 8601 format",
+                  "format": "date-time"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/personId"
+        }
+      ]
+    },
+    "/restapi/v1.0/glip/posts": {
+      "get": {
+        "tags": [
+          "Glip"
+        ],
+        "description": "Get Posts",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "records": {
+                  "type": "array",
+                  "description": "List of posts",
+                  "items": {
+                    "$ref": "#/definitions/GlipPostInfo"
+                  }
+                },
+                "navigation": {
+                  "$ref": "#/definitions/GlipNavigationInfo",
+                  "description": "Information on navigation"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Identifier of a group to filter posts",
+            "name": "groupId",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "Token of a page to be returned, see Glip Navigation Info",
+            "name": "pageToken",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "description": "Max numbers of records to be returned. The default/maximum value is 250",
+            "name": "recordCount",
+            "in": "query"
+          }
+        ]
+      }
     },
     "/restapi/v1.0/number-parser/parse": {
       "post": {
