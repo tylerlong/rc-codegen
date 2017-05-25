@@ -9211,6 +9211,39 @@
       ]
     },
     "/restapi/v1.0/glip/posts": {
+      "post": {
+        "tags": [
+          "Glip"
+        ],
+        "description": "Create Post",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GlipPostInfo"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "groupId": {
+                  "type": "string",
+                  "description": "Internal identifier of a group to send post to"
+                },
+                "text": {
+                  "type": "string",
+                  "description": "Text of a post, the maximum is 10000 characters"
+                }
+              }
+            }
+          }
+        ]
+      },
       "get": {
         "tags": [
           "Glip"
