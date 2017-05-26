@@ -1,11 +1,12 @@
 package com.ringcentral.paths;
 import com.ringcentral.definitions.*;
+import com.ringcentral.HttpModel;
 
 public class {{ className }}
 {
     {% for method in methods %}
         {% for definition in method.definitions %}
-            static {% include "Definition.njk" %}
+            {% include "Definition.njk" %}
         {% endfor %}
     {% endfor %}
 }

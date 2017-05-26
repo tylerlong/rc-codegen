@@ -1,9 +1,11 @@
-{% if withPackage %}
+{% if topLevel %}
 package com.ringcentral.definitions;
 import com.alibaba.fastjson.annotation.JSONField;
-{% endif %}
 
 public class {{ definition.name }}
+{% else %}
+public static class {{ definition.name }} implements HttpModel
+{% endif %}
 {
     {% for field in definition.fields %}
         // {{ field.description }}

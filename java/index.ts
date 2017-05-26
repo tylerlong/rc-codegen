@@ -54,7 +54,7 @@ const generate_definitions = (definitions) => {
 const render_definitions = (output: string) => {
   const definitions = generate_definitions(swagger.definitions);
   for (const definition of definitions) {
-    let code = engine.render('Definition.njk', { definition, withPackage: true });
+    let code = engine.render('Definition.njk', { definition, topLevel: true });
     code = format_code(code);
     fs.writeFileSync(path.join(output, 'definitions', `${definition.name}.java`), code);
   }
