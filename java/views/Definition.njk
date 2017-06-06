@@ -4,7 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 public class {{ definition.name }}
 {% else %}
-public static class {{ definition.name }} implements RequestParameters
+public static class {{ definition.name }}
 {% endif %}
 {
     {% for field in definition.fields %}
