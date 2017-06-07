@@ -1,17 +1,15 @@
 package com.ringcentral.paths;
 
+import com.ringcentral.Path;
+import com.ringcentral.RestClient;
 import com.ringcentral.definitions.*;
 import com.ringcentral.PathSegment;
 
-public class {{ className }} {
-    private PathSegment pathSegment;
+public class {{ className }} extends Path {
 
-    public {{ className }} (PathSegment parent, String id) {
+    public {{ className }} (RestClient restClient, PathSegment parent, String id) {
+      this.restClient = restClient;
       pathSegment = new PathSegment(parent, "{{ segment }}", id);
-    }
-
-    public String endpoint() {
-      return pathSegment.endpoint();
     }
 
     {% for child in myChildren %}
