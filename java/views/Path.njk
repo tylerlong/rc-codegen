@@ -1,4 +1,5 @@
 package com.ringcentral.paths;
+
 import com.ringcentral.definitions.*;
 import com.ringcentral.PathSegment;
 
@@ -12,6 +13,10 @@ public class {{ className }} {
     public String endpoint() {
       return pathSegment.endpoint();
     }
+
+    {% for child in myChildren %}
+        {% include "Child.njk" %}
+    {% endfor %}
 
     {% for method in methods %}
         {% for definition in method.definitions %}

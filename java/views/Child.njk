@@ -1,0 +1,12 @@
+{% if child.hasId > -1 %} {# Yes or Maybe #}
+    public {{ child.PascalCase }} {{ child.camelCase }}(String id)
+    {
+      return new {{ child.PascalCase }}(pathSegment, id);
+    }
+{% endif %}
+{% if child.hasId < 1 or child.camelCase == 'account' %} {# Maybe or No #}
+    public {{ child.PascalCase }} {{ child.camelCase }}()
+    {
+      return new {{ child.PascalCase }}(pathSegment{% if child.camelCase == 'account' or child.camelCase == 'extension' %}, "~"{% else %}, null{% endif %});
+    }
+{% endif %}
