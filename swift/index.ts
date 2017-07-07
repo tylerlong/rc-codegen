@@ -44,6 +44,9 @@ const get_type = (type, format, ref, items) => {
   if (type === 'integer') {
     return 'Int';
   }
+  if (type === 'number') {
+    return 'Double';
+  }
   if (type === 'array') {
     return '[' + _.upperFirst(_.last<string>((items.type || items.$ref).split('/')).replace(/\./g, '_')) + ']';
   }
