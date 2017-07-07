@@ -29,6 +29,9 @@ const get_type = (type, format, ref, items) => {
   if (type === 'integer') {
     return 'Long';
   }
+  if (type === 'number') {
+    return 'Double';
+  }
   if (type === 'array') {
     let type = _.last<string>((items.type || items.$ref).split('/')).replace(/\./g, '_');
     type = _.upperFirst(type);
