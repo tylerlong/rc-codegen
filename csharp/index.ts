@@ -44,6 +44,9 @@ const get_type = (type, format, ref, items) => {
   if (type === 'integer') {
     return 'long?';
   }
+  if (type === 'number') {
+    return 'double?';
+  }
   if (type === 'array') {
     let type = _.last<string>((items.type || items.$ref).split('/')).replace(/\./g, '_');
     if (type !== 'string') {
