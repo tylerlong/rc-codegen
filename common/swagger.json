@@ -3878,7 +3878,7 @@
       "type": "object",
       "properties": {
         "extensionId": {
-          "type": "string",
+          "type": "integer",
           "description": "Internal identifier of an extension. Optional parameter",
           "default": "~"
         },
