@@ -2,3 +2,4 @@
 *.map
 node_modules/
 typescript/gen/
+.DS_Store
