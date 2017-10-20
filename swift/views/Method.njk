@@ -7,7 +7,9 @@
 {% endmacro %}
 
 
-// {{ method.description }}
+/*
+{{ method.description }}
+*/
 {% if method.responseName == '' %}
     open func {{ method.method }}(callback: @escaping (_ error: HTTPError?) -> Void) {
         rc.{{ method.method | http_method }}String({{ endpoint(method) | trim }}) { string, error in
@@ -15,13 +17,17 @@
         }
     }
     {% if method.parametersName != '' %}
-        // {{ method.description }}
+        /*
+        {{ method.description }}
+        */
         open func {{ method.method }}(parameters: Parameters, callback: @escaping (_ error: HTTPError?) -> Void) {
             rc.{{ method.method | http_method }}String({{ endpoint(method) | trim }}, parameters: parameters) { string, error in
               callback(error)
             }
         }
-        // {{ method.description }}
+        /*
+        {{ method.description }}
+        */
         open func {{ method.method }}(parameters: {{ method.parametersName }}, callback: @escaping (_ error: HTTPError?) -> Void) {
             {{ method.method }}(parameters: parameters.toParameters(), callback: callback)
         }
@@ -33,13 +39,17 @@
       }
     }
     {% if method.parametersName != '' %}
-        // {{ method.description }}
+        /*
+        {{ method.description }}
+        */
         open func {{ method.method }}(parameters: Parameters, callback: @escaping (_ t: {{ method.responseName }}?, _ error: HTTPError?) -> Void) {
           rc.{{ method.method | http_method }}({{ endpoint(method) | trim }}, parameters: parameters) { (t: {{ method.responseName }}?, error) in
               callback(t, error)
           }
         }
-        // {{ method.description }}
+        /*
+        {{ method.description }}
+        */
         open func {{ method.method }}(parameters: {{ method.parametersName }}, callback: @escaping (_ t: {{ method.responseName }}?, _ error: HTTPError?) -> Void) {
             {{ method.method }}(parameters: parameters.toParameters(), callback: callback)
         }

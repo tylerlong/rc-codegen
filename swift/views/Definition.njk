@@ -6,7 +6,9 @@ import ObjectMapper
 open class {{ definition.name }}: Mappable {
 
   {% for field in definition.fields %}
-    // {{ field.description }}
+    /*
+    {{ field.description }}
+    */
     open var `{{ field.name }}`: {{ field.type }}?
   {% endfor %}
 
