@@ -67,10 +67,13 @@ for (const path of paths) {
   const pathBody = swagger.paths[path];
   const methods = actions.get(segment) || []; // get, post, put, delete, list
   for (let method of Object.keys(pathBody)) {
-    if (method == 'parameters') {
+    if (!_.includes(['get', 'post', 'put', 'delete'], method)) {
       continue;
     }
     const methodBody = pathBody[method];
+    if (methodBody['x-status'] === 'Disabled' || methodBody['x-status'] === 'Deprecated') {
+      continue;
+    }
     if (method == 'get') {
       if (path == '/restapi') {
         method = 'list';
@@ -147,10 +150,13 @@ for (const path of paths) {
   const pathBody = swagger.paths[path];
   const methods = operations.get(segment) || []; // get, post, put, delete, list
   for (let method of Object.keys(pathBody)) {
-    if (method == 'parameters') {
+    if (!_.includes(['get', 'post', 'put', 'delete'], method)) {
       continue;
     }
     const methodBody = pathBody[method];
+    if (methodBody['x-status'] === 'Disabled' || methodBody['x-status'] === 'Deprecated') {
+      continue;
+    }
     if (method == 'get' && isListType(methodBody.responses.default.schema)) {
       method = 'list';
     }

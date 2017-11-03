@@ -26,6 +26,9 @@ const PascalCase = (str: string): string => {
  * Test if response is a list
  */
 const isListType = (schema): boolean => {
+  if (!schema) {
+    return false;
+  }
   var props = schema.properties;
   if (schema.type == "object" && props && props.records && props.records.type === 'array') {
     return true;// "PageResult";
