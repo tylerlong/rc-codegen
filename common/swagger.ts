@@ -71,7 +71,7 @@ for (const path of paths) {
       continue;
     }
     const methodBody = pathBody[method];
-    if (methodBody['x-status'] === 'Disabled' || methodBody['x-status'] === 'Deprecated') {
+    if (methodBody['x-status'] === 'Disabled' || methodBody['x-status'] === 'Deprecated' || methodBody['x-accessLevel'] === 'Internal') {
       continue;
     }
     if (method == 'get') {
@@ -154,7 +154,7 @@ for (const path of paths) {
       continue;
     }
     const methodBody = pathBody[method];
-    if (methodBody['x-status'] === 'Disabled' || methodBody['x-status'] === 'Deprecated') {
+    if (methodBody['x-status'] === 'Disabled' || methodBody['x-status'] === 'Deprecated' || methodBody['x-accessLevel'] === 'Internal') {
       continue;
     }
     if (method == 'get' && isListType(methodBody.responses.default.schema)) {
