@@ -7,7 +7,7 @@
     "termsOfService": "https://developer.ringcentral.com"
   },
   "host": "api.ringcentral.com",
-  "basePath": "/restapi",
+  "basePath": "/",
   "schemes": [
     "https"
   ],
@@ -18008,7 +18008,7 @@
     }
   },
   "paths": {
-    "/": {
+    "/restapi": {
       "get": {
         "x-createdAt": 1509612698622,
         "tags": [
@@ -18031,7 +18031,7 @@
         "get"
       ]
     },
-    "/{apiVersion}": {
+    "/restapi/{apiVersion}": {
       "get": {
         "x-createdAt": 1509612698625,
         "tags": [
@@ -18059,7 +18059,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/call-log": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/call-log": {
       "get": {
         "x-createdAt": 1509612698628,
         "tags": [
@@ -18267,7 +18267,7 @@
         "delete"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/call-log-sync": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/call-log-sync": {
       "get": {
         "x-createdAt": 1509612698652,
         "tags": [
@@ -18352,7 +18352,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/call-log/{callRecordId}": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/call-log/{callRecordId}": {
       "get": {
         "x-createdAt": 1509612698660,
         "tags": [
@@ -18398,7 +18398,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/active-calls": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/active-calls": {
       "get": {
         "x-createdAt": 1509612698664,
         "tags": [
@@ -18479,7 +18479,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/call-log": {
+    "/restapi/v1.0/account/{accountId}/call-log": {
       "get": {
         "x-createdAt": 1509612698672,
         "tags": [
@@ -18640,7 +18640,7 @@
         "delete"
       ]
     },
-    "/v1.0/account/{accountId}/call-log-sync": {
+    "/restapi/v1.0/account/{accountId}/call-log-sync": {
       "get": {
         "x-createdAt": 1509612698689,
         "tags": [
@@ -18713,7 +18713,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/call-log/{callRecordId}": {
+    "/restapi/v1.0/account/{accountId}/call-log/{callRecordId}": {
       "get": {
         "x-createdAt": 1509612698696,
         "tags": [
@@ -18757,7 +18757,7 @@
         "delete"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/phone-number": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/phone-number": {
       "get": {
         "x-createdAt": 1509612698700,
         "tags": [
@@ -18830,7 +18830,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/sms": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/sms": {
       "post": {
         "x-createdAt": 1509612698707,
         "tags": [
@@ -18871,7 +18871,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/company-pager": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/company-pager": {
       "post": {
         "x-createdAt": 1509612698711,
         "tags": [
@@ -18912,7 +18912,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/fax": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/fax": {
       "post": {
         "x-createdAt": 1509612698715,
         "tags": [
@@ -18939,7 +18939,7 @@
         "post"
       ]
     },
-    "/v1.0/dictionary/fax-cover-page": {
+    "/restapi/v1.0/dictionary/fax-cover-page": {
       "get": {
         "x-createdAt": 1509612698717,
         "tags": [
@@ -18975,7 +18975,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/message-store": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store": {
       "get": {
         "x-createdAt": 1509612698721,
         "tags": [
@@ -19146,7 +19146,7 @@
         "delete"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}": {
       "get": {
         "x-createdAt": 1509612698738,
         "tags": [
@@ -19240,7 +19240,7 @@
         "delete"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}/content/{attachmentId}": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}/content/{attachmentId}": {
       "get": {
         "x-createdAt": 1509612698747,
         "tags": [
@@ -19283,7 +19283,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/message-sync": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/message-sync": {
       "get": {
         "x-createdAt": 1509612698750,
         "tags": [
@@ -19411,7 +19411,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/ringout": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/ringout": {
       "post": {
         "x-createdAt": 1509612698763,
         "tags": [
@@ -19452,7 +19452,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/ringout/direct": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/ringout/direct": {
       "post": {
         "x-createdAt": 1509612698767,
         "tags": [
@@ -19487,7 +19487,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/ringout/{ringoutId}": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/ringout/{ringoutId}": {
       "get": {
         "x-createdAt": 1509612698771,
         "tags": [
@@ -19535,7 +19535,7 @@
         "delete"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/ring-out": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/ring-out": {
       "post": {
         "x-createdAt": 1509612698775,
         "tags": [
@@ -19576,7 +19576,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/direct-ring-out": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/direct-ring-out": {
       "post": {
         "x-createdAt": 1509612698779,
         "tags": [
@@ -19612,7 +19612,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/ring-out/{ringoutId}": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/ring-out/{ringoutId}": {
       "get": {
         "x-createdAt": 1509612698782,
         "tags": [
@@ -19660,7 +19660,7 @@
         "delete"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/address-book/contact": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/address-book/contact": {
       "get": {
         "x-createdAt": 1509612698786,
         "tags": [
@@ -19765,7 +19765,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/address-book/contact/{contactId}": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/address-book/contact/{contactId}": {
       "get": {
         "x-createdAt": 1509612698796,
         "tags": [
@@ -19833,7 +19833,7 @@
         "delete"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/address-book-sync": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/address-book-sync": {
       "get": {
         "x-createdAt": 1509612698801,
         "tags": [
@@ -19906,7 +19906,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/favorite": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/favorite": {
       "get": {
         "x-createdAt": 1509612698808,
         "tags": [
@@ -19955,7 +19955,7 @@
         "put"
       ]
     },
-    "/v1.0/account/{accountId}/directory/contacts": {
+    "/restapi/v1.0/account/{accountId}/directory/contacts": {
       "get": {
         "x-createdAt": 1509612698812,
         "tags": [
@@ -20011,7 +20011,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/directory/contacts/{contactId}": {
+    "/restapi/v1.0/account/{accountId}/directory/contacts/{contactId}": {
       "get": {
         "x-createdAt": 1509612698818,
         "tags": [
@@ -20042,7 +20042,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/directory/federation": {
+    "/restapi/v1.0/account/{accountId}/directory/federation": {
       "get": {
         "x-createdAt": 1509612698821,
         "tags": [
@@ -20070,7 +20070,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/directory/federation-conflicts": {
+    "/restapi/v1.0/account/{accountId}/directory/federation-conflicts": {
       "get": {
         "x-createdAt": 1509612698824,
         "tags": [
@@ -20098,7 +20098,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/directory/extension-numbers": {
+    "/restapi/v1.0/account/{accountId}/directory/extension-numbers": {
       "get": {
         "x-createdAt": 1509612698827,
         "tags": [
@@ -20126,7 +20126,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension": {
+    "/restapi/v1.0/account/{accountId}/extension": {
       "get": {
         "x-createdAt": 1509612698830,
         "tags": [
@@ -20240,7 +20240,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/bot": {
+    "/restapi/v1.0/account/{accountId}/bot": {
       "post": {
         "x-createdAt": 1509612698840,
         "tags": [
@@ -20278,7 +20278,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/presence": {
+    "/restapi/v1.0/account/{accountId}/presence": {
       "get": {
         "x-createdAt": 1509612698844,
         "tags": [
@@ -20301,7 +20301,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/presence": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/presence": {
       "get": {
         "x-createdAt": 1509612698846,
         "tags": [
@@ -20359,7 +20359,7 @@
         "put"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/presence/line": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/presence/line": {
       "get": {
         "x-createdAt": 1509612698852,
         "tags": [
@@ -20403,7 +20403,7 @@
         "put"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/presence/line/{lineId}": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/presence/line/{lineId}": {
       "get": {
         "x-createdAt": 1509612698856,
         "tags": [
@@ -20436,7 +20436,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/presence/permission": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/presence/permission": {
       "get": {
         "x-createdAt": 1509612698859,
         "tags": [
@@ -20493,7 +20493,7 @@
         "put"
       ]
     },
-    "/v1.0/glip/companies/{companyId}": {
+    "/restapi/v1.0/glip/companies/{companyId}": {
       "get": {
         "x-createdAt": 1509612698865,
         "tags": [
@@ -20521,7 +20521,7 @@
         "get"
       ]
     },
-    "/v1.0/glip/groups": {
+    "/restapi/v1.0/glip/groups": {
       "get": {
         "x-createdAt": 1509612698868,
         "tags": [
@@ -20604,7 +20604,7 @@
         "post"
       ]
     },
-    "/v1.0/glip/groups/{groupId}": {
+    "/restapi/v1.0/glip/groups/{groupId}": {
       "get": {
         "x-createdAt": 1509612698877,
         "tags": [
@@ -20632,7 +20632,7 @@
         "get"
       ]
     },
-    "/v1.0/glip/groups/{groupId}/bulk-assign": {
+    "/restapi/v1.0/glip/groups/{groupId}/bulk-assign": {
       "post": {
         "x-createdAt": 1509612698880,
         "tags": [
@@ -20670,7 +20670,7 @@
         "post"
       ]
     },
-    "/v1.0/glip/persons/{personId}": {
+    "/restapi/v1.0/glip/persons/{personId}": {
       "get": {
         "x-createdAt": 1509612698884,
         "tags": [
@@ -20698,7 +20698,7 @@
         "get"
       ]
     },
-    "/v1.0/glip/posts": {
+    "/restapi/v1.0/glip/posts": {
       "get": {
         "x-createdAt": 1509612698887,
         "tags": [
@@ -20776,7 +20776,7 @@
         "post"
       ]
     },
-    "/v1.0/glip/files": {
+    "/restapi/v1.0/glip/files": {
       "post": {
         "x-createdAt": 1509612698896,
         "tags": [
@@ -20817,7 +20817,7 @@
         "post"
       ]
     },
-    "/v1.0/glip/files/{fileId}": {
+    "/restapi/v1.0/glip/files/{fileId}": {
       "get": {
         "x-createdAt": 1509612698901,
         "tags": [
@@ -20845,7 +20845,7 @@
         "get"
       ]
     },
-    "/v1.0/glip/profile": {
+    "/restapi/v1.0/glip/profile": {
       "get": {
         "x-createdAt": 1509612698904,
         "tags": [
@@ -20878,7 +20878,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/meeting": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting": {
       "get": {
         "x-createdAt": 1509612698908,
         "tags": [
@@ -20931,7 +20931,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/meeting/{meetingId}": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/{meetingId}": {
       "get": {
         "x-createdAt": 1509612698913,
         "tags": [
@@ -21004,7 +21004,7 @@
         "delete"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/meeting/{meetingId}/end": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/{meetingId}/end": {
       "post": {
         "x-createdAt": 1509612698920,
         "tags": [
@@ -21033,7 +21033,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/meeting/service-info": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/service-info": {
       "get": {
         "x-createdAt": 1509612698922,
         "tags": [
@@ -21063,7 +21063,7 @@
         "get"
       ]
     },
-    "/v1.0/subscription": {
+    "/restapi/v1.0/subscription": {
       "get": {
         "x-createdAt": 1509612698925,
         "tags": [
@@ -21121,7 +21121,7 @@
         "post"
       ]
     },
-    "/v1.0/subscription/{subscriptionId}": {
+    "/restapi/v1.0/subscription/{subscriptionId}": {
       "get": {
         "x-createdAt": 1509612698932,
         "tags": [
@@ -21199,7 +21199,7 @@
         "delete"
       ]
     },
-    "/v1.0/subscription/{subscriptionId}/renew": {
+    "/restapi/v1.0/subscription/{subscriptionId}/renew": {
       "get": {
         "x-createdAt": 1509612698940,
         "tags": [
@@ -21227,7 +21227,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/authz-profile": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/authz-profile": {
       "get": {
         "x-createdAt": 1509612698943,
         "tags": [
@@ -21257,7 +21257,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/authz-profile/check": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/authz-profile/check": {
       "get": {
         "x-createdAt": 1509612698946,
         "tags": [
@@ -21303,7 +21303,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/user-role/default": {
+    "/restapi/v1.0/account/{accountId}/user-role/default": {
       "get": {
         "x-createdAt": 1509612698951,
         "tags": [
@@ -21351,7 +21351,7 @@
         "put"
       ]
     },
-    "/v1.0/dictionary/user-role": {
+    "/restapi/v1.0/dictionary/user-role": {
       "get": {
         "x-createdAt": 1509612698956,
         "tags": [
@@ -21404,7 +21404,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/user-role/{roleId}": {
+    "/restapi/v1.0/dictionary/user-role/{roleId}": {
       "get": {
         "x-createdAt": 1509612698963,
         "tags": [
@@ -21441,7 +21441,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/permission": {
+    "/restapi/v1.0/dictionary/permission": {
       "get": {
         "x-createdAt": 1509612698967,
         "tags": [
@@ -21501,7 +21501,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/permission-category": {
+    "/restapi/v1.0/dictionary/permission-category": {
       "get": {
         "x-createdAt": 1509612698975,
         "tags": [
@@ -21554,7 +21554,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/permission-category/{permissionCategoryId}": {
+    "/restapi/v1.0/dictionary/permission-category/{permissionCategoryId}": {
       "get": {
         "x-createdAt": 1509612698982,
         "tags": [
@@ -21591,7 +21591,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/permission/{permissionId}": {
+    "/restapi/v1.0/dictionary/permission/{permissionId}": {
       "get": {
         "x-createdAt": 1509612698986,
         "tags": [
@@ -21628,7 +21628,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/forwarding-number": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/forwarding-number": {
       "get": {
         "x-createdAt": 1509612698990,
         "tags": [
@@ -21713,7 +21713,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/forwarding-number/{forwardingNumberId}": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/forwarding-number/{forwardingNumberId}": {
       "get": {
         "x-createdAt": 1509612698999,
         "tags": [
@@ -21798,7 +21798,7 @@
         "delete"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/blocked-number": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/blocked-number": {
       "get": {
         "x-createdAt": 1509612699007,
         "tags": [
@@ -21873,7 +21873,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/blocked-number/{blockedNumberId}": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/blocked-number/{blockedNumberId}": {
       "get": {
         "x-createdAt": 1509612699014,
         "tags": [
@@ -21941,7 +21941,7 @@
         "delete"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/business-hours": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/business-hours": {
       "get": {
         "x-createdAt": 1509612699019,
         "tags": [
@@ -22010,7 +22010,7 @@
         "put"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/answering-rule": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/answering-rule": {
       "get": {
         "x-createdAt": 1509612699026,
         "tags": [
@@ -22089,7 +22089,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/answering-rule/{ruleId}": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/answering-rule/{ruleId}": {
       "get": {
         "x-createdAt": 1509612699034,
         "tags": [
@@ -22174,7 +22174,7 @@
         "delete"
       ]
     },
-    "/v1.0/dictionary/greeting": {
+    "/restapi/v1.0/dictionary/greeting": {
       "get": {
         "x-createdAt": 1509612699042,
         "tags": [
@@ -22217,7 +22217,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/greeting/{greetingId}": {
+    "/restapi/v1.0/dictionary/greeting/{greetingId}": {
       "get": {
         "x-createdAt": 1509612699047,
         "tags": [
@@ -22240,7 +22240,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/greeting": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/greeting": {
       "post": {
         "x-createdAt": 1509612699049,
         "tags": [
@@ -22276,7 +22276,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/greeting/{greetingId}": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/greeting/{greetingId}": {
       "get": {
         "x-createdAt": 1509612699052,
         "tags": [
@@ -22305,7 +22305,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/business-hours": {
+    "/restapi/v1.0/account/{accountId}/business-hours": {
       "get": {
         "x-createdAt": 1509612699054,
         "tags": [
@@ -22361,7 +22361,7 @@
         "put"
       ]
     },
-    "/v1.0/account/{accountId}/greeting": {
+    "/restapi/v1.0/account/{accountId}/greeting": {
       "get": {
         "x-createdAt": 1509612699060,
         "tags": [
@@ -22398,7 +22398,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/answering-rule": {
+    "/restapi/v1.0/account/{accountId}/answering-rule": {
       "get": {
         "x-createdAt": 1509612699064,
         "tags": [
@@ -22454,7 +22454,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/answering-rule/{ruleId}": {
+    "/restapi/v1.0/account/{accountId}/answering-rule/{ruleId}": {
       "get": {
         "x-createdAt": 1509612699070,
         "tags": [
@@ -22513,7 +22513,7 @@
         "put"
       ]
     },
-    "/v1.0/account/{accountId}/ivr-menus/{ivrMenuId}": {
+    "/restapi/v1.0/account/{accountId}/ivr-menus/{ivrMenuId}": {
       "get": {
         "x-createdAt": 1509612699076,
         "tags": [
@@ -22544,7 +22544,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/ivr-prompts": {
+    "/restapi/v1.0/account/{accountId}/ivr-prompts": {
       "get": {
         "x-createdAt": 1509612699079,
         "tags": [
@@ -22590,7 +22590,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/ivr-prompts/{promptId}": {
+    "/restapi/v1.0/account/{accountId}/ivr-prompts/{promptId}": {
       "get": {
         "x-createdAt": 1509612699084,
         "tags": [
@@ -22635,7 +22635,7 @@
         "delete"
       ]
     },
-    "/v1.0/account/{accountId}/ivr-prompts/{promptId}/content": {
+    "/restapi/v1.0/account/{accountId}/ivr-prompts/{promptId}/content": {
       "get": {
         "x-createdAt": 1509612699088,
         "tags": [
@@ -22662,7 +22662,7 @@
         "get"
       ]
     },
-    "/v1.0/client-info": {
+    "/restapi/v1.0/client-info": {
       "get": {
         "x-createdAt": 1509612699090,
         "tags": [
@@ -22685,7 +22685,7 @@
         "get"
       ]
     },
-    "/v1.0/client-info/sip-provision": {
+    "/restapi/v1.0/client-info/sip-provision": {
       "post": {
         "x-createdAt": 1509612699093,
         "tags": [
@@ -22718,7 +22718,7 @@
         "post"
       ]
     },
-    "/v1.0/client-info/banners": {
+    "/restapi/v1.0/client-info/banners": {
       "get": {
         "x-createdAt": 1509612699097,
         "tags": [
@@ -22749,7 +22749,7 @@
         "get"
       ]
     },
-    "/v1.0/client-info/custom-data/{key}": {
+    "/restapi/v1.0/client-info/custom-data/{key}": {
       "get": {
         "x-createdAt": 1509612699101,
         "tags": [
@@ -22817,7 +22817,7 @@
         "delete"
       ]
     },
-    "/v1.0/client-info/custom-data/{key}/content": {
+    "/restapi/v1.0/client-info/custom-data/{key}/content": {
       "get": {
         "x-createdAt": 1509612699108,
         "tags": [
@@ -22840,7 +22840,7 @@
         "get"
       ]
     },
-    "/v1.0/client-info/special-number-rule": {
+    "/restapi/v1.0/client-info/special-number-rule": {
       "get": {
         "x-createdAt": 1509612699110,
         "tags": [
@@ -22873,7 +22873,7 @@
         "get"
       ]
     },
-    "/v1.0/number-parser/phonedata.xml": {
+    "/restapi/v1.0/number-parser/phonedata.xml": {
       "get": {
         "x-createdAt": 1509612699114,
         "tags": [
@@ -22892,7 +22892,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}": {
       "get": {
         "x-createdAt": 1509612699116,
         "tags": [
@@ -22960,7 +22960,7 @@
         "delete"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/caller-id": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-id": {
       "get": {
         "x-createdAt": 1509612699122,
         "tags": [
@@ -23019,7 +23019,7 @@
         "put"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/credentials": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/credentials": {
       "get": {
         "x-createdAt": 1509612699128,
         "tags": [
@@ -23078,7 +23078,7 @@
         "put"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/credentials/validate": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/credentials/validate": {
       "post": {
         "x-createdAt": 1509612699134,
         "tags": [
@@ -23115,7 +23115,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/credentials/verify": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/credentials/verify": {
       "post": {
         "x-createdAt": 1509612699137,
         "tags": [
@@ -23152,7 +23152,7 @@
         "post"
       ]
     },
-    "/v1.0/dictionary/secret-question": {
+    "/restapi/v1.0/dictionary/secret-question": {
       "get": {
         "x-createdAt": 1509612699140,
         "tags": [
@@ -23198,7 +23198,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/secret-question/{questionId}": {
+    "/restapi/v1.0/dictionary/secret-question/{questionId}": {
       "get": {
         "x-createdAt": 1509612699146,
         "tags": [
@@ -23226,7 +23226,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/grant": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/grant": {
       "get": {
         "x-createdAt": 1509612699149,
         "tags": [
@@ -23275,7 +23275,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/notification-settings": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/notification-settings": {
       "get": {
         "x-createdAt": 1509612699154,
         "tags": [
@@ -23332,7 +23332,7 @@
         "put"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/profile-image": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image": {
       "get": {
         "x-createdAt": 1509612699160,
         "tags": [
@@ -23384,7 +23384,7 @@
         "put"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/profile-image/{scaleSize}": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image/{scaleSize}": {
       "get": {
         "x-createdAt": 1509612699164,
         "tags": [
@@ -23414,7 +23414,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/conferencing": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/conferencing": {
       "get": {
         "x-createdAt": 1509612699166,
         "tags": [
@@ -23483,7 +23483,7 @@
         "put"
       ]
     },
-    "/v1.0/account/{accountId}": {
+    "/restapi/v1.0/account/{accountId}": {
       "get": {
         "x-createdAt": 1509612699173,
         "tags": [
@@ -23537,7 +23537,7 @@
         "delete"
       ]
     },
-    "/v1.0/account/{accountId}/business-address": {
+    "/restapi/v1.0/account/{accountId}/business-address": {
       "get": {
         "x-createdAt": 1509612699178,
         "tags": [
@@ -23599,7 +23599,7 @@
         "put"
       ]
     },
-    "/v1.0/account/{accountId}/service-info": {
+    "/restapi/v1.0/account/{accountId}/service-info": {
       "get": {
         "x-createdAt": 1509612699184,
         "tags": [
@@ -23665,7 +23665,7 @@
         "put"
       ]
     },
-    "/v1.0/account/{accountId}/dialing-plan": {
+    "/restapi/v1.0/account/{accountId}/dialing-plan": {
       "get": {
         "x-createdAt": 1509612699191,
         "tags": [
@@ -23711,7 +23711,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/language": {
+    "/restapi/v1.0/dictionary/language": {
       "get": {
         "x-createdAt": 1509612699196,
         "tags": [
@@ -23750,7 +23750,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/language/{languageId}": {
+    "/restapi/v1.0/dictionary/language/{languageId}": {
       "get": {
         "x-createdAt": 1509612699201,
         "tags": [
@@ -23778,7 +23778,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/country": {
+    "/restapi/v1.0/dictionary/country": {
       "get": {
         "x-createdAt": 1509612699204,
         "tags": [
@@ -23843,7 +23843,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/country/{countryId}": {
+    "/restapi/v1.0/dictionary/country/{countryId}": {
       "get": {
         "x-createdAt": 1509612699212,
         "tags": [
@@ -23881,7 +23881,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/location": {
+    "/restapi/v1.0/dictionary/location": {
       "get": {
         "x-createdAt": 1509612699216,
         "tags": [
@@ -23950,7 +23950,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/state": {
+    "/restapi/v1.0/dictionary/state": {
       "get": {
         "x-createdAt": 1509612699224,
         "tags": [
@@ -24007,7 +24007,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/state/{stateId}": {
+    "/restapi/v1.0/dictionary/state/{stateId}": {
       "get": {
         "x-createdAt": 1509612699231,
         "tags": [
@@ -24035,7 +24035,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/timezone": {
+    "/restapi/v1.0/dictionary/timezone": {
       "get": {
         "x-createdAt": 1509612699234,
         "tags": [
@@ -24076,7 +24076,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/timezone/{timezoneId}": {
+    "/restapi/v1.0/dictionary/timezone/{timezoneId}": {
       "get": {
         "x-createdAt": 1509612699239,
         "tags": [
@@ -24122,7 +24122,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/brand/{brandId}": {
+    "/restapi/v1.0/dictionary/brand/{brandId}": {
       "get": {
         "x-createdAt": 1509612699244,
         "tags": [
@@ -24149,7 +24149,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/service-plan/{servicePlanId}": {
+    "/restapi/v1.0/dictionary/service-plan/{servicePlanId}": {
       "get": {
         "x-createdAt": 1509612699247,
         "tags": [
@@ -24176,7 +24176,7 @@
         "get"
       ]
     },
-    "/v1.0/number-pool/lookup": {
+    "/restapi/v1.0/number-pool/lookup": {
       "post": {
         "x-createdAt": 1509612699250,
         "tags": [
@@ -24301,7 +24301,7 @@
         "post"
       ]
     },
-    "/v1.0/number-pool/reserve": {
+    "/restapi/v1.0/number-pool/reserve": {
       "post": {
         "x-createdAt": 1509612699265,
         "tags": [
@@ -24334,7 +24334,7 @@
         "post"
       ]
     },
-    "/v1.0/account": {
+    "/restapi/v1.0/account": {
       "post": {
         "x-createdAt": 1509612699269,
         "tags": [
@@ -24367,7 +24367,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/phone-number": {
+    "/restapi/v1.0/account/{accountId}/phone-number": {
       "get": {
         "x-createdAt": 1509612699273,
         "tags": [
@@ -24475,7 +24475,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/phone-number/{phoneNumberId}": {
+    "/restapi/v1.0/account/{accountId}/phone-number/{phoneNumberId}": {
       "get": {
         "x-createdAt": 1509612699284,
         "tags": [
@@ -24556,7 +24556,7 @@
         "delete"
       ]
     },
-    "/v1.0/number-parser/parse": {
+    "/restapi/v1.0/number-parser/parse": {
       "post": {
         "x-createdAt": 1509612699292,
         "tags": [
@@ -24605,7 +24605,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/device": {
+    "/restapi/v1.0/account/{accountId}/device": {
       "get": {
         "x-createdAt": 1509612699298,
         "tags": [
@@ -24633,7 +24633,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/device/{deviceId}": {
+    "/restapi/v1.0/account/{accountId}/device/{deviceId}": {
       "get": {
         "x-createdAt": 1509612699301,
         "tags": [
@@ -24691,7 +24691,7 @@
         "put"
       ]
     },
-    "/v1.0/account/{accountId}/extension/free-numbers": {
+    "/restapi/v1.0/account/{accountId}/extension/free-numbers": {
       "get": {
         "x-createdAt": 1509612699307,
         "tags": [
@@ -24718,7 +24718,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/device": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/device": {
       "get": {
         "x-createdAt": 1509612699310,
         "tags": [
@@ -24749,7 +24749,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/order": {
+    "/restapi/v1.0/account/{accountId}/order": {
       "post": {
         "x-createdAt": 1509612699313,
         "tags": [
@@ -24783,7 +24783,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/order/{orderId}": {
+    "/restapi/v1.0/account/{accountId}/order/{orderId}": {
       "get": {
         "x-createdAt": 1509612699316,
         "tags": [
@@ -24820,7 +24820,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/device": {
+    "/restapi/v1.0/dictionary/device": {
       "get": {
         "x-createdAt": 1509612699319,
         "tags": [
@@ -24858,7 +24858,7 @@
         "get"
       ]
     },
-    "/v1.0/dictionary/shipping-options": {
+    "/restapi/v1.0/dictionary/shipping-options": {
       "get": {
         "x-createdAt": 1509612699324,
         "tags": [
@@ -24904,7 +24904,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/licenses": {
+    "/restapi/v1.0/account/{accountId}/licenses": {
       "get": {
         "x-createdAt": 1509612699330,
         "tags": [
@@ -24961,7 +24961,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/licenses/bulk-purchase": {
+    "/restapi/v1.0/account/{accountId}/licenses/bulk-purchase": {
       "post": {
         "x-createdAt": 1509612699336,
         "tags": [
@@ -24995,7 +24995,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/licenses/{licenseId}": {
+    "/restapi/v1.0/account/{accountId}/licenses/{licenseId}": {
       "get": {
         "x-createdAt": 1509612699339,
         "tags": [
@@ -25040,7 +25040,7 @@
         "delete"
       ]
     },
-    "/v1.0/dictionary/license-types": {
+    "/restapi/v1.0/dictionary/license-types": {
       "get": {
         "x-createdAt": 1509612699343,
         "tags": [
@@ -25063,7 +25063,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/department/{departmentId}/members": {
+    "/restapi/v1.0/account/{accountId}/department/{departmentId}/members": {
       "get": {
         "x-createdAt": 1509612699346,
         "tags": [
@@ -25112,7 +25112,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/department/bulk-assign": {
+    "/restapi/v1.0/account/{accountId}/department/bulk-assign": {
       "post": {
         "x-createdAt": 1509612699351,
         "tags": [
@@ -25145,7 +25145,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/users": {
+    "/restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/users": {
       "get": {
         "x-createdAt": 1509612699354,
         "tags": [
@@ -25171,7 +25171,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/devices": {
+    "/restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/devices": {
       "get": {
         "x-createdAt": 1509612699356,
         "tags": [
@@ -25197,7 +25197,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/bulk-assign": {
+    "/restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/bulk-assign": {
       "post": {
         "x-createdAt": 1509612699358,
         "tags": [
@@ -25233,7 +25233,7 @@
         "post"
       ]
     },
-    "/v1.0/account/{accountId}/park-locations/{parkLocationId}/users": {
+    "/restapi/v1.0/account/{accountId}/park-locations/{parkLocationId}/users": {
       "get": {
         "x-createdAt": 1509612699361,
         "tags": [
@@ -25263,7 +25263,7 @@
         "get"
       ]
     },
-    "/v1.0/account/{accountId}/park-locations/{parkLocationId}/bulk-assign": {
+    "/restapi/v1.0/account/{accountId}/park-locations/{parkLocationId}/bulk-assign": {
       "post": {
         "x-createdAt": 1509612699364,
         "tags": [
@@ -25452,7 +25452,7 @@
         "delete"
       ]
     },
-    "/v1.0/account/{accountId}/extension/{extensionId}/reporting/settings": {
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/reporting/settings": {
       "get": {
         "x-createdAt": 1509612699383,
         "tags": [
