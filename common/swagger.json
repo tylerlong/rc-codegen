@@ -12466,7 +12466,6 @@
           "description": "Number of an IVR Menu extension"
         },
         "prompt": {
-          "type": "object",
           "description": "Prompt metadata",
           "$ref": "#/definitions/IVRMenuPromptInfo"
         },
@@ -12491,7 +12490,6 @@
           ]
         },
         "audio": {
-          "type": "object",
           "description": "For 'Audio' mode only. Prompt media reference",
           "$ref": "#/definitions/PromptLanguageInfo"
         },
@@ -12500,7 +12498,6 @@
           "description": "For 'TextToSpeech' mode only. Prompt text"
         },
         "language": {
-          "type": "object",
           "description": "For 'TextToSpeech' mode only. Prompt language metadata",
           "$ref": "#/definitions/AudioPromptInfo"
         }
@@ -12528,7 +12525,6 @@
           ]
         },
         "extension": {
-          "type": "object",
           "description": "For 'Connect' or 'Voicemail' actions only. Extension reference",
           "$ref": "#/definitions/IVRMenuExtensionInfo"
         },
@@ -12616,7 +12612,6 @@
           "description": "Link to a greeting content (audio file)"
         },
         "answeringRule": {
-          "type": "object",
           "description": "Information on an answering rule that the greeting is applied to",
           "$ref": "#/definitions/CustomGreetingAnsweringRuleInfo"
         }
@@ -12675,7 +12670,6 @@
           "description": "Canonical URI of a business-hours resource "
         },
         "schedule": {
-          "type": "object",
           "description": "Schedule when an answering rule is applied",
           "$ref": "#/definitions/CompanyBusinessHoursScheduleInfo"
         }
@@ -12685,7 +12679,6 @@
       "type": "object",
       "properties": {
         "schedule": {
-          "type": "object",
           "description": "Schedule when an answering rule is applied",
           "$ref": "#/definitions/CompanyBusinessHoursScheduleInfo"
         }
@@ -12694,7 +12687,6 @@
     "CompanyBusinessHoursScheduleInfo": {
       "properties": {
         "weeklyRanges": {
-          "type": "object",
           "$ref": "#/definitions/WeeklyScheduleInfo"
         }
       }
@@ -15085,7 +15077,6 @@
           "description": "Symbolic name associated with a party. If the phone does not belong to the known extension, only the location is returned, the name is not determined then"
         },
         "device": {
-          "type": "object",
           "$ref": "#/definitions/CallLogRecordDeviceInfo"
         }
       }
@@ -15597,20 +15588,19 @@
           "description": "Device name"
         },
         "addons": {
-          "type": "object",
           "description": "Addons description",
-          "properties": {
-            "id": {
-              "type": "string"
-            },
-            "count": {
-              "type": "integer"
-            }
-          }
+          "$ref": "#/definitions/AddonInfo"
+        }
+      }
+    },
+    "AddonInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
         },
         "count": {
-          "type": "integer",
-          "description": "Number of addons. For HardPhones of certain types, which are compatible with such addon identifier"
+          "type": "string"
         }
       }
     },
@@ -15691,62 +15681,69 @@
           "description": "Carrier-specific tracking number. Appears only if the device status is  Shipped "
         },
         "method": {
-          "type": "object",
           "description": "Shipping method information",
-          "properties": {
-            "id": {
-              "type": "string",
-              "description": "Method identifier. The default value is  1  (Ground)",
-              "enum": [
-                "string; 1",
-                "2",
-                "3"
-              ]
-            },
-            "name": {
-              "type": "string",
-              "description": "Method name, corresponding to the identifier",
-              "enum": [
-                "Ground",
-                "2 Day",
-                "Overnight"
-              ]
-            }
-          }
+          "$ref": "#/definitions/MethodInfo"
         },
         "address": {
           "type": "object",
           "description": "Shipping address for the order. If it coincides with the Emergency Service Address, then can be omitted. By default the same value as the emergencyServiceAddress. Multiple addresses can be specified; in case an order contains several devices, they can be delivered to different addresses",
-          "properties": {
-            "customerName": {
-              "type": "string",
-              "description": "Name of a receiver"
-            },
-            "street": {
-              "type": "string",
-              "description": "Street address, line 1 - street address, P.O. box, company name, c/o"
-            },
-            "street2": {
-              "type": "string",
-              "description": "Street address, line 2 - apartment, suite, unit, building, floor, etc."
-            },
-            "city": {
-              "type": "string",
-              "description": "City name"
-            },
-            "state": {
-              "type": "string",
-              "description": "State/province name"
-            },
-            "zip": {
-              "type": "string",
-              "description": "Zip code"
-            },
-            "country": {
-              "type": "string",
-              "description": "Country name"
-            }
-          }
+          "$ref": "#/definitions/ShippingAddressInfo"
+        }
+      }
+    },
+    "ShippingAddressInfo": {
+      "type": "object",
+      "properties": {
+        "customerName": {
+          "type": "string",
+          "description": "Name of a receiver"
+        },
+        "street": {
+          "type": "string",
+          "description": "Street address, line 1 - street address, P.O. box, company name, c/o"
+        },
+        "street2": {
+          "type": "string",
+          "description": "Street address, line 2 - apartment, suite, unit, building, floor, etc."
+        },
+        "city": {
+          "type": "string",
+          "description": "City name"
+        },
+        "state": {
+          "type": "string",
+          "description": "State/province name"
+        },
+        "zip": {
+          "type": "string",
+          "description": "Zip code"
+        },
+        "country": {
+          "type": "string",
+          "description": "Country name"
+        }
+      }
+    },
+    "MethodInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Method identifier. The default value is  1  (Ground)",
+          "enum": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Method name, corresponding to the identifier",
+          "enum": [
+            "Ground",
+            "2 Day",
+            "Overnight"
+          ]
         }
       }
     },
@@ -22835,7 +22832,6 @@
         "items": {
           "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": {
               "$ref": "#/definitions/BulkProvisionExtensionResource"
             }
@@ -24020,7 +24016,6 @@
           "type": "string"
         },
         "host": {
-          "type": "object",
           "$ref": "#/definitions/HostInfoRequest"
         },
         "allowJoinBeforeHost": {
@@ -25695,7 +25690,6 @@
           }
         },
         "schedule": {
-          "type": "object",
           "description": "Schedule when an answering rule should be applied",
           "$ref": "#/definitions/CompanyAnsweringRuleScheduleInfoRequest"
         },
@@ -25709,7 +25703,6 @@
           ]
         },
         "extension": {
-          "type": "object",
           "description": "Extension to which the call is forwarded in 'Bypass' mode",
           "$ref": "#/definitions/CompanyAnsweringRuleCallersInfoRequest"
         },
@@ -25726,7 +25719,6 @@
       "type": "object",
       "properties": {
         "schedule": {
-          "type": "object",
           "description": "Schedule when an answering rule is applied",
           "$ref": "#/definitions/WeeklyScheduleInfo"
         }
@@ -25736,7 +25728,6 @@
       "type": "object",
       "properties": {
         "weeklyRanges": {
-          "type": "object",
           "description": "Weekly schedule",
           "$ref": "#/definitions/WeeklyScheduleInfo"
         }
@@ -25750,7 +25741,6 @@
           "description": "Canonical URI of a business-hours resource"
         },
         "schedule": {
-          "type": "object",
           "description": "Schedule when an answering rule is applied",
           "$ref": "#/definitions/UserBusinessHoursScheduleInfo"
         }
@@ -25773,7 +25763,6 @@
           ]
         },
         "answeringRule": {
-          "type": "object",
           "description": "nformation on an answering rule that the greeting is applied to",
           "$ref": "#/definitions/CustomGreetingAnsweringRuleInfoRequest"
         }
@@ -25792,7 +25781,6 @@
       "type": "object",
       "properties": {
         "secretQuestion": {
-          "type": "object",
           "description": "Secret question of an extension user",
           "$ref": "#/definitions/SecretQuestionInfo"
         }
@@ -25810,7 +25798,6 @@
           "description": "User pin of an extension"
         },
         "secretQuestion": {
-          "type": "object",
           "description": "Secret question of an extension user",
           "$ref": "#/definitions/SecretQuestionInfoValidationRequest"
         }
@@ -25841,7 +25828,6 @@
           "description": "User pin of an extension"
         },
         "secretQuestion": {
-          "type": "object",
           "description": "Secret question of an extension user",
           "$ref": "#/definitions/SecretQuestionInfoVerificationRequest"
         }
@@ -25871,12 +25857,10 @@
           }
         },
         "paging": {
-          "type": "object",
           "description": "Information on paging",
           "$ref": "#/definitions/PagingInfo"
         },
         "navigation": {
-          "type": "object",
           "description": "Information on navigation",
           "$ref": "#/definitions/NavigationInfo"
         }
@@ -25894,7 +25878,6 @@
           "description": "Internal identifier of a license"
         },
         "type": {
-          "type": "object",
           "description": "License type data",
           "$ref": "#/definitions/LicenseFeatureInfo"
         },
@@ -25903,7 +25886,6 @@
           "description": "Datetime when license was purchased in ISO 8601 format including timezone, for example 2017-03-10T18:07:52.534Z "
         },
         "extension": {
-          "type": "object",
           "description": "Information on extension to which a license can be assigned",
           "$ref": "#/definitions/LicenseExtensionInfo"
         }
@@ -25963,7 +25945,6 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "object",
           "description": "Type of a license",
           "$ref": "#/definitions/LicenseTypeInfoRequest"
         },
@@ -25997,7 +25978,6 @@
       "type": "object",
       "properties": {
         "limits": {
-          "type": "object",
           "description": "Limits which are effective for an account",
           "$ref": "#/definitions/AccountLimits"
         }
@@ -26015,17 +25995,14 @@
           "description": "Account Service Plan name"
         },
         "brand": {
-          "type": "object",
           "description": "Information on account brand",
           "$ref": "#/definitions/BrandInfo"
         },
         "servicePlan": {
-          "type": "object",
           "description": "Information on account service plan",
           "$ref": "#/definitions/ServicePlanInfo"
         },
         "billingPlan": {
-          "type": "object",
           "description": "Information on account billing plan",
           "$ref": "#/definitions/BillingPlanInfo"
         },
@@ -26037,7 +26014,6 @@
           }
         },
         "limits": {
-          "type": "object",
           "description": "Limits which are effective for an account",
           "$ref": "#/definitions/AccountLimits"
         }
@@ -26058,12 +26034,10 @@
           }
         },
         "paging": {
-          "type": "object",
           "description": "Information on paging",
           "$ref": "#/definitions/PagingInfo"
         },
         "navigation": {
-          "type": "object",
           "description": "Information on navigation",
           "$ref": "#/definitions/NavigationInfo"
         }
@@ -26093,7 +26067,6 @@
           "description": "State of a license. Webinars and Large Meetings are assignable"
         },
         "feature": {
-          "type": "object",
           "description": "License feature info",
           "$ref": "#/definitions/LicenseFeatureInfo"
         }
@@ -26112,7 +26085,6 @@
       "type": "object",
       "properties": {
         "emergencyServiceAddress": {
-          "type": "object",
           "description": "Address for emergency cases. The same emergency address is assigned to all numbers of a single device",
           "$ref": "#/definitions/EmergencyAddressInfoRequest"
         }
@@ -26155,7 +26127,6 @@
       "type": "object",
       "properties": {
         "contact": {
-          "type": "object",
           "description": "Contact Information",
           "$ref": "#/definitions/ContactInfoUpdateRequest"
         },
@@ -26175,7 +26146,6 @@
           }
         },
         "regionalSettings": {
-          "type": "object",
           "description": "Extension region data (timezone, home country, language)",
           "$ref": "#/definitions/RegionalSettings"
         },
@@ -26199,7 +26169,6 @@
           ]
         },
         "statusInfo": {
-          "type": "object",
           "description": "Status information (reason, comment). For 'Disabled' status only",
           "$ref": "#/definitions/ExtensionStatusInfo"
         },
@@ -26841,7 +26810,6 @@
           ]
         },
         "extension": {
-          "type": "object",
           "description": "Extension to which the call is forwarded in 'Bypass' mode",
           "$ref": "#/definitions/CompanyAnsweringRuleCallersInfoRequest"
         },
@@ -26880,12 +26848,10 @@
       "type": "object",
       "properties": {
         "weeklyRanges": {
-          "type": "object",
           "description": "Weekly schedule. If specified, ranges cannot be specified",
           "$ref": "#/definitions/CompanyAnsweringRuleWeeklyScheduleInfoRequest"
         },
         "ranges": {
-          "type": "object",
           "description": "Specific data ranges. If specified, weeklyRanges cannot be specified",
           "$ref": "#/definitions/RangesInfo"
         },
@@ -27104,7 +27070,6 @@
           }
         },
         "schedule": {
-          "type": "object",
           "description": "Schedule when an answering rule should be applied ,",
           "$ref": "#/definitions/CompanyAnsweringRuleScheduleInfo"
         },
@@ -27118,7 +27083,6 @@
           ]
         },
         "extension": {
-          "type": "object",
           "description": "Extension to which the call is forwarded in 'Bypass' mode",
           "$ref": "#/definitions/CompanyAnsweringRuleCallersInfoRequest"
         },
@@ -27144,12 +27108,10 @@
       "type": "object",
       "properties": {
         "weeklyRanges": {
-          "type": "object",
           "description": "Weekly schedule. If specified, ranges cannot be specified",
           "$ref": "#/definitions/CompanyAnsweringRuleWeeklyScheduleInfoRequest"
         },
         "ranges": {
-          "type": "object",
           "description": "Specific data ranges. If specified, weeklyRanges cannot be specified",
           "$ref": "#/definitions/RangesInfo"
         },
