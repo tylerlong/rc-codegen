@@ -118,7 +118,7 @@
         ],
         "parameters": [],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetVersionsResponse"
@@ -156,7 +156,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetVersionResponse"
@@ -311,7 +311,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ExtensionCallLogResponse"
@@ -419,7 +419,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -523,7 +523,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -585,7 +585,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/UserCallLogRecord"
@@ -685,7 +685,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ExtensionActiveCallsResponse"
@@ -834,7 +834,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/AccountCallLogResponse"
@@ -879,7 +879,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -966,7 +966,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -1010,7 +1010,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetAccountCallLogRecordResponse"
@@ -1054,7 +1054,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -1140,7 +1140,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetExtensionPhoneNumbersResponse"
@@ -1197,7 +1197,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetMessageInfoResponse"
@@ -1254,7 +1254,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetMessageInfoResponse"
@@ -1322,7 +1322,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation"
           }
         },
@@ -1364,7 +1364,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation"
           }
         },
@@ -1528,7 +1528,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetMessageList"
@@ -1634,7 +1634,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetMessageInfoResponse"
@@ -1696,7 +1696,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetMessageInfoResponse"
@@ -1763,7 +1763,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -1836,7 +1836,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -1979,7 +1979,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetMessageSyncResponse"
@@ -2037,7 +2037,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetRingOutStatusResponse"
@@ -2141,7 +2141,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetRingOutStatusResponse"
@@ -2194,7 +2194,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -2247,7 +2247,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetRingOutStatusResponse"
@@ -2348,7 +2348,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetRingOutStatusResponse"
@@ -2400,7 +2400,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -2499,7 +2499,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -2550,7 +2550,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -2602,7 +2602,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -2660,7 +2660,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -2710,7 +2710,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -2799,7 +2799,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -2953,7 +2953,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/CompanyDirectoryContacts"
@@ -2994,7 +2994,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ContactInfo"
@@ -3028,7 +3028,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/FederationInfo"
@@ -3062,7 +3062,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/FederationConflicts"
@@ -3096,7 +3096,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/FederationExtensionNumbers"
@@ -3192,7 +3192,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetExtensionListResponse"
@@ -3233,7 +3233,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ExtensionInfo"
@@ -3276,7 +3276,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/BotExtensionCreation"
@@ -3354,7 +3354,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetPresenceInfo"
@@ -3411,7 +3411,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/PresenceInfoResource"
@@ -3459,7 +3459,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetMonitoredExtensionsResponse"
@@ -3519,7 +3519,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "type": "array",
@@ -3580,7 +3580,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/PresenceLineResource"
@@ -3630,7 +3630,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/MonitoringExtensionsResource"
@@ -3682,7 +3682,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/MonitoringExtensionsResource"
@@ -3722,7 +3722,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GlipCompany"
@@ -3780,7 +3780,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GlipGroupList"
@@ -3813,7 +3813,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GlipGroupInfo"
@@ -3846,7 +3846,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GlipGroupInfo"
@@ -3888,7 +3888,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GlipGroupInfo"
@@ -3921,7 +3921,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GlipPersonInfo"
@@ -3969,7 +3969,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GlipPosts"
@@ -4002,7 +4002,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GlipPostInfo"
@@ -4042,7 +4042,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/PostGlipFile"
@@ -4075,7 +4075,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/PostGlipFile"
@@ -4108,7 +4108,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GlipUnreadMessageCount"
@@ -4147,7 +4147,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/MeetingsResource"
@@ -4247,7 +4247,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/MeetingResponseResource"
@@ -4305,7 +4305,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/MeetingResponseResource"
@@ -4445,7 +4445,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/MeetingServiceInfoResource"
@@ -4478,7 +4478,7 @@
         ],
         "parameters": [],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/RecordsCollectionResourceSubscriptionResponse"
@@ -4523,7 +4523,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetSubscriptionInfoResponse"
@@ -4560,7 +4560,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetSubscriptionInfoResponse"
@@ -4611,7 +4611,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetSubscriptionInfoResponse"
@@ -4646,7 +4646,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -4681,7 +4681,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/GetSubscriptionInfoResponse"
@@ -4726,7 +4726,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/AuthProfileResource"
@@ -4782,7 +4782,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/AuthProfileCheckResource"
@@ -4821,7 +4821,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -4865,7 +4865,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -4923,7 +4923,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/RolesCollectionResource"
@@ -4969,7 +4969,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/RoleResource"
@@ -5035,7 +5035,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/PermissionCollectionResource"
@@ -5095,7 +5095,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/PermissionCategoryCollectionResource"
@@ -5141,7 +5141,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/PermissionCategoryResource"
@@ -5187,7 +5187,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/PermissionResource"
@@ -5256,7 +5256,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetExtensionForwardingNumberListResponse"
@@ -5311,7 +5311,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ForwardingNumberInfo"
@@ -5362,7 +5362,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/ForwardingNumberResource"
@@ -5425,7 +5425,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ForwardingNumberInfo"
@@ -5486,7 +5486,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -5553,7 +5553,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -5604,7 +5604,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -5656,7 +5656,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -5714,7 +5714,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -5764,7 +5764,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -5817,7 +5817,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetUserBusinessHoursResponse"
@@ -5872,7 +5872,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/UserBusinessHoursUpdate"
@@ -5942,7 +5942,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -5994,7 +5994,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/AnsweringRuleInfo"
@@ -6049,7 +6049,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/AnsweringRuleInfo"
@@ -6111,7 +6111,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/AnsweringRuleInfo"
@@ -6223,7 +6223,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation"
           }
         },
@@ -6255,7 +6255,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation"
           }
         },
@@ -6393,7 +6393,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/CompanyBusinessHours"
@@ -6440,7 +6440,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/CompanyBusinessHours"
@@ -6488,7 +6488,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/CustomCompanyGreetingInfo"
@@ -6537,7 +6537,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/CompanyAnsweringRuleInfo"
@@ -6575,7 +6575,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/CompanyAnsweringRuleList"
@@ -6622,7 +6622,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/CompanyAnsweringRuleInfo"
@@ -6676,7 +6676,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/CompanyAnsweringRuleInfo"
@@ -6721,7 +6721,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/IVRMenuInfo"
@@ -6758,7 +6758,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/PromptInfo"
@@ -6793,7 +6793,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/IVRPrompts"
@@ -6836,7 +6836,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/PromptInfo"
@@ -6877,7 +6877,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -6917,7 +6917,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -6945,7 +6945,7 @@
         ],
         "parameters": [],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ClientApiResponse"
@@ -6997,7 +6997,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/CreateSipRegistrationResponse"
@@ -7038,7 +7038,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/InProductMessages"
@@ -7072,7 +7072,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/CustomDataResource"
@@ -7118,7 +7118,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/CustomDataApiResponse"
@@ -7229,7 +7229,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/NavigationInfo"
@@ -7259,7 +7259,7 @@
         ],
         "parameters": [],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -7302,7 +7302,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetExtensionInfoResponse"
@@ -7357,7 +7357,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -7442,7 +7442,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ExtensionCallerIdInfo"
@@ -7497,7 +7497,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ExtensionCallerIdInfo"
@@ -7545,7 +7545,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ExtensionUserCredentials"
@@ -7600,7 +7600,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ExtensionUserCredentials"
@@ -7657,7 +7657,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -7710,7 +7710,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -7760,7 +7760,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetSecretQuestionListResponse"
@@ -7797,7 +7797,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/SecretQuestionInfo"
@@ -7857,7 +7857,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetExtensionGrantListResponse"
@@ -7904,7 +7904,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/NotificationSettings"
@@ -7957,7 +7957,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/NotificationSettings"
@@ -8146,7 +8146,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -8198,7 +8198,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetConferencingInfoResponse"
@@ -8253,7 +8253,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetConferencingInfoResponse"
@@ -8293,7 +8293,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetAccountInfoResponse"
@@ -8408,7 +8408,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -8452,7 +8452,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetAccountInfoResponse"
@@ -8500,7 +8500,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetServiceInfoResponse"
@@ -8547,7 +8547,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/AccountServiceInfo"
@@ -8601,7 +8601,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetDialingPlanInfo"
@@ -8647,7 +8647,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/LanguageList"
@@ -8684,7 +8684,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/LanguageInfo"
@@ -8750,7 +8750,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetCountryListResponse"
@@ -8795,7 +8795,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetCountryInfoDictionaryResponse"
@@ -8868,7 +8868,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetLocationListResponse"
@@ -8926,7 +8926,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetStateListResponse"
@@ -8963,7 +8963,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetStateInfoResponse"
@@ -9007,7 +9007,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetTimezoneListResponse"
@@ -9058,7 +9058,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetTimezoneInfoResponse"
@@ -9093,7 +9093,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/BrandResource"
@@ -9131,7 +9131,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/ServicePlanResource"
@@ -9254,7 +9254,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/PhoneNumberInfo"
@@ -9294,7 +9294,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/PhoneNumberInfo"
@@ -9334,7 +9334,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetAccountInfoResponse"
@@ -9427,7 +9427,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -9471,7 +9471,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/PhoneNumberInfo"
@@ -9518,7 +9518,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/PhoneNumberInfo"
@@ -9570,7 +9570,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/PhoneNumberResource"
@@ -9675,7 +9675,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ParsePhoneNumberResponse"
@@ -9713,7 +9713,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetAccountDevicesResponse"
@@ -9760,7 +9760,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetDeviceInfoResponse"
@@ -9811,7 +9811,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/DeviceResource"
@@ -9851,7 +9851,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/BulkProvisionUnassignedExtensionsResponseResource"
@@ -9900,7 +9900,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetExtensionDevicesResponse"
@@ -9948,7 +9948,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -10000,7 +10000,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -10044,7 +10044,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/DeviceModelExtsResource"
@@ -10096,7 +10096,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/DictionaryShippingOptions"
@@ -10158,7 +10158,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/LicenseList"
@@ -10207,7 +10207,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -10251,7 +10251,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/LicenseInfo"
@@ -10296,7 +10296,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -10324,7 +10324,7 @@
         ],
         "parameters": [],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/LicenseTypes"
@@ -10384,7 +10384,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/DepartmentMemberList"
@@ -10430,7 +10430,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "successful operation"
           }
         },
@@ -10471,7 +10471,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -10512,7 +10512,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -10559,7 +10559,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -10600,7 +10600,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/DepartmentMemberList"
@@ -10650,7 +10650,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         },
@@ -10711,7 +10711,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetUserListResponse"
@@ -10744,7 +10744,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/UserInfo"
@@ -10777,7 +10777,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/UserInfo"
@@ -10817,7 +10817,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/UserInfo"
@@ -10848,7 +10848,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success"
           }
         }
@@ -10887,7 +10887,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ReportingSettings"
@@ -10936,7 +10936,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "default": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ReportingSettings"
