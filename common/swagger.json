@@ -12388,7 +12388,6 @@
           ]
         },
         "answeringRule": {
-          "type": "object",
           "description": "nformation on an answering rule that the greeting is applied to",
           "$ref": "#/definitions/CustomCompanyGreetingAnsweringRuleInfo"
         }
@@ -15426,7 +15425,6 @@
           "$ref": "#/definitions/MethodInfo"
         },
         "address": {
-          "type": "object",
           "description": "Shipping address for the order. If it coincides with the Emergency Service Address, then can be omitted. By default the same value as the emergencyServiceAddress. Multiple addresses can be specified; in case an order contains several devices, they can be delivered to different addresses",
           "$ref": "#/definitions/ShippingAddressInfo"
         }
@@ -18604,60 +18602,6 @@
         }
       }
     },
-    "Parameter": {
-      "type": "object",
-      "properties": {
-        "annotations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Annotation"
-          }
-        },
-        "sourceAnnotation": {
-          "$ref": "#/definitions/Annotation"
-        },
-        "source": {
-          "type": "string",
-          "enum": [
-            "CONTEXT",
-            "COOKIE",
-            "ENTITY",
-            "FORM",
-            "HEADER",
-            "URI",
-            "MATRIX",
-            "PATH",
-            "QUERY",
-            "SUSPENDED",
-            "BEAN_PARAM",
-            "UNKNOWN"
-          ]
-        },
-        "sourceName": {
-          "type": "string"
-        },
-        "encoded": {
-          "type": "boolean",
-          "default": false
-        },
-        "defaultValue": {
-          "type": "string"
-        },
-        "type": {
-          "$ref": "#/definitions/Type"
-        },
-        "declaredAnnotations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Annotation"
-          }
-        },
-        "qualified": {
-          "type": "boolean",
-          "default": false
-        }
-      }
-    },
     "ExtensionPermissionsResource": {
       "type": "object",
       "properties": {
@@ -19450,26 +19394,6 @@
       },
       "xml": {
         "name": "collectionResource"
-      }
-    },
-    "AnnotatedType": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "$ref": "#/definitions/Type"
-        },
-        "annotations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Annotation"
-          }
-        },
-        "declaredAnnotations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Annotation"
-          }
-        }
       }
     },
     "TouchRequestResource": {
@@ -21547,9 +21471,6 @@
           "type": "string"
         }
       }
-    },
-    "Annotation": {
-      "type": "object"
     },
     "MessageInfoResource": {
       "type": "object",
