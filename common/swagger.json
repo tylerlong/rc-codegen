@@ -3415,8 +3415,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/PresenceInfoResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "extension/presence",
@@ -3526,8 +3525,7 @@
               "items": {
                 "$ref": "#/definitions/PresenceLineResource"
               }
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "extension/presence/line",
@@ -3584,8 +3582,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/PresenceLineResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "extension/presence/line",
@@ -3634,8 +3631,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/MonitoringExtensionsResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "extension/presence/permission",
@@ -3686,8 +3682,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/MonitoringExtensionsResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "extension/presence/permission",
@@ -4151,8 +4146,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/MeetingsResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "extension/meeting",
@@ -4251,8 +4245,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/MeetingResponseResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "extension/meeting",
@@ -4309,8 +4302,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/MeetingResponseResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "extension/meeting",
@@ -4449,8 +4441,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/MeetingServiceInfoResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "extension/meeting/service-info",
@@ -4482,8 +4473,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/RecordsCollectionResourceSubscriptionResponse"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "subscription",
@@ -4685,8 +4675,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/GetSubscriptionInfoResponse"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "subscription",
@@ -4730,8 +4719,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/AuthProfileResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "extension/authz-profile",
@@ -4786,8 +4774,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/AuthProfileCheckResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "extension/authz-profile/check",
@@ -4927,8 +4914,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/RolesCollectionResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "dictionary/user-role",
@@ -4973,8 +4959,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/RoleResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "dictionary/user-role",
@@ -5039,8 +5024,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/PermissionCollectionResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "dictionary/permission",
@@ -5099,8 +5083,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/PermissionCategoryCollectionResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "dictionary/permission-category",
@@ -5145,8 +5128,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/PermissionCategoryResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "dictionary/permission-category",
@@ -5191,8 +5173,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/PermissionResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "dictionary/permission",
@@ -5366,8 +5347,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/ForwardingNumberResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "extension/forwarding-number",
@@ -7076,8 +7056,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/CustomDataResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "client-info/custom-data",
@@ -9097,8 +9076,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/BrandResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "dictionary/brand",
@@ -9135,8 +9113,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/ServicePlanResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "dictionary/service-plan",
@@ -9574,8 +9551,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/PhoneNumberResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "account/phone-number",
@@ -9815,8 +9791,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/DeviceResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "account/device",
@@ -9855,8 +9830,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/BulkProvisionUnassignedExtensionsResponseResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "extension/free-numbers",
@@ -10048,8 +10022,7 @@
             "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/DeviceModelExtsResource"
-            },
-            "headers": {}
+            }
           }
         },
         "x-api-group": "dictionary/device",
@@ -16874,26 +16847,29 @@
           "description": "Description of a special number"
         },
         "features": {
-          "type": "object",
           "description": "Information on options allowed/disallowed for the special number",
-          "properties": {
-            "voip": {
-              "description": "VoIP call",
-              "$ref": "#/definitions/OptionInfo"
-            },
-            "ringOut": {
-              "description": "RingOut call",
-              "$ref": "#/definitions/OptionInfo"
-            },
-            "sms": {
-              "description": "Outgoing SMS",
-              "$ref": "#/definitions/OptionInfo"
-            },
-            "faxOut": {
-              "description": "Outgoing Fax",
-              "$ref": "#/definitions/OptionInfo"
-            }
-          }
+          "$ref": "#/definitions/SpecialNumberFeaturesInfo"
+        }
+      }
+    },
+    "SpecialNumberFeaturesInfo": {
+      "type": "object",
+      "properties": {
+        "voip": {
+          "description": "VoIP call",
+          "$ref": "#/definitions/OptionInfo"
+        },
+        "ringOut": {
+          "description": "RingOut call",
+          "$ref": "#/definitions/OptionInfo"
+        },
+        "sms": {
+          "description": "Outgoing SMS",
+          "$ref": "#/definitions/OptionInfo"
+        },
+        "faxOut": {
+          "description": "Outgoing Fax",
+          "$ref": "#/definitions/OptionInfo"
         }
       }
     },
@@ -16908,18 +16884,21 @@
           "description": "Specifies if the feature is allowed ('True') or disallowed ('False') for the special number"
         },
         "reason": {
-          "type": "object",
           "description": "The reason explaining why the option is disallowed. Returned if the value of enabled is 'False'",
-          "properties": {
-            "id": {
-              "type": "string",
-              "description": "Internal code of the option disallowance reason"
-            },
-            "message": {
-              "type": "string",
-              "description": "Text description of the option disallowance reason"
-            }
-          }
+          "$ref": "#/definitions/OptionInfoReason"
+        }
+      }
+    },
+    "OptionInfoReason": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal code of the option disallowance reason"
+        },
+        "message": {
+          "type": "string",
+          "description": "Text description of the option disallowance reason"
         }
       }
     },
@@ -17752,12 +17731,6 @@
         "subtype": {
           "type": "string"
         },
-        "parameters": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        },
         "wildcardType": {
           "type": "boolean",
           "default": false
@@ -18073,12 +18046,6 @@
         "type": {
           "type": "string"
         },
-        "params": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        },
         "uri": {
           "type": "string",
           "format": "uri"
@@ -18129,12 +18096,6 @@
       "properties": {
         "value": {
           "type": "string"
-        },
-        "parameters": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
         }
       }
     },
@@ -19464,12 +19425,6 @@
           "items": {
             "type": "string"
           }
-        },
-        "templateParameters": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
         }
       },
       "xml": {
@@ -20002,15 +19957,6 @@
             "$ref": "#/definitions/DateTimeIntervalResource"
           }
         },
-        "weeklyRanges": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/IntervalResource"
-            }
-          }
-        },
         "ref": {
           "type": "string",
           "enum": [
@@ -20343,12 +20289,6 @@
       "properties": {
         "multiPartHandler": {
           "$ref": "#/definitions/MultiPartHandler"
-        },
-        "validators": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/RequestValidator"
-          }
         },
         "subscriberInfo": {
           "$ref": "#/definitions/SubscriptionInfo"
@@ -20807,12 +20747,6 @@
       "properties": {
         "type": {
           "type": "string"
-        },
-        "parameters": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
         },
         "fileName": {
           "type": "string"
@@ -21851,12 +21785,6 @@
         "type": {
           "type": "string"
         },
-        "parameters": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        },
         "fileName": {
           "type": "string"
         },
@@ -22832,14 +22760,9 @@
         "items": {
           "type": "array",
           "items": {
-            "additionalProperties": {
-              "$ref": "#/definitions/BulkProvisionExtensionResource"
-            }
+            "$ref": "#/definitions/BulkProvisionExtensionResource"
           }
         }
-      },
-      "xml": {
-        "name": "items"
       }
     },
     "StackTraceElement": {
@@ -23184,12 +23107,6 @@
         },
         "subtype": {
           "type": "string"
-        },
-        "parameters": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
         },
         "quality": {
           "type": "integer",
@@ -23915,15 +23832,6 @@
       "properties": {
         "path": {
           "type": "string"
-        },
-        "matrixParameters": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
         }
       }
     },
@@ -24928,15 +24836,6 @@
         "name": {
           "type": "string"
         },
-        "pages": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          }
-        },
         "schedules": {
           "type": "array",
           "items": {
@@ -25263,39 +25162,6 @@
           "type": "string",
           "format": "date-time"
         },
-        "headers": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {}
-            }
-          }
-        },
-        "entity": {
-          "type": "object",
-          "properties": {}
-        },
-        "metadata": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {}
-            }
-          }
-        },
-        "stringHeaders": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
         "mediaType": {
           "$ref": "#/definitions/MediaType"
         },
@@ -25310,12 +25176,6 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
-        },
-        "cookies": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/NewCookie"
           }
         },
         "entityTag": {
