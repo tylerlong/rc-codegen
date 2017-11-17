@@ -23475,9 +23475,6 @@
         "name": "versionedResource"
       }
     },
-    "ContainerResponseWriter": {
-      "type": "object"
-    },
     "AuthProfileCheckResource": {
       "type": "object",
       "properties": {
@@ -25148,31 +25145,6 @@
         "answer": {
           "type": "string",
           "description": "Answer to a secret question"
-        }
-      }
-    },
-    "AnsweringRuleInfoRequest": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "Introductory",
-            "Announcement",
-            "ConnectingMessage",
-            "ConnectingAudio",
-            "Voicemail",
-            "Unavailable",
-            "HoldMusic"
-          ]
-        },
-        "answeringRule": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string"
-            }
-          }
         }
       }
     },
