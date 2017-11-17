@@ -3406,10 +3406,7 @@
             "name": "body",
             "required": false,
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/PresenceLineResource"
-              }
+              "$ref": "#/definitions/UpdatePresenceLinesRequest"
             }
           },
           {
@@ -3433,10 +3430,7 @@
           "default": {
             "description": "successful operation",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/PresenceLineResource"
-              }
+              "$ref": "#/definitions/UpdatePresenceLinesResponse"
             }
           }
         },
@@ -22308,6 +22302,60 @@
         "name": "versionedResource"
       }
     },
+    "UpdatePresenceLinesResponse": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of the monitored lines (extensions) resource"
+        },
+        "records": {
+          "type": "array",
+          "description": "List of lines (extensions) the presence of which is monitored by the user. The first two lines always indicate the user's extension presence, they cannot be changed",
+          "items": {
+            "$ref": "#/definitions/LineInfo"
+          }
+        },
+        "navigation": {
+          "description": "Information on navigation",
+          "$ref": "#/definitions/NavigationInfo"
+        },
+        "paging": {
+          "description": "Information on paging",
+          "$ref": "#/definitions/PagingInfo"
+        }
+      }
+    },
+    "UpdatePresenceLinesRequest": {
+      "type": "object",
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PresenceLineInfo"
+          }
+        }
+      }
+    },
+    "PresenceLineInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "extension": {
+          "$ref": "#/definitions/PresenceExtensionInfo"
+        }
+      }
+    },
+    "PresenceExtensionInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
     "PresenceLinesNavigationResource": {
       "type": "object",
       "properties": {
@@ -25485,7 +25533,6 @@
           }
         },
         "schedule": {
-          "type": "object",
           "description": "Schedule when an answering rule should be applied",
           "$ref": "#/definitions/CompanyAnsweringRuleScheduleInfoRequest"
         },
