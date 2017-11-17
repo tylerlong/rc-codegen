@@ -93,7 +93,7 @@ for (const path of paths) {
     let parameters: Array<any> = methodBody.parameters;
     if (parameters != undefined) {
       // request body
-      const bodyParameter = parameters.find((item) => item.name == 'body');
+      const bodyParameter = parameters.find((item) => item.in == 'body');
       if (bodyParameter != undefined) {
         parametersName = `${_.upperFirst(method)}Parameters`;
         if (bodyParameter.schema['enum'] !== undefined) { // special case: Extension post
@@ -172,7 +172,7 @@ for (const path of paths) {
     let parameters: Array<any> = methodBody.parameters;
     if (parameters != undefined) {
       // request body
-      const bodyParameter = parameters.find((item) => item.name == 'body');
+      const bodyParameter = parameters.find((item) => item.in == 'body');
       if (bodyParameter) {
         if (bodyParameter.schema['$ref']) {
           bodyType = _.last((bodyParameter.schema['$ref'] as string).split('/'));
