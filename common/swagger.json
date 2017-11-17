@@ -17698,33 +17698,6 @@
         }
       }
     },
-    "Link": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string"
-        },
-        "uri": {
-          "type": "string",
-          "format": "uri"
-        },
-        "rels": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "title": {
-          "type": "string"
-        },
-        "uriBuilder": {
-          "$ref": "#/definitions/UriBuilder"
-        },
-        "rel": {
-          "type": "string"
-        }
-      }
-    },
     "CallLogRecordingResource": {
       "type": "object",
       "properties": {
@@ -23183,9 +23156,6 @@
         "name": "client"
       }
     },
-    "UriBuilder": {
-      "type": "object"
-    },
     "PoolResponseResource": {
       "type": "object",
       "properties": {
@@ -24085,55 +24055,6 @@
       },
       "xml": {
         "name": "favoriteContact"
-      }
-    },
-    "Response": {
-      "type": "object",
-      "properties": {
-        "length": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "language": {
-          "$ref": "#/definitions/Locale"
-        },
-        "location": {
-          "type": "string",
-          "format": "uri"
-        },
-        "date": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "lastModified": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "mediaType": {
-          "$ref": "#/definitions/MediaType"
-        },
-        "statusInfo": {
-          "$ref": "#/definitions/StatusType"
-        },
-        "status": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "allowedMethods": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "entityTag": {
-          "$ref": "#/definitions/EntityTag"
-        },
-        "links": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Link"
-          }
-        }
       }
     },
     "AccountResource": {
