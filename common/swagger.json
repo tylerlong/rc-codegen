@@ -300,14 +300,6 @@
             "in": "query",
             "required": false,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/ExtensionCallLogEndpoint"
-            }
           }
         ],
         "responses": {
@@ -408,14 +400,6 @@
             "required": false,
             "type": "string",
             "format": "date-time"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/ExtensionCallLogEndpoint"
-            }
           }
         ],
         "responses": {
@@ -512,14 +496,6 @@
               "Missed",
               "All"
             ]
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/ExtensionCallLogSyncEndpoint"
-            }
           }
         ],
         "responses": {
@@ -674,14 +650,6 @@
             "description": "Indicates the page size (number of items). If not specified, the value is '100' by default",
             "required": false,
             "type": "integer"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/ExtensionActiveCallsEndpoint"
-            }
           }
         ],
         "responses": {
@@ -823,14 +791,6 @@
             "in": "query",
             "required": false,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/AccountCallLogEndpoint"
-            }
           }
         ],
         "responses": {
@@ -1129,14 +1089,6 @@
             "description": "Indicates the page size (number of items). If not specified, the value is '100' by default",
             "required": false,
             "type": "integer"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/ExtensionPhoneNumbersEndpoint"
-            }
           }
         ],
         "responses": {
@@ -1517,14 +1469,6 @@
             "description": "The phone number. If specified, messages are returned for this particular phone number only",
             "required": false,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/MessageEndpoint"
-            }
           }
         ],
         "responses": {
@@ -1825,14 +1769,6 @@
             "in": "header",
             "required": false,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/MessageEndpoint"
-            }
           }
         ],
         "responses": {
@@ -1968,14 +1904,6 @@
               "FSync",
               "ISync"
             ]
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/MessageSyncEndpoint"
-            }
           }
         ],
         "responses": {
@@ -2488,14 +2416,6 @@
               "type": "string"
             },
             "collectionFormat": "multi"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/PersonalAddressBookEndpoint"
-            }
           }
         ],
         "responses": {
@@ -2788,14 +2708,6 @@
             "description": "Internal identifier of a page. It can be obtained from the 'nextPageId' parameter passed in response body",
             "required": false,
             "type": "integer"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/AddressBookSyncEndpoint"
-            }
           }
         ],
         "responses": {
@@ -4899,14 +4811,6 @@
             "in": "query",
             "required": false,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/SystemRoleEndpoint"
-            }
           }
         ],
         "responses": {
@@ -4944,14 +4848,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/SystemRoleEndpoint"
-            }
           }
         ],
         "responses": {
@@ -5009,14 +4905,6 @@
             "in": "query",
             "required": false,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/PermissionEndpoint"
-            }
           }
         ],
         "responses": {
@@ -5068,14 +4956,6 @@
             "in": "query",
             "required": false,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/PermissionCategoryEndpoint"
-            }
           }
         ],
         "responses": {
@@ -5113,14 +4993,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/PermissionCategoryEndpoint"
-            }
           }
         ],
         "responses": {
@@ -5158,14 +5030,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/PermissionEndpoint"
-            }
           }
         ],
         "responses": {
@@ -5226,14 +5090,6 @@
             "description": "Indicates the page size (number of items). If not specified, the value is '100' by default",
             "required": false,
             "type": "integer"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/ExtensionForwardingNumbersEndpoint"
-            }
           }
         ],
         "responses": {
@@ -5455,14 +5311,6 @@
             "description": "Internal identifier of a forwarding number",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/ExtensionForwardingNumbersEndpoint"
-            }
           }
         ],
         "responses": {
@@ -5522,14 +5370,6 @@
             "required": false,
             "type": "string",
             "default": "100"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/BlockedNumbersEndpoint"
-            }
           }
         ],
         "responses": {
@@ -5786,14 +5626,6 @@
             "required": true,
             "type": "integer",
             "default": "~"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/AnsweringRulesEndpoint"
-            }
           }
         ],
         "responses": {
@@ -5911,14 +5743,6 @@
             "required": false,
             "type": "string",
             "default": "100"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/AnsweringRulesEndpoint"
-            }
           }
         ],
         "responses": {
@@ -8376,14 +8200,6 @@
             "required": true,
             "type": "integer",
             "default": "~"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/AccountBusinessAddressEndpoint"
-            }
           }
         ],
         "responses": {
@@ -8468,14 +8284,6 @@
             "required": true,
             "type": "integer",
             "default": "~"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/AccountServiceInfoEndpoint"
-            }
           }
         ],
         "responses": {
@@ -8718,14 +8526,6 @@
             "description": "Indicates the page size (number of items). If not specified, the value is '100' by default",
             "required": false,
             "type": "integer"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/DictionaryCountryEndpoint"
-            }
           }
         ],
         "responses": {
@@ -8763,14 +8563,6 @@
             "description": "Internal identifier of a country",
             "required": true,
             "type": "integer"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/DictionaryCountryEndpoint"
-            }
           }
         ],
         "responses": {
@@ -9393,14 +9185,6 @@
               "NotActivated",
               "Unassigned"
             ]
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/AccountPhoneNumbersEndpoint"
-            }
           }
         ],
         "responses": {
@@ -9588,14 +9372,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/AccountPhoneNumbersEndpoint"
-            }
           }
         ],
         "responses": {
@@ -9963,14 +9739,6 @@
             "description": "Internal identifier of an order",
             "required": true,
             "type": "integer"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/AccountOrderEndpoint"
-            }
           }
         ],
         "responses": {
@@ -17463,17 +17231,6 @@
         "name": "collectionResource"
       }
     },
-    "MessageNotificationEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "RingOutPhoneNumberInfo": {
       "type": "object",
       "properties": {
@@ -17485,50 +17242,11 @@
         "name": "ringOutPhoneNumberInfo"
       }
     },
-    "AccountCallLogEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "extensionId": {
-          "type": "string"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
-    "UserGroupEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "UnconditionalForwardingResource": {
       "type": "object",
       "properties": {
         "phoneNumber": {
           "type": "string"
-        }
-      }
-    },
-    "AccountPhoneNumbersEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "accountId": {
-          "type": "string"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
         }
       }
     },
@@ -17592,17 +17310,6 @@
       },
       "xml": {
         "name": "hint"
-      }
-    },
-    "ExtensionUserGroupsEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
       }
     },
     "ConferencingInfoResource": {
@@ -17741,9 +17448,6 @@
         }
       }
     },
-    "TesterFlagEndpoint": {
-      "type": "object"
-    },
     "Cookie": {
       "type": "object",
       "properties": {
@@ -17787,17 +17491,6 @@
       },
       "xml": {
         "name": "syncMessages"
-      }
-    },
-    "SmsEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
       }
     },
     "DeviceModelExtsResource": {
@@ -17860,17 +17553,6 @@
       },
       "xml": {
         "name": "extensionGrants"
-      }
-    },
-    "InternalMessageEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
       }
     },
     "ServiceFeatureValue": {
@@ -18015,28 +17697,6 @@
         },
         "Confidence": {
           "type": "string"
-        }
-      }
-    },
-    "CustomRoleEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
-    "PermissionCategoryEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
         }
       }
     },
@@ -18200,9 +17860,6 @@
         }
       }
     },
-    "Providers": {
-      "type": "object"
-    },
     "AccountBusinessAddressResource": {
       "type": "object",
       "properties": {
@@ -18339,17 +17996,6 @@
         "name": "personalContact"
       }
     },
-    "ConferencingEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "IncomingCallInformationResource": {
       "type": "object",
       "properties": {
@@ -18448,17 +18094,6 @@
         "name": "faxSendInfo"
       }
     },
-    "PresenceLinesEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "FormFieldResource": {
       "type": "object",
       "properties": {
@@ -18554,9 +18189,6 @@
         "name": "notice"
       }
     },
-    "InternalPresencePermissionEndpoint": {
-      "type": "object"
-    },
     "PhoneNumberResource": {
       "type": "object",
       "properties": {
@@ -18651,17 +18283,6 @@
       },
       "xml": {
         "name": "phoneNumberInfo"
-      }
-    },
-    "AccountActiveCallsEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
       }
     },
     "TesterFlagsResource": {
@@ -18848,17 +18469,6 @@
         "name": "extensionPresenceInfo"
       }
     },
-    "DeviceOrderEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "AccountLimitsResource": {
       "type": "object",
       "properties": {
@@ -18905,17 +18515,6 @@
           "items": {
             "$ref": "#/definitions/BulkAssignItem"
           }
-        }
-      }
-    },
-    "ExtensionDeviceEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
         }
       }
     },
@@ -18979,17 +18578,6 @@
         "outboundCallsEnabled": {
           "type": "boolean",
           "default": false
-        }
-      }
-    },
-    "AddressBookSyncEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
         }
       }
     },
@@ -19224,17 +18812,6 @@
         }
       }
     },
-    "InteropAuthorizationEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "InternalMessageResource": {
       "type": "object",
       "properties": {
@@ -19257,20 +18834,6 @@
       },
       "xml": {
         "name": "pagerSendInfo"
-      }
-    },
-    "AccountOrderEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "accountId": {
-          "type": "string"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
       }
     },
     "OrderResource": {
@@ -19429,17 +18992,6 @@
       },
       "xml": {
         "name": "email"
-      }
-    },
-    "InternalAuthorizationEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
       }
     },
     "Attachment": {
@@ -19609,17 +19161,6 @@
         "name": "extension"
       }
     },
-    "ExtensionActiveCallsEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "ContactsCollection": {
       "type": "object",
       "properties": {
@@ -19781,9 +19322,6 @@
         "name": "versionedResource"
       }
     },
-    "MessageBodyWorkers": {
-      "type": "object"
-    },
     "MeetingScheduleResource": {
       "type": "object",
       "properties": {
@@ -19853,9 +19391,6 @@
       "xml": {
         "name": "versionedResource"
       }
-    },
-    "RequestScopedInitializer": {
-      "type": "object"
     },
     "Brand": {
       "type": "object",
@@ -19966,17 +19501,6 @@
         }
       }
     },
-    "ExtensionValidationEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "RingOutResource": {
       "type": "object",
       "properties": {
@@ -20000,9 +19524,6 @@
       "xml": {
         "name": "ringOut"
       }
-    },
-    "SubResourceEndpoint": {
-      "type": "object"
     },
     "PhoneNumberForProvisioningResource": {
       "type": "object",
@@ -20069,17 +19590,6 @@
         },
         "name": {
           "type": "string"
-        }
-      }
-    },
-    "BlockedNumbersEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
         }
       }
     },
@@ -20205,9 +19715,6 @@
         "name": "extensions"
       }
     },
-    "MatchResult": {
-      "type": "object"
-    },
     "ScaledProfileImageResource": {
       "type": "object",
       "properties": {
@@ -20216,23 +19723,6 @@
           "format": "uri"
         }
       }
-    },
-    "AnsweringRulesEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "businessHours": {
-          "$ref": "#/definitions/BusinessHoursResource"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
-    "RequestValidator": {
-      "type": "object"
     },
     "SimpleResource": {
       "type": "object",
@@ -20281,17 +19771,6 @@
         },
         "to": {
           "type": "string"
-        }
-      }
-    },
-    "DeviceRegistrationEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
         }
       }
     },
@@ -20415,34 +19894,6 @@
         },
         "extension": {
           "$ref": "#/definitions/InlinedExtensionResource"
-        }
-      }
-    },
-    "InputStream": {
-      "type": "object"
-    },
-    "MeetingEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "meetingServiceInfo": {
-          "$ref": "#/definitions/MeetingServiceInfoResource"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
-    "AccountDeviceEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
         }
       }
     },
@@ -20613,28 +20064,6 @@
         "name": "versionedResource"
       }
     },
-    "DictionaryCountryEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
-    "PermissionEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "CallerInfo": {
       "type": "object",
       "properties": {
@@ -20800,20 +20229,6 @@
         "name": "forwardingNumberInfos"
       }
     },
-    "AuthProfileEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "profile": {
-          "$ref": "#/definitions/AuthProfileResource"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "ForwardingNumberResource": {
       "type": "object",
       "properties": {
@@ -20950,17 +20365,6 @@
         "name": "address"
       }
     },
-    "PresencePermissionsEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "PropertiesDelegate": {
       "type": "object",
       "properties": {
@@ -21072,9 +20476,6 @@
         "name": "address"
       }
     },
-    "BillingEventsEndpoint": {
-      "type": "object"
-    },
     "ExtensionReferenceResource": {
       "type": "object",
       "properties": {
@@ -21092,10 +20493,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "phoneNumber": {
           "type": "string"
@@ -21114,9 +20512,6 @@
           "type": "boolean",
           "default": false
         }
-      },
-      "xml": {
-        "name": "phoneNumber"
       }
     },
     "ReservePhoneNumbersRecordsResource": {
@@ -21144,20 +20539,6 @@
         "name": "collectionResource"
       }
     },
-    "PersonalAddressBookEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "addressBookLinks": {
-          "$ref": "#/definitions/AddressBookResource"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "DetailedCallInfo": {
       "type": "object",
       "properties": {
@@ -21181,17 +20562,6 @@
         }
       }
     },
-    "AssignedRoleEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "ReservationDate": {
       "type": "object",
       "properties": {
@@ -21206,23 +20576,6 @@
         "min": {
           "type": "boolean",
           "default": false
-        }
-      }
-    },
-    "ExtensionPhoneNumbersEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "accountId": {
-          "type": "string"
-        },
-        "extensionId": {
-          "type": "string"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
         }
       }
     },
@@ -21255,34 +20608,6 @@
       },
       "xml": {
         "name": "contacts"
-      }
-    },
-    "ProfileImageEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "accountId": {
-          "type": "string"
-        },
-        "extensionId": {
-          "type": "string"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
-    "ExtensionCallLogSyncEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
       }
     },
     "SubResource": {
@@ -21640,28 +20965,6 @@
         "name": "versionedResource"
       }
     },
-    "MessageContentStreamEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
-    "AccountRolesEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "ApplicationResource": {
       "type": "object",
       "properties": {
@@ -21688,17 +20991,6 @@
           "items": {
             "$ref": "#/definitions/PermissionResource"
           }
-        }
-      }
-    },
-    "AddressBookEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
         }
       }
     },
@@ -22115,9 +21407,6 @@
         "name": "navigation"
       }
     },
-    "MultiPartHandler": {
-      "type": "object"
-    },
     "ShippingOptionResource": {
       "type": "object",
       "properties": {
@@ -22184,20 +21473,6 @@
       },
       "xml": {
         "name": "country"
-      }
-    },
-    "PaymentInfoEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "paymentInfo": {
-          "$ref": "#/definitions/PaymentInfoResource"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
       }
     },
     "RegistrationRequest": {
@@ -22506,17 +21781,6 @@
         "name": "versionedResource"
       }
     },
-    "NumberPortingEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "LanguageResource": {
       "type": "object",
       "properties": {
@@ -22803,17 +22067,6 @@
       },
       "xml": {
         "name": "versionedResource"
-      }
-    },
-    "SendEmailEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
       }
     },
     "AccountServiceInfoResource": {
@@ -23122,31 +22375,6 @@
         }
       }
     },
-    "InternalPresenceEndpoint": {
-      "type": "object"
-    },
-    "RenderingQueueEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
-    "SendSmsEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "PhoneNumberStringsResource": {
       "type": "object",
       "properties": {
@@ -23184,28 +22412,6 @@
       },
       "xml": {
         "name": "versionedResource"
-      }
-    },
-    "MessageEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
-    "ApplicationSessionEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
       }
     },
     "PresenceLinesNavigationResource": {
@@ -23415,17 +22621,6 @@
         "name": "versionedResource"
       }
     },
-    "CallRecordingStreamEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "ServicePlanResource": {
       "type": "object",
       "properties": {
@@ -23612,28 +22807,6 @@
       },
       "xml": {
         "name": "webUris"
-      }
-    },
-    "TokenValidationEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
-    "ExtensionPresenceEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
       }
     },
     "Principal": {
@@ -24176,28 +23349,6 @@
         }
       }
     },
-    "SystemRoleEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
-    "FaxEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "PoolRequestResource": {
       "type": "object",
       "properties": {
@@ -24349,51 +23500,6 @@
         }
       }
     },
-    "AccountBusinessAddressEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "businessAddress": {
-          "$ref": "#/definitions/AccountBusinessAddressResource"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
-    "ExtensionForwardingNumbersEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "accountId": {
-          "type": "string"
-        },
-        "extensionId": {
-          "type": "string"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
-    "AccountServiceInfoEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "serviceInfo": {
-          "$ref": "#/definitions/AccountServiceInfoResource"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "RingOutCountry": {
       "type": "object",
       "properties": {
@@ -24501,17 +23607,6 @@
       },
       "xml": {
         "name": "versionedResource"
-      }
-    },
-    "ExtensionGrantsEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
       }
     },
     "Throwable": {
@@ -24819,17 +23914,6 @@
         }
       }
     },
-    "DepartmentEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
     "CfaView": {
       "type": "object",
       "properties": {
@@ -24841,17 +23925,6 @@
           "items": {
             "$ref": "#/definitions/CfaSchedule"
           }
-        }
-      }
-    },
-    "CallRecordingEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
         }
       }
     },
@@ -24878,17 +23951,6 @@
       },
       "xml": {
         "name": "collectionResource"
-      }
-    },
-    "PromotionCodeEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
       }
     },
     "ProvisioningResource": {
@@ -24947,17 +24009,6 @@
       },
       "xml": {
         "name": "phoneNumberInfo"
-      }
-    },
-    "MessageSyncEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
       }
     },
     "IntervalResource": {
@@ -25057,31 +24108,6 @@
         },
         "appExternalId": {
           "type": "string"
-        }
-      }
-    },
-    "ServiceParameterEndpoint": {
-      "type": "object"
-    },
-    "BulkProvisionExtensionsEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
-        }
-      }
-    },
-    "ExtensionCallLogEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
         }
       }
     },
@@ -25416,17 +24442,6 @@
         },
         "customerName": {
           "type": "string"
-        }
-      }
-    },
-    "AdminNoticeEndpoint": {
-      "type": "object",
-      "properties": {
-        "multiPartHandler": {
-          "$ref": "#/definitions/MultiPartHandler"
-        },
-        "subscriberInfo": {
-          "$ref": "#/definitions/SubscriptionInfo"
         }
       }
     },
