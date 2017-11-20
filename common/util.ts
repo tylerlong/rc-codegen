@@ -25,9 +25,13 @@ const PascalCase = (str: string): string => {
 /**
  * Test if response is a list
  */
-const isListType = (schema): boolean => {
+const isListType = (schema, definitions): boolean => {
   if (!schema) {
     return false;
+  }
+  // "$ref": "#/definitions/ExtensionCallLogResponse"
+  if (schema.$ref && definitions) {
+    return isListType(definitions[_.last(schema.$ref.split('/'))], definitions)
   }
   var props = schema.properties;
   if (schema.type == "object" && props && props.records && props.records.type === 'array') {

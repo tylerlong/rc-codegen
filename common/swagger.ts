@@ -23,7 +23,11 @@ enum HasId {
 const swagger: any = JSON.parse(fs.readFileSync(path.join(__dirname, 'swagger.json'), 'utf-8'));
 
 // all the paths defined in swagger
-const paths: string[] = Object.keys(swagger.paths);
+let paths: string[] = Object.keys(swagger.paths);
+paths = paths.filter(path => {
+  const { get, post, put, delete: dlt } = swagger.paths[path]
+  return (get && get.deprecated !== true) || (post && post.deprecated !== true) || (put && put.deprecated !== true) || (dlt && dlt.deprecated !== true)
+})
 
 // tokenize the paths above
 const tokenss: string[][] = paths.map(path => split_path(path));
@@ -71,7 +75,7 @@ for (const path of paths) {
       continue;
     }
     const methodBody = pathBody[method];
-    if (methodBody['x-status'] === 'Disabled' || methodBody['x-status'] === 'Deprecated' || methodBody['x-accessLevel'] === 'Internal') {
+    if (methodBody.deprecated === true || methodBody['x-access-level'] === 'Internal') {
       continue;
     }
     if (method == 'get') {
@@ -79,7 +83,7 @@ for (const path of paths) {
         method = 'list';
       }
       const schema = methodBody.responses.default.schema;
-      if (isListType(schema)) {
+      if (isListType(schema, swagger.definitions)) {
         method = 'list';
       }
     }
@@ -154,10 +158,10 @@ for (const path of paths) {
       continue;
     }
     const methodBody = pathBody[method];
-    if (methodBody['x-status'] === 'Disabled' || methodBody['x-status'] === 'Deprecated' || methodBody['x-accessLevel'] === 'Internal') {
+    if (methodBody.deprecated === true || methodBody['x-access-level'] === 'Internal') {
       continue;
     }
-    if (method == 'get' && isListType(methodBody.responses.default.schema)) {
+    if (method == 'get' && isListType(methodBody.responses.default.schema, swagger.definitions)) {
       method = 'list';
     }
     if (_.find(methods, m => m.method == method)) {

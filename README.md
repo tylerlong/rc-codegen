@@ -32,4 +32,5 @@ yarn swift
 
 - auto generate form-data handling code
 - how to handle additialproperty.
-
+- discussion: beta as a separate property
+- Support `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` as property name
