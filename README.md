@@ -31,3 +31,5 @@ yarn swift
 ## Todo
 
 - auto generate form-data handling code
+- how to handle additialproperty.
+
