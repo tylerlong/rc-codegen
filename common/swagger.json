@@ -220,7 +220,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -228,7 +228,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -367,7 +367,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -375,7 +375,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -467,7 +467,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -475,7 +475,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -628,7 +628,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -636,7 +636,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -721,7 +721,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -860,7 +860,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -904,7 +904,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -993,7 +993,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1038,7 +1038,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1082,7 +1082,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1275,7 +1275,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1283,7 +1283,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1357,7 +1357,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1365,7 +1365,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1415,7 +1415,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1423,7 +1423,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1580,7 +1580,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1588,7 +1588,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1791,7 +1791,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1799,7 +1799,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1845,7 +1845,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1853,7 +1853,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1908,7 +1908,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1916,7 +1916,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1975,7 +1975,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -1983,7 +1983,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2041,7 +2041,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2049,7 +2049,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2181,7 +2181,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2189,7 +2189,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2287,7 +2287,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2295,7 +2295,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2341,7 +2341,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2349,7 +2349,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2393,7 +2393,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2401,7 +2401,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2498,7 +2498,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2506,7 +2506,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2551,7 +2551,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2559,7 +2559,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2603,7 +2603,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2611,7 +2611,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2694,7 +2694,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2702,7 +2702,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2748,7 +2748,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2756,7 +2756,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2799,7 +2799,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2807,7 +2807,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2858,7 +2858,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2866,7 +2866,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2911,7 +2911,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2919,7 +2919,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -2992,7 +2992,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -3000,7 +3000,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           }
         ],
@@ -3035,7 +3035,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -3043,7 +3043,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -3563,7 +3563,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -3571,7 +3571,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           }
         ],
@@ -3598,12 +3598,10 @@
         "summary": "Update User Status",
         "operationId": "updatePresenceStatus",
         "consumes": [
-          "application/xml",
           "multipart/mixed",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "multipart/mixed",
           "application/json"
         ],
@@ -3621,7 +3619,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -3629,7 +3627,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           }
         ],
@@ -3669,7 +3667,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -3677,7 +3675,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           }
         ],
@@ -3723,7 +3721,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -3731,7 +3729,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           }
         ],
@@ -3777,7 +3775,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -3785,7 +3783,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           }
         ],
@@ -3825,7 +3823,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -3869,7 +3867,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -5431,7 +5429,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -5439,7 +5437,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -5492,7 +5490,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -5500,7 +5498,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -5714,7 +5712,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -5722,7 +5720,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           }
         ],
@@ -5761,7 +5759,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -5769,7 +5767,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -5818,7 +5816,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -5826,7 +5824,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -5872,7 +5870,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -5880,7 +5878,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -5934,7 +5932,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -5942,7 +5940,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -5987,7 +5985,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -5995,7 +5993,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           }
         ],
@@ -6497,7 +6495,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -6505,7 +6503,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -6553,7 +6551,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -6561,7 +6559,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -6697,7 +6695,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -7613,7 +7611,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -7621,7 +7619,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           }
         ],
@@ -7660,7 +7658,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -7668,7 +7666,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -8167,7 +8165,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -8175,7 +8173,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -8230,7 +8228,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -8276,7 +8274,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -8413,7 +8411,6 @@
           "multipart/form-data"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -8470,7 +8467,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -8478,7 +8475,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -8523,7 +8520,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -8531,7 +8528,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -8577,7 +8574,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -8585,7 +8582,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -8635,7 +8632,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           }
         ],
@@ -8755,7 +8752,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           }
         ],
@@ -8794,7 +8791,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -8844,7 +8841,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           }
         ],
@@ -8933,7 +8930,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -9719,7 +9716,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -9793,7 +9790,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -9843,7 +9840,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -10038,7 +10035,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           }
         ],
@@ -10079,7 +10076,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -10215,7 +10212,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -10223,7 +10220,7 @@
             "in": "path",
             "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -10276,7 +10273,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -10333,7 +10330,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -10695,7 +10692,7 @@
             "in": "path",
             "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
             "required": true,
-            "type": "integer",
+            "type": "string",
             "default": "~"
           },
           {
@@ -18325,17 +18322,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/GroupResource"
           }
@@ -18346,9 +18336,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "groups"
       }
     },
     "NavigableCollectionResourceExtensionIdResource": {
@@ -18356,17 +18343,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/ExtensionIdResource"
           }
@@ -18377,9 +18357,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "RingOutPhoneNumberInfo": {
@@ -18388,9 +18365,6 @@
         "phoneNumber": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "ringOutPhoneNumberInfo"
       }
     },
     "UnconditionalForwardingResource": {
@@ -18406,17 +18380,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/CountryResource"
           }
@@ -18427,9 +18394,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "countries"
       }
     },
     "Feature": {
@@ -18458,9 +18422,6 @@
         "messageUri": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "hint"
       }
     },
     "ConferencingInfoResource": {
@@ -18468,10 +18429,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "phoneNumber": {
           "type": "string"
@@ -18505,9 +18463,6 @@
             "$ref": "#/definitions/ConferencingNumberResource"
           }
         }
-      },
-      "xml": {
-        "name": "conferencingInfo"
       }
     },
     "ErrorEntity": {
@@ -18519,9 +18474,6 @@
         "message": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "errorEntity"
       }
     },
     "SyncInfo": {
@@ -18545,9 +18497,6 @@
           "type": "boolean",
           "default": false
         }
-      },
-      "xml": {
-        "name": "syncInfo"
       }
     },
     "Currency": {
@@ -18625,10 +18574,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
@@ -18639,9 +18585,6 @@
         "syncInfo": {
           "$ref": "#/definitions/SyncInfo"
         }
-      },
-      "xml": {
-        "name": "syncMessages"
       }
     },
     "DeviceModelExtsResource": {
@@ -18666,17 +18609,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/ExtensionGrantResource"
           }
@@ -18687,9 +18623,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "extensionGrants"
       }
     },
     "ServiceFeatureValue": {
@@ -18714,9 +18647,6 @@
             "ApplicationLimitation"
           ]
         }
-      },
-      "xml": {
-        "name": "serviceFeature"
       }
     },
     "RegionalSettingsResource": {
@@ -18777,20 +18707,14 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "contacts": {
           "$ref": "#/definitions/ResourceLink"
         },
         "id": {
           "type": "integer",
-          "format": "int64",
-          "xml": {
-            "attribute": true
-          }
+          "format": "int64"
         },
         "notes": {
           "type": "string"
@@ -18802,9 +18726,6 @@
           "type": "integer",
           "format": "int32"
         }
-      },
-      "xml": {
-        "name": "group"
       }
     },
     "TranscriptionResult": {
@@ -18842,10 +18763,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -18856,9 +18774,6 @@
         "contentUri": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "ParameterizedHeader": {
@@ -18874,10 +18789,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -18898,9 +18810,6 @@
         "application": {
           "$ref": "#/definitions/ApplicationResource"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "MonitoringExtensionResource": {
@@ -18908,23 +18817,14 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
-          "type": "string",
-          "xml": {
-            "attribute": true
-          }
+          "type": "string"
         },
         "extensionNumber": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "extension"
       }
     },
     "AssignedRolesResource": {
@@ -18932,10 +18832,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
@@ -18943,9 +18840,6 @@
             "$ref": "#/definitions/AssignedRoleResource"
           }
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "VersioningResource": {
@@ -18953,10 +18847,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "resourceDescription": {
           "type": "string"
@@ -18975,10 +18866,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "businessAddress": {
           "$ref": "#/definitions/ContactAddressInfo"
@@ -18996,10 +18884,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "availability": {
           "type": "string",
@@ -19011,10 +18896,7 @@
         },
         "id": {
           "type": "integer",
-          "format": "int64",
-          "xml": {
-            "attribute": true
-          }
+          "format": "int64"
         },
         "firstName": {
           "type": "string"
@@ -19098,9 +18980,6 @@
         "businessPhone2": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "personalContact"
       }
     },
     "IncomingCallInformationResource": {
@@ -19108,10 +18987,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "announcementWhenDirectCalls": {
           "type": "string",
@@ -19128,9 +19004,6 @@
             "NonRingCentral"
           ]
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "AddressFormResource": {
@@ -19138,24 +19011,14 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/AddressFormCountryResource"
           }
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "PathPattern": {
@@ -19196,9 +19059,6 @@
             "$ref": "#/definitions/CallerInfo"
           }
         }
-      },
-      "xml": {
-        "name": "faxSendInfo"
       }
     },
     "FormFieldResource": {
@@ -19231,9 +19091,6 @@
         "appVersionUpgrade": {
           "$ref": "#/definitions/HintResource"
         }
-      },
-      "xml": {
-        "name": "hints"
       }
     },
     "NewCookie": {
@@ -19280,20 +19137,11 @@
       "type": "object",
       "properties": {
         "subjectCode": {
-          "type": "string",
-          "xml": {
-            "attribute": true
-          }
+          "type": "string"
         },
         "message": {
-          "type": "string",
-          "xml": {
-            "attribute": true
-          }
+          "type": "string"
         }
-      },
-      "xml": {
-        "name": "notice"
       }
     },
     "PhoneNumberResource": {
@@ -19389,10 +19237,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "country": {
           "$ref": "#/definitions/CountryResource"
@@ -19410,9 +19255,6 @@
           "type": "boolean",
           "default": false
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "AccessValidationResource": {
@@ -19420,10 +19262,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "applicationId": {
           "type": "string"
@@ -19493,9 +19332,6 @@
         "tierId": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "PresenceInfoResource": {
@@ -19542,9 +19378,6 @@
             "$ref": "#/definitions/ActiveCallInfo"
           }
         }
-      },
-      "xml": {
-        "name": "extensionPresenceInfo"
       }
     },
     "AccountLimitsResource": {
@@ -19566,9 +19399,6 @@
           "type": "integer",
           "format": "int32"
         }
-      },
-      "xml": {
-        "name": "limits"
       }
     },
     "CfaSettingsResource": {
@@ -19580,9 +19410,6 @@
             "$ref": "#/definitions/CfaView"
           }
         }
-      },
-      "xml": {
-        "name": "cfaSettings"
       }
     },
     "UserGroupBulkAssignResource": {
@@ -19601,17 +19428,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/PermissionCategoryResource"
           }
@@ -19622,9 +19442,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "StatusInfo": {
@@ -19687,10 +19504,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "admin": {
           "$ref": "#/definitions/Permission"
@@ -19701,9 +19515,6 @@
         "freeSoftPhoneDigitalLine": {
           "$ref": "#/definitions/Permission"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "ClientInfoSpecialNumberResource": {
@@ -19711,10 +19522,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "phoneNumber": {
           "type": "string"
@@ -19725,9 +19533,6 @@
         "features": {
           "$ref": "#/definitions/Features"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "CfaAttachments": {
@@ -19748,10 +19553,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "contacts": {
           "$ref": "#/definitions/ResourceLink"
@@ -19759,9 +19561,6 @@
         "groups": {
           "$ref": "#/definitions/ResourceLink"
         }
-      },
-      "xml": {
-        "name": "addressBook"
       }
     },
     "ShippingMethod": {
@@ -19802,9 +19601,6 @@
             "$ref": "#/definitions/DeviceInstance"
           }
         }
-      },
-      "xml": {
-        "name": "deviceOrder"
       }
     },
     "CfaRecurrence": {
@@ -19821,9 +19617,6 @@
         "value": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "recurrence"
       }
     },
     "AccountId": {
@@ -19857,9 +19650,6 @@
           "type": "integer",
           "format": "int64"
         }
-      },
-      "xml": {
-        "name": "pagerSendInfo"
       }
     },
     "OrderResource": {
@@ -19878,9 +19668,6 @@
             "$ref": "#/definitions/DeviceResource"
           }
         }
-      },
-      "xml": {
-        "name": "order"
       }
     },
     "ParsedPhoneNumbersResource": {
@@ -19899,9 +19686,6 @@
             "$ref": "#/definitions/ParsedNumberResource"
           }
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "PhoneLineResource": {
@@ -19931,28 +19715,16 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "extensionNumber": {
-          "type": "string",
-          "xml": {
-            "attribute": true
-          }
+          "type": "string"
         },
         "id": {
-          "type": "string",
-          "xml": {
-            "attribute": true
-          }
+          "type": "string"
         },
         "type": {
           "type": "string",
-          "xml": {
-            "attribute": true
-          },
           "enum": [
             "Unknown",
             "User",
@@ -19969,9 +19741,6 @@
             "ParkLocation"
           ]
         }
-      },
-      "xml": {
-        "name": "extension"
       }
     },
     "SubscriptionInfo": {
@@ -20015,9 +19784,6 @@
             "type": "string"
           }
         }
-      },
-      "xml": {
-        "name": "email"
       }
     },
     "Attachment": {
@@ -20037,10 +19803,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "permissions": {
           "type": "array",
@@ -20048,9 +19811,6 @@
             "$ref": "#/definitions/ActivePermissionResource"
           }
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "SaveRequestResource": {
@@ -20075,17 +19835,11 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "integer",
-          "format": "int64",
-          "xml": {
-            "attribute": true
-          }
+          "format": "int64"
         },
         "partnerId": {
           "type": "string",
@@ -20150,10 +19904,6 @@
         },
         "serviceFeatures": {
           "type": "array",
-          "xml": {
-            "name": "serviceFeatures",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/ServiceFeatureValue"
           }
@@ -20182,9 +19932,6 @@
         "profileImage": {
           "$ref": "#/definitions/ProfileImageResource"
         }
-      },
-      "xml": {
-        "name": "extension"
       }
     },
     "ContactsCollection": {
@@ -20192,17 +19939,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/PersonalContactResource"
           }
@@ -20216,9 +19956,6 @@
         "groups": {
           "$ref": "#/definitions/ResourceLink"
         }
-      },
-      "xml": {
-        "name": "personalContacts"
       }
     },
     "SipInfo": {
@@ -20262,24 +19999,14 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/FavoriteContactResource"
           }
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "BulkRoleAssignResource": {
@@ -20287,10 +20014,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "addedExtensionIds": {
           "type": "array",
@@ -20304,9 +20028,6 @@
             "type": "string"
           }
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "SubscriptionResponse": {
@@ -20343,9 +20064,6 @@
         "deliveryMode": {
           "$ref": "#/definitions/DeliveryModeResource"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "MeetingScheduleResource": {
@@ -20368,17 +20086,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/LocationResource"
           }
@@ -20389,9 +20100,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "locations"
       }
     },
     "TimezoneResource": {
@@ -20399,10 +20107,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -20413,9 +20118,6 @@
         "description": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "Brand": {
@@ -20452,17 +20154,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/RoleResource"
           }
@@ -20473,9 +20168,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "TouchRequestResource": {
@@ -20526,9 +20218,6 @@
         "country": {
           "$ref": "#/definitions/RingOutCountry"
         }
-      },
-      "xml": {
-        "name": "ringOut"
       }
     },
     "PhoneNumberForProvisioningResource": {
@@ -20656,10 +20345,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -20685,9 +20371,6 @@
           "type": "boolean",
           "default": false
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "Extensions": {
@@ -20695,17 +20378,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/ExtensionResource"
           }
@@ -20716,9 +20392,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "extensions"
       }
     },
     "ScaledProfileImageResource": {
@@ -20735,10 +20408,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "resourceDescription": {
           "type": "string"
@@ -20797,17 +20467,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/BlacklistEntryResource"
           }
@@ -20818,9 +20481,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "blacklist"
       }
     },
     "TimezonesResource": {
@@ -20828,17 +20488,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/TimezoneResource"
           }
@@ -20849,9 +20502,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "DialInNumberResource": {
@@ -20956,10 +20606,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -20977,9 +20624,6 @@
         "type": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "billingPlan"
       }
     },
     "PermissionCollectionResource": {
@@ -20987,17 +20631,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/PermissionResource"
           }
@@ -21008,9 +20645,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "BillingStatementResource": {
@@ -21047,10 +20681,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "userId": {
           "type": "string"
@@ -21065,9 +20696,6 @@
         "userToken": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "CallerInfo": {
@@ -21122,9 +20750,6 @@
             "InternationalDisabled"
           ]
         }
-      },
-      "xml": {
-        "name": "callerInfo"
       }
     },
     "BulkAssignItem": {
@@ -21152,16 +20777,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
-          "type": "string",
-          "xml": {
-            "attribute": true
-          }
+          "type": "string"
         },
         "name": {
           "type": "string"
@@ -21172,9 +20791,6 @@
         "country": {
           "$ref": "#/definitions/VersionedResource"
         }
-      },
-      "xml": {
-        "name": "state"
       }
     },
     "ContentDisposition": {
@@ -21209,17 +20825,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/ForwardingNumberResource"
           }
@@ -21230,9 +20839,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "forwardingNumberInfos"
       }
     },
     "ForwardingNumberResource": {
@@ -21240,10 +20846,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -21256,10 +20859,6 @@
         },
         "features": {
           "type": "array",
-          "xml": {
-            "name": "feature",
-            "wrapped": true
-          },
           "items": {
             "type": "string",
             "enum": [
@@ -21272,9 +20871,6 @@
           "type": "string",
           "pattern": "[1-8]"
         }
-      },
-      "xml": {
-        "name": "forwardingNumberInfo"
       }
     },
     "MeetingResponseResource": {
@@ -21282,10 +20878,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "uuid": {
           "type": "string"
@@ -21329,9 +20922,6 @@
             "type": "string"
           }
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "FeeChargeResource": {
@@ -21366,9 +20956,6 @@
         "zip": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "address"
       }
     },
     "PropertiesDelegate": {
@@ -21387,17 +20974,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/SecretQuestionInfoResource"
           }
@@ -21408,9 +20988,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "ExtensionWithRolesResource": {
@@ -21418,10 +20995,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "extensionId": {
           "type": "string"
@@ -21432,9 +21006,6 @@
             "$ref": "#/definitions/AssignedRoleResource"
           }
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "ConversationResource": {
@@ -21449,14 +21020,8 @@
         },
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         }
-      },
-      "xml": {
-        "name": "conversation"
       }
     },
     "Address": {
@@ -21477,9 +21042,6 @@
         "zip": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "address"
       }
     },
     "ExtensionReferenceResource": {
@@ -21576,17 +21138,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/PersonalContactResource"
           }
@@ -21597,9 +21152,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "contacts"
       }
     },
     "SubResource": {
@@ -21607,10 +21159,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "resourceDescription": {
           "type": "string"
@@ -21633,24 +21182,14 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/PhoneNumberResource"
           }
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "Messages": {
@@ -21658,17 +21197,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/MessageInfoResource"
           }
@@ -21679,9 +21211,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "messages"
       }
     },
     "UserGroupManagerResource": {
@@ -21689,10 +21218,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -21706,9 +21232,6 @@
         "lastName": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "StatesResource": {
@@ -21716,17 +21239,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/StateResource"
           }
@@ -21737,9 +21253,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "states"
       }
     },
     "ShippingResource": {
@@ -21760,9 +21273,6 @@
         "trackingNumber": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "shipping"
       }
     },
     "ServicePlan": {
@@ -21809,10 +21319,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -21869,9 +21376,6 @@
         "voicemail": {
           "$ref": "#/definitions/VoicemailSettingsResource"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "PermissionResource": {
@@ -21879,10 +21383,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -21910,9 +21411,6 @@
             "$ref": "#/definitions/PermissionIdResource"
           }
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "ClientInfoResource": {
@@ -21920,10 +21418,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "client": {
           "$ref": "#/definitions/ClientResource"
@@ -21931,9 +21426,6 @@
         "provisioning": {
           "$ref": "#/definitions/ProvisioningResource"
         }
-      },
-      "xml": {
-        "name": "clientInfo"
       }
     },
     "ExtensionIdResource": {
@@ -21941,10 +21433,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -21952,9 +21441,6 @@
         "extensionNumber": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "ApplicationResource": {
@@ -22098,10 +21584,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -22171,17 +21654,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/AnsweringRuleResource"
           }
@@ -22192,9 +21668,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "AcceptableLanguageTag": {
@@ -22223,10 +21696,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -22241,9 +21711,6 @@
         "attachment": {
           "$ref": "#/definitions/Attachment"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "ServiceParameterResource": {
@@ -22266,17 +21733,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/LanguageInfoResource"
           }
@@ -22287,9 +21747,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "AccountLimits": {
@@ -22319,14 +21776,8 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         }
-      },
-      "xml": {
-        "name": "resourceLink"
       }
     },
     "Paging": {
@@ -22356,9 +21807,6 @@
           "type": "integer",
           "format": "int32"
         }
-      },
-      "xml": {
-        "name": "paging"
       }
     },
     "Addon": {
@@ -22391,9 +21839,6 @@
         "lastPage": {
           "$ref": "#/definitions/ResourceLink"
         }
-      },
-      "xml": {
-        "name": "navigation"
       }
     },
     "ShippingOptionResource": {
@@ -22401,10 +21846,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "method": {
           "$ref": "#/definitions/ShippingMethod"
@@ -22417,9 +21859,6 @@
           "type": "number",
           "format": "double"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "CountryResource": {
@@ -22427,16 +21866,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
-          "type": "string",
-          "xml": {
-            "attribute": true
-          }
+          "type": "string"
         },
         "name": {
           "type": "string"
@@ -22459,9 +21892,6 @@
           "type": "boolean",
           "default": false
         }
-      },
-      "xml": {
-        "name": "country"
       }
     },
     "RegistrationRequest": {
@@ -22507,10 +21937,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -22524,9 +21951,6 @@
         "currency": {
           "$ref": "#/definitions/Currency"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "Type": {
@@ -22542,10 +21966,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "integer",
@@ -22685,9 +22106,6 @@
         "coverPageText": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "message"
       }
     },
     "DeliveryModeResource": {
@@ -22754,17 +22172,11 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "LanguageResource": {
@@ -22825,10 +22237,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "extension": {
           "$ref": "#/definitions/InlinedExtensionResource"
@@ -22841,9 +22250,6 @@
           "type": "boolean",
           "default": false
         }
-      },
-      "xml": {
-        "name": "grant"
       }
     },
     "PermissionCategoryResource": {
@@ -22851,10 +22257,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -22865,9 +22268,6 @@
         "description": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "SessionsResource": {
@@ -22875,24 +22275,14 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/VersionedResource"
           }
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "EntityTag": {
@@ -22912,24 +22302,14 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/SubscriptionResponse"
           }
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "ShippingOptionsResource": {
@@ -22937,17 +22317,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/ShippingOptionResource"
           }
@@ -22958,9 +22331,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "RoleIdResource": {
@@ -22968,10 +22338,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -23016,17 +22383,11 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "AccountServiceInfoResource": {
@@ -23034,10 +22395,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "servicePlanName": {
           "type": "string"
@@ -23056,10 +22414,6 @@
         },
         "serviceFeatures": {
           "type": "array",
-          "xml": {
-            "name": "serviceFeatures",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/ServiceFeatureValue"
           }
@@ -23067,9 +22421,6 @@
         "limits": {
           "$ref": "#/definitions/AccountLimitsResource"
         }
-      },
-      "xml": {
-        "name": "serviceInfo"
       }
     },
     "CallLogRecordResource": {
@@ -23077,10 +22428,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -23125,9 +22473,6 @@
         "recording": {
           "$ref": "#/definitions/CallLogRecordingResource"
         }
-      },
-      "xml": {
-        "name": "callLogEntry"
       }
     },
     "PatternWithGroups": {
@@ -23179,10 +22524,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "originalString": {
           "type": "string"
@@ -23225,9 +22567,6 @@
         "dtmfPostfix": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "DevicesResource": {
@@ -23235,17 +22574,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/DeviceResource"
           }
@@ -23256,9 +22588,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "devices"
       }
     },
     "RoleResource": {
@@ -23266,10 +22595,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -23307,9 +22633,6 @@
             "$ref": "#/definitions/PermissionIdResource"
           }
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "AcceptableMediaType": {
@@ -23340,10 +22663,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "originalStrings": {
           "type": "array",
@@ -23351,9 +22671,6 @@
             "type": "string"
           }
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "PermissionCategoryIdResource": {
@@ -23361,17 +22678,11 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "UpdatePresenceLinesResponse": {
@@ -23433,17 +22744,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/PresenceLineResource"
           }
@@ -23454,9 +22758,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "presenceLines"
       }
     },
     "CallLogRecordingInfoResource": {
@@ -23464,10 +22765,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -23483,9 +22781,6 @@
           "type": "integer",
           "format": "int64"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "Reference": {
@@ -23508,10 +22803,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "domain": {
           "type": "string"
@@ -23528,9 +22820,6 @@
         "authorizationId": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "UserGroupResource": {
@@ -23538,10 +22827,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string",
@@ -23571,9 +22857,6 @@
             "$ref": "#/definitions/ExtensionIdResource"
           }
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "NavigableCollectionResourceUserGroupResource": {
@@ -23581,17 +22864,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/UserGroupResource"
           }
@@ -23602,9 +22878,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "PaymentInfoResource": {
@@ -23612,10 +22885,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "paymentType": {
           "type": "string",
@@ -23630,9 +22900,6 @@
         "invoiceSettings": {
           "$ref": "#/definitions/InvoiceSettingsResource"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "ServicePlanResource": {
@@ -23640,10 +22907,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -23682,9 +22946,6 @@
         "limits": {
           "$ref": "#/definitions/AccountLimitsResource"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "DepartmentResource": {
@@ -23700,9 +22961,6 @@
         "extensionNumber": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "department"
       }
     },
     "OrganizationResource": {
@@ -23725,9 +22983,6 @@
             "$ref": "#/definitions/ExtensionAssignmentResult"
           }
         }
-      },
-      "xml": {
-        "name": "items"
       }
     },
     "WebUrisResource": {
@@ -23818,9 +23073,6 @@
         "emergencyDisclaimer": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "webUris"
       }
     },
     "Principal": {
@@ -23892,10 +23144,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "etag": {
           "type": "string"
@@ -23913,9 +23162,6 @@
             "$ref": "#/definitions/ScaledProfileImageResource"
           }
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "PhoneNumbersResource": {
@@ -23923,17 +23169,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/PhoneNumberResource"
           }
@@ -23944,9 +23183,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "phoneNumberInfos"
       }
     },
     "DeviceInstance": {
@@ -23967,9 +23203,6 @@
         "rmaNumber": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "device"
       }
     },
     "AnsweringForwardingResource": {
@@ -24038,17 +23271,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/CallLogRecordResource"
           }
@@ -24059,9 +23285,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "callLogEntries"
       }
     },
     "ClientInfoSpecialNumbersResource": {
@@ -24069,17 +23292,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/ClientInfoSpecialNumberResource"
           }
@@ -24090,9 +23306,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "records"
       }
     },
     "MeetingRequestResource": {
@@ -24298,9 +23511,6 @@
         "locale": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "client"
       }
     },
     "PoolResponseResource": {
@@ -24400,17 +23610,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/MonitoringExtensionResource"
           }
@@ -24421,9 +23624,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "extensions"
       }
     },
     "MeetingServiceInfoResource": {
@@ -24431,10 +23631,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "supportUri": {
           "type": "string"
@@ -24451,9 +23648,6 @@
             "$ref": "#/definitions/DialInNumberResource"
           }
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "ExtensionUserGroupsResource": {
@@ -24461,10 +23655,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "groups": {
           "type": "array",
@@ -24472,9 +23663,6 @@
             "$ref": "#/definitions/UserGroupIdResource"
           }
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "MeetingsResource": {
@@ -24482,17 +23670,10 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/MeetingResponseResource"
           }
@@ -24503,9 +23684,6 @@
         "navigation": {
           "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "AnsweringForwardingRuleResource": {
@@ -24551,10 +23729,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "versionString": {
           "type": "string"
@@ -24566,9 +23741,6 @@
         "uriString": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "apiVersion"
       }
     },
     "VersionedResource": {
@@ -24576,14 +23748,8 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "File": {
@@ -24602,10 +23768,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "string"
@@ -24617,9 +23780,6 @@
         "displayName": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "AuthProfileCheckResource": {
@@ -24627,10 +23787,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "successful": {
           "type": "boolean",
@@ -24639,9 +23796,6 @@
         "details": {
           "$ref": "#/definitions/ActivePermissionResource"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "Throwable": {
@@ -24708,17 +23862,11 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "integer",
-          "format": "int64",
-          "xml": {
-            "attribute": true
-          }
+          "format": "int64"
         },
         "partnerId": {
           "type": "string",
@@ -24783,10 +23931,6 @@
         },
         "serviceFeatures": {
           "type": "array",
-          "xml": {
-            "name": "serviceFeatures",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/ServiceFeatureValue"
           }
@@ -24815,9 +23959,6 @@
         "profileImage": {
           "$ref": "#/definitions/ProfileImageResource"
         }
-      },
-      "xml": {
-        "name": "extension"
       }
     },
     "SmsResource": {
@@ -24838,9 +23979,6 @@
         "text": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "smsSendInfo"
       }
     },
     "PaymentInfoCardHolderResource": {
@@ -24855,9 +23993,6 @@
         "address": {
           "$ref": "#/definitions/PaymentInfoAddressResource"
         }
-      },
-      "xml": {
-        "name": "holder"
       }
     },
     "AdbPresenceInfoResource": {
@@ -24968,24 +24103,14 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/ExtensionWithRolesResource"
           }
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "ProvisioningResource": {
@@ -24997,9 +24122,6 @@
         "hints": {
           "$ref": "#/definitions/HintsResource"
         }
-      },
-      "xml": {
-        "name": "provisioning"
       }
     },
     "PromotionCodeResource": {
@@ -25018,10 +24140,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "integer",
@@ -25041,9 +24160,6 @@
         "extension": {
           "$ref": "#/definitions/ExtensionReferenceResource"
         }
-      },
-      "xml": {
-        "name": "phoneNumberInfo"
       }
     },
     "IntervalResource": {
@@ -25062,10 +24178,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "device": {
           "$ref": "#/definitions/DeviceResource"
@@ -25086,17 +24199,11 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "schedule": {
           "$ref": "#/definitions/ScheduleResource"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "ActiveCallInfo": {
@@ -25151,10 +24258,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "city": {
           "type": "string"
@@ -25171,9 +24275,6 @@
         "state": {
           "$ref": "#/definitions/VersionedResource"
         }
-      },
-      "xml": {
-        "name": "location"
       }
     },
     "FavoriteContactResource": {
@@ -25181,10 +24282,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "integer",
@@ -25196,9 +24294,6 @@
         "contactId": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "favoriteContact"
       }
     },
     "AccountResource": {
@@ -25209,17 +24304,11 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "integer",
-          "format": "int64",
-          "xml": {
-            "attribute": true
-          }
+          "format": "int64"
         },
         "serviceInfo": {
           "$ref": "#/definitions/AccountServiceInfoResource"
@@ -25272,9 +24361,6 @@
         "promotionCode": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "account"
       }
     },
     "SecretQuestionInfoResource": {
@@ -25282,10 +24368,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "id": {
           "type": "integer",
@@ -25306,9 +24389,6 @@
           "type": "boolean",
           "default": false
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "StatusType": {
@@ -25339,10 +24419,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
@@ -25361,9 +24438,6 @@
           "type": "string",
           "format": "uri"
         }
-      },
-      "xml": {
-        "name": "syncAddressBook"
       }
     },
     "SecurityContext": {
@@ -25386,10 +24460,7 @@
       "properties": {
         "uri": {
           "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "format": "uri"
         },
         "records": {
           "type": "array",
@@ -25400,9 +24471,6 @@
         "syncInfo": {
           "$ref": "#/definitions/SyncInfo"
         }
-      },
-      "xml": {
-        "name": "syncCallLogEntries"
       }
     },
     "EmergencyServiceAddressResource": {
