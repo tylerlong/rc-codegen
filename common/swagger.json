@@ -129,7 +129,8 @@
         "x-auth-required": false,
         "x-throttling-group": "NoThrottling",
         "x-metered-api": true,
-        "x-metering-group": "Free"
+        "x-metering-group": "Free",
+        "x-access-level": "Public"
       }
     },
     "/restapi/{apiVersion}": {
@@ -167,7 +168,36 @@
         "x-auth-required": false,
         "x-throttling-group": "NoThrottling",
         "x-metered-api": true,
-        "x-metering-group": "Free"
+        "x-metering-group": "Free",
+        "x-access-level": "Public"
+      }
+    },
+    "/restapi/v1.0/status": {
+      "get": {
+        "tags": [
+          "API Info"
+        ],
+        "summary": "Get Status",
+        "description": "<p style='font-style:italic;'>Since 1.0.27 (Release 8.3)</p><p>Returns the API status; status '200' means the API is working fine, and '503' means it is temporary unavailable.</p><h4>API Group</h4><p>Light</p>",
+        "operationId": "loadAPIStatus",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "Success"
+          }
+        },
+        "x-api-group": "restapi/status",
+        "x-auth-required": false,
+        "x-throttling-group": "NoThrottling",
+        "x-metered-api": true,
+        "x-metering-group": "Free",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/call-log": {
@@ -315,7 +345,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadCallLog",
-        "x-user-permission": "ReadCallLog"
+        "x-user-permission": "ReadCallLog",
+        "x-access-level": "Public"
       },
       "delete": {
         "tags": [
@@ -412,7 +443,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditCallLog",
-        "x-user-permission": "EditCallLog"
+        "x-user-permission": "EditCallLog",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/call-log-sync": {
@@ -508,7 +540,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadCallLog",
-        "x-user-permission": "ReadCallLog"
+        "x-user-permission": "ReadCallLog",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/call-log/{callRecordId}": {
@@ -519,11 +552,9 @@
         "summary": "Get Call Records by ID",
         "operationId": "getCallRecords",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -573,7 +604,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadCallLog",
-        "x-user-permission": "ReadCallLog"
+        "x-user-permission": "ReadCallLog",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/active-calls": {
@@ -581,7 +613,7 @@
         "tags": [
           "Call Log"
         ],
-        "summary": "Get Active Calls",
+        "summary": "Get User Active Calls",
         "description": "<p style='font-style:italic;'>Since 1.0.13 (Release 6.5)</p><p>Returns records of all extension calls that are in progress, ordered by start time in descending order.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
         "operationId": "listExtensionActiveCalls",
         "consumes": [
@@ -661,12 +693,12 @@
           }
         },
         "x-api-group": "extension/active-calls",
-        "x-access-level": "",
         "x-throttling-group": "Heavy",
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadCallLog",
-        "x-user-permission": "ReadCallLog"
+        "x-user-permission": "ReadCallLog",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/call-log": {
@@ -806,7 +838,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadCallLog",
-        "x-user-permission": "FullCompanyCallLog"
+        "x-user-permission": "FullCompanyCallLog",
+        "x-access-level": "Public"
       },
       "delete": {
         "tags": [
@@ -848,7 +881,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditCallLog",
-        "x-user-permission": "FullCompanyCallLog"
+        "x-user-permission": "FullCompanyCallLog",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/call-log-sync": {
@@ -935,7 +969,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadCallLog",
-        "x-user-permission": "ReadCallLog"
+        "x-user-permission": "ReadCallLog",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/call-log/{callRecordId}": {
@@ -982,7 +1017,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadCallLog",
-        "x-user-permission": "FullCompanyCallLog"
+        "x-user-permission": "FullCompanyCallLog",
+        "x-access-level": "Advanced"
       },
       "delete": {
         "tags": [
@@ -1024,6 +1060,199 @@
         "x-metering-group": "System",
         "x-app-permission": "EditCallLog",
         "x-user-permission": "FullCompanyCallLog"
+      }
+    },
+    "/restapi/v1.0/account/{accountId}/active-calls": {
+      "get": {
+        "tags": [
+          "Call Log"
+        ],
+        "summary": "Get User Active Calls",
+        "description": "<p style='font-style:italic;'>Since 1.0.13 (Release 6.5)</p><p>Returns records of all calls that are in progress, ordered by start time in descending order</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
+        "operationId": "listCompanyActiveCalls",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "type": "integer",
+            "default": "~"
+          },
+          {
+            "name": "direction",
+            "in": "query",
+            "description": "The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are accepted",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "enum": [
+              "Inbound",
+              "Outbound"
+            ]
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "enum": [
+              "Voice",
+              "Fax"
+            ]
+          },
+          {
+            "name": "transport",
+            "in": "query",
+            "description": "Call transport type. 'PSTN' specifies that a call leg is initiated from the PSTN network provider; 'VoIP' - from an RC phone. By default this filter is disabled",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "enum": [
+              "PSTN",
+              "VoIP"
+            ]
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "perPage",
+            "in": "query",
+            "description": "Indicates the page size (number of items). If not specified, the value is '100' by default",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ExtensionActiveCallsResponse"
+            }
+          }
+        },
+        "x-api-group": "company/active-calls",
+        "x-throttling-group": "Heavy",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "ReadCallLog",
+        "x-user-permission": "ReadCallLog",
+        "x-access-level": "Advanced"
+      }
+    },
+    "/restapi/v1.0/account/{accountId}/recording/{recordingId}": {
+      "get": {
+        "tags": [
+          "Call Log"
+        ],
+        "summary": "Get Call Recordings",
+        "description": "<p style='font-style:italic;'>Since 1.0.18 (Release 6.5)</p><p>Returns call recording metadata.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadCallRecording</td><td>Downloading call recording content</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
+        "operationId": "listCallRecordings",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "type": "string",
+            "default": "~"
+          },
+          {
+            "name": "recordingId",
+            "in": "path",
+            "description": "Internal identifier of a recording (returned in Call Log)",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetCallRecordingResponse"
+            }
+          }
+        },
+        "x-api-group": "account/recordings",
+        "x-throttling-group": "Heavy",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "ReadCallRecording",
+        "x-user-permission": "ReadCallRecording",
+        "x-access-level": "Public"
+      }
+    },
+    "/restapi/v1.0/account/{accountId}/recording/{recordingId}/content": {
+      "get": {
+        "tags": [
+          "Call Log"
+        ],
+        "summary": "Get Call Recordings Data",
+        "description": "<p style='font-style:italic;'>Since 1.0.16 (Release 7.1)</p><p>Returns call recording metadata.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadCallRecording</td><td>Downloading call recording content</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
+        "operationId": "listCallRecordingData",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "type": "string",
+            "default": "~"
+          },
+          {
+            "name": "recordingId",
+            "in": "path",
+            "description": "Internal identifier of a recording (returned in Call Log)",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Success"
+          }
+        },
+        "x-api-group": "account/recordings",
+        "x-throttling-group": "Heavy",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "ReadCallRecording",
+        "x-user-permission": "ReadCallRecording",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/phone-number": {
@@ -1104,7 +1333,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadUserPhoneNumbers"
+        "x-user-permission": "ReadUserPhoneNumbers",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/sms": {
@@ -1161,7 +1391,8 @@
         "x-metered-api": true,
         "x-metering-group": "Messaging",
         "x-app-permission": "SMS",
-        "x-user-permission": "OutboundSMS"
+        "x-user-permission": "OutboundSMS",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/company-pager": {
@@ -1218,7 +1449,8 @@
         "x-metered-api": true,
         "x-metering-group": "Messaging",
         "x-app-permission": "InternalMessages",
-        "x-user-permission": "InternalSMS"
+        "x-user-permission": "InternalSMS",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/fax": {
@@ -1283,7 +1515,8 @@
         "x-metered-api": true,
         "x-metering-group": "Time-based",
         "x-app-permission": "Faxes",
-        "x-user-permission": "OutboundFaxes"
+        "x-user-permission": "OutboundFaxes",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/dictionary/fax-cover-page": {
@@ -1323,7 +1556,8 @@
         "x-api-group": "dictionary/fax-cover-page",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store": {
@@ -1484,7 +1718,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadMessages",
-        "x-user-permission": "ReadMessages"
+        "x-user-permission": "ReadMessages",
+        "x-access-level": "Public"
       },
       "delete": {
         "tags": [
@@ -1493,12 +1728,9 @@
         "summary": "Delete Conversations by ID's",
         "operationId": "deleteMessagesByFilter",
         "consumes": [
-          "application/json",
-          "application/xml",
-          "application/x-www-form-urlencoded"
+          "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -1535,7 +1767,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditMessages",
-        "x-user-permission": "EditMessages"
+        "x-user-permission": "EditMessages",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}": {
@@ -1590,7 +1823,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadMessages",
-        "x-user-permission": "ReadMessages"
+        "x-user-permission": "ReadMessages",
+        "x-access-level": "Public"
       },
       "put": {
         "tags": [
@@ -1652,7 +1886,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditMessages",
-        "x-user-permission": "EditMessages"
+        "x-user-permission": "EditMessages",
+        "x-access-level": "Public"
       },
       "delete": {
         "tags": [
@@ -1716,7 +1951,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditMessages",
-        "x-user-permission": "EditMessages"
+        "x-user-permission": "EditMessages",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}/content/{attachmentId}": {
@@ -1781,7 +2017,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadMessages",
-        "x-user-permission": "ReadMessageContent"
+        "x-user-permission": "ReadMessageContent",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/message-sync": {
@@ -1919,7 +2156,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadMessages",
-        "x-user-permission": "ReadMessages"
+        "x-user-permission": "ReadMessages",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/ringout": {
@@ -1976,7 +2214,8 @@
         "x-throttling-group": "Heavy",
         "x-metered-api": true,
         "x-metering-group": "Time-based",
-        "x-app-permission": "RingOut"
+        "x-app-permission": "RingOut",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/ringout/direct": {
@@ -1987,11 +2226,9 @@
         "deprecated": true,
         "operationId": "createDirectRingOut",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -2025,7 +2262,8 @@
         "x-throttling-group": "Heavy",
         "x-metered-api": true,
         "x-metering-group": "Time-based",
-        "x-app-permission": "DirectRingOut"
+        "x-app-permission": "DirectRingOut",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/ringout/{ringoutId}": {
@@ -2080,7 +2318,8 @@
         "x-throttling-group": "Light",
         "x-metered-api": true,
         "x-metering-group": "Time-based",
-        "x-app-permission": "RingOut"
+        "x-app-permission": "RingOut",
+        "x-access-level": "Public"
       },
       "delete": {
         "tags": [
@@ -2130,7 +2369,8 @@
         "x-throttling-group": "Heavy",
         "x-metered-api": true,
         "x-metering-group": "Time-based",
-        "x-app-permission": "RingOut"
+        "x-app-permission": "RingOut",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/ring-out": {
@@ -2186,7 +2426,8 @@
         "x-throttling-group": "Heavy",
         "x-metered-api": true,
         "x-metering-group": "Time-based",
-        "x-app-permission": "RingOut"
+        "x-app-permission": "RingOut",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/direct-ring-out": {
@@ -2233,7 +2474,8 @@
         "x-throttling-group": "Heavy",
         "x-metered-api": true,
         "x-metering-group": "Time-based",
-        "x-app-permission": "DirectRingOut"
+        "x-app-permission": "DirectRingOut",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/ring-out/{ringoutId}": {
@@ -2287,7 +2529,8 @@
         "x-throttling-group": "Light",
         "x-metered-api": true,
         "x-metering-group": "Time-based",
-        "x-app-permission": "RingOut"
+        "x-app-permission": "RingOut",
+        "x-access-level": "Public"
       },
       "delete": {
         "tags": [
@@ -2336,7 +2579,8 @@
         "x-throttling-group": "Heavy",
         "x-metered-api": true,
         "x-metering-group": "Time-based",
-        "x-app-permission": "RingOut"
+        "x-app-permission": "RingOut",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/address-book/contact": {
@@ -2428,7 +2672,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadContacts",
-        "x-user-permission": "ReadPersonalContacts"
+        "x-user-permission": "ReadPersonalContacts",
+        "x-access-level": "Public"
       },
       "post": {
         "tags": [
@@ -2479,7 +2724,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "Contacts",
-        "x-user-permission": "EditPersonalContacts"
+        "x-user-permission": "EditPersonalContacts",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/address-book/contact/{contactId}": {
@@ -2531,7 +2777,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadContacts",
-        "x-user-permission": "ReadPersonalContacts"
+        "x-user-permission": "ReadPersonalContacts",
+        "x-access-level": "Public"
       },
       "put": {
         "tags": [
@@ -2589,7 +2836,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "Contacts",
-        "x-user-permission": "EditPersonalContacts"
+        "x-user-permission": "EditPersonalContacts",
+        "x-access-level": "Public"
       },
       "delete": {
         "tags": [
@@ -2639,7 +2887,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "Contacts",
-        "x-user-permission": "EditPersonalContacts"
+        "x-user-permission": "EditPersonalContacts",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/address-book-sync": {
@@ -2720,7 +2969,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadContacts",
-        "x-user-permission": "ReadPersonalContacts"
+        "x-user-permission": "ReadPersonalContacts",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/favorite": {
@@ -2764,7 +3014,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-user-permission": "ReadPersonalContacts",
-        "x-app-permission": "ReadContacts"
+        "x-app-permission": "ReadContacts",
+        "x-access-level": "Public"
       },
       "put": {
         "tags": [
@@ -2814,7 +3065,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "Contacts",
-        "x-user-permission": "EditPersonalContacts"
+        "x-user-permission": "EditPersonalContacts",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/directory/contacts": {
@@ -2871,7 +3123,14 @@
               "$ref": "#/definitions/CompanyDirectoryContacts"
             }
           }
-        }
+        },
+        "x-api-group": "directory/contacts",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "ReadContacts",
+        "x-user-permission": "AddRemoveContacts",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/directory/contacts/{contactId}": {
@@ -2912,7 +3171,14 @@
               "$ref": "#/definitions/ContactInfo"
             }
           }
-        }
+        },
+        "x-api-group": "directory/contacts",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "ReadContacts",
+        "x-user-permission": "AddRemoveContacts",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/directory/federation": {
@@ -2946,7 +3212,14 @@
               "$ref": "#/definitions/FederationInfo"
             }
           }
-        }
+        },
+        "x-api-group": "directory/federation",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "ReadContacts",
+        "x-user-permission": "AddRemoveContacts",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/directory/federation-conflicts": {
@@ -2980,7 +3253,14 @@
               "$ref": "#/definitions/FederationConflicts"
             }
           }
-        }
+        },
+        "x-api-group": "directory/FederationConflicts",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "ReadContacts",
+        "x-user-permission": "AddRemoveContacts",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/directory/extension-numbers": {
@@ -3014,7 +3294,14 @@
               "$ref": "#/definitions/FederationExtensionNumbers"
             }
           }
-        }
+        },
+        "x-api-group": "directory/extension-numbers",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "ReadContacts",
+        "x-user-permission": "AddRemoveContacts",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension": {
@@ -3110,7 +3397,14 @@
               "$ref": "#/definitions/GetExtensionListResponse"
             }
           }
-        }
+        },
+        "x-api-group": "extension",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "ReadAccounts",
+        "x-user-permission": "ReadExtensions",
+        "x-access-level": "Public"
       },
       "post": {
         "tags": [
@@ -3151,7 +3445,14 @@
               "$ref": "#/definitions/ExtensionInfo"
             }
           }
-        }
+        },
+        "x-api-group": "extension",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "EditAccounts",
+        "x-user-permission": "AddRemoveUsers",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/bot": {
@@ -3194,7 +3495,14 @@
               "$ref": "#/definitions/BotExtensionCreation"
             }
           }
-        }
+        },
+        "x-api-group": "bot",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "EditAccounts",
+        "x-user-permission": "AddRemoveUsers",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/presence": {
@@ -3205,11 +3513,9 @@
         "summary": "Get all user statuses",
         "operationId": "accountPresence",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -3222,7 +3528,10 @@
         ],
         "responses": {
           "default": {
-            "description": "successful operation"
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/AccountPresenceInfo"
+            }
           }
         },
         "x-api-group": "account/presence",
@@ -3230,7 +3539,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadPresence",
-        "x-user-permission": "ReadPresenceStatus"
+        "x-user-permission": "ReadPresenceStatus",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/presence": {
@@ -3278,7 +3588,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadPresence",
-        "x-user-permission": "ReadPresenceStatus"
+        "x-user-permission": "ReadPresenceStatus",
+        "x-access-level": "Public"
       },
       "put": {
         "tags": [
@@ -3334,7 +3645,8 @@
         "x-throttling-group": "Medium",
         "x-metered-api": true,
         "x-metering-group": "System",
-        "x-app-permission": "EditPresence"
+        "x-app-permission": "EditPresence",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/presence/line": {
@@ -3382,7 +3694,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadPresence",
-        "x-user-permission": "ReadPresenceSettings"
+        "x-user-permission": "ReadPresenceSettings",
+        "x-access-level": "Internal"
       },
       "put": {
         "tags": [
@@ -3391,13 +3704,9 @@
         "summary": "Update Monitored Extensions",
         "operationId": "updatePresenceLines",
         "consumes": [
-          "application/xml",
-          "multipart/mixed",
           "application/json"
         ],
         "produces": [
-          "application/xml",
-          "multipart/mixed",
           "application/json"
         ],
         "parameters": [
@@ -3439,7 +3748,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditPresence",
-        "x-user-permission": "EditPresenceSettings"
+        "x-user-permission": "EditPresenceSettings",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/presence/line/{lineId}": {
@@ -3450,13 +3760,9 @@
         "summary": "Get Monitored Extensions by Id",
         "operationId": "getPresenceLine",
         "consumes": [
-          "application/xml",
-          "multipart/mixed",
           "application/json"
         ],
         "produces": [
-          "application/xml",
-          "multipart/mixed",
           "application/json"
         ],
         "parameters": [
@@ -3496,7 +3802,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadPresence",
-        "x-user-permission": "ReadPresenceSettings"
+        "x-user-permission": "ReadPresenceSettings",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/presence/permission": {
@@ -3507,13 +3814,9 @@
         "summary": "Get User Presence Permissions",
         "operationId": "getMonitoringExtensions",
         "consumes": [
-          "application/xml",
-          "multipart/mixed",
           "application/json"
         ],
         "produces": [
-          "application/xml",
-          "multipart/mixed",
           "application/json"
         ],
         "parameters": [
@@ -3545,7 +3848,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadPresence",
-        "x-user-permission": "ReadPresenceSettings"
+        "x-user-permission": "ReadPresenceSettings",
+        "x-access-level": "Internal"
       },
       "put": {
         "tags": [
@@ -3596,7 +3900,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadPresence",
-        "x-user-permission": "ReadPresenceSettings"
+        "x-user-permission": "ReadPresenceSettings",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/glip/companies/{companyId}": {
@@ -3629,7 +3934,14 @@
               "$ref": "#/definitions/GlipCompany"
             }
           }
-        }
+        },
+        "x-api-group": "Glip",
+        "x-throttling-group": "Light",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "Glip",
+        "x-user-permission": "Glip",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/glip/groups": {
@@ -3687,7 +3999,14 @@
               "$ref": "#/definitions/GlipGroupList"
             }
           }
-        }
+        },
+        "x-api-group": "Glip",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "Glip",
+        "x-user-permission": "Glip",
+        "x-access-level": "PublicBeta"
       },
       "post": {
         "tags": [
@@ -3720,7 +4039,14 @@
               "$ref": "#/definitions/GlipGroupInfo"
             }
           }
-        }
+        },
+        "x-api-group": "Glip",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "Glip",
+        "x-user-permission": "Glip",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/glip/groups/{groupId}": {
@@ -3753,7 +4079,14 @@
               "$ref": "#/definitions/GlipGroupInfo"
             }
           }
-        }
+        },
+        "x-api-group": "Glip",
+        "x-throttling-group": "Light",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "Glip",
+        "x-user-permission": "Glip",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/glip/groups/{groupId}/bulk-assign": {
@@ -3795,7 +4128,14 @@
               "$ref": "#/definitions/GlipGroupInfo"
             }
           }
-        }
+        },
+        "x-api-group": "Glip",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "Glip",
+        "x-user-permission": "Glip",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/glip/persons/{personId}": {
@@ -3828,7 +4168,14 @@
               "$ref": "#/definitions/GlipPersonInfo"
             }
           }
-        }
+        },
+        "x-api-group": "Glip",
+        "x-throttling-group": "Light",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "Glip",
+        "x-user-permission": "Glip",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/glip/posts": {
@@ -3876,7 +4223,14 @@
               "$ref": "#/definitions/GlipPosts"
             }
           }
-        }
+        },
+        "x-api-group": "Glip",
+        "x-throttling-group": "Light",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "Glip",
+        "x-user-permission": "Glip",
+        "x-access-level": "PublicBeta"
       },
       "post": {
         "tags": [
@@ -3909,7 +4263,14 @@
               "$ref": "#/definitions/GlipPostInfo"
             }
           }
-        }
+        },
+        "x-api-group": "Glip",
+        "x-throttling-group": "Light",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "Glip",
+        "x-user-permission": "Glip",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/glip/files": {
@@ -3949,7 +4310,14 @@
               "$ref": "#/definitions/PostGlipFile"
             }
           }
-        }
+        },
+        "x-api-group": "Glip",
+        "x-throttling-group": "Heavy",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "Glip",
+        "x-user-permission": "Glip",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/glip/files/{fileId}": {
@@ -3982,7 +4350,14 @@
               "$ref": "#/definitions/PostGlipFile"
             }
           }
-        }
+        },
+        "x-api-group": "Glip",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "Glip",
+        "x-user-permission": "Glip",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/glip/profile": {
@@ -4015,7 +4390,14 @@
               "$ref": "#/definitions/GlipUnreadMessageCount"
             }
           }
-        }
+        },
+        "x-api-group": "Glip",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "Glip",
+        "x-user-permission": "Glip",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting": {
@@ -4026,11 +4408,9 @@
         "summary": "Get Scheduled Meetings",
         "operationId": "getLiveMeetings",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -4060,7 +4440,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-user-permission": "Meetings",
-        "x-app-permission": "Meetings"
+        "x-app-permission": "Meetings",
+        "x-access-level": "PublicBeta"
       },
       "post": {
         "tags": [
@@ -4069,11 +4450,9 @@
         "summary": "Create Meetings",
         "operationId": "createMeeting",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -4108,7 +4487,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-user-permission": "Meetings",
-        "x-app-permission": "Meetings"
+        "x-app-permission": "Meetings",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/{meetingId}": {
@@ -4119,11 +4499,9 @@
         "summary": "Get Meeting Info",
         "operationId": "getMeetingDetails",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -4159,7 +4537,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "Meetings",
-        "x-user-permission": "Meetings"
+        "x-user-permission": "Meetings",
+        "x-access-level": "PublicBeta"
       },
       "put": {
         "tags": [
@@ -4168,11 +4547,9 @@
         "summary": "Update Meeting",
         "operationId": "updateMeeting",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -4216,7 +4593,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "Meetings",
-        "x-user-permission": "Meetings"
+        "x-user-permission": "Meetings",
+        "x-access-level": "PublicBeta"
       },
       "delete": {
         "tags": [
@@ -4225,11 +4603,9 @@
         "summary": "Delete Meeting",
         "operationId": "deleteMeeting",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -4262,7 +4638,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "Meetings",
-        "x-user-permission": "Meetings"
+        "x-user-permission": "Meetings",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/{meetingId}/end": {
@@ -4273,11 +4650,9 @@
         "summary": "End Meeting",
         "operationId": "endMeeting",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -4310,7 +4685,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "Meetings",
-        "x-user-permission": "Meetings"
+        "x-user-permission": "Meetings",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/service-info": {
@@ -4321,11 +4697,9 @@
         "summary": "Get Meeting Service Info",
         "operationId": "getMeetingServiceInfo",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -4355,7 +4729,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "Meetings",
-        "x-user-permission": "Meetings"
+        "x-user-permission": "Meetings",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/subscription": {
@@ -4366,11 +4741,9 @@
         "summary": "Get Subscriptions",
         "operationId": "getSubscriptions",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [],
@@ -4385,7 +4758,8 @@
         "x-api-group": "subscription",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       },
       "post": {
         "tags": [
@@ -4429,7 +4803,8 @@
         "x-api-group": "subscription",
         "x-throttling-group": "Medium",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/subscription/{subscriptionId}": {
@@ -4466,7 +4841,8 @@
         "x-api-group": "subscription",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       },
       "put": {
         "tags": [
@@ -4517,7 +4893,8 @@
         "x-api-group": "subscription",
         "x-throttling-group": "Medium",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       },
       "delete": {
         "tags": [
@@ -4549,7 +4926,8 @@
         "x-api-group": "subscription",
         "x-throttling-group": "Medium",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/subscription/{subscriptionId}/renew": {
@@ -4561,11 +4939,9 @@
         "description": "<p style='font-style:italic;'>Since 1.0.26 (Release 8.12)</p><p>Renews an existent subscription by ID by posting request with an empty body..</p><h4>Usage Plan Group</h4><p>Medium</p>",
         "operationId": "renewSubscription",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -4588,7 +4964,8 @@
         "x-throttling-group": "Light",
         "x-metered-api": true,
         "x-metering-group": "System",
-        "x-app-permission": "webhook_subscription"
+        "x-app-permission": "webhook_subscription",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/authz-profile": {
@@ -4599,11 +4976,9 @@
         "summary": "Get User Permissions",
         "operationId": "getProfile",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -4631,7 +5006,8 @@
         "x-api-group": "extension/authz-profile",
         "x-throttling-group": "Medium",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/authz-profile/check": {
@@ -4642,11 +5018,9 @@
         "summary": "Check User Permissions",
         "operationId": "checkPermission",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -4686,7 +5060,8 @@
         "x-api-group": "extension/authz-profile/check",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/user-role/default": {
@@ -4723,7 +5098,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "RoleManagement",
-        "x-user-permission": "Roles"
+        "x-user-permission": "Roles",
+        "x-access-level": "Internal"
       },
       "put": {
         "tags": [
@@ -4767,7 +5143,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "RoleManagement",
-        "x-user-permission": "Roles"
+        "x-user-permission": "Roles",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/dictionary/user-role": {
@@ -4778,11 +5155,9 @@
         "summary": "Get Standard User Roles",
         "operationId": "listSystemRoles",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -4818,7 +5193,8 @@
         "x-api-group": "dictionary/user-role",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/dictionary/user-role/{roleId}": {
@@ -4829,11 +5205,9 @@
         "summary": "Get User Role",
         "operationId": "getSystemRole",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -4855,7 +5229,8 @@
         "x-api-group": "dictionary/user-role",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/dictionary/permission": {
@@ -4866,11 +5241,9 @@
         "summary": "Get Permissions",
         "operationId": "listPermissions",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -4912,7 +5285,44 @@
         "x-api-group": "dictionary/permission",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Internal"
+      }
+    },
+    "/restapi/v1.0/dictionary/permission/{permissionId}": {
+      "get": {
+        "tags": [
+          "Roles and Permissions"
+        ],
+        "summary": "Get Permission Info",
+        "operationId": "getPermission",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "permissionId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/PermissionResource"
+            }
+          }
+        },
+        "x-api-group": "dictionary/permission",
+        "x-throttling-group": "Light",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/dictionary/permission-category": {
@@ -4923,11 +5333,9 @@
         "summary": "Get Permissions Categories",
         "operationId": "listPermissionCategories",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -4963,7 +5371,8 @@
         "x-api-group": "dictionary/permission-category",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/dictionary/permission-category/{permissionCategoryId}": {
@@ -4974,11 +5383,9 @@
         "summary": "Get Permission Category",
         "operationId": "getPermissionCategory",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -5000,44 +5407,8 @@
         "x-api-group": "dictionary/permission-category",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
-      }
-    },
-    "/restapi/v1.0/dictionary/permission/{permissionId}": {
-      "get": {
-        "tags": [
-          "Roles and Permissions"
-        ],
-        "summary": "Get Permission Info",
-        "operationId": "getPermission",
-        "consumes": [
-          "application/xml",
-          "application/json"
-        ],
-        "produces": [
-          "application/xml",
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "permissionId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/PermissionResource"
-            }
-          }
-        },
-        "x-api-group": "dictionary/permission",
-        "x-throttling-group": "Light",
-        "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/forwarding-number": {
@@ -5099,7 +5470,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadUserForwardingFlipNumbers"
+        "x-user-permission": "ReadUserForwardingFlipNumbers",
+        "x-access-level": "Public"
       },
       "post": {
         "tags": [
@@ -5154,7 +5526,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditUserForwardingFlipNumbers"
+        "x-user-permission": "EditUserForwardingFlipNumbers",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/forwarding-number/{forwardingNumberId}": {
@@ -5165,11 +5538,9 @@
         "summary": "Get Forwarding Number",
         "operationId": "getForwardingNumber",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -5205,7 +5576,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadUserForwardingFlipNumbers"
+        "x-user-permission": "ReadUserForwardingFlipNumbers",
+        "x-access-level": "Public"
       },
       "put": {
         "tags": [
@@ -5267,7 +5639,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditUserForwardingFlipNumbers"
+        "x-user-permission": "EditUserForwardingFlipNumbers",
+        "x-access-level": "Public"
       },
       "delete": {
         "tags": [
@@ -5317,7 +5690,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditUserForwardingFlipNumbers"
+        "x-user-permission": "EditUserForwardingFlipNumbers",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/blocked-number": {
@@ -5350,25 +5724,14 @@
             "required": true,
             "type": "integer",
             "default": "~"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "default": "1"
-          },
-          {
-            "name": "perPage",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "default": "100"
           }
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BlockedNumbersList"
+            }
           }
         },
         "x-api-group": "extension/blocked-number",
@@ -5376,7 +5739,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadBlockedNumbers"
+        "x-user-permission": "ReadBlockedNumbers",
+        "x-access-level": "Advanced"
       },
       "post": {
         "tags": [
@@ -5419,7 +5783,10 @@
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BlockedNumberInfo"
+            }
           }
         },
         "x-api-group": "extension/blocked-number",
@@ -5427,7 +5794,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditBlockedNumbers"
+        "x-user-permission": "EditBlockedNumbers",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/blocked-number/{blockedNumberId}": {
@@ -5471,7 +5839,10 @@
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BlockedNumberInfo"
+            }
           }
         },
         "x-api-group": "extension/blocked-number",
@@ -5479,7 +5850,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadBlockedNumbers"
+        "x-user-permission": "ReadBlockedNumbers",
+        "x-access-level": "Advanced"
       },
       "put": {
         "tags": [
@@ -5529,7 +5901,10 @@
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BlockedNumberInfo"
+            }
           }
         },
         "x-api-group": "extension/blocked-number",
@@ -5537,7 +5912,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditBlockedNumbers"
+        "x-user-permission": "EditBlockedNumbers",
+        "x-access-level": "Advanced"
       },
       "delete": {
         "tags": [
@@ -5587,7 +5963,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditBlockedNumbers"
+        "x-user-permission": "EditBlockedNumbers",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/business-hours": {
@@ -5635,7 +6012,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadExtensions"
+        "x-user-permission": "ReadExtensions",
+        "x-access-level": "PublicBeta"
       },
       "put": {
         "tags": [
@@ -5690,7 +6068,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditUserAnsweringRules"
+        "x-user-permission": "EditUserAnsweringRules",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/answering-rule": {
@@ -5749,7 +6128,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadUserAnsweringRules"
+        "x-user-permission": "ReadUserAnsweringRules",
+        "x-access-level": "PublicBeta"
       },
       "post": {
         "tags": [
@@ -5804,7 +6184,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditUserAnsweringRules"
+        "x-user-permission": "EditUserAnsweringRules",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/answering-rule/{ruleId}": {
@@ -5859,7 +6240,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadUserAnsweringRules"
+        "x-user-permission": "ReadUserAnsweringRules",
+        "x-access-level": "PublicBeta"
       },
       "put": {
         "tags": [
@@ -5921,7 +6303,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditUserAnsweringRules"
+        "x-user-permission": "EditUserAnsweringRules",
+        "x-access-level": "PublicBeta"
       },
       "delete": {
         "tags": [
@@ -5930,11 +6313,9 @@
         "summary": "Delete Call Handling Rule",
         "operationId": "deleteAnsweringRule",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -5981,7 +6362,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditUserAnsweringRules"
+        "x-user-permission": "EditUserAnsweringRules",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/dictionary/greeting": {
@@ -5990,6 +6372,7 @@
           "Call Handling Settings"
         ],
         "summary": "Get Standard Greetings",
+        "description": "<p style='font-style:italic;'>Since 8.2 (Release 1.0.26)</p><p>Returns a list of predefined standard greetings. Please note: Custom greetings recorded by user are not returned in response to this request. See Get Extension Custom Greetings.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>View Greetings</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>",
         "operationId": "getGreetings",
         "consumes": [
           "application/json"
@@ -6015,20 +6398,47 @@
           {
             "name": "type",
             "in": "query",
-            "description": "",
+            "description": "Type of a greeting, specifying the case when the greeting is played",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "Introductory",
+              "Announcement",
+              "ConnectingMessage",
+              "ConnectingAudio",
+              "Voicemail",
+              "Unavailable",
+              "HoldMusic",
+              "Company"
+            ]
+          },
+          {
+            "name": "usageType",
+            "in": "query",
+            "type": "string",
+            "description": "Usage type of a greeting, specifying if the greeting is applied for user extension or department extension",
+            "enum": [
+              "UserExtensionAnsweringRule",
+              "ExtensionAnsweringRule",
+              "DepartmentExtensionAnsweringRule",
+              "CompanyAnsweringRule",
+              "CompanyAfterHoursAnsweringRule"
+            ]
           }
         ],
         "responses": {
           "default": {
-            "description": "successful operation"
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/DictionaryGreetingList"
+            }
           }
         },
         "x-api-group": "dictionary/greeting",
         "x-throttling-group": "Medium",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/dictionary/greeting/{greetingId}": {
@@ -6037,6 +6447,7 @@
           "Call Handling Settings"
         ],
         "summary": "Get Greeting Info",
+        "description": "<p style='font-style:italic;'>Since 8.2 (Release 1.0.26)</p><p>Returns a standard greeting by ID</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>View Greetings</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>",
         "operationId": "getGreeting",
         "consumes": [
           "application/json"
@@ -6054,13 +6465,17 @@
         ],
         "responses": {
           "default": {
-            "description": "successful operation"
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/DictionaryGreetingInfo"
+            }
           }
         },
         "x-api-group": "dictionary/greeting",
         "x-throttling-group": "Medium",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/greeting": {
@@ -6104,7 +6519,10 @@
         ],
         "responses": {
           "default": {
-            "description": "successful operation"
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/CustomCompanyGreetingInfo"
+            }
           }
         },
         "x-api-group": "extension/greeting",
@@ -6112,7 +6530,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditUserAnsweringRules"
+        "x-user-permission": "EditUserAnsweringRules",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/greeting/{greetingId}": {
@@ -6155,7 +6574,10 @@
         ],
         "responses": {
           "default": {
-            "description": "successful operation"
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/CustomCompanyGreetingInfo"
+            }
           }
         },
         "x-api-group": "extension/greeting",
@@ -6163,7 +6585,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadUserInfo"
+        "x-user-permission": "ReadUserInfo",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/business-hours": {
@@ -6203,7 +6626,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadUserAnsweringRules"
+        "x-user-permission": "ReadUserAnsweringRules",
+        "x-access-level": "PublicBeta"
       },
       "put": {
         "tags": [
@@ -6250,11 +6674,12 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditUserAnsweringRules"
+        "x-user-permission": "EditUserAnsweringRules",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/greeting": {
-      "get": {
+      "post": {
         "tags": [
           "Call Handling Settings"
         ],
@@ -6298,7 +6723,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditAccounts",
-        "x-user-permission": "ReadUserInfo"
+        "x-user-permission": "ReadUserInfo",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/answering-rule": {
@@ -6347,7 +6773,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditAccounts",
-        "x-user-permission": "EditCompanyAnsweringRules"
+        "x-user-permission": "EditCompanyAnsweringRules",
+        "x-access-level": "PublicBeta"
       },
       "get": {
         "tags": [
@@ -6385,7 +6812,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadCompanyAnsweringRules"
+        "x-user-permission": "ReadCompanyAnsweringRules",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/answering-rule/{ruleId}": {
@@ -6432,7 +6860,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadCompanyAnsweringRules"
+        "x-user-permission": "ReadCompanyAnsweringRules",
+        "x-access-level": "PublicBeta"
       },
       "put": {
         "tags": [
@@ -6486,7 +6915,52 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditAccounts",
-        "x-user-permission": "EditCompanyAnsweringRules"
+        "x-user-permission": "EditCompanyAnsweringRules",
+        "x-access-level": "PublicBeta"
+      }
+    },
+    "/restapi/v1.0/account/{accountId}/ivr-menus": {
+      "post": {
+        "summary": "Create IVR Menu",
+        "description": "<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Creates a company IVR menu</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Heavy</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "JSON body",
+            "schema": {
+              "$ref": "#/definitions/IVRMenuInfo"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/IVRMenuInfo"
+            }
+          }
+        },
+        "x-api-group": "account/ivr-menus",
+        "x-throttling-group": "Heavy",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "ReadAccounts",
+        "x-user-permission": "AutoReceptionist",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/ivr-menus/{ivrMenuId}": {
@@ -6497,12 +6971,10 @@
         "summary": "Get IVR Menu",
         "description": "<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns a company IVR menu by ID</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>",
         "consumes": [
-          "application/json",
-          "application/xml"
+          "application/json"
         ],
         "produces": [
-          "application/json",
-          "application/xml"
+          "application/json"
         ],
         "parameters": [
           {
@@ -6531,7 +7003,59 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "AutoReceptionist"
+        "x-user-permission": "AutoReceptionist",
+        "x-access-level": "Advanced"
+      },
+      "put": {
+        "tags": [
+          "Call Handling Settings"
+        ],
+        "summary": "Update IVR Menu",
+        "description": "<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns a company IVR menu by ID</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ivrMenuId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "JSON body",
+            "schema": {
+              "$ref": "#/definitions/IVRMenuInfo"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/IVRMenuInfo"
+            }
+          }
+        },
+        "x-api-group": "account/ivr-menus",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "ReadAccounts",
+        "x-user-permission": "AutoReceptionist",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/ivr-prompts": {
@@ -6568,7 +7092,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditAccounts",
-        "x-user-permission": "EditCompanyGreetings"
+        "x-user-permission": "EditCompanyGreetings",
+        "x-access-level": "Internal"
       },
       "get": {
         "tags": [
@@ -6603,7 +7128,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadCompanyGreetings"
+        "x-user-permission": "ReadCompanyGreetings",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/ivr-prompts/{promptId}": {
@@ -6646,7 +7172,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadCompanyGreetings"
+        "x-user-permission": "ReadCompanyGreetings",
+        "x-access-level": "Advanced"
       },
       "delete": {
         "tags": [
@@ -6684,7 +7211,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditAccounts",
-        "x-user-permission": "EditCompanyGreetings"
+        "x-user-permission": "EditCompanyGreetings",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/ivr-prompts/{promptId}/content": {
@@ -6724,7 +7252,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadCompanyGreetings"
+        "x-user-permission": "ReadCompanyGreetings",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/client-info": {
@@ -6754,7 +7283,8 @@
         "x-throttling-group": "Light",
         "x-metered-api": true,
         "x-metering-group": "System",
-        "x-app-permission": "ReadClientInfo"
+        "x-app-permission": "ReadClientInfo",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/client-info/sip-provision": {
@@ -6763,7 +7293,7 @@
           "Application Settings"
         ],
         "summary": "Register SIP Device",
-        "description": "<p style='font-style:italic;'>Since 1.0.16 (Release 7.1)</p><p>Creates SIP device registration for mobile or softphone.</p><h4>Usage Plan Group</h4><p>Heavy</p>",
+        "description": "<p style='font-style:italic;'>Since 1.0.16 (Release 7.1)</p><p>Creates SIP registration of a device/application (WebPhone, Mobile, softphone)</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>VoipCalling</td><td>Registering as VoIP device and making VoIP calls</td></tr></tbody></table><h4>API Group</h4><p>Heavy</p>",
         "operationId": "createSipRegistration",
         "consumes": [
           "application/json"
@@ -6780,18 +7310,6 @@
             "schema": {
               "$ref": "#/definitions/CreateSipRegistrationRequest"
             }
-          },
-          {
-            "name": "X-Forwarded-For",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "User-Agent",
-            "in": "header",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -6806,7 +7324,8 @@
         "x-throttling-group": "Heavy",
         "x-metered-api": true,
         "x-metering-group": "System",
-        "x-app-permission": "VoipCalling"
+        "x-app-permission": "VoipCalling",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/client-info/banners": {
@@ -6821,11 +7340,8 @@
           "application/json"
         ],
         "summary": "Get In Product Message List",
-        "x-throttling-group": "Light",
-        "x-metered-api": true,
-        "x-metering-group": "System",
-        "x-app-permission": "ReadClientInfo",
-        "x-api-group": "client-info/banners",
+        "description": "<p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns list of in-product messages: learderboards, announcements, etc. Please note: Banners are set on Marketing/Messages tab in Admin Web.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadClientInfo</td><td>Viewing of client application registered attributes and additional helper information (external URLs, hints, etc.)</td></tr></tbody></table><h4>API Group</h4><p>Light</p>",
+        "operationId": "getInProductMessage",
         "parameters": [
           {
             "in": "query",
@@ -6842,7 +7358,13 @@
               "$ref": "#/definitions/InProductMessages"
             }
           }
-        }
+        },
+        "x-throttling-group": "Light",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "ReadClientInfo",
+        "x-api-group": "client-info/banners",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/client-info/custom-data/{key}": {
@@ -6851,13 +7373,12 @@
           "Application Settings"
         ],
         "summary": "Get Custom Data",
+        "description": "<p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p>Returns custom data of a logged-in extension.<p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditCustomData</td><td>Viewing and updating client custom data (key-value)</td></tr></tbody></table><h4>API Group</h4><p>Light</p>",
         "operationId": "getCustomData",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -6881,7 +7402,8 @@
         "x-throttling-group": "Light",
         "x-metered-api": true,
         "x-metering-group": "System",
-        "x-app-permission": "EditCustomData"
+        "x-app-permission": "EditCustomData",
+        "x-access-level": "Internal"
       },
       "put": {
         "tags": [
@@ -6926,20 +7448,20 @@
         "x-throttling-group": "Medium",
         "x-metered-api": true,
         "x-metering-group": "System",
-        "x-app-permission": "EditCustomData"
+        "x-app-permission": "EditCustomData",
+        "x-access-level": "Internal"
       },
       "delete": {
         "tags": [
           "Application Settings"
         ],
         "summary": "Delete Custom Data",
+        "description": "<p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p>Deletes custom data by its ID.<p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditCustomData</td><td>Viewing and updating client custom data (key-value)</td></tr></tbody></table><h4>API Group</h4><p>Light</p>",
         "operationId": "deleteCustomData",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -6960,7 +7482,8 @@
         "x-throttling-group": "Medium",
         "x-metered-api": true,
         "x-metering-group": "System",
-        "x-app-permission": "EditCustomData"
+        "x-app-permission": "EditCustomData",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/client-info/custom-data/{key}/content": {
@@ -6969,6 +7492,7 @@
           "Application Settings"
         ],
         "summary": "Get Custom Data Attachment",
+        "description": "<p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p>Returns custom data attachment by ID.<p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditCustomData</td><td>Viewing and updating client custom data (key-value)</td></tr></tbody></table><h4>API Group</h4><p>Light</p>",
         "operationId": "getAttachment",
         "consumes": [
           "application/json"
@@ -6999,7 +7523,8 @@
         "x-throttling-group": "Light",
         "x-metered-api": true,
         "x-metering-group": "System",
-        "x-app-permission": "EditCustomData"
+        "x-app-permission": "EditCustomData",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/client-info/special-number-rule": {
@@ -7037,7 +7562,8 @@
         "x-throttling-group": "Light",
         "x-metered-api": true,
         "x-metering-group": "System",
-        "x-app-permission": "ReadClientInfo"
+        "x-app-permission": "ReadClientInfo",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/number-parser/phonedata.xml": {
@@ -7063,7 +7589,8 @@
         "x-api-group": "number-parser/phonedata.xml",
         "x-throttling-group": "Medium",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}": {
@@ -7111,7 +7638,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadExtensions"
+        "x-user-permission": "ReadExtensions",
+        "x-access-level": "Public"
       },
       "put": {
         "tags": [
@@ -7155,7 +7683,10 @@
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetExtensionInfoResponse"
+            }
           }
         },
         "x-api-group": "extension",
@@ -7163,20 +7694,20 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditUserInfo OR EditUserCredentials "
+        "x-user-permission": "EditUserInfo OR EditUserCredentials",
+        "x-access-level": "Advanced"
       },
       "delete": {
         "tags": [
           "User Settings"
         ],
         "summary": "Delete Extension",
+        "description": "<p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Deletes extension(s) by ID(s).</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>",
         "operationId": "deleteExtension",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -7203,7 +7734,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditAccounts",
-        "x-user-permission": "AddRemoveUsers"
+        "x-user-permission": "AddRemoveUsers",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-id": {
@@ -7251,7 +7783,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadCallerIDSettings"
+        "x-user-permission": "ReadCallerIDSettings",
+        "x-access-level": "Public"
       },
       "put": {
         "tags": [
@@ -7306,7 +7839,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditCallerIDSettings"
+        "x-user-permission": "EditCallerIDSettings",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/credentials": {
@@ -7354,7 +7888,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadUserInfo"
+        "x-user-permission": "ReadUserInfo",
+        "x-access-level": "Internal"
       },
       "put": {
         "tags": [
@@ -7409,7 +7944,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditUserCredentials"
+        "x-user-permission": "EditUserCredentials",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/credentials/validate": {
@@ -7462,7 +7998,8 @@
         "x-throttling-group": "Medium",
         "x-metered-api": true,
         "x-metering-group": "System",
-        "x-app-permission": "EditExtensions"
+        "x-app-permission": "EditExtensions",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/credentials/verify": {
@@ -7516,7 +8053,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditUserCredentials"
+        "x-user-permission": "EditUserCredentials",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/dictionary/secret-question": {
@@ -7567,7 +8105,8 @@
         "x-api-group": "dictionary/secret-question",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/dictionary/secret-question/{questionId}": {
@@ -7604,7 +8143,8 @@
         "x-api-group": "dictionary/secret-question",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/grant": {
@@ -7666,7 +8206,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadExtensions"
+        "x-user-permission": "ReadExtensions",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/notification-settings": {
@@ -7675,7 +8216,7 @@
           "User Settings"
         ],
         "summary": "Get Notification Settings",
-        "description": "",
+        "description": "<p style='font-style:italic;'>Since 1.0.26 (Release 8.2)</p><p>Returns notification settings for the current extension.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>",
         "operationId": "getSettings",
         "consumes": [
           "application/json"
@@ -7713,14 +8254,15 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadMessagesNotificationsSettings"
+        "x-user-permission": "ReadMessagesNotificationsSettings",
+        "x-access-level": "PublicBeta"
       },
       "put": {
         "tags": [
           "User Settings"
         ],
         "summary": "Update Notification Settings",
-        "description": "",
+        "description": "<p style='font-style:italic;'>Since 1.0.26 (Release 8.2)</p><p>Updates notification settings for the current extension.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>",
         "operationId": "updateSettings",
         "consumes": [
           "application/json"
@@ -7766,7 +8308,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditMessagesNotificationsSettings"
+        "x-user-permission": "EditMessagesNotificationsSettings",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image": {
@@ -7775,9 +8318,9 @@
           "User Settings"
         ],
         "summary": "Get User Profile Image",
+        "description": "<p style='font-style:italic;'>Since 1.0.20 (Release 7.4)</p><p>Returns the extension profile image.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>",
         "operationId": "downloadImage",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
@@ -7810,19 +8353,20 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadExtensions"
+        "x-user-permission": "ReadExtensions",
+        "x-access-level": "Public"
       },
       "post": {
         "tags": [
           "User Settings"
         ],
         "summary": "Upload User Profile Image",
+        "description": "<p style='font-style:italic;'>Since 1.0.26 (Release 8.2)</p><p>Returns the extension profile image.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
         "operationId": "uploadImageByPostForm",
         "consumes": [
           "multipart/form-data"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -7855,13 +8399,15 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditUserInfo"
+        "x-user-permission": "EditUserInfo",
+        "x-access-level": "Public"
       },
       "put": {
         "tags": [
           "User Settings"
         ],
         "summary": "Update User Profile Image",
+        "description": "<p style='font-style:italic;'>Since 1.0.26 (Release 8.2)</p><p>Updates the extension profile image..</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
         "operationId": "uploadImageByPutForm",
         "consumes": [
           "multipart/form-data"
@@ -7900,7 +8446,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditUserInfo"
+        "x-user-permission": "EditUserInfo",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image/{scaleSize}": {
@@ -7952,7 +8499,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadExtensions"
+        "x-user-permission": "ReadExtensions",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/conferencing": {
@@ -8007,7 +8555,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "OrganizeConference"
+        "x-user-permission": "OrganizeConference",
+        "x-access-level": "Public"
       },
       "put": {
         "tags": [
@@ -8062,7 +8611,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-user-permission": "OrganizeConference",
-        "x-app-permission": "EditExtensions"
+        "x-app-permission": "EditExtensions",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/account/{accountId}": {
@@ -8102,20 +8652,20 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadCompanyInfo"
+        "x-user-permission": "ReadCompanyInfo",
+        "x-access-level": "Public"
       },
       "put": {
         "tags": [
           "Company Settings"
         ],
         "summary": "Update Company",
+        "description": "<p style='font-style:italic;'>Since 1.0.0</p><p>Updates account information.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>",
         "operationId": "modifyAccount",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -8124,11 +8674,23 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "JSON body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateAccountRequest"
+            }
           }
         ],
         "responses": {
           "default": {
-            "description": "successful operation"
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/GetAccountInfoResponse"
+            }
           }
         },
         "x-api-group": "account",
@@ -8136,20 +8698,20 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditAccounts",
-        "x-user-permission": "EditCompanyInfo"
+        "x-user-permission": "EditCompanyInfo",
+        "x-access-level": "Internal"
       },
       "delete": {
         "tags": [
           "Company Settings"
         ],
         "summary": "Delete Account",
+        "description": "<p style='font-style:italic;'>Since 1.0.0</p><p>Updates account information.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>",
         "operationId": "deleteAccount",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -8169,7 +8731,8 @@
         "x-throttling-group": "Medium",
         "x-metered-api": true,
         "x-metering-group": "System",
-        "x-app-permission": "Accounts"
+        "x-app-permission": "Accounts",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/business-address": {
@@ -8198,7 +8761,10 @@
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetAccountInfoResponse"
+            }
           }
         },
         "x-api-group": "account/business-address",
@@ -8206,7 +8772,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadCompanyInfo"
+        "x-user-permission": "ReadCompanyInfo",
+        "x-access-level": "Public"
       },
       "put": {
         "tags": [
@@ -8244,7 +8811,7 @@
           "default": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/GetAccountInfoResponse"
+              "$ref": "#/definitions/AccountBusinessAddressResource"
             }
           }
         },
@@ -8253,7 +8820,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditAccounts",
-        "x-user-permission": "EditCompanyInfo"
+        "x-user-permission": "EditCompanyInfo",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/service-info": {
@@ -8293,7 +8861,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadServicePlanInfo"
+        "x-user-permission": "ReadServicePlanInfo",
+        "x-access-level": "Advanced"
       },
       "put": {
         "tags": [
@@ -8340,7 +8909,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "Accounts",
-        "x-user-permission": "EditServicePlanInfo"
+        "x-user-permission": "EditServicePlanInfo",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/dialing-plan": {
@@ -8394,7 +8964,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadUserInfo"
+        "x-user-permission": "ReadUserInfo",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/dictionary/language": {
@@ -8411,22 +8982,6 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "default": "1"
-          },
-          {
-            "name": "perPage",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "default": "100"
-          }
-        ],
         "responses": {
           "default": {
             "description": "Success",
@@ -8438,7 +8993,8 @@
         "x-api-group": "dictionary/language",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/dictionary/language/{languageId}": {
@@ -8475,7 +9031,8 @@
         "x-api-group": "dictionary/language",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/dictionary/country": {
@@ -8501,6 +9058,13 @@
             "type": "boolean"
           },
           {
+            "name": "signupAllowed",
+            "in": "query",
+            "description": "Indicates whether signup/billing is allowed for a country. If not specified all countries are returned (according to other filters specified if any)",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "name": "numberSelling",
             "in": "query",
             "description": "Specifies if RingCentral sells phone numbers of this country",
@@ -8520,6 +9084,13 @@
             "description": "Indicates the page size (number of items). If not specified, the value is '100' by default",
             "required": false,
             "type": "integer"
+          },
+          {
+            "name": "freeSoftphoneLine",
+            "in": "query",
+            "description": "Specifies if free phone line for softphone is available for a country or not",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -8533,7 +9104,8 @@
         "x-api-group": "dictionary/country",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/dictionary/country/{countryId}": {
@@ -8570,7 +9142,8 @@
         "x-api-group": "dictionary/country",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/dictionary/location": {
@@ -8643,7 +9216,8 @@
         "x-api-group": "dictionary/location",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/dictionary/state": {
@@ -8701,7 +9275,8 @@
         "x-api-group": "dictionary/state",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/dictionary/state/{stateId}": {
@@ -8738,7 +9313,8 @@
         "x-api-group": "dictionary/state",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/dictionary/timezone": {
@@ -8782,7 +9358,8 @@
         "x-api-group": "dictionary/timezone",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/dictionary/timezone/{timezoneId}": {
@@ -8833,7 +9410,8 @@
         "x-api-group": "dictionary/timezone",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Public"
       }
     },
     "/restapi/v1.0/dictionary/brand/{brandId}": {
@@ -8868,7 +9446,8 @@
         "x-api-group": "dictionary/brand",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/dictionary/service-plan/{servicePlanId}": {
@@ -8879,11 +9458,9 @@
         "summary": "Get Service Plan",
         "operationId": "getServicePlanInfo",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -8905,7 +9482,8 @@
         "x-api-group": "dictionary/service-plan",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/number-pool/lookup": {
@@ -9009,6 +9587,13 @@
             "type": "integer"
           },
           {
+            "name": "providerId",
+            "in": "query",
+            "description": "Internal identifier of a phone number provider. Supported if brand is specified. If specified, area code and nxx are optional",
+            "required": false,
+            "type": "integer"
+          },
+          {
             "name": "smsEnabled",
             "in": "query",
             "description": "Specifies if SMS activation is available for the number. If specified, it is taken into account in all returned phone numbers both in the phone numbers satisfying to parameters of lookup and in alternative phone numbers (in case when extendedSearch is specified). If not specified, the value is null.",
@@ -9020,7 +9605,7 @@
           "default": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/PhoneNumberInfo"
+              "$ref": "#/definitions/PhoneNumbers"
             }
           }
         },
@@ -9028,7 +9613,8 @@
         "x-throttling-group": "Medium",
         "x-metered-api": true,
         "x-metering-group": "System",
-        "x-app-permission": "NumberLookup"
+        "x-app-permission": "NumberLookup",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/number-pool/reserve": {
@@ -9060,7 +9646,7 @@
           "default": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/PhoneNumberInfo"
+              "$ref": "#/definitions/ReservePhoneNumbersRecordsResource"
             }
           }
         },
@@ -9068,7 +9654,8 @@
         "x-throttling-group": "Medium",
         "x-metered-api": true,
         "x-metering-group": "System",
-        "x-app-permission": "NumberLookup"
+        "x-app-permission": "NumberLookup",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account": {
@@ -9108,7 +9695,8 @@
         "x-throttling-group": "Medium",
         "x-metered-api": true,
         "x-metering-group": "System",
-        "x-app-permission": "Accounts"
+        "x-app-permission": "Accounts",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/phone-number": {
@@ -9164,26 +9752,18 @@
               "CompanyNumber",
               "DirectNumber",
               "CompanyFaxNumber",
-              "ForwardedNumber"
-            ]
-          },
-          {
-            "name": "extensionStatus",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "enum": [
-              "Enabled",
-              "Disabled",
-              "Frozen",
-              "NotActivated",
-              "Unassigned"
+              "ForwardedNumber",
+              "ForwardedCompanyNumber",
+              "ContactCenterNumber"
             ]
           }
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AccountPhoneNumbers"
+            }
           }
         },
         "x-api-group": "account/phone-number",
@@ -9191,7 +9771,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadCompanyPhoneNumbers"
+        "x-user-permission": "ReadCompanyPhoneNumbers",
+        "x-access-level": "Public"
       },
       "post": {
         "tags": [
@@ -9238,7 +9819,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditAccounts",
-        "x-user-permission": "EditCompanyPhoneNumbers"
+        "x-user-permission": "EditCompanyPhoneNumbers",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/phone-number/{phoneNumberId}": {
@@ -9285,20 +9867,20 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadCompanyPhoneNumbers"
+        "x-user-permission": "ReadCompanyPhoneNumbers",
+        "x-access-level": "Public"
       },
       "put": {
         "tags": [
           "Account Provisioning"
         ],
         "summary": "Reassign Phone Number",
+        "description": "<p style='font-style:italic;'>Since 1.0.11 (Release 6.3) </p><p>Reassigns the phone number belonging to a certain account/extension. This call reassigns a phone number, currently belonging to some other extension or company (Auto-Receptionist). Please note: numbers with certain usage types 'MainCompanyNumber', 'AdditionalCompanyNumber' and 'CompanyFaxNumber' cannot be reassigned</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>",
         "operationId": "reassignPhoneNumberById",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -9337,20 +9919,20 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditAccounts",
-        "x-user-permission": "EditCompanyPhoneNumbers"
+        "x-user-permission": "EditCompanyPhoneNumbers",
+        "x-access-level": "Internal"
       },
       "delete": {
         "tags": [
           "Account Provisioning"
         ],
         "summary": "Delete Phone Number",
+        "description": "<p style='font-style:italic;'>Since 1.0.11 (Release 6.3) </p><p>Deletes a phone number belonging to a certain account/extension.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>",
         "operationId": "deletePhoneNumberById",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -9378,7 +9960,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditAccounts",
-        "x-user-permission": "EditCompanyPhoneNumbers"
+        "x-user-permission": "EditCompanyPhoneNumbers",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/number-parser/parse": {
@@ -9431,7 +10014,8 @@
         "x-api-group": "number-parser/parse",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/device": {
@@ -9471,7 +10055,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadCompanyDevices"
+        "x-user-permission": "ReadCompanyDevices",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/device/{deviceId}": {
@@ -9518,7 +10103,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadCompanyDevices"
+        "x-user-permission": "ReadCompanyDevices",
+        "x-access-level": "Advanced"
       },
       "put": {
         "tags": [
@@ -9527,11 +10113,9 @@
         "summary": "Update Device",
         "operationId": "updateDevice",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -9569,7 +10153,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditAccounts",
-        "x-user-permission": "EditCompanyDevices"
+        "x-user-permission": "EditCompanyDevices",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/free-numbers": {
@@ -9580,11 +10165,9 @@
         "summary": "Get Free Extension Numbers",
         "operationId": "getExtensionFreeNumbers",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -9608,7 +10191,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadExtensions"
+        "x-user-permission": "ReadExtensions",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/device": {
@@ -9641,6 +10225,18 @@
             "required": true,
             "type": "integer",
             "default": "~"
+          },
+          {
+            "name": "linePooling",
+            "in": "query",
+            "type": "string",
+            "description": "Pooling type of a device",
+            "required": false,
+            "enum": [
+              "Host",
+              "Guest",
+              "None"
+            ]
           }
         ],
         "responses": {
@@ -9656,7 +10252,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadUserDevices"
+        "x-user-permission": "ReadUserDevices",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/order": {
@@ -9683,17 +10280,28 @@
             "default": "~"
           },
           {
+            "name": "async",
+            "in": "query",
+            "description": "Specifies whether a client expects order details to be returned or not. If 'True' the server returns a link for tracking order status without waiting for it to be actually created. If 'False' the server returns order details once it is created - it may take some time depending on device count. The default value is 'False'",
+            "required": false,
+            "type": "boolean",
+            "default": false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
             "schema": {
-              "$ref": "#/definitions/OrderResource"
+              "$ref": "#/definitions/DeviceResource"
             }
           }
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeviceOrderCreation"
+            }
           }
         },
         "x-api-group": "account/order",
@@ -9701,7 +10309,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditAccounts",
-        "x-user-permission": "EditCompanyDevices"
+        "x-user-permission": "EditCompanyDevices",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/order/{orderId}": {
@@ -9737,7 +10346,10 @@
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeviceOrder"
+            }
           }
         },
         "x-api-group": "account/order",
@@ -9745,7 +10357,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "EditCompanyDevices"
+        "x-user-permission": "EditCompanyDevices",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/dictionary/device": {
@@ -9756,28 +10369,10 @@
         "summary": "Get Device Catalog",
         "operationId": "getDeviceModels",
         "consumes": [
-          "application/xml",
           "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "default": "1"
-          },
-          {
-            "name": "perPage",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "default": "100"
-          }
         ],
         "responses": {
           "default": {
@@ -9790,7 +10385,8 @@
         "x-api-group": "dictionary/device",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/dictionary/shipping-options": {
@@ -9841,7 +10437,8 @@
         "x-api-group": "dictionary/shipping-options",
         "x-throttling-group": "Light",
         "x-metered-api": true,
-        "x-metering-group": "System"
+        "x-metering-group": "System",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/licenses": {
@@ -9905,7 +10502,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "MeetingsPlan"
+        "x-user-permission": "MeetingsPlan",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/licenses/bulk-purchase": {
@@ -9951,7 +10549,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditAccounts",
-        "x-user-permission": "MeetingsPlan"
+        "x-user-permission": "MeetingsPlan",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/licenses/{licenseId}": {
@@ -9998,7 +10597,8 @@
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
         "x-user-permission": "MeetingsPlan",
-        "x-api-group": "account/licenses"
+        "x-api-group": "account/licenses",
+        "x-access-level": "Advanced"
       },
       "delete": {
         "tags": [
@@ -10040,7 +10640,8 @@
         "x-metering-group": "System",
         "x-app-permission": "EditAccounts",
         "x-user-permission": "MeetingsPlan",
-        "x-api-group": "account/licenses"
+        "x-api-group": "account/licenses",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/dictionary/license-types": {
@@ -10070,7 +10671,8 @@
         "x-throttling-group": "Light",
         "x-metered-api": true,
         "x-metering-group": "System",
-        "x-user-permission": "MeetingsPlan"
+        "x-user-permission": "MeetingsPlan",
+        "x-access-level": "Advanced"
       }
     },
     "/restapi/v1.0/account/{accountId}/department/{departmentId}/members": {
@@ -10131,7 +10733,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadExtensions"
+        "x-user-permission": "ReadExtensions",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/department/bulk-assign": {
@@ -10140,6 +10743,7 @@
           "Account Provisioning"
         ],
         "summary": "Edit Call Queue Members",
+        "description": "<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Adds and/or removes multiple call queue members.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
         "operationId": "bulkAssign",
         "consumes": [
           "application/json"
@@ -10174,7 +10778,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditAccounts",
-        "x-user-permission": "UserGroups"
+        "x-user-permission": "UserGroups",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/users": {
@@ -10183,13 +10788,12 @@
           "Account Provisioning"
         ],
         "summary": "Get Paging Only Group Users",
+        "description": "<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns the list of users allowed to page this group.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>",
         "consumes": [
-          "application/json",
-          "application/xml"
+          "application/json"
         ],
         "produces": [
-          "application/json",
-          "application/xml"
+          "application/json"
         ],
         "parameters": [
           {
@@ -10203,11 +10807,28 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "perPage",
+            "in": "query",
+            "description": "Indicates the page size (number of items). If not specified, the value is '100' by default",
+            "required": false,
+            "type": "integer"
           }
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PagingOnlyGroupUsers"
+            }
           }
         },
         "x-api-group": "account/paging-only-groups/users",
@@ -10215,7 +10836,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadUserInfo"
+        "x-user-permission": "ReadUserInfo",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/devices": {
@@ -10224,13 +10846,12 @@
           "Account Provisioning"
         ],
         "summary": "Get Paging Only Group Devices",
+        "description": "<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns the list of paging devices assigned to this group.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>",
         "consumes": [
-          "application/json",
-          "application/xml"
+          "application/json"
         ],
         "produces": [
-          "application/json",
-          "application/xml"
+          "application/json"
         ],
         "parameters": [
           {
@@ -10244,11 +10865,28 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "perPage",
+            "in": "query",
+            "description": "Indicates the page size (number of items). If not specified, the value is '100' by default",
+            "required": false,
+            "type": "integer"
           }
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PagingOnlyGroupDevices"
+            }
           }
         },
         "x-api-group": "account/paging-only-groups/devices",
@@ -10256,7 +10894,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadCompanyDevices"
+        "x-user-permission": "ReadCompanyDevices",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/bulk-assign": {
@@ -10265,6 +10904,7 @@
           "Account Provisioning"
         ],
         "summary": "Edit Paging Group Users & Devices",
+        "description": "<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Adds and/or removes paging group users and devices.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
         "consumes": [
           "application/json"
         ],
@@ -10303,7 +10943,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadCompanyDevices"
+        "x-user-permission": "ReadCompanyDevices",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/park-locations/{parkLocationId}/users": {
@@ -10312,13 +10953,12 @@
           "Account Provisioning"
         ],
         "summary": "Get Park Location Users",
+        "description": "<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns the list of users allowed to park and unpark calls to/from the park location extension specified</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>",
         "consumes": [
-          "application/json",
-          "application/xml"
+          "application/json"
         ],
         "produces": [
-          "application/json",
-          "application/xml"
+          "application/json"
         ],
         "parameters": [
           {
@@ -10332,13 +10972,27 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "perPage",
+            "in": "query",
+            "description": "Indicates the page size (number of items). If not specified, the value is '100' by default",
+            "required": false,
+            "type": "integer"
           }
         ],
         "responses": {
           "default": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/DepartmentMemberList"
+              "$ref": "#/definitions/ParkLocationResponse"
             }
           }
         },
@@ -10347,7 +11001,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "ReadAccounts",
-        "x-user-permission": "ReadExtensions"
+        "x-user-permission": "ReadExtensions",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/v1.0/account/{accountId}/park-locations/{parkLocationId}/bulk-assign": {
@@ -10356,6 +11011,7 @@
           "Account Provisioning"
         ],
         "summary": "Adds and/or removes park location users",
+        "description": "<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Adds and/or removes park location users.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
         "consumes": [
           "application/json"
         ],
@@ -10394,7 +11050,8 @@
         "x-metered-api": true,
         "x-metering-group": "System",
         "x-app-permission": "EditExtensions",
-        "x-user-permission": "EditExtensions"
+        "x-user-permission": "EditExtensions",
+        "x-access-level": "Internal"
       }
     },
     "/restapi/scim/v2/Users": {
@@ -10452,7 +11109,14 @@
               "$ref": "#/definitions/GetUserListResponse"
             }
           }
-        }
+        },
+        "x-api-group": "scim",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "ReadAccounts",
+        "x-user-permission": "ReadExtensions",
+        "x-access-level": "PublicBeta"
       },
       "post": {
         "tags": [
@@ -10485,7 +11149,14 @@
               "$ref": "#/definitions/UserInfo"
             }
           }
-        }
+        },
+        "x-api-group": "scim",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "EditAccounts",
+        "x-user-permission": "EditExtensions",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/scim/v2/Users/{id}": {
@@ -10518,7 +11189,14 @@
               "$ref": "#/definitions/UserInfo"
             }
           }
-        }
+        },
+        "x-api-group": "scim",
+        "x-throttling-group": "Light",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "ReadAccounts",
+        "x-user-permission": "ReadExtensions",
+        "x-access-level": "PublicBeta"
       },
       "put": {
         "tags": [
@@ -10558,7 +11236,14 @@
               "$ref": "#/definitions/UserInfo"
             }
           }
-        }
+        },
+        "x-api-group": "scim",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "EditExtensions",
+        "x-user-permission": "ReadExtensions",
+        "x-access-level": "PublicBeta"
       },
       "delete": {
         "tags": [
@@ -10586,7 +11271,14 @@
           "default": {
             "description": "Success"
           }
-        }
+        },
+        "x-api-group": "scim",
+        "x-throttling-group": "Medium",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "EditAccounts",
+        "x-user-permission": "ReadAccounts",
+        "x-access-level": "PublicBeta"
       }
     },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/reporting/settings": {
@@ -10628,7 +11320,14 @@
               "$ref": "#/definitions/ReportingSettings"
             }
           }
-        }
+        },
+        "x-api-group": "extension/reporting/settings",
+        "x-throttling-group": "Light",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "ReadAccounts",
+        "x-user-permission": "ReadAccounts",
+        "x-access-level": "Internal"
       },
       "put": {
         "tags": [
@@ -10677,11 +11376,399 @@
               "$ref": "#/definitions/ReportingSettings"
             }
           }
-        }
+        },
+        "x-api-group": "extension/reporting/settings",
+        "x-throttling-group": "Light",
+        "x-metered-api": true,
+        "x-metering-group": "System",
+        "x-app-permission": "EditAccounts",
+        "x-user-permission": "EditAccounts",
+        "x-access-level": "Internal"
       }
     }
   },
   "definitions": {
+    "ParkLocationResponse": {
+      "type": "object",
+      "properties": {
+        "records": {
+          "type": "array",
+          "description": "List of user extensions allowed to park and unpark calls to/from the extension specified",
+          "items": {
+            "$ref": "#/definitions/ExtensionInfo"
+          }
+        },
+        "navigation": {
+          "description": "Information on navigation",
+          "$ref": "#/definitions/NavigationInfo"
+        },
+        "paging": {
+          "description": "Information on paging",
+          "$ref": "#/definitions/PagingInfo"
+        }
+      }
+    },
+    "DeviceOrder": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier of a device"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of an order resource"
+        },
+        "devices": {
+          "type": "array",
+          "description": "List of devices ordered",
+          "items": {
+            "$ref": "#/definitions/DeviceResource"
+          }
+        }
+      }
+    },
+    "DeviceOrderCreation": {
+      "type": "object",
+      "properties": {
+        "devices": {
+          "type": "array",
+          "description": "List of devices ordered",
+          "items": {
+            "$ref": "#/definitions/DeviceResource"
+          }
+        },
+        "task": {
+          "description": "For Async Order Only. Information on device ordering task",
+          "$ref": "#/definitions/TaskInfo"
+        }
+      }
+    },
+    "TaskInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a task"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Link to a task resource"
+        },
+        "status": {
+          "type": "string",
+          "description": "Device order status",
+          "enum": [
+            "Accepted",
+            "Failed"
+          ]
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Task creation time"
+        },
+        "lastModifiedTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time of task last modification"
+        }
+      }
+    },
+    "AccountSignupInfoRequest": {
+      "type": "object",
+      "properties": {
+        "marketingAccepted": {
+          "type": "boolean",
+          "description": " Specifies whether marketing information is sent to the user"
+        }
+      }
+    },
+    "PhoneNumbers": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of the phone numbers resource"
+        },
+        "records": {
+          "type": "array",
+          "description": "List of phone numbers filtered by the specified criteria",
+          "items": {
+            "$ref": "#/definitions/LookupPhoneNumberInfo"
+          }
+        }
+      }
+    },
+    "LookupPhoneNumberInfo": {
+      "type": "object",
+      "properties": {
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone number in E.164 format"
+        },
+        "formattedNumber": {
+          "type": "string",
+          "description": "Phone number formatted according to current brand's default country"
+        },
+        "vanityPattern": {
+          "type": "string",
+          "description": "Vanity pattern for this number. Returned only when vanity search option is requested. Vanity pattern corresponds to request parameters nxx plus line or numberPattern"
+        },
+        "rank": {
+          "type": "integer",
+          "description": "The value is returned if the extendedSearch parameter is true. The values are 10, 9, 8, etc.; '10' is the closest match"
+        }
+      }
+    },
+    "PagingOnlyGroupDevices": {
+      "type": "object",
+      "properties": {
+        "records": {
+          "type": "array",
+          "description": "List of paging devices assigned to this group",
+          "items": {
+            "$ref": "#/definitions/PagingDeviceInfo"
+          }
+        },
+        "navigation": {
+          "description": "Information on navigation",
+          "$ref": "#/definitions/NavigationInfo"
+        },
+        "paging": {
+          "description": "Information on paging",
+          "$ref": "#/definitions/PagingInfo"
+        }
+      }
+    },
+    "PagingDeviceInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a paging device"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Link to a paging device resource"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of a paging device"
+        }
+      }
+    },
+    "PagingOnlyGroupUsers": {
+      "type": "object",
+      "properties": {
+        "records": {
+          "type": "array",
+          "description": "List of users allowed to page this group",
+          "items": {
+            "$ref": "#/definitions/PagingGroupExtensionInfo"
+          }
+        },
+        "navigation": {
+          "description": "Information on navigation",
+          "$ref": "#/definitions/NavigationInfo"
+        },
+        "paging": {
+          "description": "Information on paging",
+          "$ref": "#/definitions/PagingInfo"
+        }
+      }
+    },
+    "PagingGroupExtensionInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a paging group user extension"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Link to a paging group user extension"
+        },
+        "extensionNumber": {
+          "type": "string",
+          "description": "Extension number of a paging group user"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of a paging group user"
+        }
+      }
+    },
+    "AccountPhoneNumbers": {
+      "type": "object",
+      "properties": {
+        "records": {
+          "type": "array",
+          "description": "List of account phone numbers",
+          "items": {
+            "$ref": "#/definitions/PhoneNumberInfo"
+          }
+        },
+        "navigation": {
+          "description": "Information on navigation",
+          "$ref": "#/definitions/NavigationInfo"
+        },
+        "paging": {
+          "description": "Information on paging",
+          "$ref": "#/definitions/PagingInfo"
+        }
+      }
+    },
+    "BlockedNumbersList": {
+      "type": "object",
+      "properties": {
+        "records": {
+          "type": "array",
+          "description": "List of blocked phone numbers",
+          "items": {
+            "$ref": "#/definitions/GetPresenceInfo"
+          }
+        },
+        "navigation": {
+          "description": "Information on navigation",
+          "$ref": "#/definitions/NavigationInfo"
+        },
+        "paging": {
+          "description": "Information on paging",
+          "$ref": "#/definitions/PagingInfo"
+        }
+      }
+    },
+    "BlockedNumberInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a blocked number"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a blocked number"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name assigned by a user to a blocked phone number"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone number to be blocked"
+        }
+      }
+    },
+    "DictionaryGreetingList": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of greetings list resource"
+        },
+        "records": {
+          "type": "array",
+          "description": "List of greetings",
+          "items": {
+            "$ref": "#/definitions/DictionaryGreetingInfo"
+          }
+        }
+      }
+    },
+    "DictionaryGreetingInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a greeting"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Link to a greeting"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of a greeting"
+        },
+        "usageType": {
+          "type": "string",
+          "description": "Usage type of a greeting, specifying if the greeting is applied for user extension or department extension = ['UserExtensionAnsweringRule', 'ExtensionAnsweringRule', 'DepartmentExtensionAnsweringRule', 'CompanyAnsweringRule', 'CompanyAfterHoursAnsweringRule']",
+          "enum": [
+            "UserExtensionAnsweringRule",
+            "ExtensionAnsweringRule",
+            "DepartmentExtensionAnsweringRule",
+            "CompanyAnsweringRule",
+            "CompanyAfterHoursAnsweringRule"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "description": "Text of a greeting, if any"
+        },
+        "contentUri": {
+          "type": "string",
+          "description": "Link to a greeting content (audio file), if any"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of a greeting, specifying the case when the greeting is played. See Greeting Types = ['Introductory', 'Announcement', 'ConnectingMessage', 'ConnectingAudio', 'Voicemail', 'Unavailable', 'InterruptPrompt', 'HoldMusic', 'Company']",
+          "enum": [
+            "Introductory",
+            "Announcement",
+            "ConnectingMessage",
+            "ConnectingAudio",
+            "Voicemail",
+            "Unavailable",
+            "InterruptPrompt",
+            "HoldMusic",
+            "Company"
+          ]
+        },
+        "category": {
+          "type": "string",
+          "description": "Category of a greeting, specifying data form. The category value 'None' specifies that greetings of a certain type ('Introductory', 'ConnectingAudio', etc.) are switched off for an extension = ['Music', 'Message', 'Ring Tones', 'None']",
+          "enum": [
+            "Music",
+            "Message",
+            "Ring Tones",
+            "None"
+          ]
+        },
+        "navigation": {
+          "description": "Information on navigation",
+          "$ref": "#/definitions/NavigationInfo"
+        },
+        "paging": {
+          "description": "Information on paging",
+          "$ref": "#/definitions/PagingInfo"
+        }
+      }
+    },
+    "AccountPresenceInfo": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of account presence resource"
+        },
+        "records": {
+          "type": "array",
+          "description": "List of Prompts",
+          "items": {
+            "$ref": "#/definitions/GetPresenceInfo"
+          }
+        },
+        "navigation": {
+          "description": "Information on navigation",
+          "$ref": "#/definitions/NavigationInfo"
+        },
+        "paging": {
+          "description": "Information on paging",
+          "$ref": "#/definitions/PagingInfo"
+        }
+      }
+    },
     "CallLogRecordDeviceInfo": {
       "type": "object",
       "properties": {
@@ -12013,11 +13100,8 @@
           "description": "Price for shipping with the specified method (depending on the quantity value)"
         },
         "method": {
-          "type": "array",
           "description": "Shipping method description",
-          "items": {
-            "$ref": "#/definitions/ShippingMethod"
-          }
+          "$ref": "#/definitions/ShippingMethod"
         }
       }
     },
@@ -12480,6 +13564,10 @@
             "Unconfirmed",
             "Confirmed"
           ]
+        },
+        "signupInfo": {
+          "description": "Account sign up data",
+          "$ref": "#/definitions/AccountSignupInfoRequest"
         }
       }
     },
@@ -13132,6 +14220,14 @@
         "statusInfo": {
           "description": "Status information (reason, comment, lifetime). Returned for 'Disabled' status only",
           "$ref": "#/definitions/AccountStatusInfo"
+        },
+        "regionalSettings": {
+          "description": "Account level region data (web service Auto-Receptionist settings)",
+          "$ref": "#/definitions/RegionalSettings"
+        },
+        "federated": {
+          "description": "Specifies whether an account is included into any federation of accounts or not",
+          "type": "boolean"
         }
       }
     },
@@ -13275,6 +14371,10 @@
             "Voluntarily",
             "Involuntarily"
           ]
+        },
+        "till": {
+          "type": "string",
+          "description": "Date until which the account will get deleted. The default value is 30 days since current date"
         }
       }
     },
@@ -13551,6 +14651,31 @@
             "ApplicationExtension",
             "ParkLocation"
           ]
+        },
+        "callQueueInfo": {
+          "description": "For Department extension type only. Call queue settings",
+          "$ref": "#/definitions/CallQueueInfo"
+        }
+      }
+    },
+    "CallQueueInfo": {
+      "type": "object",
+      "properties": {
+        "slaGoal": {
+          "type": "integer",
+          "description": "Target percentage of calls that must be answered by agents within the service level time threshold"
+        },
+        "slaThresholdSeconds": {
+          "type": "integer",
+          "description": "Period of time in seconds that is considered to be an acceptable service level"
+        },
+        "includeAbandonedCalls": {
+          "type": "boolean",
+          "description": "If 'True' abandoned calls (hanged up prior to being served) are included into service level calculation"
+        },
+        "abandonedThresholdSeconds": {
+          "type": "integer",
+          "description": "Period of time in seconds specifying abandoned calls duration - calls that are shorter will not be included into the calculation of service level.; zero value means that abandoned calls of any duration will be included into calculation"
         }
       }
     },
@@ -13891,6 +15016,10 @@
           "description": "Information on the extension, to which the phone number is assigned. Returned only for the request of Account phone number list",
           "$ref": "#/definitions/ExtensionInfo"
         },
+        "label": {
+          "type": "string",
+          "description": "Custom user name of a phone number, if any. Supported for numbers assigned to Auto-Receptionist, with usage type 'CompanyNumber'"
+        },
         "location": {
           "type": "string",
           "description": "Location (City, State). Filled for local US numbers"
@@ -13930,7 +15059,9 @@
             "CompanyNumber",
             "DirectNumber",
             "CompanyFaxNumber",
-            "ForwardedNumber"
+            "ForwardedNumber",
+            "ForwardedCompanyNumber",
+            "ContactCenterNumber"
           ]
         }
       }
@@ -15338,6 +16469,19 @@
         }
       }
     },
+    "EmergencyAddress": {
+      "type": "object",
+      "properties": {
+        "required": {
+          "type": "boolean",
+          "description": " 'True' if specifying of emergency address is required"
+        },
+        "localOnly": {
+          "type": "boolean",
+          "description": " 'True' if only local emergency address can be specified"
+        }
+      }
+    },
     "EmergencyAddressInfo": {
       "type": "object",
       "properties": {
@@ -15931,6 +17075,13 @@
             "Busy",
             "Available"
           ]
+        },
+        "activeCalls": {
+          "type": "array",
+          "description": "Information on active calls",
+          "items": {
+            "$ref": "#/definitions/ActiveCallInfo"
+          }
         }
       }
     },
@@ -16721,6 +17872,14 @@
         "loginAllowed": {
           "type": "boolean",
           "description": "Specifies whether login with the phone numbers of this country is enabled or not"
+        },
+        "signupAllowed": {
+          "type": "boolean",
+          "description": "Indicates whether signup/billing is allowed for a country"
+        },
+        "freeSoftphoneLine": {
+          "type": "boolean",
+          "description": "Specifies if free phone line for softphone is available for a country or not"
         }
       }
     },
@@ -17491,29 +18650,15 @@
         "uri": {
           "type": "string",
           "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "description": "Canonical URI of a device"
         },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
+          "description": "Devices data",
           "items": {
             "$ref": "#/definitions/DeviceModelExtResource"
           }
-        },
-        "paging": {
-          "$ref": "#/definitions/Paging"
-        },
-        "navigation": {
-          "$ref": "#/definitions/Navigation"
         }
-      },
-      "xml": {
-        "name": "devices"
       }
     },
     "ExtensionGrantsResource": {
@@ -17844,9 +18989,6 @@
         "email": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "versionedResource"
       }
     },
     "PersonalContactResource": {
@@ -18157,43 +19299,45 @@
     "PhoneNumberResource": {
       "type": "object",
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
-        },
         "id": {
           "type": "integer",
-          "format": "int64"
+          "format": "int64",
+          "description": "Internal identifier of a phone number"
         },
-        "phoneNumber": {
+        "country": {
+          "description": "Brief information on a phone number country",
+          "$ref": "#/definitions/CountryResource"
+        },
+        "extension": {
+          "description": "Information on an extension to which the phone number is assigned",
+          "$ref": "#/definitions/ExtensionResource"
+        },
+        "label": {
           "type": "string",
-          "minLength": 0,
-          "maxLength": 128
+          "description": "Custom user name of a phone number, if any. Supported for numbers assigned to Auto-Receptionist, with usage type 'CompanyNumber' "
         },
-        "formattedNumber": {
-          "type": "string"
+        "location": {
+          "type": "string",
+          "description": "Location (City, State). Filled for local US numbers"
         },
         "paymentType": {
           "type": "string",
+          "description": "Payment type. 'External' is returned for forwarded numbers which are not terminated in the RingCentral phone system = ['External', 'TollFree', 'Local'],",
           "enum": [
             "External",
             "TollFree",
             "Local"
           ]
         },
-        "location": {
-          "type": "string"
-        },
-        "type": {
+        "phoneNumber": {
           "type": "string",
-          "enum": [
-            "VoiceFax",
-            "FaxOnly",
-            "VoiceOnly"
-          ]
+          "description": "Phone number",
+          "minLength": 0,
+          "maxLength": 128
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of a phone number. If the value is 'Normal', the phone number is ready to be used. Otherwise it is an external number not yet ported to RingCentral ,"
         },
         "usageType": {
           "type": "string",
@@ -18203,51 +19347,20 @@
             "AdditionalCompanyNumber",
             "DirectNumber",
             "CompanyFaxNumber",
-            "ForwardedNumber"
+            "ForwardedNumber",
+            "ForwardedCompanyNumber",
+            "ContactCenterNumber"
           ]
         },
-        "extension": {
-          "$ref": "#/definitions/ExtensionResource"
-        },
-        "features": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "CallerId",
-              "SmsSender"
-            ]
-          }
-        },
-        "reservedTill": {
+        "type": {
           "type": "string",
-          "format": "date-time"
-        },
-        "error": {
-          "type": "string"
-        },
-        "vanityPattern": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string",
+          "description": "Type of a phone number",
           "enum": [
-            "Normal",
-            "Pending",
-            "PortedIn",
-            "Unknown"
+            "VoiceFax",
+            "FaxOnly",
+            "VoiceOnly"
           ]
-        },
-        "country": {
-          "$ref": "#/definitions/CountryResource"
-        },
-        "rank": {
-          "type": "integer",
-          "format": "int32"
         }
-      },
-      "xml": {
-        "name": "phoneNumberInfo"
       }
     },
     "TesterFlagsResource": {
@@ -18656,10 +19769,12 @@
       "properties": {
         "id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "description": "Internal identifier of the shipping method"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Name/description of the shipping method"
         }
       }
     },
@@ -18805,10 +19920,10 @@
         },
         "phoneInfo": {
           "$ref": "#/definitions/PhoneNumberResource"
+        },
+        "emergencyAddress": {
+          "$ref": "#/definitions/EmergencyAddress"
         }
-      },
-      "xml": {
-        "name": "phoneLine"
       }
     },
     "InlinedExtensionResource": {
@@ -20408,26 +21523,12 @@
     "ReservePhoneNumbersRecordsResource": {
       "type": "object",
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
-        },
         "records": {
           "type": "array",
-          "xml": {
-            "name": "records",
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/ReservePhoneNumberResource"
           }
         }
-      },
-      "xml": {
-        "name": "collectionResource"
       }
     },
     "DetailedCallInfo": {
@@ -21011,9 +22112,6 @@
         "name": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "blacklistedNumber"
       }
     },
     "InvoiceSettingsResource": {
@@ -21686,56 +22784,33 @@
     "DeviceModelExtResource": {
       "type": "object",
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
-        },
         "sku": {
-          "type": "string"
+          "type": "string",
+          "description": "Device identification number (stock keeping unit) in the format TP-ID [-AT-AC], where TP is device type (HP for RC HardPhone, DV for all other devices including softphone); ID - device model ID; AT -addon type ID; AC - addon count (if any). For example 'HP-56-2-2'"
         },
         "type": {
-          "type": "string"
+          "type": "string",
+          "description": "Device type. The default value is 'HardPhone'",
+          "enum": [
+            "SoftPhone",
+            "HardPhone",
+            "OtherPhone"
+          ]
         },
         "model": {
+          "description": "HardPhone model information",
           "$ref": "#/definitions/DeviceModelResource"
         }
-      },
-      "xml": {
-        "name": "model"
       }
     },
     "DeviceModelResource": {
       "type": "object",
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
-        },
         "id": {
           "type": "string"
         },
         "name": {
           "type": "string"
-        },
-        "deviceClass": {
-          "type": "string",
-          "enum": [
-            "Unknown",
-            "DeskPhone",
-            "ConferencePhone",
-            "AnalogAdapter",
-            "CordlessPhone"
-          ]
-        },
-        "lineCount": {
-          "type": "integer",
-          "format": "int32"
         },
         "addons": {
           "type": "array",
@@ -21743,9 +22818,6 @@
             "$ref": "#/definitions/Addon"
           }
         }
-      },
-      "xml": {
-        "name": "model"
       }
     },
     "ExtensionGrantResource": {
@@ -23073,93 +24145,120 @@
     "DeviceResource": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a device"
+        },
         "uri": {
           "type": "string",
           "format": "uri",
-          "xml": {
-            "attribute": true
-          }
+          "description": "Canonical URI of a device"
         },
-        "id": {
-          "type": "string"
+        "sku": {
+          "type": "string",
+          "description": "Device identification number (stock keeping unit) in the format TP-ID [-AT-AC], where TP is device type (HP for RC HardPhone, DV for all other devices including softphone); ID - device model ID; AT -addon type ID; AC - addon count (if any). For example 'HP-56-2-2'"
         },
         "type": {
           "type": "string",
+          "description": "Device type. The default value is 'HardPhone'",
           "enum": [
             "HardPhone",
             "SoftPhone",
-            "OtherPhone",
-            "MobileDevice",
-            "BLA",
-            "Unknown"
+            "OtherPhone"
           ]
         },
-        "sku": {
-          "type": "string"
-        },
-        "model": {
-          "$ref": "#/definitions/DeviceModelResource"
+        "status": {
+          "type": "string",
+          "description": "Status of a device = ['Online', 'Offline']",
+          "enum": [
+            "Online",
+            "Offline"
+          ]
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Device name. Mandatory if ordering SoftPhone or OtherPhone . Optional for HardPhone . If not specified for HardPhone, then device model name is used as device name"
         },
         "serial": {
-          "type": "string"
+          "type": "string",
+          "description": "Serial number for HardPhone (is returned only when the phone is shipped and provisioned); endpoint_id for softphone and mobile applications"
         },
         "computerName": {
-          "type": "string"
+          "type": "string",
+          "description": "PC name for softphone"
+        },
+        "model": {
+          "description": "HardPhone model information",
+          "$ref": "#/definitions/DeviceModelResource"
         },
         "extension": {
+          "description": "This attribute can be omitted for unassigned devices",
           "$ref": "#/definitions/ExtensionResource"
         },
         "phoneLines": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/PhoneLineResource"
-          }
+          "description": "Phone lines information",
+          "$ref": "#/definitions/PhoneLineResource"
         },
         "emergencyServiceAddress": {
+          "description": " Address for emergency cases. The same emergency address is assigned to all numbers of a single device ,",
           "$ref": "#/definitions/EmergencyServiceAddressResource"
         },
         "shipping": {
+          "description": "Shipping information, according to which devices (in case of HardPhone ) or e911 stickers (in case of SoftPhone and OtherPhone ) will be delivered to the customer",
           "$ref": "#/definitions/ShippingResource"
         },
-        "billingStatement": {
-          "$ref": "#/definitions/BillingStatementResource"
+        "boxBillingId": {
+          "type": "integer",
+          "description": "Box billing identifier of a device. Applicable only for HardPhones. It is an alternative way to identify the device to be ordered. Either  model structure, or boxBillingId must be specified for HardPhone"
+        },
+        "linePooling": {
+          "type": "string",
+          "description": "Pooling type of a deviceHost - device with standalone paid phone line which can be linked to Glip/Softphone instanceGuest - device with a linked phone lineNone - device without a phone line or with specific line (free, BLA, etc.) = ['Host', 'Guest', 'None']",
+          "enum": [
+            "Host",
+            "Guest",
+            "None"
+          ]
         }
-      },
-      "xml": {
-        "name": "device"
       }
     },
     "ReservePhoneNumberResource": {
       "type": "object",
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "uri",
-          "xml": {
-            "attribute": true
-          }
-        },
         "phoneNumber": {
-          "type": "string"
+          "type": "string",
+          "description": "Phone number in E.164"
         },
         "formattedNumber": {
+          "type": "string",
+          "description": "Domestic format of a phone number"
+        },
+        "reservedTill": {
+          "description": " Datetime up to which the number is reserved in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. No value means that number is not reserved anymore",
           "type": "string"
         },
         "reservationId": {
-          "type": "string"
+          "type": "string",
+          "description": "nternal identifier of phone number reservation; encoded data including reservation type (by brand, by account, by session), particular brand/account/session data, and reservation date and time"
         },
-        "reservedTill": {
-          "$ref": "#/definitions/ReservationDate"
+        "status": {
+          "type": "string",
+          "description": "Phone number status = ['Enabled', 'Pending', 'Disabled'],",
+          "enum": [
+            "Enabled",
+            "Pending",
+            "Disabled"
+          ]
         },
         "error": {
-          "type": "string"
+          "type": "string",
+          "description": "The error code in case of reservation/un-reservation failure = ['NumberIsAlreadyProvisioned', 'NumberReserved', 'NumberNotAvailable']",
+          "enum": [
+            "NumberIsAlreadyProvisioned",
+            "NumberReserved",
+            "NumberNotAvailable"
+          ]
         }
-      },
-      "xml": {
-        "name": "phoneNumberInfo"
       }
     },
     "AcceptableToken": {
@@ -25032,7 +26131,22 @@
       "properties": {
         "sendWelcomeEmail": {
           "type": "boolean",
+          "description": "Supported for account confirmation. Specifies whether welcome email is sent. The default value is 'True'",
           "default": true
+        },
+        "sendConfirmationEmail": {
+          "type": "boolean",
+          "description": "Supported for account activation. Specifies whether confirmation email is sent. The default value is 'True'",
+          "default": true
+        },
+        "shipDevices": {
+          "type": "boolean",
+          "description": "Specifies whether devices are shipped after successful account confirmation. The default value is 'True'",
+          "default": true
+        },
+        "activationEmailHash": {
+          "type": "string",
+          "description": "Supported for account confirmation. Activation email hash code"
         }
       }
     },
@@ -25121,19 +26235,20 @@
       "type": "object",
       "properties": {
         "extensionId": {
+          "description": "Information on extension which the phone number is added to, only for provisioning extension-level numbers",
           "$ref": "#/definitions/ExtensionInfoProvisionPhoneNumbers"
         },
         "phoneNumber": {
           "type": "string",
-          "description": ""
+          "description": "Phone number to purchase returned in E.164 (11-digits) format"
         },
         "reservationId": {
           "type": "string",
-          "description": ""
+          "description": "Internal identifier of phone number reservation; encoded data including reservation type (by brand, by account, by session), particular brand/account/session data, and reservation date and time"
         },
         "label": {
           "type": "string",
-          "description": ""
+          "description": "Custom user name of a phone number, if any. Supported for numbers assigned to Auto-Receptionist, with usage type 'CompanyNumber"
         },
         "usageType": {
           "type": "string",
@@ -25146,7 +26261,7 @@
             "ForwardedNumber",
             "ForwardedCompanyNumber"
           ],
-          "description": ""
+          "description": "Usage type of a phone number. The default value is 'DirectNumber'"
         },
         "type": {
           "type": "string",
@@ -25155,11 +26270,11 @@
             "VoiceOnly",
             "FaxOnly"
           ],
-          "description": ""
+          "description": "Type of a phone number"
         },
         "vanityPattern": {
           "type": "string",
-          "description": ""
+          "description": " Vanity pattern that was used to find this number. It should be passed as if it was returned from the Number Lookup call"
         }
       }
     },
@@ -25858,6 +26973,48 @@
             "BusinessHours",
             "AfterHours"
           ]
+        }
+      }
+    },
+    "UpdateAccountRequest": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Target account status. For account activation - 'Unconfirmed'. For account confirmation - 'Confirmed'. For changing account status - 'Confirmed' or 'Disabled' = ['Unconfirmed', 'Confirmed', 'Disabled'],",
+          "enum": [
+            "Unconfirmed",
+            "Confirmed",
+            "Disabled"
+          ]
+        },
+        "statusInfo": {
+          "description": "Status information (reason, comment, lifetime). Returned for 'Disabled' status only",
+          "$ref": "#/definitions/AccountStatusInfo"
+        },
+        "transitionInfo": {
+          "description": "Email notifications setting",
+          "$ref": "#/definitions/TransitionInfo"
+        },
+        "partnerId": {
+          "type": "string",
+          "description": "Additional account identifier, developed and applied on the client side "
+        },
+        "serviceInfo": {
+          "description": "Account service information, including brand, service plan and billing plan",
+          "$ref": "#/definitions/AccountServiceInfo"
+        },
+        "regionalSettings": {
+          "description": "Account level region data (web service Auto-Receptionist settings)",
+          "$ref": "#/definitions/RegionalSettings"
+        },
+        "operatorId": {
+          "type": "string",
+          "description": "Identifier of extension to be set as operator for account"
+        },
+        "signupInfo": {
+          "description": "Account sign up data",
+          "$ref": "#/definitions/SignupInfoResource"
         }
       }
     }
