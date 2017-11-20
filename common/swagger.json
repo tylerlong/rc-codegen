@@ -102,7 +102,7 @@
     "https"
   ],
   "paths": {
-    "/restapi/": {
+    "/restapi": {
       "get": {
         "tags": [
           "API Info"
@@ -239,6 +239,13 @@
             "type": "string"
           },
           {
+            "name": "showBlocked",
+            "in": "query",
+            "type": "boolean",
+            "description": "If 'True' then calls from/to blocked numbers are returned. The default value is 'True'",
+            "required": false
+          },
+          {
             "name": "phoneNumber",
             "in": "query",
             "description": "Phone number of a caller/call recipient. If specified, returns all calls (both incoming and outcoming) with the mentioned phone number. Cannot be specified together with the extensionNumber filter",
@@ -261,6 +268,12 @@
             ]
           },
           {
+            "name": "sessionId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "type",
             "in": "query",
             "description": "Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted",
@@ -273,6 +286,21 @@
             "enum": [
               "Voice",
               "Fax"
+            ]
+          },
+          {
+            "name": "transport",
+            "in": "query",
+            "description": "Call transport type. 'PSTN' specifies that a call leg is initiated from the PSTN network provider; 'VoIP' - from an RC phone. By default this filter is disabled",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "enum": [
+              "PSTN",
+              "VoIP"
             ]
           },
           {
@@ -324,12 +352,6 @@
             "description": "Indicates the page size (number of items). If not specified, the value is '100' by default",
             "required": false,
             "type": "integer"
-          },
-          {
-            "name": "sessionId",
-            "in": "query",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1461,7 +1483,6 @@
         "summary": "Create Fax Message",
         "description": "<p style='font-style:italic;'>Since 1.0.2</p><p>Creates and sends/resends new fax message. Resend can be done if sending failed.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Faxes</td><td>Sending and receiving faxes</td></tr><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
         "consumes": [
-          "multipart/mixed",
           "multipart/form-data"
         ],
         "produces": [
@@ -1481,28 +1502,6 @@
             "description": "Internal identifier of an extension (integer) or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "This form fills out this required field automatically using the example MIME boundary string.",
-            "required": false,
-            "type": "string",
-            "default": "multipart/mixed"
-          },
-          {
-            "name": "Content-Length",
-            "in": "header",
-            "description": "Actual content length. This form fills out this required field automatically.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "formData",
-            "name": "body",
-            "type": "file",
-            "description": "",
-            "required": false
           }
         ],
         "responses": {
@@ -2664,7 +2663,10 @@
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ContactList"
+            }
           }
         },
         "x-api-group": "extension/address-book/contact",
@@ -11385,6 +11387,26 @@
     }
   },
   "definitions": {
+    "ContactList": {
+      "type": "object",
+      "properties": {
+        "records": {
+          "type": "array",
+          "description": "List of personal contacts from the extension address book",
+          "items": {
+            "$ref": "#/definitions/PersonalContactResource"
+          }
+        },
+        "navigation": {
+          "description": "Information on navigation",
+          "$ref": "#/definitions/NavigationInfo"
+        },
+        "paging": {
+          "description": "Information on paging",
+          "$ref": "#/definitions/PagingInfo"
+        }
+      }
+    },
     "ParkLocationResponse": {
       "type": "object",
       "properties": {
@@ -11623,7 +11645,7 @@
           "type": "array",
           "description": "List of blocked phone numbers",
           "items": {
-            "$ref": "#/definitions/GetPresenceInfo"
+            "$ref": "#/definitions/BlockedNumberInfo"
           }
         },
         "navigation": {
@@ -14307,6 +14329,19 @@
         }
       }
     },
+    "FaxCountryInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a home country"
+        },
+        "isoCode": {
+          "type": "string",
+          "description": "Country code in ISO 3166-1 alpha-2. If specified then country ID cannot be specified"
+        }
+      }
+    },
     "CountryInfo": {
       "type": "object",
       "properties": {
@@ -14460,12 +14495,8 @@
           "description": "Feature name, see all available values in Service Feature List"
         },
         "enabled": {
-          "type": "string",
-          "description": "Feature status, shows feature availability for the extension",
-          "enum": [
-            "True",
-            "False"
-          ]
+          "type": "boolean",
+          "description": "Feature status, shows feature availability for the extension"
         }
       }
     },
@@ -16100,7 +16131,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
+          "type": "string",
           "description": "Internal identifier of an extension"
         },
         "uri": {
@@ -19751,7 +19782,7 @@
         }
       }
     },
-    "Attachment": {
+    "AttachmentInfo": {
       "type": "object",
       "properties": {
         "uri": {
@@ -20653,6 +20684,15 @@
         }
       }
     },
+    "FaxCallerInfo": {
+      "type": "object",
+      "properties": {
+        "phoneNumber": {
+          "type": "string",
+          "description": "Recipient information. Phone number property is mandatory. Optional for resend fax request"
+        }
+      }
+    },
     "CallerInfo": {
       "type": "object",
       "properties": {
@@ -21003,8 +21043,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "partnerId": {
           "type": "string"
@@ -21664,7 +21703,7 @@
           "format": "date-time"
         },
         "attachment": {
-          "$ref": "#/definitions/Attachment"
+          "$ref": "#/definitions/AttachmentInfo"
         }
       }
     },
@@ -24801,7 +24840,7 @@
     "LicenseInfoRequest": {
       "type": "object",
       "properties": {
-        "id": {
+        "type": {
           "description": "Type of a license",
           "$ref": "#/definitions/LicenseTypeInfoRequest"
         },
