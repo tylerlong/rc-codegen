@@ -1265,7 +1265,10 @@
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Binary"
+            }
           }
         },
         "x-api-group": "account/recordings",
@@ -2718,7 +2721,10 @@
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PersonalContactResource"
+            }
           }
         },
         "x-api-group": "extension/address-book/contact",
@@ -2771,7 +2777,10 @@
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PersonalContactResource"
+            }
           }
         },
         "x-api-group": "extension/address-book/contact",
@@ -2830,7 +2839,10 @@
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PersonalContactResource"
+            }
           }
         },
         "x-api-group": "extension/address-book/contact",
@@ -5777,7 +5789,7 @@
             "name": "body",
             "required": false,
             "schema": {
-              "$ref": "#/definitions/BlacklistEntryResource"
+              "$ref": "#/definitions/BlockedNumberInfo"
             }
           }
         ],
@@ -5895,7 +5907,7 @@
             "name": "body",
             "required": false,
             "schema": {
-              "$ref": "#/definitions/BlacklistEntryResource"
+              "$ref": "#/definitions/BlockedNumberInfo"
             }
           }
         ],
@@ -8345,7 +8357,10 @@
         ],
         "responses": {
           "default": {
-            "description": "successful operation"
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Binary"
+            }
           }
         },
         "x-api-group": "extension/profile-image",
@@ -11387,6 +11402,16 @@
     }
   },
   "definitions": {
+    "Binary": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string",
+          "description": "Required Binary Data",
+          "format": "binary"
+        }
+      }
+    },
     "ContactList": {
       "type": "object",
       "properties": {
