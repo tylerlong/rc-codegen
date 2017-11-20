@@ -4794,7 +4794,7 @@
           "default": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/GetSubscriptionInfoResponse"
+              "$ref": "#/definitions/SubscriptionInfo"
             }
           }
         },
@@ -4832,7 +4832,7 @@
           "default": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/GetSubscriptionInfoResponse"
+              "$ref": "#/definitions/SubscriptionInfo"
             }
           }
         },
@@ -4884,7 +4884,7 @@
           "default": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/GetSubscriptionInfoResponse"
+              "$ref": "#/definitions/SubscriptionInfo"
             }
           }
         },
@@ -4954,7 +4954,7 @@
           "default": {
             "description": "successful operation",
             "schema": {
-              "$ref": "#/definitions/GetSubscriptionInfoResponse"
+              "$ref": "#/definitions/SubscriptionInfo"
             }
           }
         },
@@ -15002,7 +15002,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
+          "type": "string",
           "description": "Internal identifier of a phone number"
         },
         "country": {
@@ -16075,7 +16075,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
+          "type": "string",
           "description": "Internal identifier of the call recording"
         },
         "uri": {
@@ -16237,7 +16237,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
+          "type": "string",
           "description": "Internal identifier of the call recording"
         },
         "contentUri": {
@@ -17727,7 +17727,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
+          "type": "string",
           "description": "Internal identifier of an extension"
         },
         "uri": {
@@ -18230,7 +18230,7 @@
         }
       }
     },
-    "GetSubscriptionInfoResponse": {
+    "SubscriptionInfo": {
       "type": "object",
       "required": [
         "deliveryMode"
@@ -18503,8 +18503,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "string"
         },
         "code": {
           "type": "string"
@@ -18713,8 +18712,7 @@
           "$ref": "#/definitions/ResourceLink"
         },
         "id": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "notes": {
           "type": "string"
@@ -18853,8 +18851,7 @@
           "type": "string"
         },
         "id": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "ver": {
           "$ref": "#/definitions/ApiVersionResource"
@@ -18895,8 +18892,7 @@
           ]
         },
         "id": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "firstName": {
           "type": "string"
@@ -19148,8 +19144,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
-          "format": "int64",
+          "type": "string",
           "description": "Internal identifier of a phone number"
         },
         "country": {
@@ -19567,8 +19562,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
-          "format": "int32",
+          "type": "string",
           "description": "Internal identifier of the shipping method"
         },
         "name": {
@@ -19616,18 +19610,6 @@
         },
         "value": {
           "type": "string"
-        }
-      }
-    },
-    "AccountId": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "decimal": {
-          "type": "number"
         }
       }
     },
@@ -19743,23 +19725,6 @@
         }
       }
     },
-    "SubscriptionInfo": {
-      "type": "object",
-      "properties": {
-        "extensionId": {
-          "type": "string"
-        },
-        "accountId": {
-          "$ref": "#/definitions/AccountId"
-        },
-        "brandId": {
-          "type": "string"
-        },
-        "tierId": {
-          "type": "string"
-        }
-      }
-    },
     "EmailResource": {
       "type": "object",
       "properties": {
@@ -19838,8 +19803,7 @@
           "format": "uri"
         },
         "id": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "partnerId": {
           "type": "string",
@@ -20077,7 +20041,7 @@
           "format": "int32"
         },
         "timeZone": {
-          "$ref": "#/definitions/TimeZoneResource"
+          "$ref": "#/definitions/TimezoneResource"
         }
       }
     },
@@ -20299,14 +20263,6 @@
         }
       }
     },
-    "TimeZoneResource": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        }
-      }
-    },
     "VoicemailSettingsResource": {
       "type": "object",
       "properties": {
@@ -20414,8 +20370,7 @@
           "type": "string"
         },
         "id": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "ver": {
           "$ref": "#/definitions/ApiVersionResource"
@@ -21717,8 +21672,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "string"
         },
         "value": {
           "type": "string"
@@ -21969,8 +21923,7 @@
           "format": "uri"
         },
         "id": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "to": {
           "type": "array",
@@ -23235,26 +23188,6 @@
         }
       }
     },
-    "ExtensionId": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "decimal": {
-          "type": "number"
-        }
-      }
-    },
-    "PathSegment": {
-      "type": "object",
-      "properties": {
-        "path": {
-          "type": "string"
-        }
-      }
-    },
     "ResourceModelComponent": {
       "type": "object",
       "properties": {
@@ -23865,8 +23798,7 @@
           "format": "uri"
         },
         "id": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "partnerId": {
           "type": "string",
@@ -24143,8 +24075,7 @@
           "format": "uri"
         },
         "id": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "usageType": {
           "type": "string",
@@ -24285,11 +24216,10 @@
           "format": "uri"
         },
         "id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "string"
         },
         "extensionId": {
-          "$ref": "#/definitions/ExtensionId"
+          "type": "string"
         },
         "contactId": {
           "type": "string"
@@ -24307,8 +24237,7 @@
           "format": "uri"
         },
         "id": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "serviceInfo": {
           "$ref": "#/definitions/AccountServiceInfoResource"
@@ -24371,8 +24300,7 @@
           "format": "uri"
         },
         "id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "string"
         },
         "questionType": {
           "type": "integer",
@@ -24824,7 +24752,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
+          "type": "string",
           "description": "Internal identifier of an feature"
         },
         "name": {
