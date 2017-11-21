@@ -1509,7 +1509,10 @@
         ],
         "responses": {
           "default": {
-            "description": "successful operation"
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/FaxResponse"
+            }
           }
         },
         "x-api-group": "extension/fax",
@@ -11402,6 +11405,114 @@
     }
   },
   "definitions": {
+    "FaxResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a message"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a message"
+        },
+        "type": {
+          "type": "string",
+          "description": "Message type - 'Fax'"
+        },
+        "from": {
+          "description": "Sender information",
+          "$ref": "#/definitions/CallerInfoFrom"
+        },
+        "to": {
+          "type": "array",
+          "description": "Recipient information",
+          "items": {
+            "$ref": "#/definitions/CallerInfoTo"
+          }
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Message creation datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z"
+        },
+        "readStatus": {
+          "type": "string",
+          "description": "Message read status",
+          "enum": [
+            "Read",
+            "Unread"
+          ]
+        },
+        "priority": {
+          "type": "string",
+          "description": "Message priority",
+          "enum": [
+            "Normal",
+            "High"
+          ]
+        },
+        "attachments": {
+          "type": "array",
+          "description": "The list of message attachments",
+          "items": {
+            "$ref": "#/definitions/MessageAttachmentInfo"
+          }
+        },
+        "direction": {
+          "type": "string",
+          "description": "Message direction",
+          "enum": [
+            "Inbound",
+            "Outbound"
+          ]
+        },
+        "availability": {
+          "type": "string",
+          "description": "Message availability status. Message in 'Deleted' state is still preserved with all its attachments and can be restored. 'Purged' means that all attachments are already deleted and the message itself is about to be physically deleted shortly",
+          "enum": [
+            "Alive",
+            "Deleted",
+            "Purged"
+          ]
+        },
+        "messageStatus": {
+          "type": "string",
+          "description": "Message status. 'Queued' - the message is queued for sending; 'Sent' - a message is successfully sent; 'SendingFailed' - a message sending attempt has failed; 'Received' - a message is received (inbound messages have this status by default)",
+          "enum": [
+            "Queued",
+            "Sent",
+            "SendingFailed",
+            "Received"
+          ]
+        },
+        "faxResolution": {
+          "type": "string",
+          "description": "Resolution of a fax message. ('High' for black and white image scanned at 200 dpi, 'Low' for black and white image scanned at 100 dpi)",
+          "enum": [
+            "High",
+            "Low"
+          ]
+        },
+        "faxPageCount": {
+          "type": "integer",
+          "description": "Page count in a fax message"
+        },
+        "lastModifiedTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Datetime when the message was modified on server in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z"
+        },
+        "coverIndex": {
+          "type": "integer",
+          "description": "Cover page identifier. For the list of available cover page identifiers please call the method Fax Cover Pages"
+        },
+        "coverPageText": {
+          "type": "string",
+          "description": "Cover page text, entered by the fax sender and printed on the cover page. Maximum length is limited to 1024 symbols"
+        }
+      }
+    },
     "Binary": {
       "type": "object",
       "properties": {
@@ -14496,11 +14607,8 @@
           }
         },
         "limits": {
-          "type": "array",
           "description": "Limits which are effective for the account",
-          "items": {
-            "$ref": "#/definitions/AccountLimits"
-          }
+          "$ref": "#/definitions/AccountLimits"
         }
       }
     },
@@ -16937,7 +17045,8 @@
             "AudioTranscription",
             "Text",
             "SourceDocument",
-            "RenderedDocument"
+            "RenderedDocument",
+            "MmsAttachment"
           ]
         },
         "contentType": {
@@ -16947,6 +17056,14 @@
         "vmDuration": {
           "type": "integer",
           "description": "Voicemail only Duration of the voicemail in seconds"
+        },
+        "filename": {
+          "type": "string",
+          "description": "Name of a file attached"
+        },
+        "size": {
+          "type": "integer",
+          "description": "Size of attachment in bytes"
         }
       }
     },
@@ -20727,6 +20844,68 @@
         },
         "contact": {
           "$ref": "#/definitions/PersonalContactResource"
+        },
+        "messageStatus": {
+          "type": "string",
+          "enum": [
+            "Sent",
+            "SendingFailed",
+            "Queued"
+          ]
+        },
+        "faxErrorCode": {
+          "type": "string",
+          "enum": [
+            "Undefined",
+            "NoFaxSendPermission",
+            "NoInternationalPermission",
+            "NoFaxMachine",
+            "OutgoingCallError",
+            "RenderingFailed",
+            "TooManyPages",
+            "ReturnToDBQueue",
+            "NoCallTime",
+            "WrongNumber",
+            "ProhibitedNumber",
+            "InternalError",
+            "FaxSendingProhibited",
+            "ThePhoneIsBlacklisted",
+            "UserNotFound",
+            "ConvertError",
+            "DBGeneralError",
+            "SkypeBillingFailed",
+            "AccountSuspended",
+            "ProhibitedDestination",
+            "InternationalDisabled"
+          ]
+        }
+      }
+    },
+    "CallerInfoFrom": {
+      "type": "object",
+      "properties": {
+        "phoneNumber": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        }
+      }
+    },
+    "CallerInfoTo": {
+      "type": "object",
+      "properties": {
+        "phoneNumber": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
         },
         "messageStatus": {
           "type": "string",
