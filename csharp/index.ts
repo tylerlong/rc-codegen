@@ -48,10 +48,7 @@ const get_type = (type, format, ref, items) => {
     return 'double?';
   }
   if (type === 'array') {
-    let type = _.last<string>((items.type || items.$ref).split('/')).replace(/\./g, '_');
-    if (type !== 'string') {
-      type = _.upperFirst(type);
-    }
+    let type = get_type(items.type, items.format, items.$ref, items.items);
     return type + '[]';
   }
   throw new RangeError(`Unknown field type: "${type}"`);
