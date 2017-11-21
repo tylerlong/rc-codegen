@@ -1486,7 +1486,7 @@
         "summary": "Create Fax Message",
         "description": "<p style='font-style:italic;'>Since 1.0.2</p><p>Creates and sends/resends new fax message. Resend can be done if sending failed.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Faxes</td><td>Sending and receiving faxes</td></tr><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
         "consumes": [
-          "multipart/form-data"
+          "multipart/mixed; boundary=Boundary_1_14413901_1361871080888"
         ],
         "produces": [
           "application/json"
@@ -2385,7 +2385,7 @@
         ],
         "summary": "Make RingOut Call",
         "description": "<p style='font-style:italic;'>Since 1.0.7 (Release 5.16)</p><p>Makes a 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
-        "operationId": "makeRingOutCall",
+        "operationId": "makeRingOutCallNew",
         "consumes": [
           "application/json"
         ],
@@ -2441,7 +2441,7 @@
           "RingOut"
         ],
         "summary": "Make Direct RingOut Call",
-        "operationId": "createDirectRingOut",
+        "operationId": "createDirectRingOutNew",
         "consumes": [
           "application/json"
         ],
@@ -2490,7 +2490,7 @@
         ],
         "summary": "Get Status of RingOut Call",
         "description": "<p style='font-style:italic;'>Since 1.0.7 (Release 5.16)</p><p>Returns the status of a 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>",
-        "operationId": "getRingOutCallStatus",
+        "operationId": "getRingOutCallStatusNew",
         "consumes": [
           "application/json"
         ],
@@ -2543,7 +2543,7 @@
         ],
         "summary": "Cancel RingOut Call",
         "description": "<p style='font-style:italic;'></p><p>Cancels the 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
-        "operationId": "cancelRingOutCall",
+        "operationId": "cancelRingOutCallNew",
         "consumes": [
           "application/json"
         ],
@@ -4297,7 +4297,7 @@
         "operationId": "createGlipFile",
         "description": "<p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p>Posts a file.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Heavy</p>",
         "consumes": [
-          "application/json"
+          "multipart/form-data"
         ],
         "produces": [
           "application/json"
@@ -4311,9 +4311,16 @@
             "required": false
           },
           {
+            "name": "body",
+            "in": "formData",
+            "type": "file",
+            "required": true,
+            "description": "The file to upload"
+          },
+          {
             "name": "name",
             "type": "string",
-            "in": "query",
+            "in": "formData",
             "description": "Name of a file attached",
             "required": false
           }
@@ -4790,13 +4797,6 @@
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "aggregated",
-            "in": "query",
-            "description": "If 'True' then aggregated presence status is returned in a notification payload in the 'presenceStatus' field",
-            "required": false,
-            "type": "boolean"
-          },
           {
             "in": "body",
             "name": "body",
@@ -7092,6 +7092,20 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "attachment",
+            "type": "file",
+            "required": true,
+            "description": "Audio file that will be used as a prompt. Attachment cannot be empty, only audio files are supported"
+          },
+          {
+            "in": "formData",
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "description": "Description of file contents."
           }
         ],
         "responses": {
@@ -8391,7 +8405,7 @@
           {
             "name": "image",
             "in": "formData",
-            "required": false,
+            "required": true,
             "type": "file"
           },
           {
@@ -8409,7 +8423,10 @@
         ],
         "responses": {
           "default": {
-            "description": "successful operation"
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Binary"
+            }
           }
         },
         "x-api-group": "extension/profile-image",
@@ -8455,7 +8472,10 @@
         ],
         "responses": {
           "default": {
-            "description": "successful operation"
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Binary"
+            }
           }
         },
         "x-api-group": "extension/profile-image",
@@ -8508,7 +8528,10 @@
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Binary"
+            }
           }
         },
         "x-api-group": "extension/profile-image",
@@ -14221,6 +14244,10 @@
         "deliveryMode": {
           "description": "Notification delivery settings",
           "$ref": "#/definitions/NotificationDeliveryModeRequest"
+        },
+        "expiresIn": {
+          "type": "integer",
+          "description": "Subscription lifetime in seconds. Max value is 7 days (604800 sec)"
         }
       }
     },
@@ -14232,13 +14259,27 @@
           "description": "Notifications transportation provider name. 'APNS' (Apple Push Notifications Service)",
           "enum": [
             "PubNub",
+            "Webhook",
             "APNS",
-            "PubNub/APNS/VoIP"
+            "PubNub/APNS",
+            "PubNub/GCM"
           ]
+        },
+        "address": {
+          "type": "string",
+          "description": "Mandatory for 'APNS' and 'WebHook' transport types. For 'APNS' - internal identifier of a device 'device_token' for 'WebHook' - URL of a consumer service (cannot be changed during subscription update)"
         },
         "encryption": {
           "type": "boolean",
           "description": "Optional parameter. Specifies if the message will be encrypted or not. If request contains any presence event filter the value by default is 'True' (even if specified as 'false'). If request contains only message event filters the value by default is 'False'"
+        },
+        "certificateName": {
+          "type": "string",
+          "description": "For 'PubNub/APNS' and 'PubNub/GCM' transport types. Name of a certificate"
+        },
+        "registrationId": {
+          "type": "string",
+          "description": "For 'PubNub/APNS' and 'PubNub/GCM' transport types. Identifier of a registration"
         }
       }
     },
@@ -14654,20 +14695,20 @@
       "type": "object",
       "properties": {
         "firstPage": {
-          "type": "string",
-          "description": "Canonical URI for the first page of the list"
+          "description": "Canonical URI for the first page of the list",
+          "$ref": "#/definitions/NavigationInfoURI"
         },
         "nextPage": {
-          "type": "string",
-          "description": "Canonical URI for the next page of the list"
+          "description": "Canonical URI for the next page of the list",
+          "$ref": "#/definitions/NavigationInfoURI"
         },
         "previousPage": {
-          "type": "string",
-          "description": "Canonical URI for the previous page of the list"
+          "description": "Canonical URI for the previous page of the list",
+          "$ref": "#/definitions/NavigationInfoURI"
         },
         "lastPage": {
-          "type": "string",
-          "description": "Canonical URI for the last page of the list"
+          "description": "Canonical URI for the last page of the list",
+          "$ref": "#/definitions/NavigationInfoURI"
         }
       }
     },
@@ -14700,6 +14741,14 @@
         }
       }
     },
+    "NavigationInfoURI": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string"
+        }
+      }
+    },
     "GetExtensionInfoResponse": {
       "type": "object",
       "required": [
@@ -14723,8 +14772,11 @@
           "$ref": "#/definitions/ContactInfo"
         },
         "departments": {
+          "type": "array",
           "description": "Information on department extension(s), to which the requested extension belongs. Returned only for user extensions, members of department, requested by single extensionId",
-          "$ref": "#/definitions/DepartmentInfo"
+          "items": {
+            "$ref": "#/definitions/DepartmentInfo"
+          }
         },
         "extensionNumber": {
           "type": "string",
@@ -14951,9 +15003,17 @@
         "scales": {
           "type": "array",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/ProfileImageInfoURI"
           },
           "description": "List of URIs to profile images in different dimensions"
+        }
+      }
+    },
+    "ProfileImageInfoURI": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string"
         }
       }
     },
