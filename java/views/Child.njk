@@ -5,7 +5,7 @@
     }
 {% endif %}
 {% if child.hasId < 1 or child.camelCase == 'account' %} {# Maybe or No #}
-    public {{ child.PascalCase }} {{ child.camelCase }}()
+    public {{ child.PascalCase }} {% if child.camelCase != 'default' %}{{ child.camelCase }}{% else %}_default{% endif %}()
     {
       return new {{ child.PascalCase }}(restClient, pathSegment{% if child.camelCase == 'account' or child.camelCase == 'extension' %}, "~"{% else %}, null{% endif %});
     }
