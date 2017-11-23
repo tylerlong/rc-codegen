@@ -8,6 +8,7 @@ export default class Definition {
   fields: Field[];
 
   constructor(schema: any, name: string) {
+    schema.type = schema.type || 'object';
     if (schema.type != 'object') {
       throw new TypeError("Type of definition must be object.");
     }
@@ -24,7 +25,7 @@ export default class Definition {
       var propVal = schema.properties[p];
       var typeInfo = resolveType(propVal, PascalCase(p));
       this.fields.push({
-        type: typeInfo.name,
+        type: typeInfo.label,
         comment: propVal.description,
         name: p
       });

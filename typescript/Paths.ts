@@ -38,13 +38,16 @@ export default class UrlSegment {
    *  lookup post: query
    */
   addOperation(operation: Operation) {
-    if (operation.method == 'list') {
-      let listDef = operation.definitions[operation.responseType];
-      delete operation.definitions[operation.responseType];
-      let listItemType = resolveType(listDef.properties['records']).refs[0];
-      operation.responseType = `PagingResult<${listItemType}>`;
-      this.addDefImports([listItemType, 'PagingResult']);
-    }
+    /* if (operation.method == 'list') {
+       console.log(">>operation", operation)
+       let listDef = operation.definitions[operation.responseType];
+       console.log('>>>', listDef)
+       delete operation.definitions[operation.responseType];
+       let listItemType = resolveType(listDef.properties['records']).refs[0];
+       operation.responseType = `PagingResult<${listItemType}>`;
+       this.addDefImports([listItemType, 'PagingResult']);
+     }*/
+
     // Definitions
     for (let name in operation.definitions) {
       let opDef = operation.definitions[name];
@@ -57,7 +60,7 @@ export default class UrlSegment {
         for (let e of opDef.enum) {
           let ti = resolveType(e);
           this.addDefImports(ti.refs);
-          enumType.types.push(ti.name);
+          enumType.types.push(ti.label);
         }
         this.enumTypes.push(enumType);
       }

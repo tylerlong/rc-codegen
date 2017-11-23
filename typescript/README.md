@@ -2,6 +2,10 @@
 
 Turn [RC swagger spec](https://github.com/zengfenfei/rc-codegen/blob/master/common/swagger.json) into TS code.
 
+## Differences from other languages
+
+1. Enum types generated
+
 ## Definitions
 
 Turn all definitions into ts interfaces(https://github.com/zengfenfei/ringcentral-js-client/tree/master/src/generated). All properties are optional.
@@ -156,13 +160,13 @@ export default class Extension extends UrlSection {
     }
 
     /**
-     * 
+     *
      */
     fax(id?: string) {
         return new Fax(this, id);
     }
 }
-``` 
+```
 
 ## Operations
 Add `list, get, post, put` methods to UrlSegment.
@@ -241,7 +245,7 @@ class Extension {
             return res.json();
         });
     }
-    
+
     /**
         Get Extension Info by ID
     */
@@ -576,7 +580,7 @@ import {ExtensionInfoRequestPartnerId} from "../ExtensionInfoRequestPartnerId";
 import {ExtensionInfoRequestProvision} from "../ExtensionInfoRequestProvision";
 
 export default class Extension extends UrlSection {
-    
+
     /**
         Update Extension by ID
     */
