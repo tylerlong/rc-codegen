@@ -26,7 +26,7 @@ export default class Definition {
       var typeInfo = resolveType(propVal, PascalCase(p));
       this.fields.push({
         type: typeInfo.label,
-        comment: propVal.description,
+        comment: propVal.description && propVal.description.trim(),
         name: p
       });
       if (typeInfo.refs) {
