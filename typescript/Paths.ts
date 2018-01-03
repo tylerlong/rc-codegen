@@ -106,8 +106,8 @@ export default class UrlSegment {
     if (!operation.definitions[operation.bodyType]) {
       operation.bodyType && this.addDefImports([operation.bodyType]);
     }
-    if (!operation.definitions[operation.responseType] && operation.method != 'list' && operation.responseType != 'Binary') {
-      operation.responseType && this.addDefImports([operation.responseType]);
+    if (operation.responseType && !operation.definitions[operation.responseType] && operation.responseType != 'Binary') {
+      tsOprt.responseType = this.addDefImports([operation.responseType])[0].defaultMember;
     }
     if (tsOprt.responseType == 'Binary') {
       tsOprt.responseType = 'any';
@@ -120,6 +120,7 @@ export default class UrlSegment {
   }
 
   addDefImports(imports: string[]) {
+    let imported: Import[] = [];
     for (let defaultMember of imports) {
       let moduleName: string;
       if (UserDefinedTypes.indexOf(defaultMember) > -1) {
@@ -127,8 +128,12 @@ export default class UrlSegment {
       } else if (defaultMember) {
         moduleName = '../definitions/' + defaultMember;
       }
-      this.addImport({ defaultMember, moduleName });
+      if (defaultMember === this.name) {
+        defaultMember = 'I' + defaultMember;
+      }
+      imported.push(this.addImport({ defaultMember, moduleName }));
     }
+    return imported
   }
 
   addChild(child: UrlSegment) {
@@ -142,6 +147,7 @@ export default class UrlSegment {
     if (!this.imports.find(v => v.defaultMember == imp.defaultMember)) {
       this.imports.push(imp);
     }
+    return imp;
   }
 
   allowValue() {
