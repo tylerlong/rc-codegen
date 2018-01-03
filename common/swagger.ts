@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as _ from 'lodash';
-import { isListType } from './util';
+import { isListType, PascalCase } from './util';
 
 const split_path = (path: string): string[] => { // treat meeting/service-info as a whole
   return path.replace('/meeting/service-info', '/meeting-service-info').split('/').map((item) => {
@@ -179,7 +179,7 @@ for (const path of paths) {
       const bodyParameter = parameters.find((item) => item.in == 'body');
       if (bodyParameter) {
         if (bodyParameter.schema['$ref']) {
-          bodyType = _.last((bodyParameter.schema['$ref'] as string).split('/'));
+          bodyType = PascalCase(_.last((bodyParameter.schema['$ref']).split('/')));
         } else {
           bodyType = `${_.upperFirst(method)}Body`;
           definitions[bodyType] = bodyParameter.schema; // just like an entry in swagger definitions
@@ -204,7 +204,7 @@ for (const path of paths) {
       responseType = '' // no response body, delete methods may not have response.
     } else {
       if (responseSchema['$ref']) {
-        responseType = responseSchema['$ref'].split('/').pop();
+        responseType = PascalCase(responseSchema['$ref'].split('/').pop());
       } else {
         definitions[responseType] = responseSchema;
       }

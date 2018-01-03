@@ -12,6 +12,7 @@ export default class UrlSegment {
   valueDesc: string;
   valuePresence: 'optional' | 'required' | 'forbidden';
   children: UrlSegment[] = [];
+  parent: UrlSegment;
 
   operations: TsOperation[] = [];
 
@@ -139,7 +140,7 @@ export default class UrlSegment {
   addChild(child: UrlSegment) {
     if (this.children.indexOf(child) == -1) {
       this.children.push(child);
-      this.addImport({ defaultMember: child.name, moduleName: './' + child.name });
+      child.parent = this;
     }
   }
 
@@ -159,12 +160,27 @@ export default class UrlSegment {
   }
 
   /**
-   * After this method is called, all the properties will not be changed.
+   * After this method is called, all the properties should not be changed.
    */
   freeze() {
     this.imports.sort((a, b) => {
       return a.moduleName.toLowerCase() < b.moduleName.toLowerCase() ? -1 : 1;
     });
+    let valid: UrlSegment[] = [];
+    for (let child of this.children) {
+      if (child.isValid()) {
+        valid.push(child);
+        this.addImport({ defaultMember: child.name, moduleName: './' + child.name });
+      }
+    }
+    this.children = valid;
+  }
+
+  /**
+   * Will not generate invalid segment
+   */
+  isValid() {
+    return this.operations.length > 0 || this.children.length > 0 || this.hasCustomMethods;
   }
 
   forbidValue() {
