@@ -12,6 +12,7 @@ export default class UrlSegment {
   valueDesc: string;
   valuePresence: 'optional' | 'required' | 'forbidden';
   children: UrlSegment[] = [];
+  parent: UrlSegment;
 
   operations: TsOperation[] = [];
 
@@ -38,13 +39,16 @@ export default class UrlSegment {
    *  lookup post: query
    */
   addOperation(operation: Operation) {
-    if (operation.method == 'list') {
-      let listDef = operation.definitions[operation.responseType];
-      delete operation.definitions[operation.responseType];
-      let listItemType = resolveType(listDef.properties['records']).refs[0];
-      operation.responseType = `PagingResult<${listItemType}>`;
-      this.addDefImports([listItemType, 'PagingResult']);
-    }
+    /* if (operation.method == 'list') {
+       console.log(">>operation", operation)
+       let listDef = operation.definitions[operation.responseType];
+       console.log('>>>', listDef)
+       delete operation.definitions[operation.responseType];
+       let listItemType = resolveType(listDef.properties['records']).refs[0];
+       operation.responseType = `PagingResult<${listItemType}>`;
+       this.addDefImports([listItemType, 'PagingResult']);
+     }*/
+
     // Definitions
     for (let name in operation.definitions) {
       let opDef = operation.definitions[name];
@@ -57,7 +61,7 @@ export default class UrlSegment {
         for (let e of opDef.enum) {
           let ti = resolveType(e);
           this.addDefImports(ti.refs);
-          enumType.types.push(ti.name);
+          enumType.types.push(ti.label);
         }
         this.enumTypes.push(enumType);
       }
@@ -103,8 +107,8 @@ export default class UrlSegment {
     if (!operation.definitions[operation.bodyType]) {
       operation.bodyType && this.addDefImports([operation.bodyType]);
     }
-    if (!operation.definitions[operation.responseType] && operation.method != 'list' && operation.responseType != 'Binary') {
-      operation.responseType && this.addDefImports([operation.responseType]);
+    if (operation.responseType && !operation.definitions[operation.responseType] && operation.responseType != 'Binary') {
+      tsOprt.responseType = this.addDefImports([operation.responseType])[0].defaultMember;
     }
     if (tsOprt.responseType == 'Binary') {
       tsOprt.responseType = 'any';
@@ -117,6 +121,7 @@ export default class UrlSegment {
   }
 
   addDefImports(imports: string[]) {
+    let imported: Import[] = [];
     for (let defaultMember of imports) {
       let moduleName: string;
       if (UserDefinedTypes.indexOf(defaultMember) > -1) {
@@ -124,14 +129,18 @@ export default class UrlSegment {
       } else if (defaultMember) {
         moduleName = '../definitions/' + defaultMember;
       }
-      this.addImport({ defaultMember, moduleName });
+      if (defaultMember === this.name) {
+        defaultMember = 'I' + defaultMember;
+      }
+      imported.push(this.addImport({ defaultMember, moduleName }));
     }
+    return imported
   }
 
   addChild(child: UrlSegment) {
     if (this.children.indexOf(child) == -1) {
       this.children.push(child);
-      this.addImport({ defaultMember: child.name, moduleName: './' + child.name });
+      child.parent = this;
     }
   }
 
@@ -139,6 +148,7 @@ export default class UrlSegment {
     if (!this.imports.find(v => v.defaultMember == imp.defaultMember)) {
       this.imports.push(imp);
     }
+    return imp;
   }
 
   allowValue() {
@@ -150,12 +160,27 @@ export default class UrlSegment {
   }
 
   /**
-   * After this method is called, all the properties will not be changed.
+   * After this method is called, all the properties should not be changed.
    */
   freeze() {
     this.imports.sort((a, b) => {
       return a.moduleName.toLowerCase() < b.moduleName.toLowerCase() ? -1 : 1;
     });
+    let valid: UrlSegment[] = [];
+    for (let child of this.children) {
+      if (child.isValid()) {
+        valid.push(child);
+        this.addImport({ defaultMember: child.name, moduleName: './' + child.name });
+      }
+    }
+    this.children = valid;
+  }
+
+  /**
+   * Will not generate invalid segment
+   */
+  isValid() {
+    return this.operations.length > 0 || this.children.length > 0 || this.hasCustomMethods;
   }
 
   forbidValue() {

@@ -1,4 +1,4 @@
-import { PascalCase } from '../common/util';
+import { PascalCase, isLegalIdentifier } from '../common/util';
 import resolveType from './jsonType2Ts';
 
 // The Definition data for nunjucks
@@ -8,6 +8,7 @@ export default class Definition {
   fields: Field[];
 
   constructor(schema: any, name: string) {
+    schema.type = schema.type || 'object';
     if (schema.type != 'object') {
       throw new TypeError("Type of definition must be object.");
     }
@@ -20,13 +21,16 @@ export default class Definition {
 
     }
 
-    for (let p in schema.properties) {
-      var propVal = schema.properties[p];
-      var typeInfo = resolveType(propVal, PascalCase(p));
+    for (let name in schema.properties) {
+      if (!isLegalIdentifier(name)) {
+        continue;
+      }
+      var propVal = schema.properties[name];
+      var typeInfo = resolveType(propVal, PascalCase(name));
       this.fields.push({
-        type: typeInfo.name,
-        comment: propVal.description,
-        name: p
+        type: typeInfo.label,
+        comment: propVal.description && propVal.description.trim(),
+        name
       });
       if (typeInfo.refs) {
         this.addImports(typeInfo.refs);

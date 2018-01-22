@@ -39,4 +39,8 @@ const isListType = (schema, definitions): boolean => {
   }
 }
 
-export { format_code, PascalCase, isListType };
+const isLegalIdentifier = (name: string) => {
+  return /^[a-zA-Z_]\w*$/.test(name);
+}
+
+export { format_code, PascalCase, isListType, isLegalIdentifier };

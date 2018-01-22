@@ -140,7 +140,7 @@
         ],
         "summary": "Get Version Info",
         "description": "<p style='font-style:italic;'>Since 1.0.0</p><p>Returns current API version info by apiVersion.</p><h4>Usage Plan Group</h4><p>Light</p>",
-        "operationId": "",
+        "operationId": "getVersionInfo",
         "consumes": [
           "application/json"
         ],
@@ -425,12 +425,12 @@
             "required": false,
             "type": "array",
             "items": {
-              "type": "string",
-              "enum": [
-                "Voice",
-                "Fax"
-              ]
+              "type": "string"
             },
+            "enum": [
+              "Voice",
+              "Fax"
+            ],
             "collectionFormat": "multi"
           },
           {
@@ -439,12 +439,12 @@
             "required": false,
             "type": "array",
             "items": {
-              "type": "string",
-              "enum": [
-                "Inbound",
-                "Outbound"
-              ]
+              "type": "string"
             },
+            "enum": [
+              "Inbound",
+              "Outbound"
+            ],
             "collectionFormat": "multi"
           },
           {
@@ -554,7 +554,10 @@
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CallLogSync"
+            }
           }
         },
         "x-api-group": "extension/call-log-sync",
@@ -2978,7 +2981,10 @@
         ],
         "responses": {
           "default": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AddressBookSync"
+            }
           }
         },
         "x-api-group": "extension/address-book-sync",
@@ -6356,15 +6362,6 @@
             "description": "Internal identifier of an answering rule",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "description": "JSON body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/UpdateAnsweringRuleRequest"
-            }
           }
         ],
         "responses": {
@@ -6937,6 +6934,9 @@
     "/restapi/v1.0/account/{accountId}/ivr-menus": {
       "post": {
         "summary": "Create IVR Menu",
+        "tags": [
+          "Call Handling Settings"
+        ],
         "description": "<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Creates a company IVR menu</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Heavy</p>",
         "consumes": [
           "application/json"
@@ -7563,7 +7563,7 @@
         ],
         "summary": "Get Special Numbers Calling Limitation",
         "description": "<p style='font-style:italic;'>Since 1.0.12 (Release 6.4)</p><p>Returns available special numbers and rules of processing, depending on account brand and application type (mobile/softphone/web/other). A special number rule for each number includes limitations on the options: VoIP, RingOut, outgoing SMS and Fax. If the option is disallowed, the server returns the reason code and text description.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadClientInfo</td><td>Viewing of client application registered attributes and additional helper information (external URLs, hints, etc.)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>",
-        "operationId": "",
+        "operationId": "getSpecialNumberRules.",
         "consumes": [
           "application/json"
         ],
@@ -12878,6 +12878,10 @@
         "id": {
           "type": "string",
           "description": "Internal identifier of a user"
+        },
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+          "$ref": "#/definitions/UrnInfoRequest",
+          "description": "URN link"
         }
       }
     },
@@ -12926,6 +12930,10 @@
         "addresses": {
           "$ref": "#/definitions/AddressInfoRequest",
           "description": "User addresses"
+        },
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+          "$ref": "#/definitions/UrnInfoRequest",
+          "description": "Urn link"
         }
       }
     },
@@ -13673,6 +13681,7 @@
       }
     },
     "CompanyBusinessHoursScheduleInfo": {
+      "type": "object",
       "properties": {
         "weeklyRanges": {
           "$ref": "#/definitions/WeeklyScheduleInfo"
@@ -13806,6 +13815,10 @@
         "type"
       ],
       "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Specifies if the rule is active or inactive. The default value is 'True'"
+        },
         "type": {
           "type": "string",
           "description": "Type of an answering rule. The 'Custom' value should be specified"
@@ -13821,9 +13834,133 @@
             "$ref": "#/definitions/CallersInfoRequest"
           }
         },
+        "calledNumbers": {
+          "type": "array",
+          "description": "Answering rules are applied when calling to selected number(s)",
+          "items": {
+            "$ref": "#/definitions/CalledNumberInfo"
+          }
+        },
+        "schedule": {
+          "description": "Schedule when an answering rule should be applied",
+          "$ref": "#/definitions/ScheduleInfo"
+        },
+        "callHandlingAction": {
+          "type": "string",
+          "description": "Specifies how incoming calls are forwarded",
+          "enum": [
+            "ForwardCalls",
+            "UnconditionalForwarding",
+            "AgentQueue",
+            "TransferToExtension",
+            "TakeMessagesOnly",
+            "PlayAnnouncementOnly"
+          ]
+        },
         "forwarding": {
-          "description": "Forwarding parameters. Should be specified if the 'callHandlingAction' parameter value is set to 'ForwardCalls'. These settings determine the forwarding numbers to which the call should be forwarded",
-          "$ref": "#/definitions/ForwardingInfoCreateRuleRequest"
+          "description": "Forwarding parameters. Returned if 'ForwardCalls' is specified in 'callHandlingAction'. These settings determine the forwarding numbers to which the call will be forwarded",
+          "$ref": "#/definitions/ForwardingInfo"
+        },
+        "unconditionalForwarding": {
+          "description": "Unconditional forwarding parameters. Returned if 'UnconditionalForwarding' is specified in 'callHandlingAction'",
+          "$ref": "#/definitions/UnconditionalForwardingInfo"
+        },
+        "queue": {
+          "description": "Queue settings applied for department (call queue) extension type, with the 'AgentQueue' value specified as a call handling action",
+          "$ref": "#/definitions/QueueInfo"
+        },
+        "transfer": {
+          "description": "Transfer settings applied for department (call queue) extension type, with 'TransferToExtension' call handling action",
+          "$ref": "#/definitions/TransferredExtensionInfo"
+        },
+        "voicemail": {
+          "description": "Specifies whether to take a voicemail and who should do it",
+          "$ref": "#/definitions/VoicemailInfo"
+        },
+        "greetings": {
+          "type": "array",
+          "description": "Greetings applied for an answering rule; only predefined greetings can be applied, see Dictionary Greeting List",
+          "items": {
+            "$ref": "#/definitions/GreetingInfo"
+          }
+        }
+      }
+    },
+    "TransferredExtensionInfo": {
+      "type": "object",
+      "properties": {
+        "extension": {
+          "$ref": "#/definitions/ExtensionInfo"
+        }
+      }
+    },
+    "QueueInfo": {
+      "type": "object",
+      "properties": {
+        "transferMode": {
+          "type": "string",
+          "description": "Specifies how calls are transferred to group members",
+          "enum": [
+            "Rotating",
+            "Simultaneous",
+            "FixedOrder"
+          ]
+        },
+        "fixedOrderAgents": {
+          "type": "array",
+          "description": "Information on a call forwarding rule",
+          "items": {
+            "$ref": "#/definitions/FixedOrderAgents"
+          }
+        },
+        "holdAudioInterruptionMode": {
+          "type": "string",
+          "description": "Connecting audio interruption mode",
+          "enum": [
+            "Never",
+            "WhenMusicEnds",
+            "Periodically"
+          ]
+        },
+        "holdAudioInterruptionPeriod": {
+          "type": "integer",
+          "description": "Connecting audio interruption message period in seconds"
+        },
+        "agentTimeout": {
+          "type": "integer",
+          "description": "Maximum time in seconds to wait for a call queue member before trying the next member"
+        },
+        "wrapUpTime": {
+          "type": "integer",
+          "description": "Minimum post-call wrap up time in seconds before agent status is automatically set"
+        },
+        "holdTime": {
+          "type": "integer",
+          "description": "Maximum hold time in seconds to wait for an available call queue member"
+        },
+        "maxCallers": {
+          "type": "integer",
+          "description": "Maximum count of callers on hold"
+        },
+        "maxCallersAction": {
+          "type": "string",
+          "description": "Action which should be taken if count of callers on hold exceeds the maximum",
+          "enum": [
+            "Voicemail",
+            "Announcement"
+          ]
+        }
+      }
+    },
+    "FixedOrderAgents": {
+      "type": "object",
+      "properties": {
+        "extension": {
+          "$ref": "#/definitions/ExtensionInfo"
+        },
+        "index": {
+          "type": "integer",
+          "description": "Ordinal of an agent (call queue member)"
         }
       }
     },
@@ -13843,6 +13980,26 @@
     "ForwardingInfoCreateRuleRequest": {
       "type": "object",
       "properties": {
+        "notifyMySoftPhones": {
+          "type": "boolean",
+          "description": "Specifies if the first ring on desktop/mobile apps is enabled. The default value is 'True'"
+        },
+        "notifyAdminSoftPhones": {
+          "type": "boolean",
+          "description": "Specifies if the administrator's softphone (desktop application) is notified before forwarding the incoming call to desk phones and forwarding numbers. The default value is 'True'"
+        },
+        "softPhonesRingCount": {
+          "type": "integer",
+          "description": "Specifies delay between ring on apps and starting of a call forwarding. The default value is 1"
+        },
+        "ringingMode": {
+          "type": "string",
+          "description": "Specifies the order in which forwarding numbers ring. 'Sequentially' means that forwarding numbers are ringing one at a time, in order of priority. 'Simultaneously' means that forwarding numbers are ringing all at the same time. The default value is 'Sequentially'",
+          "enum": [
+            "Sequentially",
+            "Simultaneously"
+          ]
+        },
         "rules": {
           "type": "array",
           "description": "Information on a call forwarding rule",
@@ -13887,6 +14044,9 @@
         "forwarding": {
           "description": "Forwarding parameters. Returned if 'ForwardCalls' is specified in 'callHandlingAction'. These settings determine the forwarding numbers to which the call will be forwarded",
           "$ref": "#/definitions/ForwardingInfoCreateRuleRequest"
+        },
+        "name": {
+          "type": "string"
         }
       }
     },
@@ -15432,9 +15592,11 @@
           "description": "Specifies how incoming calls are forwarded",
           "enum": [
             "ForwardCalls",
+            "UnconditionalForwarding",
+            "AgentQueue",
+            "TransferToExtension",
             "TakeMessagesOnly",
-            "PlayAnnouncementOnly",
-            "UnconditionalForwarding"
+            "PlayAnnouncementOnly"
           ]
         },
         "forwarding": {
@@ -15445,9 +15607,24 @@
           "description": "Unconditional forwarding parameters. Returned if 'UnconditionalForwarding' is specified in 'callHandlingAction'",
           "$ref": "#/definitions/UnconditionalForwardingInfo"
         },
+        "queue": {
+          "description": "Queue settings applied for department (call queue) extension type, with the 'AgentQueue' value specified as a call handling action",
+          "$ref": "#/definitions/QueueInfo"
+        },
+        "transfer": {
+          "description": "Transfer settings applied for department (call queue) extension type, with 'TransferToExtension' call handling action",
+          "$ref": "#/definitions/TransferredExtensionInfo"
+        },
         "voicemail": {
           "description": "Specifies whether to take a voicemail and who should do it",
           "$ref": "#/definitions/VoicemailInfo"
+        },
+        "greetings": {
+          "type": "array",
+          "description": "Greetings applied for an answering rule; only predefined greetings can be applied, see Dictionary Greeting List",
+          "items": {
+            "$ref": "#/definitions/GreetingInfo"
+          }
         }
       }
     },
@@ -15932,6 +16109,44 @@
         }
       }
     },
+    "CallLogSync": {
+      "type": "object",
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CallLogRecord"
+          },
+          "description": "List of call log records with synchronization information. For ISync the total number of returned records is limited to 250; this includes both new records and the old ones, specified by the recordCount parameter"
+        },
+        "syncInfo": {
+          "$ref": "#/definitions/SyncInfoCallLog",
+          "description": "Sync information (type, token and time)"
+        }
+      }
+    },
+    "SyncInfoCallLog": {
+      "type": "object",
+      "properties": {
+        "syncType": {
+          "type": "string",
+          "enum": [
+            "FSync",
+            "ISync"
+          ],
+          "description": "Type of synchronization"
+        },
+        "syncToken": {
+          "type": "string",
+          "description": "Synchronization token"
+        },
+        "syncTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The last synchronization datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z"
+        }
+      }
+    },
     "CallLogRecord": {
       "type": "object",
       "required": [
@@ -16095,13 +16310,9 @@
           "description": "Internal identifier of a call session"
         },
         "from": {
-          "type": "string",
-          "description": "Caller information",
           "$ref": "#/definitions/CallLogCallerInfo"
         },
         "to": {
-          "type": "string",
-          "description": "Callee information",
           "$ref": "#/definitions/CallLogCallerInfo"
         },
         "type": {
@@ -16129,8 +16340,6 @@
           "description": "Call duration in seconds"
         },
         "recording": {
-          "type": "string",
-          "description": "Call recording data. Returned if the call is recorded. Each call recording is stored in the system for 90 days. But if the number of recordings exceeds the admissible limit (100,000 recordings per account) then the older recordings are replaced with the new ones. Thus a link to an older recording in a certain call log record becomes unavailable",
           "$ref": "#/definitions/RecordingInfo"
         }
       }
@@ -19508,37 +19717,37 @@
         "scope": {
           "type": "array",
           "items": {
-            "type": "string",
-            "enum": [
-              "ReadMessages",
-              "SMS",
-              "InternalMessages",
-              "Faxes",
-              "ReadCallLog",
-              "EditCallLog",
-              "ReadContacts",
-              "Contacts",
-              "EditMessages",
-              "EditExtensions",
-              "ReadAccounts",
-              "EditAccounts",
-              "Accounts",
-              "ReadPresence",
-              "EditPresence",
-              "RingOut",
-              "DirectRingOut",
-              "ReadClientInfo",
-              "NumberLookup",
-              "EditCustomData",
-              "EditPaymentInfo",
-              "Interoperability",
-              "ReadCallRecording",
-              "EditReportingSettings",
-              "VoipCalling",
-              "Meetings",
-              "RoleManagement"
-            ]
-          }
+            "type": "string"
+          },
+          "enum": [
+            "ReadMessages",
+            "SMS",
+            "InternalMessages",
+            "Faxes",
+            "ReadCallLog",
+            "EditCallLog",
+            "ReadContacts",
+            "Contacts",
+            "EditMessages",
+            "EditExtensions",
+            "ReadAccounts",
+            "EditAccounts",
+            "Accounts",
+            "ReadPresence",
+            "EditPresence",
+            "RingOut",
+            "DirectRingOut",
+            "ReadClientInfo",
+            "NumberLookup",
+            "EditCustomData",
+            "EditPaymentInfo",
+            "Interoperability",
+            "ReadCallRecording",
+            "EditReportingSettings",
+            "VoipCalling",
+            "Meetings",
+            "RoleManagement"
+          ]
         },
         "accountId": {
           "type": "string"
@@ -21111,12 +21320,12 @@
         "features": {
           "type": "array",
           "items": {
-            "type": "string",
-            "enum": [
-              "CallFlip",
-              "CallForwarding"
-            ]
-          }
+            "type": "string"
+          },
+          "enum": [
+            "CallFlip",
+            "CallForwarding"
+          ]
         },
         "flipNumber": {
           "type": "string",
@@ -21766,16 +21975,16 @@
         "signupState": {
           "type": "array",
           "items": {
-            "type": "string",
-            "enum": [
-              "AccountCreated",
-              "BillingEntered",
-              "CreditCardApproved",
-              "AccountConfirmed",
-              "PhoneVerificationRequired",
-              "PhoneVerificationPassed"
-            ]
-          }
+            "type": "string"
+          },
+          "enum": [
+            "AccountCreated",
+            "BillingEntered",
+            "CreditCardApproved",
+            "AccountConfirmed",
+            "PhoneVerificationRequired",
+            "PhoneVerificationPassed"
+          ]
         },
         "verificationReason": {
           "type": "string",
@@ -23483,17 +23692,6 @@
         }
       }
     },
-    "ResourceModelComponent": {
-      "type": "object",
-      "properties": {
-        "components": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ResourceModelComponent"
-          }
-        }
-      }
-    },
     "CallLogRecords": {
       "type": "object",
       "properties": {
@@ -24023,32 +24221,6 @@
         },
         "details": {
           "$ref": "#/definitions/ActivePermissionResource"
-        }
-      }
-    },
-    "Throwable": {
-      "type": "object",
-      "properties": {
-        "cause": {
-          "$ref": "#/definitions/Throwable"
-        },
-        "stackTrace": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/StackTraceElement"
-          }
-        },
-        "localizedMessage": {
-          "type": "string"
-        },
-        "message": {
-          "type": "string"
-        },
-        "suppressed": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Throwable"
-          }
         }
       }
     },
@@ -25906,6 +26078,10 @@
     "CompanyAnsweringRuleRequest": {
       "type": "object",
       "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of an answering rule specified by user. Max number of symbols is 30. The default value is 'My Rule N' where 'N' is the first free number"
+        },
         "enabled": {
           "type": "boolean",
           "description": "Specifies if the rule is active or inactive. The default value is 'True'",
@@ -25919,10 +26095,6 @@
             "AfterHours",
             "Custom"
           ]
-        },
-        "name": {
-          "type": "string",
-          "description": "Name of an answering rule specified by user. Max number of symbols is 30. The default value is 'My Rule N' where 'N' is the first free number"
         },
         "callers": {
           "type": "array",
@@ -26030,7 +26202,16 @@
             "Voicemail",
             "Unavailable",
             "InterruptPrompt",
-            "HoldMusic"
+            "HoldMusic",
+            "Custom",
+            "Company",
+            "BlockedCallersSpecific",
+            "BlockedCallersAll",
+            "BlockedNoCallerId",
+            "BlockedPayPhones",
+            "StartRecording",
+            "StopRecording",
+            "AutomaticRecording"
           ]
         },
         "usageType": {
