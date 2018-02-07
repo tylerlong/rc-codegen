@@ -27,17 +27,17 @@
   },
   "homepage": "https://github.com/tylerlong/rc-codegen#readme",
   "devDependencies": {
-    "typescript": "^2.3.4",
-    "yarn-upgrade-all": "^0.1.5"
+    "@types/commander": "^2.12.2",
+    "@types/lodash": "^4.14.101",
+    "@types/node": "^9.4.1",
+    "@types/nunjucks": "^3.0.0",
+    "typescript": "^2.7.1",
+    "yarn-upgrade-all": "^0.3.0"
   },
   "dependencies": {
-    "@types/commander": "^2.9.1",
-    "@types/lodash": "^4.14.65",
-    "@types/node": "^7.0.27",
-    "@types/nunjucks": "^0.0.32",
-    "commander": "^2.9.0",
+    "commander": "^2.14.0",
     "js-yaml": "^3.10.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.5",
     "nunjucks": "^3.0.1"
   }
 }
