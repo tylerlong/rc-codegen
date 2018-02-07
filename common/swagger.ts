@@ -1,6 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as _ from 'lodash';
+import * as yaml from 'js-yaml';
+
 import { isListType, PascalCase } from './util';
 
 const split_path = (path: string): string[] => { // treat meeting/service-info as a whole
@@ -20,7 +22,7 @@ enum HasId {
 }
 
 // read swagger definition
-const swagger: any = JSON.parse(fs.readFileSync(path.join(__dirname, 'swagger.json'), 'utf-8'));
+const swagger: any = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'swagger.yaml'), 'utf-8'));
 
 // all the paths defined in swagger
 let paths: string[] = Object.keys(swagger.paths);
