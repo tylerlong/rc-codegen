@@ -5,6 +5,10 @@ import * as yaml from 'js-yaml';
 
 import { isListType, PascalCase } from './util';
 
+const getResponseSchema = (methodBody) => {
+  return (methodBody.responses.default || methodBody.responses['200'] || methodBody.responses['204']).schema
+}
+
 const split_path = (path: string): string[] => { // treat meeting/service-info as a whole
   return path.replace('/meeting/service-info', '/meeting-service-info').split('/').map((item) => {
     if (item == 'meeting-service-info') {
@@ -84,7 +88,7 @@ for (const path of paths) {
       if (path == '/restapi') {
         method = 'list';
       }
-      const schema = methodBody.responses.default.schema;
+      const schema = getResponseSchema(methodBody);
       if (isListType(schema, swagger.definitions)) {
         method = 'list';
       }
@@ -123,7 +127,7 @@ for (const path of paths) {
     }
 
     // response
-    const responseBody = methodBody.responses.default.schema;
+    const responseBody = getResponseSchema(methodBody);
     let responseName = `${_.upperFirst(method)}Response`
     if (responseBody === undefined) {
       responseName = '' // no response body
@@ -163,7 +167,7 @@ for (const path of paths) {
     if (methodBody.deprecated === true || methodBody['x-access-level'] === 'Internal') {
       continue;
     }
-    if (method == 'get' && isListType(methodBody.responses.default.schema, swagger.definitions)) {
+    if (method == 'get' && isListType(getResponseSchema(methodBody), swagger.definitions)) {
       method = 'list';
     }
     if (_.find(methods, m => m.method == method)) {
@@ -200,7 +204,7 @@ for (const path of paths) {
     }
 
     // response
-    const responseSchema = methodBody.responses.default.schema;
+    const responseSchema = getResponseSchema(methodBody);
     let responseType = `${_.upperFirst(method)}Response`
     if (!responseSchema) {
       responseType = '' // no response body, delete methods may not have response.
