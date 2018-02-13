@@ -6,7 +6,7 @@ import * as yaml from 'js-yaml';
 import { isListType, PascalCase } from './util';
 
 const getResponseSchema = (methodBody) => {
-  return (methodBody.responses.default || methodBody.responses['200'] || methodBody.responses['204']).schema
+  return (methodBody.responses.default || methodBody.responses['200'] || methodBody.responses['204'] || methodBody.responses['201']).schema
 }
 
 const split_path = (path: string): string[] => { // treat meeting/service-info as a whole
