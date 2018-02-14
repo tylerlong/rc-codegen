@@ -36,6 +36,9 @@ const get_type = (type, format, ref, items) => {
     let type = get_type(items.type, items.format, items.$ref, items.items);
     return type + '[]';
   }
+  if (type === 'object') {
+    return 'Object';
+  }
   throw new RangeError(`Unknown field type: "${type}"`);
 }
 
