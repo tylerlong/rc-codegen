@@ -96,7 +96,7 @@ for (const path of paths) {
     if (_.find(methods, function (m) { return m.method == method; })) {
       continue; // already have this method, such as get account/phone-number and get extension/phone-number
     }
-    const description = methodBody.description;
+    const description = methodBody.description && methodBody.description.replace(/\n/g, '');
 
     const definitions = {};
     let parametersName = ''
@@ -151,6 +151,7 @@ interface Operation {
   bodyType: string;   // Type of the request body
   queryType: string;
   responseType: string;
+  throttlingGroup: string;
   definitions?: { [name: string]: any };  // json schema
 }
 
@@ -174,7 +175,7 @@ for (const path of paths) {
       // console.warn(`Operation already defined for ${method} ${segment}`);
       continue; // already have this method, such as get account/phone-number and get extension/phone-number
     }
-    const description = methodBody.description;
+    const description = methodBody.description && methodBody.description.replace(/\n/g, '');
 
     const definitions = {};
     let bodyType: string;
@@ -215,8 +216,8 @@ for (const path of paths) {
         definitions[responseType] = responseSchema;
       }
     }
-
-    methods.push({ method, description, bodyType, queryType, responseType, definitions });
+    const throttlingGroup = methodBody['x-throttling-group'];
+    methods.push({ method, description, bodyType, queryType, responseType, definitions, throttlingGroup });
   }
   operations.set(segment, methods);
 }
