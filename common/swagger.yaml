@@ -11373,7 +11373,7 @@ definitions:
   APSInfo:
     type: object
     properties:
-      content-available:
+      contentAvailable:
         type: integer
         description: If the value is '1' then notification is turned on even if the
           application is in background
