@@ -9972,7 +9972,7 @@ definitions:
       sound:
         type: string
         description: Message sound
-      content-available:
+      contentAvailable:
         type: string
         description: Content availability
       category:
