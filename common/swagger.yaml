@@ -959,7 +959,7 @@ paths:
         200:
           description: Call Recording Media Data
           schema:
-            type: file
+            $ref: '#/definitions/Binary'
       x-api-group: account/recording/content
       x-throttling-group: Heavy
       x-metered-api: true
