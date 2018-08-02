@@ -3103,50 +3103,50 @@ paths:
       x-rewrite-uri-to: /glip/v1/groups/$1/posts
       x-access-level: Basic
       x-throttling-group: Medium
-  /restapi/v1.0/glip/groups/{groupId}/posts/{postId}/text:
-    put:
-      tags:
-      - Glip [Beta]
-      summary: Update Post
-      operationId: updateGlipPostText
-      description: Modifies text of a post
-      produces:
-      - text/plain
-      - application/json
-      consumes:
-      - text/*
-      parameters:
-      - name: groupId
-        in: path
-        description: Internal identifier of a group
-        required: true
-        type: string
-      - name: postId
-        in: path
-        description: Internal identifier of a post
-        required: true
-        type: string
-      - name: text
-        in: body
-        required: true
-        schema:
-          type: string
-      responses:
-        200:
-          description: OK
-          schema:
-            type: string
-        400:
-          description: Some of parameters are missing or have invalid format.
-        403:
-          description: Forbidden
-      x-api-group: glip/posts
-      x-metered-api: true
-      x-metering-group: System
-      x-rewrite-uri-from: /restapi/v1.0/glip/groups/([0-9]+)/posts/([0-9]+)/text
-      x-rewrite-uri-to: /glip/v1/groups/$1/posts/$2/text
-      x-access-level: Basic
-      x-throttling-group: Medium
+  # /restapi/v1.0/glip/groups/{groupId}/posts/{postId}/text:
+  #   put:
+  #     tags:
+  #     - Glip [Beta]
+  #     summary: Update Post
+  #     operationId: updateGlipPostText
+  #     description: Modifies text of a post
+  #     produces:
+  #     - text/plain
+  #     - application/json
+  #     consumes:
+  #     - text/*
+  #     parameters:
+  #     - name: groupId
+  #       in: path
+  #       description: Internal identifier of a group
+  #       required: true
+  #       type: string
+  #     - name: postId
+  #       in: path
+  #       description: Internal identifier of a post
+  #       required: true
+  #       type: string
+  #     - name: text
+  #       in: body
+  #       required: true
+  #       schema:
+  #         type: string
+  #     responses:
+  #       200:
+  #         description: OK
+  #         schema:
+  #           type: string
+  #       400:
+  #         description: Some of parameters are missing or have invalid format.
+  #       403:
+  #         description: Forbidden
+  #     x-api-group: glip/posts
+  #     x-metered-api: true
+  #     x-metering-group: System
+  #     x-rewrite-uri-from: /restapi/v1.0/glip/groups/([0-9]+)/posts/([0-9]+)/text
+  #     x-rewrite-uri-to: /glip/v1/groups/$1/posts/$2/text
+  #     x-access-level: Basic
+  #     x-throttling-group: Medium
   /restapi/v1.0/glip/posts:
     get:
       tags:
