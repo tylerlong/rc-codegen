@@ -27,8 +27,8 @@ open class {{ definition.name }}: Mappable {
 
   open func mapping(map: Map) {
     {% for field in definition.fields %}
-      {% if field.name == 'id' %}
-        `id` <- (map["id"], StringTransform())
+      {% if (field.name == 'id' or field.name == 'extensionId') and field.type == 'String' %}
+        `{{ field.name }}` <- (map["{{ field.name }}"], StringTransform())
       {% else %}
         `{{ field.name }}` <- map["{{ field.name }}"]
       {% endif %}
